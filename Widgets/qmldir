@@ -1,3 +1,36 @@
 module Deepin.Widgets
+DScrollWidget 1.0 DScrollWidget.qml
+DRoundItem 1.0 DRoundItem.qml
+DRightArrowHeader 1.0 DRightArrowHeader.qml
+DssH4 1.0 DssH4.qml
+DTextButton 1.0 DTextButton.qml
 DLabel 1.0 DLabel.qml
-
+DSwitchButtonHeader 1.0 DSwitchButtonHeader.qml
+DConstants 1.0 DConstants.qml
+DssH2 1.0 DssH2.qml
+DssTitle 1.0 DssTitle.qml
+DssH1 1.0 DssH1.qml
+DScrollBar 1.0 DScrollBar.qml
+DSwitchButton 1.0 DSwitchButton.qml
+DOpacityImageButton 1.0 DOpacityImageButton.qml
+DssH5 1.0 DssH5.qml
+DDownArrowButton 1.0 DDownArrowButton.qml
+DBaseExpand 1.0 DBaseExpand.qml
+DSelectViewDelegate 1.0 DSelectViewDelegate.qml
+DImageCheckButton 1.0 DImageCheckButton.qml
+DRoundImage 1.0 DRoundImage.qml
+DSearchInput 1.0 DSearchInput.qml
+DRadioButtonHighlight 1.0 DRadioButtonHighlight.qml
+DssH3 1.0 DssH3.qml
+DColumn 1.0 DColumn.qml
+DImageButton 1.0 DImageButton.qml
+DRadioButtonDelegate 1.0 DRadioButtonDelegate.qml
+DStatusImageButton 1.0 DStatusImageButton.qml
+DSlider 1.0 DSlider.qml
+DRadioButton 1.0 DRadioButton.qml
+DBaseLine 1.0 DBaseLine.qml
+DSeparatorHorizontal 1.0 DSeparatorHorizontal.qml
+DDownArrowHeader 1.0 DDownArrowHeader.qml
+DTextInput 1.0 DTextInput.qml
+DSliderRect 1.0 DSliderRect.qml
+DMultipleSelectView 1.0 DMultipleSelectView.qml
