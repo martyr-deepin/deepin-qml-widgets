@@ -2,8 +2,8 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 
 Item {
-    width: 100
-    height: 100
+    width: 400
+    height: 300
     Column {
         DLabel {
             text: "test"

@@ -1,4 +1,3 @@
 module Deepin.Widgets
-plugin DeepinWidgets
 DLabel 1.0 DLabel.qml
 
