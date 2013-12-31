@@ -11,7 +11,9 @@ FocusScope {
     property alias text: text_input.text
     property int textInputRightMargin: 0
     property variant constants: DConstants {}
-    
+
+    signal accepted
+
     states: [
         State {
             name: "normal"
@@ -76,6 +78,10 @@ FocusScope {
             anchors.fill: parent
             anchors.leftMargin: 3
             anchors.rightMargin: 3
+
+            onAccepted: {
+                root.accepted()
+            }
         }
     }
     
