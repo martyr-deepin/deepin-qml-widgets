@@ -18,12 +18,18 @@ Rectangle {
 
     property int initializeIndex: 0
     property alias currentIndex: listview.currentIndex
+    property alias currentItem: listview.currentItem
     property variant buttonModel: null
 
     signal itemSelected (int idx)
 
     function selectItem(idx) {
         currentIndex = idx
+    }
+
+    Component {
+        id: listModelComponent
+        ListModel {}
     }
 
     Rectangle {
@@ -87,7 +93,13 @@ Rectangle {
             select_button.itemSelected(idx)
         }
 
-        model: ListModel {id: button_model}
+        model: {
+            var myModel = listModelComponent.createObject(parent, {})
+            for(var idx in select_button.buttonModel) {
+                myModel.append(select_button.buttonModel[idx])
+            }
+            return myModel
+        }
 
         delegate: DRadioButtonDelegate {}
 
@@ -102,13 +114,5 @@ Rectangle {
         }
 
         anchors.top: parent.top
-
-        Component.onCompleted: {
-            for(var idx in select_button.buttonModel) {
-                button_model.append(select_button.buttonModel[idx])
-            }
-
-            currentIndex = initializeIndex
-        }
     }
 }

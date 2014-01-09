@@ -49,14 +49,14 @@ Rectangle {
 
             Loader {
                 id: content
+                anchors.top: parent.top
+                anchors.left: parent.left
                 width: headerRect.width
                 property var componentData: undefined
                 height: sourceComponent.height
                 onLoaded: {
                     expandRect.contentLoaded()
                 }
-                anchors.top: parent.top
-                anchors.left: parent.left
             }
 
             Behavior on height {

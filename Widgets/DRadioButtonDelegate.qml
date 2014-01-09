@@ -8,7 +8,7 @@ Component {
         width: lable.implicitWidth + ListView.view.leftRightPadding * 2
         height: ListView.view.buttonHeight
 
-        property string delegateId: buttonId
+        property var delegateId: buttonId
 
         Text {
             id: lable
