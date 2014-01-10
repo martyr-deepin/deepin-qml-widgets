@@ -13,9 +13,7 @@ Rectangle {
 
     property var dconstants: DConstants {}
 
-    property int separatorPadding: expanded ? 4 : 2
-
-    height: headerRect.height + contentRect.height + separatorPadding
+    height: headerRect.height + contentRect.height
     width: parent.width
 
     signal contentLoaded
@@ -38,24 +36,28 @@ Rectangle {
             }
         }
 
-        DSeparatorHorizontal {}
 
         Rectangle {
             id: contentRect
             width: parent.width
-            height: expanded ? content.height : 0
+            height: expanded ? content.height + 2 : 0
             clip: true
             color: dconstants.contentBgColor
 
-            Loader {
-                id: content
-                anchors.top: parent.top
-                anchors.left: parent.left
-                width: headerRect.width
-                property var componentData: undefined
-                height: sourceComponent.height
-                onLoaded: {
-                    expandRect.contentLoaded()
+            Column {
+                width: parent.width
+                DSeparatorHorizontal {}
+                
+                Loader {
+                    id: content
+                    //anchors.top: parent.top
+                    //anchors.left: parent.left
+                    width: headerRect.width
+                    property var componentData: undefined
+                    height: sourceComponent.height
+                    onLoaded: {
+                        expandRect.contentLoaded()
+                    }
                 }
             }
 
@@ -64,7 +66,7 @@ Rectangle {
             }
         }
 
-        DSeparatorHorizontal { visible: expanded }
+        //DSeparatorHorizontal { visible: expanded }
     }
 }
 
