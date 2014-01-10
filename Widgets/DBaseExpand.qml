@@ -50,8 +50,7 @@ Rectangle {
                 
                 Loader {
                     id: content
-                    //anchors.top: parent.top
-                    //anchors.left: parent.left
+                    clip: true
                     width: headerRect.width
                     property var componentData: undefined
                     height: sourceComponent.height
