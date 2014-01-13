@@ -12,6 +12,7 @@ DColumn 1.0 DColumn.qml
 DSlider 1.0 DSlider.qml
 DssH4 1.0 DssH4.qml
 DOpacityImageButton 1.0 DOpacityImageButton.qml
+DListModelComponent 1.0 DListModelComponent.qml
 DImageCheckButton 1.0 DImageCheckButton.qml
 DRightArrowHeader 1.0 DRightArrowHeader.qml
 DTextButton 1.0 DTextButton.qml
@@ -32,6 +33,7 @@ DBaseLine 1.0 DBaseLine.qml
 DImageButton 1.0 DImageButton.qml
 DConstants 1.0 DConstants.qml
 DSwitchButton 1.0 DSwitchButton.qml
+DSeparatorVertical 1.0 DSeparatorVertical.qml
 DssH1 1.0 DssH1.qml
 DStatusImageButton 1.0 DStatusImageButton.qml
 DRoundImage 1.0 DRoundImage.qml
