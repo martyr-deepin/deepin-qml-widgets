@@ -71,7 +71,6 @@ Item {
         }
 
         MouseArea {
-            id: clicker
             anchors.fill: parent
             hoverEnabled: true
             
@@ -115,11 +114,17 @@ Item {
             }
             
             MouseArea {
+                id: clicker
                 anchors.fill: parent
                 hoverEnabled: true
 
+                drag.target: handle
+                drag.axis: Drag.YAxis
+                drag.minimumY: 0
+                drag.maximumY: (groove.height - handle.height)
+                drag.filterChildren: true
+
                 onPressed: {
-                    print(clicker.drag.active)
                 }
         
                 onEntered: {
