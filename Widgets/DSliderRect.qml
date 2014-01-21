@@ -4,64 +4,52 @@ import QtQuick.Controls 1.0
 Item {
     id: sliderRect
     property alias value: dslider.value
+
     property string leftLabel: ""
     property string rightLabel: ""
+    property var rulerData: [{"label": "L", "value": 0}, {"label": "R", "value": 1}]
+    property real realValue: dslider.value
+
+    property var listModelComponent: DListModelComponent {}
+    property var rulerModel: {
+        var model = listModelComponent.createObject(sliderRect, {})
+        if(leftLabel && rightLabel){
+            model.append({"label": leftLabel, "value": 0})
+            model.append({"label": rightLabel, "value": 1})
+        }
+        else{
+            for(var i in rulerData){
+                model.append({"label": rulerData[i].label, "value": rulerData[i].value})
+            }
+        }
+        return model
+    }
 
     height: 20 + dslider.height
     width: 180
 
     property int paddingRuler: 2
 
-    Item {
-
-        Item {
-            height: 20
-            width: dslider.width
-            anchors.top: dslider.bottom
-            anchors.topMargin: -4
-
-            Rectangle {
-                id: leftRuler
-                width: 1
-                height: 6
-                anchors.left: parent.left
-                anchors.leftMargin: 9
-                color: "white"
-                visible: leftLabel ? true : false
-            }
-
-            DssH3 {
-                anchors.top: leftRuler.bottom
-                anchors.topMargin: paddingRuler
-                anchors.horizontalCenter: leftRuler.horizontalCenter
-                text: leftLabel
-            }
-
-            Rectangle {
-                id: rightRuler
-                width: 1
-                height: 6
-                anchors.right: parent.right
-                anchors.rightMargin: 8
-                color: "white"
-                visible: rightLabel ? true : false
-            }
-
-            DssH3 {
-                anchors.top: rightRuler.bottom
-                anchors.topMargin: paddingRuler
-                anchors.horizontalCenter: rightRuler.horizontalCenter
-                text: rightLabel
-            }
-
-        }
-
-        DSlider {
-            id: dslider
-            width: sliderRect.width - 4
-            anchors.leftMargin: 2
-            anchors.rightMargin: 2
-        }
+    DssH4 {
+        id: valueTip
+        x: dslider.grooveWidth * dslider.value + dslider.handleWidth/2 - width/2
+        text: realValue.toFixed(2)
+        visible: dslider.pressed
     }
 
+    DSlider {
+        id: dslider
+        width: sliderRect.width
+        anchors.verticalCenter: parent.verticalCenter
+    }
+
+    Repeater{
+        model: rulerModel
+        delegate: DssH4 {
+            anchors.top: dslider.bottom
+            anchors.topMargin: -2
+            x: dslider.grooveWidth * value + dslider.handleWidth/2 - width/2
+            text: label
+        }
+    }
 }
