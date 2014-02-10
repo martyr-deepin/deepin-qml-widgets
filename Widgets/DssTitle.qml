@@ -12,8 +12,6 @@ DBaseLine {
     leftLoader.sourceComponent: DssH1 {
         id: title
         font.bold: true
-        style: Text.Raised
-        styleColor: Qt.rgba(0, 0, 0, 0.9)
         color: "white"
         text: dssTitle.text
     }
