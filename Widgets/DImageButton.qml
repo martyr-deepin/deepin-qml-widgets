@@ -8,6 +8,17 @@ Item {
     property url press_image
     
     signal clicked
+
+    states: [
+        State {
+            name: "hovered"
+            PropertyChanges { target: image; source: button.hover_image }
+        },
+        State {
+            name: "pressed"
+            PropertyChanges { target: image; source: button.press_image }
+        }
+    ]
     
     width: image.width;    height: image.height
     
@@ -20,10 +31,10 @@ Item {
         id: mouseArea
         anchors.fill: parent
         hoverEnabled: true
-        onEntered: { image.source = hover_image }
-        onExited: { image.source = normal_image }
-        onPressed: { image.source = press_image }
-        onReleased: { image.source= mouseArea.containsMouse ? hover_image : normal_image}
+        onEntered: { button.state = "hovered" }
+        onExited: { button.state = "" }
+        onPressed: { button.state = "pressed" }
+        onReleased: { button.state = mouseArea.containsMouse ? "hovered" : ""}
         onClicked: button.clicked()
     }
 }
