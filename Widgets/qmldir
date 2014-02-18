@@ -3,19 +3,24 @@ DTextInput 1.0 DTextInput.qml
 DSelectViewDelegate 1.0 DSelectViewDelegate.qml
 DArrowButton 1.0 DArrowButton.qml
 DRadioButton 1.0 DRadioButton.qml
+DssMultiDeleteButton 1.0 DssMultiDeleteButton.qml
 DDownArrowButton 1.0 DDownArrowButton.qml
 DssTitle 1.0 DssTitle.qml
+DssDeleteButton 1.0 DssDeleteButton.qml
 DRadioButtonHighlight 1.0 DRadioButtonHighlight.qml
 DBaseExpand 1.0 DBaseExpand.qml
 DDownArrowHeader 1.0 DDownArrowHeader.qml
+DssAddCheckButton 1.0 DssAddCheckButton.qml
 DColumn 1.0 DColumn.qml
 DSlider 1.0 DSlider.qml
 DssH4 1.0 DssH4.qml
 DOpacityImageButton 1.0 DOpacityImageButton.qml
 DListModelComponent 1.0 DListModelComponent.qml
+DssDeleteCheckButton 1.0 DssDeleteCheckButton.qml
 DImageCheckButton 1.0 DImageCheckButton.qml
 DRightArrowHeader 1.0 DRightArrowHeader.qml
 DTextButton 1.0 DTextButton.qml
+DSelectView 1.0 DSelectView.qml
 DLabel 1.0 DLabel.qml
 DScrollWidget 1.0 DScrollWidget.qml
 DssH3 1.0 DssH3.qml
@@ -26,6 +31,7 @@ DScrollBar 1.0 DScrollBar.qml
 DMultipleSelectView 1.0 DMultipleSelectView.qml
 DssH5 1.0 DssH5.qml
 DSearchInput 1.0 DSearchInput.qml
+DssAddButton 1.0 DssAddButton.qml
 DSwitchButtonHeader 1.0 DSwitchButtonHeader.qml
 DSliderRect 1.0 DSliderRect.qml
 DRoundItem 1.0 DRoundItem.qml
@@ -38,4 +44,3 @@ DssH1 1.0 DssH1.qml
 DStatusImageButton 1.0 DStatusImageButton.qml
 DRoundImage 1.0 DRoundImage.qml
 DSeparatorHorizontal 1.0 DSeparatorHorizontal.qml
-DSelectView 1.0 DSelectView.qml
