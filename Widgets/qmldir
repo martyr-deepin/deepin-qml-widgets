@@ -14,6 +14,7 @@ DssAddCheckButton 1.0 DssAddCheckButton.qml
 DColumn 1.0 DColumn.qml
 DSlider 1.0 DSlider.qml
 DssH4 1.0 DssH4.qml
+DDeleteLine 1.0 DDeleteLine.qml
 DOpacityImageButton 1.0 DOpacityImageButton.qml
 DListModelComponent 1.0 DListModelComponent.qml
 DssDeleteCheckButton 1.0 DssDeleteCheckButton.qml
@@ -44,4 +45,4 @@ DssH1 1.0 DssH1.qml
 DStatusImageButton 1.0 DStatusImageButton.qml
 DssMultiAddCheckButton 1.0 DssMultiAddCheckButton.qml
 DRoundImage 1.0 DRoundImage.qml
-DSeparatorHorizontal 1.0 DSeparatorHorizontal.qmlDDeleteLine 1.0 DDeleteLine.qml
+DSeparatorHorizontal 1.0 DSeparatorHorizontal.qml
