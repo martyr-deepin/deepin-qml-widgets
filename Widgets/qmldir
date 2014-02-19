@@ -44,3 +44,4 @@ DssH1 1.0 DssH1.qml
 DStatusImageButton 1.0 DStatusImageButton.qml
 DRoundImage 1.0 DRoundImage.qml
 DSeparatorHorizontal 1.0 DSeparatorHorizontal.qml
+DDeleteLine 1.0 DDeleteLine.qml
