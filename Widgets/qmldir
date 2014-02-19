@@ -42,6 +42,6 @@ DSwitchButton 1.0 DSwitchButton.qml
 DSeparatorVertical 1.0 DSeparatorVertical.qml
 DssH1 1.0 DssH1.qml
 DStatusImageButton 1.0 DStatusImageButton.qml
+DssMultiAddCheckButton 1.0 DssMultiAddCheckButton.qml
 DRoundImage 1.0 DRoundImage.qml
-DSeparatorHorizontal 1.0 DSeparatorHorizontal.qml
-DDeleteLine 1.0 DDeleteLine.qml
+DSeparatorHorizontal 1.0 DSeparatorHorizontal.qmlDDeleteLine 1.0 DDeleteLine.qml
