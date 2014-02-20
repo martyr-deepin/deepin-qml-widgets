@@ -10,6 +10,7 @@ FocusScope {
     property alias echoMode: text_input.echoMode
     property alias text: text_input.text
     property int textInputRightMargin: 0
+    property int textInputLeftMargin: 0
     property variant constants: DConstants {}
 
     signal accepted
@@ -64,6 +65,7 @@ FocusScope {
     Item {
         clip: true
         anchors.fill: text_input_box
+        anchors.leftMargin: root.textInputLeftMargin
         anchors.rightMargin: root.textInputRightMargin
         
         TextInput {
