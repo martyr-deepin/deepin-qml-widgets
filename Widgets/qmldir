@@ -20,6 +20,7 @@ DListModelComponent 1.0 DListModelComponent.qml
 DssDeleteCheckButton 1.0 DssDeleteCheckButton.qml
 DImageCheckButton 1.0 DImageCheckButton.qml
 DRightArrowHeader 1.0 DRightArrowHeader.qml
+DSpinner 1.0 DSpinner.qml
 DCenterLine 1.0 DCenterLine.qml
 DTextButton 1.0 DTextButton.qml
 DSelectView 1.0 DSelectView.qml
