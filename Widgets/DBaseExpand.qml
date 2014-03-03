@@ -33,6 +33,7 @@ Rectangle {
                 width: headerRect.width
                 property var componentData: undefined
                 anchors.verticalCenter: parent.verticalCenter
+                property alias root: expandRect
             }
         }
 
@@ -53,6 +54,7 @@ Rectangle {
                     clip: true
                     width: headerRect.width
                     property var componentData: undefined
+                    property alias root: expandRect
                     height: sourceComponent.height
                     onLoaded: {
                         expandRect.contentLoaded()
