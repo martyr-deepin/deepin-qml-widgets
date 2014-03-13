@@ -14,7 +14,7 @@ Component {
             id: lable
 
             text: buttonLabel
-            color: rect.ListView.view.unselectedFontColor
+            color: index == rect.ListView.view.currentIndex ? rect.ListView.view.selectedFontColor : rect.ListView.view.unselectedFontColor
             font.pixelSize: rect.ListView.view.fontSize
 
             anchors.centerIn: parent

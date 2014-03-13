@@ -75,6 +75,7 @@ Rectangle {
     ListView {
         id: listview
         focus: true
+        currentIndex: initializeIndex
         interactive: false
         orientation: ListView.Horizontal
 
@@ -85,8 +86,6 @@ Rectangle {
         property alias selectedMaskColor: select_button.selectedMaskColor
         property alias selectedFontColor: select_button.selectedFontColor
         property alias unselectedFontColor: select_button.unselectedFontColor
-
-        property alias initializeIndex: select_button.initializeIndex
 
         function selectItem(idx) {
             currentIndex = idx

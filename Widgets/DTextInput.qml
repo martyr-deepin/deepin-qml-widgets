@@ -72,7 +72,7 @@ FocusScope {
             id: text_input
 
             focus: true
-            color: constants.fgColor
+            color: constants.fgDarkColor
             selectByMouse: true
             verticalAlignment: TextInput.AlignVCenter
             font.pixelSize: text_input.echoMode == TextInput.Password ? 18 : 12
@@ -91,6 +91,7 @@ FocusScope {
         anchors.fill: parent
         onPressed: {
             mouse.accepted = false
+            text_input.color = constants.fgColor
             if (root.state == "warning") {
                 root.state = "normal"
             }
