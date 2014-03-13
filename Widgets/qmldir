@@ -27,6 +27,7 @@ DSelectView 1.0 DSelectView.qml
 DLabel 1.0 DLabel.qml
 DScrollWidget 1.0 DScrollWidget.qml
 DssH3 1.0 DssH3.qml
+DSliderEnhanced 1.0 DSliderEnhanced.qml
 DssH2 1.0 DssH2.qml
 DWindowFrame 1.0 DWindowFrame.qml
 DRadioButtonDelegate 1.0 DRadioButtonDelegate.qml
