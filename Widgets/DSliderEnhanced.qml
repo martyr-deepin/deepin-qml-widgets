@@ -1,6 +1,6 @@
 import QtQuick 2.0
 
-Item {
+Rectangle {
     id: slider
     height: 40
     width: 320
@@ -12,6 +12,9 @@ Item {
     property alias completeColorVisible: colorCompleteRect.visible
     property bool valueDisplayVisible: true
     property alias handler: handle
+    property bool rulerAtEdgeDisplay: false
+
+    color: Qt.rgba(0, 0, 0, 0)
 
     signal valueConfirmed
 
@@ -172,59 +175,72 @@ Item {
     
     Rectangle{
         anchors.top: sliderDragArea.bottom
+        anchors.topMargin: -4
         width: foo.width
         height: parent.height - sliderDragArea.height
         anchors.horizontalCenter: parent.horizontalCenter
-        color: Qt.rgba(0, 0, 0, 0)
+        color: Qt.rgba(1, 0, 0, 0)
 
-        Row {
-            anchors.fill: parent
-            Repeater{
-                id: ruler
+        Repeater{
+            id: ruler
 
-                property var xToValueDict: {
-                    var rDict = {}
-                    for(var i=0; i<model.count; i++){
-                        var v = model.get(i).rulerValue
-                        var xPos = getXPos(v)
-                        rDict[xPos] = v 
+            property var xToValueDict: {
+                var rDict = {}
+                for(var i=0; i<model.count; i++){
+                    var v = model.get(i).rulerValue
+                    var xPos = getXPos(v)
+                    rDict[xPos] = v 
+                }
+                return rDict
+            }
+            model: ListModel {}
+
+            function getXPos(v){
+                return (v-min)/(max - min) * (mousearea.drag.maximumX - mousearea.drag.minimumX)
+            }
+
+            delegate: Item{
+                width: 1
+                height: childrenRect.height
+                x: {
+                    if(rulerValue == max){
+                        return foo.width
                     }
-                    return rDict
-                }
-                model: ListModel {}
-
-                function getXPos(v){
-                    return (v-min)/(max - min) * (mousearea.drag.maximumX - mousearea.drag.minimumX)
+                    else{
+                        return ruler.getXPos(rulerValue)
+                    }
                 }
 
-                delegate: Item{
-                    width: 1
-                    height: childrenRect.height
-
-                    Rectangle {
-                        id: rulerLine
-                        x: {
-                            if(rulerValue == max){
-                                return ruler.getXPos(rulerValue) - 3
-                            }
-                            else{
-                                return ruler.getXPos(rulerValue)
-                            }
+                Rectangle {
+                    id: rulerLine
+                    visible: {
+                        if(rulerValue == max | rulerValue == min){
+                            return rulerAtEdgeDisplay
                         }
-                        anchors.top: parent.top
-                        anchors.topMargin: -4
-                        width: 1
-                        height: 7
+                        else{
+                            return true
+                        }
                     }
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: 1
+                    height: 7
+                }
 
-                    DLabel {
-                        anchors.top: rulerLine.bottom
-                        anchors.topMargin: 0
-                        anchors.horizontalCenter: rulerLine.horizontalCenter
-                        text: rulerLabel
+                DLabel {
+                    anchors.top: parent.top
+                    anchors.topMargin: {
+                        if(rulerLine.visible){
+                            return rulerLine.height
+                        }
+                        else{
+                            return 2
+                        }
                     }
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: rulerLabel
                 }
             }
         }
+
     }
 }
