@@ -49,3 +49,4 @@ DStatusImageButton 1.0 DStatusImageButton.qml
 DssMultiAddCheckButton 1.0 DssMultiAddCheckButton.qml
 DRoundImage 1.0 DRoundImage.qml
 DSeparatorHorizontal 1.0 DSeparatorHorizontal.qml
+DRectWithCorner 1.0 DRectWithCorner.qml
