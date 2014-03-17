@@ -45,7 +45,7 @@ Rectangle {
     property real value: min + (max - min) * mousearea.value
     property int grooveWidth: width - handleWidth + 2
     property int grooveHeight: 8
-    property int handleWidth: 18
+    property int handleWidth: handle.width
 
     onValueChanged: {
         if(valueDisplayVisible){
@@ -97,7 +97,6 @@ Rectangle {
             id: foo
             width: grooveWidth
             height: grooveHeight
-            //clip: true
             radius: height
             anchors.centerIn: parent
             gradient: Gradient {
@@ -106,6 +105,7 @@ Rectangle {
             }
 
             Rectangle {
+                id: realValueRect
                 width: parent.width - 2
                 height: grooveHeight - 2
                 anchors.centerIn: parent
@@ -163,7 +163,7 @@ Rectangle {
                 drag.target: parent
                 drag.axis: Drag.XAxis
                 drag.minimumX: 0
-                drag.maximumX: foo.width
+                drag.maximumX: realValueRect.width
                 property real value: (handle.x - drag.minimumX) / (drag.maximumX - drag.minimumX)
 
                 onReleased: {
@@ -176,7 +176,7 @@ Rectangle {
     Rectangle{
         anchors.top: sliderDragArea.bottom
         anchors.topMargin: -4
-        width: foo.width
+        width: realValueRect.width
         height: parent.height - sliderDragArea.height
         anchors.horizontalCenter: parent.horizontalCenter
         color: Qt.rgba(1, 0, 0, 0)
@@ -204,7 +204,7 @@ Rectangle {
                 height: childrenRect.height
                 x: {
                     if(rulerValue == max){
-                        return foo.width
+                        return realValueRect.width
                     }
                     else{
                         return ruler.getXPos(rulerValue)
@@ -222,6 +222,7 @@ Rectangle {
                         }
                     }
                     anchors.horizontalCenter: parent.horizontalCenter
+                    color: dconstants.fgColor
                     width: 1
                     height: 7
                 }
