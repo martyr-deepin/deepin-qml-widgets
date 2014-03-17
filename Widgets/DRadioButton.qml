@@ -74,7 +74,6 @@ Rectangle {
 
     ListView {
         id: listview
-        focus: true
         currentIndex: initializeIndex
         interactive: false
         orientation: ListView.Horizontal
