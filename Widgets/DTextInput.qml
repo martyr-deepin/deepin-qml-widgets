@@ -1,3 +1,4 @@
+
 import QtQuick 2.1
 import QtGraphicalEffects 1.0
 
@@ -19,19 +20,19 @@ FocusScope {
         State {
             name: "normal"
             PropertyChanges {
-                target: text_input_box
+                target: text_input_box_border
                 border.color: "black"
             }
         },
         State {
             name: "warning"
             PropertyChanges {
-                target: text_input_box
-                border.color: "red"
+                target: text_input_box_border
+                border.color: "#F48914"
             }
         }
     ]
-    
+
     Rectangle {
         id: text_input_box
 
@@ -67,7 +68,7 @@ FocusScope {
         anchors.fill: text_input_box
         anchors.leftMargin: root.textInputLeftMargin
         anchors.rightMargin: root.textInputRightMargin
-        
+
         TextInput {
             id: text_input
 
@@ -76,7 +77,7 @@ FocusScope {
             selectByMouse: true
             verticalAlignment: TextInput.AlignVCenter
             font.pixelSize: text_input.echoMode == TextInput.Password ? 18 : 12
-            
+
             anchors.fill: parent
             anchors.leftMargin: 3
             anchors.rightMargin: 3
@@ -86,7 +87,15 @@ FocusScope {
             }
         }
     }
-    
+
+    Rectangle {
+        id: text_input_box_border
+        radius: 3
+        color: "transparent"
+
+        anchors.fill:text_input_box
+    }
+
     MouseArea {
         anchors.fill: parent
         onPressed: {
