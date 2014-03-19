@@ -13,6 +13,7 @@ Rectangle {
     property bool valueDisplayVisible: true
     property alias handler: handle
     property bool rulerAtEdgeDisplay: false
+    property bool clickable: true
 
     color: Qt.rgba(0, 0, 0, 0)
 
@@ -27,7 +28,6 @@ Rectangle {
     }
 
     function setValue(v, emit) {
-        if(min < max)
         handle.x = (v-min)/(max - min) * (mousearea.drag.maximumX - mousearea.drag.minimumX)
             + mousearea.drag.minimumX
         if(emit){
@@ -133,6 +133,7 @@ Rectangle {
                 width: parent.width
                 height: parent.height + 20
                 hoverEnabled: true
+                visible: clickable
 
                 onReleased: {
                     if(containsMouse){
@@ -227,7 +228,7 @@ Rectangle {
                     height: 7
                 }
 
-                DLabel {
+                DssH3 {
                     anchors.top: parent.top
                     anchors.topMargin: {
                         if(rulerLine.visible){
