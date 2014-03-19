@@ -39,7 +39,7 @@ FocusScope {
         width: parent.width
         height: 22
         clip: true
-        color: "#1A1B1B"
+        color: "#171717"
         radius: 3
     }
 
@@ -55,7 +55,7 @@ FocusScope {
 
     InnerShadow {
         anchors.fill: text_input_box
-        radius: 3
+        radius: 1
         samples: 10
         horizontalOffset: 0
         verticalOffset: radius

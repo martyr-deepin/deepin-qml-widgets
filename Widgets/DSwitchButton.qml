@@ -24,7 +24,7 @@ Item {
         color: "transparent"
 
         Rectangle {
-            width: 50
+            width: 52
             height: 18
             radius: 9
             antialiasing: true
