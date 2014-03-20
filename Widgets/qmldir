@@ -26,6 +26,7 @@ DTextButton 1.0 DTextButton.qml
 DSelectView 1.0 DSelectView.qml
 DLabel 1.0 DLabel.qml
 DScrollWidget 1.0 DScrollWidget.qml
+DTextAction 1.0 DTextAction.qml
 DssH3 1.0 DssH3.qml
 DSliderEnhanced 1.0 DSliderEnhanced.qml
 DssH2 1.0 DssH2.qml
@@ -49,4 +50,3 @@ DStatusImageButton 1.0 DStatusImageButton.qml
 DssMultiAddCheckButton 1.0 DssMultiAddCheckButton.qml
 DRoundImage 1.0 DRoundImage.qml
 DSeparatorHorizontal 1.0 DSeparatorHorizontal.qml
-DRectWithCorner 1.0 DRectWithCorner.qml
