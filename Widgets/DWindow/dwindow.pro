@@ -1,19 +1,23 @@
 TEMPLATE = lib
-TARGET = DeepinWidgets
+TARGET = dwindow
 QT += qml quick
 CONFIG += qt plugin
 
 TARGET = $$qtLibraryTarget($$TARGET)
 uri = Deepin.Widgets
 
-qmldir.files += Widgets/*.qml Widgets/qmldir Widgets/images
+# Input
+SOURCES += \
+    Widgets/DWindow/plugin.cpp \
+    Widgets/DWindow/dwindow.cpp
+
+HEADERS += \
+    Widgets/DWindow/plugin.h \
+    Widgets/DWindow/dwindow.h
 
 unix {
     installPath = $$[QT_INSTALL_QML]/$$replace(uri, \\., /)
-    qmldir.path = $$installPath
     target.path = $$installPath
-    INSTALLS = qmldir
+    INSTALLS += target
 }
 
-
-include("Widgets/DWindow/dwindow.pro")
