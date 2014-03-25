@@ -9,8 +9,6 @@ DOverrideWindow::DOverrideWindow(QQuickWindow *parent)
     this->setClearBeforeRendering(true);
 
     this->setFlags(Qt::Popup);
-
-    show();
 }
 
 DOverrideWindow::~DOverrideWindow()
@@ -24,8 +22,6 @@ DWindow::DWindow(QQuickWindow *parent)
     sformat.setAlphaBufferSize(8);
     this->setFormat(sformat);
     this->setClearBeforeRendering(true);
-
-    show();
 }
 DWindow::~DWindow()
 {
