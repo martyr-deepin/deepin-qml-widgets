@@ -1,5 +1,4 @@
 module Deepin.Widgets
-plugin dwindow
 DTextInput 1.0 DTextInput.qml
 DSelectViewDelegate 1.0 DSelectViewDelegate.qml
 DArrowButton 1.0 DArrowButton.qml
@@ -53,3 +52,4 @@ DRoundImage 1.0 DRoundImage.qml
 DSeparatorHorizontal 1.0 DSeparatorHorizontal.qml
 DTransparentButton 1.0 DTransparentButton.qml
 DRectWithCorner 1.0 DRectWithCorner.qml
+DComboBox 1.0 DComboBox.qml

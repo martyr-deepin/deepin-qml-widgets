@@ -1,0 +1,2 @@
+module Deepin.Window
+plugin dwindow
