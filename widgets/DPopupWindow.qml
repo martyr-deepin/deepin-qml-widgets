@@ -19,13 +19,6 @@ Window {
 	property real sideWidth: blurWidth + rectRadius
 	property rect vaildRect: Qt.rect(sideWidth, sideWidth, width - sideWidth * 2, height - sideWidth * 2)
 	
-	Connections {
-		target: windowView
-		onHideOtherWindow: {
-			win.visible = false
-		}
-	}
-	
     Rectangle {
         id: rect
 		x: 0; y: 0
@@ -60,7 +53,7 @@ Window {
 			}
 		}
 		
-		RoundItem {
+		DRoundItem {
 			target: backgound
 			radius: rectRadius
 		}

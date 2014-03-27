@@ -8,7 +8,7 @@ DOverrideWindow::DOverrideWindow(QQuickWindow *parent)
     this->setFormat(sformat);
     this->setClearBeforeRendering(true);
 
-    this->setFlags(Qt::Popup);
+    this->setFlags(Qt::Tool|Qt::FramelessWindowHint);
 }
 
 DOverrideWindow::~DOverrideWindow()
