@@ -2,6 +2,7 @@ import QtQuick 2.1
 import QtQuick.Window 2.1
 
 Item {
+    id: combobox
     width: background.width
     height: background.height
 
@@ -9,6 +10,8 @@ Item {
     property bool pressed: false
 
     property alias text: currentLabel.text
+
+    signal clicked
 
     QtObject {
         id: buttonImage
@@ -22,7 +25,7 @@ Item {
 
     Window {
         id: menu
-        flags: Qt.WindowSystemMenuHint
+        flags: Qt.Tool | Qt.FramelessWindowHint
         width: background.width
         height: childrenRect.height
 
@@ -55,7 +58,7 @@ Item {
         Image {
             id: buttonMiddle
             source: buttonImage.middle
-            width: content.width < minMiddleWidth ? minMiddleWidth : content.width
+            width: content.width
         }
 
         Image{
@@ -64,20 +67,25 @@ Item {
         }
     }
 
-    Row {
+    Rectangle {
         id: content
+        width: Math.max(currentLabel.width + downArrow.width + 6, minMiddleWidth)
         height: background.height
-        anchors.centerIn: parent
-        spacing: 6
+        anchors.left: parent.left
+        anchors.leftMargin: buttonHeader.width
+        anchors.verticalCenter: parent.verticalCenter
+        color: Qt.rgba(1, 0, 0, 0)
 
         DssH2{
             id: currentLabel
+            anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
         }
 
         Image {
+            id: downArrow
+            anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
-
             source: hovered ? "images/arrow_down_hover.png" : "images/arrow_down_normal.png"
         }
 
@@ -88,15 +96,25 @@ Item {
         hoverEnabled: true
 
         onEntered: {
-            hovered = true
+            parent.hovered = true
         }
 
         onExited: {
-            hovered = false
+            parent.hovered = false
+        }
+
+        onPressed: {
+            parent.pressed = true
+            buttonImage.status = "press"
+        }
+        onReleased: {
+            parent.pressed = false
+            parent.hovered = containsMouse
+            buttonImage.status = "normal"
         }
 
         onClicked: {
-            menu.show()
+            combobox.clicked()
         }
     }
 
