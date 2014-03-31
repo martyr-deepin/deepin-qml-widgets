@@ -20,6 +20,8 @@ Rectangle {
     state: "normal"
 
     signal clicked
+    signal entered
+    signal exited
     signal imageLoadError
 
     states: [
@@ -89,11 +91,15 @@ Rectangle {
     }
 
     MouseArea {
+        hoverEnabled: true
         anchors.fill: parent
 
         onClicked: {
             parent.state = parent.checkSupport ? (parent.state == "normal" ? "checked" : "normal") : "normal"
             parent.clicked()
         }
+        
+        onEntered: parent.entered()
+        onExited: parent.exited()
     }
 }
