@@ -3,10 +3,17 @@ import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 
 ScrollView {
-    
-    /* flickableItem.interactive: true */
-    
+    id: root
+    frameVisible: false
+    property int rightMargin
+    Component.onCompleted: {
+        viewport.anchors.rightMargin = 0
+        __scroller.rightMargin = -3 + rightMargin
+        flickableItem.interactive = true
+    }
+
     style: ScrollViewStyle {
+        handleOverlap: 0
         handle: Item {
             implicitWidth: 14
             implicitHeight: 26

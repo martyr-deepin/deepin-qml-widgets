@@ -22,6 +22,10 @@ class DOverrideWindow: public QQuickWindow
 public:
     DOverrideWindow(QQuickWindow *parent = 0);
     ~DOverrideWindow();
+protected:
+    void mousePressEvent(QMouseEvent *ev);
+signals:
+    void mousePressed(QPointF point);
 };
 
 

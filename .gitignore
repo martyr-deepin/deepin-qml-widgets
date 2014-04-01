@@ -11,3 +11,4 @@ data
 /move.py
 *.so
 Makefile
+*.user

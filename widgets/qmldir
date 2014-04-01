@@ -53,3 +53,4 @@ DSeparatorHorizontal 1.0 DSeparatorHorizontal.qml
 DTransparentButton 1.0 DTransparentButton.qml
 DRectWithCorner 1.0 DRectWithCorner.qml
 DComboBox 1.0 DComboBox.qml
+DRectangle 1.0 DRectangle.qml

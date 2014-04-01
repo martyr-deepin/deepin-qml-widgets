@@ -13,6 +13,7 @@ FocusScope {
     property int textInputRightMargin: 0
     property int textInputLeftMargin: 0
     property variant constants: DConstants {}
+    property alias textInput: text_input
 
     signal accepted
 
