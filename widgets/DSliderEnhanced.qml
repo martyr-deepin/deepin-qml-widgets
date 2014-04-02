@@ -14,16 +14,13 @@ Rectangle {
     property alias handler: handle
     property bool rulerAtEdgeDisplay: false
     property bool clickable: true
+    property bool pressedFlag: false
 
     color: Qt.rgba(0, 0, 0, 0)
 
     signal valueConfirmed
 
     Component.onCompleted: {
-        setValue(init, false)
-    }
-
-    onInitChanged: {
         setValue(init, false)
     }
 
@@ -166,8 +163,10 @@ Rectangle {
                 drag.minimumX: 0
                 drag.maximumX: realValueRect.width
                 property real value: (handle.x - drag.minimumX) / (drag.maximumX - drag.minimumX)
-
+                
+                onPressed: slider.pressedFlag = true
                 onReleased: {
+                    slider.pressedFlag = false
                     valueConfirmed()
                 }
             }
