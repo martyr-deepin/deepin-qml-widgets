@@ -11,6 +11,7 @@ Rectangle {
     property alias handlerVisible: handle.visible
     property alias completeColorVisible: colorCompleteRect.visible
     property bool valueDisplayVisible: true
+    property bool showPulseGradient: false
     property alias handler: handle
     property bool rulerAtEdgeDisplay: false
     property bool clickable: true
@@ -119,6 +120,20 @@ Rectangle {
                     gradient: Gradient {
                         GradientStop { position: 0.0; color: Qt.rgba(0, 104/255, 170/255, 1.0) }
                         GradientStop { position: 1.0; color: Qt.rgba(91/255, 164/255, 211/255, 1.0) }
+                    }
+
+                    LinearGradient {
+                        visible: slider.showPulseGradient
+                        anchors.fill: parent
+                        start: Qt.point(0, 0)
+                        end: Qt.point(parent.width, 0)
+                        source: parent
+                        gradient: Gradient {
+                            GradientStop { position: 0.00; color: "#ff8503"}
+                            GradientStop { position: 0.14; color: "#ffbf0f"}
+                            GradientStop { position: 0.24; color: "#039eff"}
+                            GradientStop { position: 1.00; color: "transparent"}
+                        }
                     }
                 }
             }
