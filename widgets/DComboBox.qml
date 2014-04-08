@@ -3,7 +3,7 @@ import QtQuick.Window 2.1
 
 Item {
     id: combobox
-    width: background.width
+    width: Math.max(minMiddleWidth, parent.width)
     height: background.height
 
     property bool hovered: false
@@ -21,34 +21,12 @@ Item {
         property string tail: "images/button_right_%1.png".arg(status)
     }
 
-    property int minMiddleWidth: 48
-
-    Window {
-        id: menu
-        flags: Qt.Tool | Qt.FramelessWindowHint
-        width: background.width
-        height: childrenRect.height
-
-        Rectangle{
-            width: parent.width
-            height: childrenRect.height
-
-            ListView {
-                width: parent.width
-                height: childrenRect.height
-
-                model: 5
-                delegate: DssH2 {
-                    text: "test " + index
-                } 
-
-            }
-        }
-    }
+    property int minMiddleWidth: buttonHeader.width + downArrow.width + buttonTail.width
 
     Row {
         id: background
         height: buttonHeader.height
+        width: parent.width
 
         Image{
             id: buttonHeader
@@ -58,7 +36,7 @@ Item {
         Image {
             id: buttonMiddle
             source: buttonImage.middle
-            width: content.width
+            width: parent.width - buttonHeader.width - buttonTail.width
         }
 
         Image{
@@ -69,17 +47,19 @@ Item {
 
     Rectangle {
         id: content
-        width: Math.max(currentLabel.width + downArrow.width + 6, minMiddleWidth)
+        width: buttonMiddle.width
         height: background.height
         anchors.left: parent.left
         anchors.leftMargin: buttonHeader.width
         anchors.verticalCenter: parent.verticalCenter
         color: Qt.rgba(1, 0, 0, 0)
 
-        DssH2{
+        DssH2 {
             id: currentLabel
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
+            width: parent.width - downArrow.width
+            elide: Text.ElideRight
         }
 
         Image {
