@@ -17,13 +17,21 @@ Rectangle {
     property bool rulerAtEdgeDisplay: false
     property bool clickable: true
     property bool pressedFlag: false
+    property int floatNumber: 0
 
     color: Qt.rgba(0, 0, 0, 0)
 
     signal valueConfirmed
 
     Component.onCompleted: {
-        setValue(init, false)
+        if(valueDisplayVisible){
+            valueDisplayVisible = false
+            setValue(init, false)
+            valueDisplayVisible = true
+        }
+        else{
+            setValue(init, false)
+        }
     }
 
     function setValue(v, emit) {
@@ -63,7 +71,7 @@ Rectangle {
                 return intV
             }
             else{
-                slider.value.toFixed(2)
+                slider.value.toFixed(floatNumber)
             }
         }
 
