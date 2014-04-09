@@ -18,6 +18,8 @@ Rectangle {
     property bool clickable: true
     property bool pressedFlag: false
     property int floatNumber: 0
+    property real adsorptionPixel: 10
+    property bool rulerVisible: true
 
     color: Qt.rgba(0, 0, 0, 0)
 
@@ -160,7 +162,7 @@ Rectangle {
                     if(containsMouse){
                         var rulerPos = Object.keys(ruler.xToValueDict)
                         for(var i in rulerPos){
-                            if(Math.abs(mouse.x - rulerPos[i]) <= 10){
+                            if(Math.abs(mouse.x - rulerPos[i]) <= adsorptionPixel){
                                 slider.setValue(ruler.xToValueDict[rulerPos[i]], true)
                                 return
                             }
@@ -197,13 +199,12 @@ Rectangle {
         }
     }
     
-    Rectangle{
+    Item {
         anchors.top: sliderDragArea.bottom
         anchors.topMargin: -4
         width: realValueRect.width
         height: parent.height - sliderDragArea.height
         anchors.horizontalCenter: parent.horizontalCenter
-        color: Qt.rgba(1, 0, 0, 0)
 
         Repeater{
             id: ruler
@@ -249,6 +250,7 @@ Rectangle {
                     color: dconstants.fgColor
                     width: 1
                     height: 7
+                    opacity: rulerVisible ? 1 : 0
                 }
 
                 DssH3 {

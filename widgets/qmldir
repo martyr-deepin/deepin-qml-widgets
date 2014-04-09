@@ -54,3 +54,5 @@ DTransparentButton 1.0 DTransparentButton.qml
 DRectWithCorner 1.0 DRectWithCorner.qml
 DComboBox 1.0 DComboBox.qml
 DRectangle 1.0 DRectangle.qml
+DListView 1.0 DListView.qml
+DGridView 1.0 DGridView.qml
