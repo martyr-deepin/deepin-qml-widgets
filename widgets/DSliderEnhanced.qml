@@ -25,11 +25,11 @@ Rectangle {
 
     signal valueConfirmed
 
+    property bool _first_running: true
     Component.onCompleted: {
         if(valueDisplayVisible){
-            valueDisplayVisible = false
             setValue(init, false)
-            valueDisplayVisible = true
+            _first_running = false
         }
         else{
             setValue(init, false)
@@ -57,7 +57,7 @@ Rectangle {
     property int handleWidth: handle.width
 
     onValueChanged: {
-        if(valueDisplayVisible){
+        if(valueDisplayVisible && !_first_running){
             valueDisplay.showValue()
         }
     }
