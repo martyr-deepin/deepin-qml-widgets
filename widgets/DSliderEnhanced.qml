@@ -123,6 +123,7 @@ Rectangle {
 
                 Rectangle {
                     id: colorCompleteRect
+                    clip: true
                     width: parent.width * (slider.value - min)/(max-min)
                     height: parent.height
                     anchors.left: parent.left
@@ -135,15 +136,16 @@ Rectangle {
 
                     LinearGradient {
                         visible: slider.showPulseGradient
-                        anchors.fill: parent
+                        width: foo.width - 2
+                        height: foo.height - 2
                         start: Qt.point(0, 0)
-                        end: Qt.point(parent.width, 0)
-                        source: parent
+                        end: Qt.point(width, 0)
+                        source: foo
                         gradient: Gradient {
-                            GradientStop { position: 0.00; color: "#ff8503"}
-                            GradientStop { position: 0.14; color: "#ffbf0f"}
-                            GradientStop { position: 0.24; color: "#039eff"}
-                            GradientStop { position: 1.00; color: "transparent"}
+                            GradientStop { position: 0.00; color: "transparent"}
+                            GradientStop { position: 0.66; color: "transparent"}
+                            GradientStop { position: 0.76; color: "#ffbf0f"}
+                            GradientStop { position: 1.00; color: "#ff8503"}
                         }
                     }
                 }
