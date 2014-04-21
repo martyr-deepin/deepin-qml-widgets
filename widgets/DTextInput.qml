@@ -102,7 +102,7 @@ FocusScope {
         anchors.fill: parent
         onPressed: {
             mouse.accepted = false
-            text_input.color = constants.fgColor
+            text_input.color = constants.fgDarkColor
             if (root.state == "warning") {
                 root.state = "normal"
             }
