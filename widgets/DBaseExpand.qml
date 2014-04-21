@@ -2,13 +2,16 @@ import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 
-Rectangle {
+Item{
     id: expandRect
 
     property alias header: header
     property alias content: content
     property alias headerData: header.componentData
     property alias contentData: content.componentData
+    property alias headerRect: headerRect
+    property alias contentRect: contentRect
+    property alias separator: separator
     property bool expanded: false
 
     property var dconstants: DConstants {}
@@ -47,7 +50,10 @@ Rectangle {
 
             Column {
                 width: parent.width
-                DSeparatorHorizontal {}
+                DSeparatorHorizontal {
+                    id: separator
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
                 
                 Loader {
                     id: content
