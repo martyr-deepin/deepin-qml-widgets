@@ -1,10 +1,9 @@
 import QtQuick 2.1
 
-Rectangle {
+Item {
     id: imageCheckButton
     width: currentImage.width
     height: currentImage.height
-    color: "transparent"
 
     property url inactivatedNomralImage
     property url inactivatedHoverImage
@@ -20,53 +19,35 @@ Rectangle {
     property bool hover: false
     property bool pressed: false
 
-    onActiveChanged: {
-        changeStatus()
-    }
-    onHoverChanged: {
-        changeStatus()
-    }
-    onPressedChanged: {
-        changeStatus()
-    }
-
-    function changeStatus(){
-        if(active){
-            if(pressed){
-                currentImage.source = activatedPressImage
-            }
-            else{
-                if(hover){
-                    currentImage.source = activatedHoverImage
-                }
-                else{
-                    currentImage.source = activatedNomralImage
-                }
-            }
-        }else{
-            if(pressed){
-                currentImage.source = inactivatedPressImage
-            }
-            else{
-                if(hover){
-                    currentImage.source = inactivatedHoverImage
-                }
-                else{
-                    currentImage.source = inactivatedNomralImage
-                }
-            }
-        }
-    }
-
     Image {
         id: currentImage
         anchors.centerIn: parent
-        Component.onCompleted: {
-            if(active){
-                source = activatedNomralImage
+        source: {
+            if(parent.active){
+                if(parent.pressed){
+                    return parent.activatedPressImage
+                }
+                else{
+                    if (parent.hover){
+                        return parent.activatedHoverImage
+                    }
+                    else{
+                        return parent.activatedNomralImage
+                    }
+                }
             }
             else{
-                source = inactivatedNomralImage
+                if(parent.pressed){
+                    return parent.inactivatedPressImage
+                }
+                else{
+                    if (parent.hover){
+                        return parent.inactivatedHoverImage
+                    }
+                    else{
+                        return parent.inactivatedNomralImage
+                    }
+                }
             }
         }
     }
@@ -81,15 +62,10 @@ Rectangle {
         }
 
         onReleased: {
-            parent.pressed = false
-            if (containsMouse){
-                parent.hover = true
-            }
-            else {
-                parent.hover = false
-            }
+            parent.hover = containsMouse
             parent.active = !parent.active
             imageCheckButton.clicked()
+            parent.pressed = false
         }
 
         onEntered: {
