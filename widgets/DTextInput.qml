@@ -74,7 +74,7 @@ FocusScope {
             id: text_input
 
             focus: true
-            color: constants.fgDarkColor
+            color: constants.fgColor
             selectionColor: "#31536e"
             selectByMouse: true
             verticalAlignment: TextInput.AlignVCenter
@@ -102,7 +102,6 @@ FocusScope {
         anchors.fill: parent
         onPressed: {
             mouse.accepted = false
-            text_input.color = constants.fgDarkColor
             if (root.state == "warning") {
                 root.state = "normal"
             }
