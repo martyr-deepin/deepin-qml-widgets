@@ -6,6 +6,7 @@ Item {
     
     property int frameRadius: 3
     property int shadowRadius: 10
+    property alias frame: frame
     
     default property alias content: container.children
     

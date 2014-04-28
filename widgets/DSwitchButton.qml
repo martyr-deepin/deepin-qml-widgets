@@ -8,6 +8,8 @@ Item {
     height: 24
     
     property bool checked: false
+    property bool pressed: false
+
     state: checked ? "on" : "off"
 
     signal clicked
@@ -70,9 +72,13 @@ Item {
 
     MouseArea {
         anchors.fill: parent
-        onClicked: {
+        onPressed: {
+            parent.pressed = true
+        }
+        onReleased: {
             checked = !checked
             root.clicked()
+            parent.pressed = false
         }
     }
 }
