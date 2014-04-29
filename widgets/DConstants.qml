@@ -7,6 +7,7 @@ QtObject {
     property color contentBgColor: "#1A1B1B"
     property color hoverColor: "#FFFFFF"
     property color activeColor: "#00BDFF"
+    property color tuhaoColor: "#faca57"
     property int leftMargin: 15
     property int rightMargin: 15
 }
