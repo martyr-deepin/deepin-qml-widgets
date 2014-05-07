@@ -8,8 +8,9 @@ Window {
 	height: 300
 	color: "transparent"
 	flags: Qt.FramelessWindowHint | Qt.Popup
-
+    
 	property int windowGlowRadius: 8
+    property alias content: loader.sourceComponent
 
 	DConstants { id: dconstants }
 
@@ -27,13 +28,14 @@ Window {
 		id: rect
 		clip: true
 		radius: 3
-		color: dconstants.bgColor
+		color: dconstants.contentBgColor
 		width: window.width - window.windowGlowRadius * 2
 		height: window.height - window.windowGlowRadius * 2
 		anchors.centerIn: parent
 
 		Item {
 			id: titlebar
+            z: loader.z + 1
 			width: rect.width
 			height: close_button.height
 
@@ -66,5 +68,15 @@ Window {
 			    onClicked: { window.close() }
 			}
 		}
+        
+        Loader {
+            id: loader
+            sourceComponent: window.content
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: titlebar.bottom
+            anchors.bottom: parent.bottom
+            anchors.topMargin: 5
+        }
 	}
 }

@@ -9,6 +9,9 @@ ListView {
 	height: childrenRect.height
 
 	property var sections
+    signal sectionSelected (string sectionId)
+    
+    DConstants { id: dconstants }
 
 	model: ListModel {
 		Component.onCompleted: {
@@ -29,7 +32,7 @@ ListView {
 					name: "normal"
 					PropertyChanges {
 						target: txt
-						color: "red"
+						color: dconstants.hoverColor
 					}
 					PropertyChanges {
 						target: sub
@@ -40,7 +43,7 @@ ListView {
 					name: "selected"
 					PropertyChanges {
 						target: txt
-						color: isParent ? "red" : "green"
+						color: isParent ? dconstants.hoverColor : dconstants.activeColor
 					}
 					PropertyChanges {
 						target: sub
@@ -65,13 +68,16 @@ ListView {
 
 			Item {
 				width: main_column.width
-				height: 24
+				height: 30
 
 				Text {
 					id: txt
 					text: sectionName
-					font.pixelSize: 14
+                    elide: Text.ElideRight
+					font.pixelSize: 16
 
+                    anchors.left: parent.left
+                    anchors.leftMargin: 10
 					anchors.verticalCenter: parent.verticalCenter
 				}
 
@@ -81,6 +87,7 @@ ListView {
 
 					onClicked: {
 						root.currentSectionId = sectionId
+                        playlist.sectionSelected(sectionId)
 					}
 				}
 			}
@@ -93,6 +100,7 @@ ListView {
 				asynchronous: true
 				onLoaded: {
 					item.model = subSections
+                    item.width = main_column.width - 10
 				}
 			}
 		}
