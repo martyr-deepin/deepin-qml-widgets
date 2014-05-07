@@ -14,7 +14,8 @@ Row {
 
 	DPreferenceSectionList {
 		id: section_list
-		width: parent.sectionListWidth
+		width: root.sectionListWidth
+        height: root.height
 		sections: [
 					  {
 					    "sectionId": "id1",
@@ -71,6 +72,7 @@ Row {
 	    Column {
 	        id: col
 	        width: preference_content.width
+            height: root.height
 	        Rectangle {
 	            color: "red"
 	            width: 300

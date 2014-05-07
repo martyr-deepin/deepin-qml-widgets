@@ -57,3 +57,4 @@ DRectangle 1.0 DRectangle.qml
 DListView 1.0 DListView.qml
 DGridView 1.0 DGridView.qml
 DPreferenceView 1.0 DPreferenceView.qml
+DPreferenceWindow 1.0 DPreferenceWindow.qml
