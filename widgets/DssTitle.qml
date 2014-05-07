@@ -5,6 +5,7 @@ DBaseLine {
     width: parent.width
     height: 48
 
+    signal titleClicked
     property string text: ""
 
     property var dconstants: DConstants {}
@@ -14,5 +15,10 @@ DBaseLine {
         font.bold: true
         color: "white"
         text: dssTitle.text
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: dssTitle.titleClicked()
+        }
     }
 }
