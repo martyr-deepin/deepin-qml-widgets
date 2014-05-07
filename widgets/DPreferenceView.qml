@@ -10,6 +10,10 @@ Row {
     property string currentSectionId
     property alias content: col
     property alias sections: section_list.sections
+    
+    function changeIndicatorPos(pos) {
+        section_indicator.pointerPos = pos + section_list.cellHeight / 2
+    }
 
     DPreferenceSectionList {
         id: section_list
@@ -17,7 +21,7 @@ Row {
         height: root.height
 
         onSectionSelected: {
-            preference_content.scrollTo(currentSectionId)
+            preference_content.scrollTo(sectionId)
         }
     }
 

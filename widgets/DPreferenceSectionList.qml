@@ -4,18 +4,19 @@
 import QtQuick 2.1
 
 ListView {
-	id: playlist
+	id: listview
 	width: 300
 	height: childrenRect.height
 
 	property var sections
+    property int cellHeight: 30
     signal sectionSelected (string sectionId)
     
     DConstants { id: dconstants }
 
 	model: ListModel {
 		Component.onCompleted: {
-			var sections = playlist.sections || []
+			var sections = listview.sections || []
 			for (var i = 0; i < sections.length; i++) {
 				append(sections[i])
 			}
@@ -34,10 +35,10 @@ ListView {
 						target: txt
 						color: dconstants.hoverColor
 					}
-					PropertyChanges {
-						target: sub
-						visible: false
-					}
+					/* PropertyChanges { */
+					/* 	target: sub */
+					/* 	visible: false */
+					/* } */
 				},
 				State {
 					name: "selected"
@@ -45,14 +46,20 @@ ListView {
 						target: txt
 						color: isParent ? dconstants.hoverColor : dconstants.activeColor
 					}
-					PropertyChanges {
-						target: sub
-						visible: isParent ? true : false
-					}
+					/* PropertyChanges { */
+					/* 	target: sub */
+					/* 	visible: isParent ? true : false */
+					/* } */
 				}
 			]
 
 			property bool isParent: subSections.count != 0
+            
+            onStateChanged: {
+                if (state == "selected" && !isParent) {
+                    root.changeIndicatorPos(main_column.parent.mapToItem(root, main_column.x, main_column.y).y)
+                }
+            }
 
 			Connections {
 				target: root
@@ -68,7 +75,7 @@ ListView {
 
 			Item {
 				width: main_column.width
-				height: 30
+				height: listview.cellHeight
 
 				Text {
 					id: txt
@@ -87,7 +94,7 @@ ListView {
 
 					onClicked: {
 						root.currentSectionId = sectionId
-                        playlist.sectionSelected(sectionId)
+                        listview.sectionSelected(sectionId)
 					}
 				}
 			}
