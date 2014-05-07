@@ -1,9 +1,9 @@
 import QtQuick 2.0
 import QtGraphicalEffects 1.0
 
-Rectangle {
+Item {
     id: slider
-    height: 40
+    height: 50
     width: 320
 
     property real min: -1
@@ -21,7 +21,7 @@ Rectangle {
     property real adsorptionPixel: 10
     property bool rulerVisible: true
 
-    color: Qt.rgba(0, 0, 0, 0)
+    property bool isBalance: false
 
     signal valueConfirmed
 
@@ -97,7 +97,7 @@ Rectangle {
         id: sliderDragArea
         anchors.verticalCenter: parent.verticalCenter
         width: grooveWidth + handleWidth - 2
-        height: grooveHeight * 2
+        height: handle.height
         clip: true
         color: Qt.rgba(1, 0, 0, 0)
         z: 10
@@ -179,7 +179,7 @@ Rectangle {
 
         Image {
             id: handle
-            source: "images/slider_handle.svg"
+            source: isBalance ? "images/slider_balance.png" : "images/slider_handle.svg"
             anchors.verticalCenter: parent.verticalCenter
 
             MouseArea {
@@ -202,6 +202,7 @@ Rectangle {
     }
     
     Item {
+        id: rulerArea
         anchors.top: sliderDragArea.bottom
         anchors.topMargin: -4
         width: realValueRect.width
@@ -210,7 +211,6 @@ Rectangle {
 
         Repeater{
             id: ruler
-
             property var xToValueDict: {
                 var rDict = {}
                 for(var i=0; i<model.count; i++){
@@ -270,6 +270,5 @@ Rectangle {
                 }
             }
         }
-
     }
 }
