@@ -56,5 +56,4 @@ DComboBox 1.0 DComboBox.qml
 DRectangle 1.0 DRectangle.qml
 DListView 1.0 DListView.qml
 DGridView 1.0 DGridView.qml
-DPopupWndow 1.0 DPopupWindow.qml
 DPreferenceView 1.0 DPreferenceView.qml
