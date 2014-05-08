@@ -16,15 +16,22 @@ Row {
     function changeIndicatorPos(pos) {
         section_indicator.pointerPos = pos + section_list.cellHeight / 2
     }
+    
+    signal sectionSelected (string sectionId)
+    signal anotherSectionCompleted ()
+
+    onSectionSelected: {
+        preference_content.scrollTo(sectionId)
+    }
+    
+    onAnotherSectionCompleted: {
+        indicate_first_timer.restart()
+    }
 
     DPreferenceSectionList {
         id: section_list
         width: root.sectionListWidth
         height: root.height
-
-        onSectionSelected: {
-            preference_content.scrollTo(sectionId)
-        }
     }
 
     DPreferenceSectionIndicator { id: section_indicator; height: root.height}
@@ -60,9 +67,10 @@ Row {
 
             Timer {
                 id: indicate_first_timer
-                interval: 100
+                interval: 200
                 onTriggered: {
                     root.currentSectionId = col.visibleChildren[0].sectionId
+                    root.sectionSelected(col.visibleChildren[0].sectionId)
                 }
             }
 
@@ -70,10 +78,6 @@ Row {
                 id: col
                 width: preference_content.width
                 height: root.height
-
-                onVisibleChildrenChanged: {
-                    indicate_first_timer.restart()
-                }
             }
         }
     }

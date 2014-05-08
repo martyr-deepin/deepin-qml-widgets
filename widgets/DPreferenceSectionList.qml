@@ -10,7 +10,6 @@ ListView {
 
 	property var sections
     property int cellHeight: 30
-    signal sectionSelected (string sectionId)
     
     DConstants { id: dconstants }
 
@@ -27,6 +26,8 @@ ListView {
 			id: main_column
 			state: "normal"
 			width: ListView.view.width
+            
+            Component.onCompleted: root.anotherSectionCompleted()
 
 			states: [
 				State {
@@ -94,7 +95,7 @@ ListView {
 
 					onClicked: {
 						root.currentSectionId = sectionId
-                        listview.sectionSelected(sectionId)
+                        root.sectionSelected(sectionId)
 					}
 				}
 			}
