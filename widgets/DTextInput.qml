@@ -14,6 +14,11 @@ FocusScope {
     property int textInputLeftMargin: 0
     property variant constants: DConstants {}
     property alias textInput: text_input
+    property bool isPassword: false
+
+    Component.onCompleted: {
+        isPassword = (echoMode == TextInput.Password)
+    }
 
     signal accepted
 
@@ -79,13 +84,38 @@ FocusScope {
             selectByMouse: true
             verticalAlignment: TextInput.AlignVCenter
             font.pixelSize: text_input.echoMode == TextInput.Password ? 18 : 12
+            echoMode: isPassword ? TextInput.Password : TextInput.Normal
 
             anchors.fill: parent
             anchors.leftMargin: 3
-            anchors.rightMargin: 3
+            anchors.rightMargin: passwordShowButton.visible ? 3 + passwordShowButton.width : 3
 
             onAccepted: {
                 root.accepted()
+            }
+        }
+
+        DImageCheckButton {
+            id: passwordShowButton
+            visible: isPassword
+            anchors.right: parent.right
+            anchors.verticalCenter: parent.verticalCenter
+            inactivatedNomralImage: "images/hidepasswd.png"
+            inactivatedHoverImage: inactivatedNomralImage
+            inactivatedPressImage: inactivatedNomralImage
+
+            activatedNomralImage: inactivatedNomralImage
+            activatedHoverImage: inactivatedNomralImage
+            activatedPressImage: inactivatedNomralImage
+
+            onClicked: {
+                if(text_input.echoMode == TextInput.Password){
+                    text_input.echoMode = TextInput.Normal
+                }
+                else{
+                    text_input.echoMode = TextInput.Password
+                }
+
             }
         }
     }
