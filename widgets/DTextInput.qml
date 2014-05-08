@@ -14,6 +14,7 @@ FocusScope {
     property int textInputLeftMargin: 0
     property variant constants: DConstants {}
     property alias textInput: text_input
+    property alias textInputBox: textInputBox
     property bool isPassword: false
 
     Component.onCompleted: {
@@ -43,7 +44,7 @@ FocusScope {
         id: text_input_box
 
         width: parent.width
-        height: 22
+        height: parent.height
         clip: true
         color: "#171717"
         radius: 3
@@ -70,6 +71,7 @@ FocusScope {
     }
 
     Item {
+        id: textInputBox
         clip: true
         anchors.fill: text_input_box
         anchors.leftMargin: root.textInputLeftMargin

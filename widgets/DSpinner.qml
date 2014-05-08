@@ -1,61 +1,104 @@
 import QtQuick 2.0
 
-Image {
-    property alias model: view.model
-    property alias delegate: view.delegate
-    property alias currentIndex: view.currentIndex
-    property real itemHeight: 30
-    property int tempStep: 0
+DTextInput {
+    property int min: 0
+    property int max: 100
+    property int step: 1
 
-    clip: true
+    property int value: parseInt(textInput.text)
 
-    PathView {
-        id: view
-        anchors.fill: parent
+    function setValue(i){
+        textInput.text = i
+    }
 
-        pathItemCount: height/itemHeight
-        preferredHighlightBegin: 0.5
-        preferredHighlightEnd: 0.5
-        highlight: Image { source: "images/spinner-select.png"; width: view.width; height: itemHeight+4 }
-        dragMargin: view.width/2
+    textInput.validator: IntValidator{bottom: min; top: max;}
 
-        path: Path {
-            startX: view.width/2; startY: -itemHeight/2
-            PathLine { x: view.width/2; y: view.pathItemCount*itemHeight + itemHeight }
+    textInput.anchors.rightMargin: 3 + buttonBox.width
+
+    Component.onCompleted: setValue(0)
+
+    Connections{
+        target: textInput
+        onTextChanged: {
+            if(textInput.text == ""){
+                textInput.text = min
+            }
         }
     }
 
-    Keys.onDownPressed: view.decrementCurrentIndex()
-    Keys.onUpPressed: view.incrementCurrentIndex()
+    Connections {
+        target: increaseButton.mouseArea
+        onPressAndHold: {
+            holdTimer.isIncrease = true
+            holdTimer.restart()
+        }
+        onReleased: {
+            holdTimer.stop()
+        }
+    }
 
-    Timer{
-        id: moveTimer
-        repeat: false
-        running: false
+    Connections {
+        target: decreaseButton.mouseArea
+        onPressAndHold: {
+            holdTimer.isIncrease = false
+            holdTimer.restart()
+        }
+        onReleased: {
+            holdTimer.stop()
+        }
+    }
+
+    Timer {
+        id: holdTimer
+        repeat: true
         interval: 50
+        property bool isIncrease: true
         onTriggered: {
-            var index = (view.currentIndex + tempStep) % view.count
-            if(index > 0){
-                view.currentIndex = index
+            if(isIncrease){
+                increase()
             }
             else{
-                view.currentIndex = view.count + index
+                decrease()
             }
-            tempStep = 0
         }
     }
 
-    MouseArea {
-        anchors.fill: parent
-        hoverEnabled: true
-        onWheel: {
-            if (wheel.angleDelta.y < 0){
-                tempStep -= 1
-            }
-            else {
-                tempStep += 1
-            }
-            moveTimer.restart()
+    function increase(){
+        if(value <= max - step){
+            setValue(value + step)
+        }
+        else{
+            setValue(max)
+        }
+    }
+
+    function decrease(){
+        if(value >= min + step){
+            setValue(value - step)
+        }
+        else{
+            setValue(min)
+        }
+    }
+
+    Row {
+        id: buttonBox
+        parent: textInputBox
+        height: parent.height
+        anchors.right: parent.right
+
+        DOpacityImageButton {
+            id: increaseButton
+            anchors.verticalCenter: parent.verticalCenter
+            source: "images/spinner_increase.png"
+            onClicked: increase()
+        }
+
+        DOpacityImageButton {
+            id: decreaseButton
+            anchors.verticalCenter: parent.verticalCenter
+            source: "images/spinner_decrease.png"
+            onClicked: decrease()
         }
     }
 }
