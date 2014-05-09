@@ -28,6 +28,7 @@ Item {
     
     RectangularGlow {
         id: shadow
+        z: -1
         anchors.fill: frame
         glowRadius: shadowRadius
         spread: 0.2

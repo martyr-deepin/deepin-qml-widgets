@@ -59,3 +59,5 @@ DGridView 1.0 DGridView.qml
 DPreferenceView 1.0 DPreferenceView.qml
 DPreferenceWindow 1.0 DPreferenceWindow.qml
 DFlickable 1.0 DFlickable.qml
+DFileChooseInput 1.0 DFileChooseInput.qml
+DFileChooseDialog 1.0 DFileChooseDialog.qml
