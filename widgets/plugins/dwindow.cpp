@@ -1,4 +1,4 @@
-#include "dwindow.h"
+#include "plugins/dwindow.h"
 
 DOverrideWindow::DOverrideWindow(QQuickWindow *parent)
     :QQuickWindow(parent)
