@@ -87,17 +87,23 @@ DTextInput {
         height: parent.height
         anchors.right: parent.right
 
-        DOpacityImageButton {
+        DImageButton {
             id: increaseButton
             anchors.verticalCenter: parent.verticalCenter
-            source: "images/spinner_increase.png"
+            normal_image: "images/spinner_increase_normal.png"
+            hover_image: "images/spinner_increase_hover.png"
+            press_image: "images/spinner_increase_press.png"
+
             onClicked: increase()
         }
 
-        DOpacityImageButton {
+        DImageButton{
             id: decreaseButton
             anchors.verticalCenter: parent.verticalCenter
-            source: "images/spinner_decrease.png"
+            normal_image: "images/spinner_decrease_normal.png"
+            hover_image: "images/spinner_decrease_hover.png"
+            press_image: "images/spinner_decrease_press.png"
+
             onClicked: decrease()
         }
     }

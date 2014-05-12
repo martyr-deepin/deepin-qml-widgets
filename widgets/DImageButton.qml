@@ -6,6 +6,8 @@ Item {
     property url normal_image
     property url hover_image
     property url press_image
+
+    property alias mouseArea: mouseArea
     
     signal clicked
 

@@ -5,11 +5,11 @@ Item {
     width: currentImage.width
     height: currentImage.height
 
-    property url inactivatedNomralImage
+    property url inactivatedNormalImage
     property url inactivatedHoverImage
     property url inactivatedPressImage
 
-    property url activatedNomralImage
+    property url activatedNormalImage
     property url activatedHoverImage
     property url activatedPressImage
 
@@ -32,7 +32,7 @@ Item {
                         return parent.activatedHoverImage
                     }
                     else{
-                        return parent.activatedNomralImage
+                        return parent.activatedNormalImage
                     }
                 }
             }
@@ -45,7 +45,7 @@ Item {
                         return parent.inactivatedHoverImage
                     }
                     else{
-                        return parent.inactivatedNomralImage
+                        return parent.inactivatedNormalImage
                     }
                 }
             }

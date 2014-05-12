@@ -102,13 +102,13 @@ FocusScope {
             visible: isPassword
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
-            inactivatedNomralImage: "images/hidepasswd.png"
-            inactivatedHoverImage: inactivatedNomralImage
-            inactivatedPressImage: inactivatedNomralImage
+            inactivatedNormalImage: "images/password_show_normal.png"
+            inactivatedHoverImage: "images/password_show_hover.png"
+            inactivatedPressImage: "images/password_show_press.png"
 
-            activatedNomralImage: inactivatedNomralImage
-            activatedHoverImage: inactivatedNomralImage
-            activatedPressImage: inactivatedNomralImage
+            activatedNormalImage: "images/password_hide_normal.png"
+            activatedHoverImage: "images/password_hide_hover.png"
+            activatedPressImage: "images/password_hide_press.png"
 
             onClicked: {
                 if(text_input.echoMode == TextInput.Password){
@@ -117,7 +117,6 @@ FocusScope {
                 else{
                     text_input.echoMode = TextInput.Password
                 }
-
             }
         }
     }
