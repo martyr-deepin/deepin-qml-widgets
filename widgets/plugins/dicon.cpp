@@ -17,7 +17,6 @@ DIcon::DIcon(QQuickPaintedItem *parent)
     searchPaths.append("/usr/local/share/icons");
     searchPaths.append("/usr/share/icons");
     searchPaths.append(":/icons");
-    qDebug() << "Icon searchPaths:" << searchPaths.join(", ");
     QIcon::setThemeSearchPaths(searchPaths);
 }
 
@@ -48,6 +47,10 @@ void DIcon::paint(QPainter *painter)
     QIcon::setThemeName(m_theme);
     QIcon icon = QIcon::fromTheme(m_icon);
     QPixmap pixmap = icon.pixmap(this->width(), this->height());
+    if(pixmap.isNull()){
+        icon = QIcon::fromTheme("application-default-icon");
+        pixmap = icon.pixmap(this->width(), this->height());
+    }
 
     QRect rect = QRect(0, 0, this->width(), this->height());
     painter->drawPixmap(rect, pixmap, rect);
