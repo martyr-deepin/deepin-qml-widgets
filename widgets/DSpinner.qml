@@ -2,7 +2,7 @@ import QtQuick 2.0
 
 DTextInput {
     property int min: 0
-    property int max: 100
+    property int max: 65535
     property int step: 1
 
     property int value: parseInt(textInput.text)
@@ -14,8 +14,6 @@ DTextInput {
     textInput.validator: IntValidator{bottom: min; top: max;}
 
     textInput.anchors.rightMargin: 3 + buttonBox.width
-
-    Component.onCompleted: setValue(0)
 
     Connections{
         target: textInput
