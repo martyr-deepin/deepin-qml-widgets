@@ -90,6 +90,7 @@ Item {
     MouseArea {
         id: mouse_area
         anchors.fill: parent
+        visible: enabled
 
         onClicked: {
             checked = !checked

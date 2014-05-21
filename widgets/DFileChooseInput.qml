@@ -6,13 +6,12 @@ DTextInput {
     signal fileChooseClicked
 
     textInput.anchors.rightMargin: 3 + buttonBox.width
-    Rectangle {
+    Item {
         id: buttonBox
         parent: textInputBox
         width: childrenRect.width
         height: parent.height
         anchors.right: parent.right
-        color: constants.bgColor
         z: 10
 
         Rectangle {
@@ -21,10 +20,29 @@ DTextInput {
             color: Qt.rgba(1, 1, 1, 0.1)
         }
 
-        DOpacityImageButton {
+        Rectangle {
+            width: parent.width - 1
+            height: parent.height
+            anchors.right: parent.right
+            radius: 3
+            gradient: Gradient {
+                GradientStop {
+                    position: 0.0
+                    color: increaseButton.pressed ? Qt.rgba(0, 0, 0, 0.05) : Qt.rgba(1, 1, 1, 0.05)
+                }
+                GradientStop {
+                    position: 1.0
+                    color: increaseButton.pressed ? Qt.rgba(0, 0, 0, 0) : Qt.rgba(1, 1, 1, 0)
+                }
+            } 
+        }
+
+        DImageButton {
             id: increaseButton
             anchors.verticalCenter: parent.verticalCenter
-            source: "images/file_choose.png"
+            normal_image: "images/file_choose.png"
+            hover_image: normal_image
+            press_image: normal_image
             onClicked: fileChooseInput.fileChooseClicked()
         }
     }

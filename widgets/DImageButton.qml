@@ -11,6 +11,8 @@ Item {
     
     signal clicked
 
+    property bool pressed: state == "pressed"
+
     states: [
         State {
             name: "hovered"

@@ -97,25 +97,53 @@ FocusScope {
             }
         }
 
-        DImageCheckButton {
-            id: passwordShowButton
-            visible: isPassword
+        Item {
+            width: passwordShowButton.width
+            height: parent.height
             anchors.right: parent.right
-            anchors.verticalCenter: parent.verticalCenter
-            inactivatedNormalImage: "images/password_show_normal.png"
-            inactivatedHoverImage: "images/password_show_hover.png"
-            inactivatedPressImage: "images/password_show_press.png"
+            visible: isPassword
 
-            activatedNormalImage: "images/password_hide_normal.png"
-            activatedHoverImage: "images/password_hide_hover.png"
-            activatedPressImage: "images/password_hide_press.png"
+            Rectangle {
+                width: 1
+                height: parent.height
+                color: Qt.rgba(1, 1, 1, 0.1)
+            }
 
-            onClicked: {
-                if(text_input.echoMode == TextInput.Password){
-                    text_input.echoMode = TextInput.Normal
-                }
-                else{
-                    text_input.echoMode = TextInput.Password
+            Rectangle {
+                width: parent.width - 1
+                height: parent.height
+                anchors.right: parent.right
+                radius: 3
+                gradient: Gradient {
+                    GradientStop {
+                        position: 0.0
+                        color: passwordShowButton.pressed ? Qt.rgba(0, 0, 0, 0.05) : Qt.rgba(1, 1, 1, 0.05)
+                    }
+                    GradientStop {
+                        position: 1.0
+                        color: passwordShowButton.pressed ? Qt.rgba(0, 0, 0, 0) : Qt.rgba(1, 1, 1, 0)
+                    }
+                } 
+            }
+
+            DImageCheckButton {
+                id: passwordShowButton
+                anchors.verticalCenter: parent.verticalCenter
+                inactivatedNormalImage: "images/password_show_normal.png"
+                inactivatedHoverImage: "images/password_show_hover.png"
+                inactivatedPressImage: "images/password_show_press.png"
+
+                activatedNormalImage: "images/password_hide_normal.png"
+                activatedHoverImage: "images/password_hide_hover.png"
+                activatedPressImage: "images/password_hide_press.png"
+
+                onClicked: {
+                    if(text_input.echoMode == TextInput.Password){
+                        text_input.echoMode = TextInput.Normal
+                    }
+                    else{
+                        text_input.echoMode = TextInput.Password
+                    }
                 }
             }
         }
