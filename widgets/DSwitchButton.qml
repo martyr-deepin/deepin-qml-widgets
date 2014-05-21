@@ -8,9 +8,9 @@ Item {
     height: 24
     
     property bool checked: false
-    property bool pressed: false
+    property bool enabled: true
 
-    state: checked ? "on" : "off"
+    state: { enabled ? checked ? "on" : "off" : "disabled" }
 
     signal clicked
 
@@ -43,6 +43,7 @@ Item {
         width: 55
         height: 24
         color: "transparent"
+        anchors.verticalCenter: parent.verticalCenter
 
         Image {
             id: inner_image
@@ -50,7 +51,13 @@ Item {
 
             anchors.verticalCenter: parent.verticalCenter
         }
-        anchors.verticalCenter: parent.verticalCenter
+
+        Desaturate {
+            id: desaturate
+            anchors.fill: inner_image
+            source: inner_image
+            desaturation: 1
+        }
     }
 
     OpacityMask {
@@ -62,23 +69,31 @@ Item {
     states:  [
         State {
             name: "on"
-            PropertyChanges { target: inner_image; x: 0}
+            PropertyChanges { target: inner_image; x: 0 }
+            PropertyChanges { target: mouse_area; enabled: true }
+            PropertyChanges { target: desaturate; visible: false }
         },
         State {
             name: "off"
-            PropertyChanges { target: inner_image; x: -34}
+            PropertyChanges { target: inner_image; x: -34 }
+            PropertyChanges { target: mouse_area; enabled: true }
+            PropertyChanges { target: desaturate; visible: false }
+        },
+        State {
+            name: "disabled"
+            PropertyChanges { target: inner_image; x: inner_image.x }
+            PropertyChanges { target: mouse_area; enabled: false }
+            PropertyChanges { target: desaturate; visible: true }
         }
     ]
 
     MouseArea {
+        id: mouse_area
         anchors.fill: parent
-        onPressed: {
-            parent.pressed = true
-        }
-        onReleased: {
+
+        onClicked: {
             checked = !checked
             root.clicked()
-            parent.pressed = false
         }
     }
 }
