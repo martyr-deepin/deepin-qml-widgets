@@ -47,17 +47,16 @@ Item {
 
         Image {
             id: inner_image
-            source: "images/switch_inner.svg"
 
             anchors.verticalCenter: parent.verticalCenter
         }
 
-        Desaturate {
-            id: desaturate
-            anchors.fill: inner_image
-            source: inner_image
-            desaturation: 1
-        }
+        /* Desaturate { */
+        /*     id: desaturate */
+        /*     anchors.fill: inner_image */
+        /*     source: inner_image */
+        /*     desaturation: 1 */
+        /* } */
     }
 
     OpacityMask {
@@ -69,21 +68,21 @@ Item {
     states:  [
         State {
             name: "on"
-            PropertyChanges { target: inner_image; x: 0 }
+            PropertyChanges { target: inner_image; x: 0; source: "images/switch_inner.svg" }
             PropertyChanges { target: mouse_area; enabled: true }
-            PropertyChanges { target: desaturate; visible: false }
+            /* PropertyChanges { target: desaturate; visible: false } */
         },
         State {
             name: "off"
-            PropertyChanges { target: inner_image; x: -34 }
+            PropertyChanges { target: inner_image; x: -34; source: "images/switch_inner.svg" }
             PropertyChanges { target: mouse_area; enabled: true }
-            PropertyChanges { target: desaturate; visible: false }
+            /* PropertyChanges { target: desaturate; visible: false } */
         },
         State {
             name: "disabled"
-            PropertyChanges { target: inner_image; x: inner_image.x }
+            PropertyChanges { target: inner_image; x: inner_image.x; source: "images/switch_inner_insensitive.svg" }
             PropertyChanges { target: mouse_area; enabled: false }
-            PropertyChanges { target: desaturate; visible: true }
+            /* PropertyChanges { target: desaturate; visible: true } */
         }
     ]
 
