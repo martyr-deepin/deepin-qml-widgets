@@ -15,6 +15,7 @@ int main(int argc, char* argv[])
         qmlRegisterType<ExternalObject>("Helper", 1,0, "ExternalObject");
 
         QmlLoader* qmlLoader = new QmlLoader();
+        qmlLoader->rootContext->setContextProperty("mainObject", qmlLoader);
         qmlLoader->load(QUrl("qrc:///qml/main.qml"));
         QObject::connect(qmlLoader->engine, SIGNAL(quit()), QCoreApplication::instance(), SLOT(quit()));
 

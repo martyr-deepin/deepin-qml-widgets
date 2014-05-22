@@ -4,6 +4,7 @@
 #include <QProcess>
 #include <QDebug>
 #include <QDBusConnection>
+#include <QCoreApplication>
 
 #include "qmlloader.h"
 
@@ -35,6 +36,12 @@ void QmlLoader::load(QUrl url)
         qWarning() << this->component->errorString();
 }
 
+void QmlLoader::actionInvoked(int appId, QString actionId)
+{
+    Q_EMIT m_dbus_proxy->ActionInvoked(appId, actionId);
+    QCoreApplication::exit(0);
+}
+
 
 DBusProxy::DBusProxy(QmlLoader *parent):
     QDBusAbstractAdaptor(parent),
@@ -48,7 +55,16 @@ DBusProxy::~DBusProxy()
 
 }
 
-void DBusProxy::Show(QString icon, QString message, QStringList actions)
+int DBusProxy::Show(QString icon, QString message, QStringList actions)
 {
-    QMetaObject::invokeMethod(m_parent->rootObject, "showDialog", Q_ARG(QVariant, icon), Q_ARG(QVariant, message), Q_ARG(QVariant, actions));
+    QVariant appId;
+    QMetaObject::invokeMethod(
+                m_parent->rootObject,
+                "showDialog",
+                Q_RETURN_ARG(QVariant, appId),
+                Q_ARG(QVariant, icon),
+                Q_ARG(QVariant, message),
+                Q_ARG(QVariant, actions)
+                );
+    return appId.toInt();
 }

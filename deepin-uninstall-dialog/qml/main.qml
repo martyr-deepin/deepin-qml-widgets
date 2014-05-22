@@ -13,11 +13,26 @@ Window {
     height: 100
 
     property var externalObject: ExternalObject{}
+    property int appId: 0
+
+    signal actionInvoked(string actionId)
 
     function showDialog(icon, message, actions){
         appIcon.icon = icon
         messageLabel.text = message
+        var actionNumber = parseInt(actions.length / 2)
+
+        buttonRepeater.model.clear()
+        appId += 1
+        for(var i=0;i<actionNumber; i++){
+            buttonRepeater.model.append({
+                "actionId": actions[i*2],
+                "label": actions[i*2 + 1],
+                "appId": appId
+            })
+        }
         show()
+        return appId
     }
 
     DialogBox {
@@ -74,19 +89,15 @@ Window {
             anchors.bottomMargin: 6
             spacing: 6
 
-            DTransparentButton {
-                text: "No"
-                onClicked: {
-                    //externalObject.exitWithCode(0)
-                    Qt.quit()
-                }
-            }
+            Repeater {
+                id: buttonRepeater
+                model: ListModel {}
+                delegate: DTransparentButton {
+                    text: label
+                    onClicked: {
+                        mainObject.actionInvoked(appId, actionId)
+                    }
 
-            DTransparentButton {
-                text: "Yes"
-                onClicked: {
-                    //externalObject.exitWithCode(1)
-                    Qt.quit()
                 }
             }
         }

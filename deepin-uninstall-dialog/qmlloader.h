@@ -23,6 +23,8 @@ public:
     QObject * rootObject;
 
     void load(QUrl url);
+
+    Q_INVOKABLE void actionInvoked(int appId, QString actionId);
 private:
     DBusProxy * m_dbus_proxy;
 };
@@ -35,7 +37,7 @@ public:
     DBusProxy(QmlLoader* parent);
     ~DBusProxy();
 
-    Q_SLOT void Show(QString icon, QString message, QStringList actions);
+    Q_SLOT int Show(QString icon, QString message, QStringList actions);
 
     Q_SIGNAL void ActionInvoked(int, QString);
 
