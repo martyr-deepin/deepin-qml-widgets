@@ -46,6 +46,11 @@ void DIcon::paint(QPainter *painter)
 {
     QIcon::setThemeName(m_theme);
     QIcon icon = QIcon::fromTheme(m_icon);
+
+    if(QFile::exists(m_icon)){
+        icon = QIcon(m_icon);
+    }
+
     QPixmap pixmap = icon.pixmap(this->width(), this->height());
     if(pixmap.isNull()){
         icon = QIcon::fromTheme("application-default-icon");
