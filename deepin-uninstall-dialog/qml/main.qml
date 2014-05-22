@@ -15,7 +15,7 @@ Window {
     property var externalObject: ExternalObject{}
 
     function showDialog(icon, message, actions){
-        icon.icon = icon
+        appIcon.icon = icon
         messageLabel.text = message
         show()
     }
@@ -46,7 +46,7 @@ Window {
         }
 
         DIcon {
-            id: icon
+            id: appIcon
             width: 64
             height: 64
             theme: "Deepin"
@@ -58,12 +58,12 @@ Window {
 
         DLabel {
             id: messageLabel
-            anchors.left: icon.right
+            anchors.left: appIcon.right
             anchors.leftMargin: 24
-            anchors.top: icon.top
+            anchors.top: appIcon.top
             font.pixelSize: 14
             text: "您确定要卸载“深度影院”吗？"
-            width: parent.width - icon.width - icon.anchors.leftMargin * 2 - anchors.leftMargin
+            width: parent.width - appIcon.width - appIcon.anchors.leftMargin * 2 - anchors.leftMargin
             wrapMode: TextEdit.WordWrap
         }
 

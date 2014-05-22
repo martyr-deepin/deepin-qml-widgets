@@ -40,9 +40,9 @@ DTextInput {
         DImageButton {
             id: increaseButton
             anchors.verticalCenter: parent.verticalCenter
-            normal_image: "images/file_choose.png"
-            hover_image: normal_image
-            press_image: normal_image
+            normal_image: "images/loadfile_normal.png"
+            hover_image: "images/loadfile_hover.png"
+            press_image: "images/loadfile_press.png"
             onClicked: fileChooseInput.fileChooseClicked()
         }
     }
