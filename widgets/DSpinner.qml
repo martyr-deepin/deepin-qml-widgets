@@ -21,6 +21,12 @@ DTextInput {
             if(textInput.text == ""){
                 textInput.text = min
             }
+            if (parseInt(textInput.text) < min) {
+                textInput.text = min
+            }
+            if (parseInt(textInput.text) > max) {
+                textInput.text = max
+            }
         }
     }
 
