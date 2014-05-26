@@ -36,17 +36,17 @@ DTextInput {
             } 
         }
 
-        // TODO center image
-        // DImageButton {
-        DTextButton {
-            id: dropDownButton
-            // width: 25
-            text: "..."
-            anchors.verticalCenter: parent.verticalCenter
-            // normal_image: "images/arrow_down_normal.png"
-            // hover_image: "images/arrow_down_hover.png"
-            // press_image: "images/arrow_down_press.png"
-            onClicked: editComboBox.clicked()
+        Item {
+            width: 24
+            height: parent.height
+            DImageButton {
+                id: dropDownButton
+                anchors.centerIn: parent
+                normal_image: "images/arrow_down_normal.png"
+                hover_image: "images/arrow_down_hover.png"
+                press_image: "images/arrow_down_press.png"
+                onClicked: editComboBox.clicked()
+            }
         }
     }
 }
