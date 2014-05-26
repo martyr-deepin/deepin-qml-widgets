@@ -62,3 +62,4 @@ DPreferenceWindow 1.0 DPreferenceWindow.qml
 DFlickable 1.0 DFlickable.qml
 DFileChooseInput 1.0 DFileChooseInput.qml
 DFileChooseDialog 1.0 DFileChooseDialog.qml
+DEditComboBox 1.0 DEditComboBox.qml

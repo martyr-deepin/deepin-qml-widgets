@@ -36,16 +36,13 @@ DTextInput {
             } 
         }
 
-        // TODO center image
-        // DImageButton {
-        DTextButton {
+        // TODO padding image
+        DImageButton {
             id: dropDownButton
-            // width: 25
-            text: "..."
             anchors.verticalCenter: parent.verticalCenter
-            // normal_image: "images/arrow_down_normal.png"
-            // hover_image: "images/arrow_down_hover.png"
-            // press_image: "images/arrow_down_press.png"
+            normal_image: "images/arrow_down_normal.png"
+            hover_image: "images/arrow_down_hover.png"
+            press_image: "images/arrow_down_press.png"
             onClicked: editComboBox.clicked()
         }
     }
