@@ -2,17 +2,15 @@ import QtQuick 2.1
 import QtQuick.Window 2.1
 import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
-import Helper 1.0
 
-Window {
+DWindow {
     id: messageBox
     color: "transparent"
     flags: Qt.Dialog | Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint
 
-    width: 360
-    height: 100
+    width: 388
+    height: 128
 
-    property var externalObject: ExternalObject{}
     property int appId: 0
 
     signal actionInvoked(string actionId)
@@ -35,29 +33,14 @@ Window {
         return appId
     }
 
-    DialogBox {
+    DDialogBox {
         id: window
         anchors.fill: parent
         radius: 5
 
-        MouseArea {
+        DDragableArea {
             anchors.fill: parent
-
-            property int startX
-            property int startY
-            property bool holdFlag
-            onPressed: {
-                startX = mouse.x;
-                startY = mouse.y;
-                holdFlag = true;
-            }
-            onReleased: holdFlag = false;
-            onPositionChanged: {
-                if (holdFlag) {
-                    messageBox.setX(messageBox.x + mouse.x - startX)
-                    messageBox.setY(messageBox.y + mouse.y - startY)
-                }
-            }
+            window: messageBox
         }
 
         DIcon {

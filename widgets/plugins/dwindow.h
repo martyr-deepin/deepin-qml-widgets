@@ -4,6 +4,9 @@
 #include <QQuickItem>
 #include <QQuickWindow>
 
+class DWindow;
+class DOverrideWindow;
+
 class DWindow: public QQuickWindow
 {
     Q_OBJECT
@@ -12,15 +15,17 @@ class DWindow: public QQuickWindow
 public:
     DWindow(QQuickWindow *parent = 0);
     ~DWindow();
+
+    Q_INVOKABLE QPoint getCursorPos();
 };
 
-class DOverrideWindow: public QQuickWindow
+class DOverrideWindow: public DWindow
 {
     Q_OBJECT
     Q_DISABLE_COPY(DOverrideWindow)
 
 public:
-    DOverrideWindow(QQuickWindow *parent = 0);
+    DOverrideWindow(DWindow *parent = 0);
     ~DOverrideWindow();
 protected:
     void mousePressEvent(QMouseEvent *ev);

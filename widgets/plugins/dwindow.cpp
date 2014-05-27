@@ -1,7 +1,8 @@
 #include "plugins/dwindow.h"
+#include <QCursor>
 
-DOverrideWindow::DOverrideWindow(QQuickWindow *parent)
-    :QQuickWindow(parent)
+DOverrideWindow::DOverrideWindow(DWindow *parent)
+    :DWindow(parent)
 {
     QSurfaceFormat sformat;
     sformat.setAlphaBufferSize(8);
@@ -26,6 +27,11 @@ DWindow::DWindow(QQuickWindow *parent)
 
 DWindow::~DWindow()
 {
+}
+
+QPoint DWindow::getCursorPos()
+{
+    return QCursor::pos();
 }
 
 void DOverrideWindow::mousePressEvent(QMouseEvent *ev){

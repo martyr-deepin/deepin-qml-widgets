@@ -1,6 +1,6 @@
 TEMPLATE = lib
 TARGET = DeepinWidgets
-QT += qml quick
+QT += qml quick gui
 CONFIG += qt plugin
 
 HEADERS += \
