@@ -15,6 +15,7 @@ FocusScope {
     property variant constants: DConstants {}
     property alias textInput: text_input
     property alias textInputBox: textInputBox
+    property alias readOnly: text_input.readOnly
     property bool isPassword: false
 
     Component.onCompleted: {
