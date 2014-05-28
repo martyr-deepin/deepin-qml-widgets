@@ -4,15 +4,13 @@
 #include <QDebug>
 #include <QDBusConnection>
 
-#include "helper.h"
 #include "qmlloader.h"
 
 int main(int argc, char* argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_X11InitThreads, true);
     QGuiApplication app(argc, argv);
-    if(QDBusConnection::sessionBus().registerService("com.deepin.dialog.uninstall")){
-        qmlRegisterType<ExternalObject>("Helper", 1,0, "ExternalObject");
+    if(QDBusConnection::sessionBus().registerService("com.deepin.dialog")){
 
         QmlLoader* qmlLoader = new QmlLoader();
         qmlLoader->rootContext->setContextProperty("mainObject", qmlLoader);

@@ -3,11 +3,9 @@ TEMPLATE = app
 QT += quick qml gui core dbus
 
 SOURCES += main.cpp \
-    helper.cpp \
     qmlloader.cpp
 
 HEADERS += \
-    helper.h \
     qmlloader.h
 
 RESOURCES += \
@@ -21,7 +19,7 @@ BINDIR = $$PREFIX/bin
 
 target.path =$$BINDIR
 
-service.files += data/com.deepin.dialog.uninstall.service
+service.files += data/com.deepin.dialog.service
 service.path = /usr/share/dbus-1/services/
 
 INSTALLS += target service

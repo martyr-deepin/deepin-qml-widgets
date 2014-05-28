@@ -31,15 +31,15 @@ private:
 
 class DBusProxy : public QDBusAbstractAdaptor {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "com.deepin.dialog.uninstall")
+    Q_CLASSINFO("D-Bus Interface", "com.deepin.dialog")
 
 public:
     DBusProxy(QmlLoader* parent);
     ~DBusProxy();
 
-    Q_SLOT int Show(QString icon, QString message, QStringList actions);
+    Q_SLOT int ShowUninstall(QString icon, QString message, QString warning, QStringList actions);
 
-    Q_SIGNAL void ActionInvoked(int, QString);
+    Q_SIGNAL void ActionInvoked(int appId, QString actionId);
 
 private:
     QmlLoader* m_parent;

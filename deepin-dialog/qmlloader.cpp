@@ -47,7 +47,7 @@ DBusProxy::DBusProxy(QmlLoader *parent):
     QDBusAbstractAdaptor(parent),
     m_parent(parent)
 {
-    QDBusConnection::sessionBus().registerObject("/com/deepin/dialog/uninstall", parent);
+    QDBusConnection::sessionBus().registerObject("/com/deepin/dialog", parent);
 }
 
 DBusProxy::~DBusProxy()
@@ -55,7 +55,7 @@ DBusProxy::~DBusProxy()
 
 }
 
-int DBusProxy::Show(QString icon, QString message, QStringList actions)
+int DBusProxy::ShowUninstall(QString icon, QString message, QString warning, QStringList actions)
 {
     QVariant appId;
     QMetaObject::invokeMethod(
@@ -64,6 +64,7 @@ int DBusProxy::Show(QString icon, QString message, QStringList actions)
                 Q_RETURN_ARG(QVariant, appId),
                 Q_ARG(QVariant, icon),
                 Q_ARG(QVariant, message),
+                Q_ARG(QVariant, warning),
                 Q_ARG(QVariant, actions)
                 );
     return appId.toInt();
