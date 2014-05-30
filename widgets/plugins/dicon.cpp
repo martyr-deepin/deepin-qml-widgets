@@ -4,6 +4,7 @@
 #include <QStringList>
 #include <QDebug>
 #include <QPainter>
+#include <QProcess>
 
 #include "plugins/dicon.h"
 
@@ -42,6 +43,21 @@ void DIcon::setIcon(const QString &v)
     this->update(rect);
 }
 
+QString searchPixmaps(QString key){
+    QStringList searchPaths;
+    searchPaths << "/usr/share/pixmaps/" << "/usr/local/share/pixmaps/" << "/usr/share/icons/" << "/usr/local/share/icons/";
+    for(int i=0; i<searchPaths.length();i++){
+        QDir dir(searchPaths[i]);
+        QStringList filters;
+        filters << key + "*";
+        QStringList allFiles = dir.entryList(filters);
+        if(allFiles.length() > 0){
+            return searchPaths[i] + allFiles[0];
+        }
+    }
+    return "";
+}
+
 void DIcon::paint(QPainter *painter)
 {
     QIcon::setThemeName(m_theme);
@@ -52,11 +68,19 @@ void DIcon::paint(QPainter *painter)
     }
 
     QPixmap pixmap = icon.pixmap(this->width(), this->height());
+
     if(pixmap.isNull()){
-        icon = QIcon::fromTheme("application-default-icon");
+        QString pixmapPath = searchPixmaps(m_icon);
+        if(QFile::exists(pixmapPath)){
+            icon = QIcon(pixmapPath);
+        }
+        else{
+            icon = QIcon::fromTheme("application-default-icon");
+        }
         pixmap = icon.pixmap(this->width(), this->height());
     }
-
+    pixmap = pixmap.scaled(this->width(), this->height());
+    qDebug() << "pixmap size:" << pixmap.width() << "x" << pixmap.height();
     QRect rect = QRect(0, 0, this->width(), this->height());
     painter->drawPixmap(rect, pixmap, rect);
 }
