@@ -67,3 +67,4 @@ DDragableArea 1.0 DDragableArea.qml
 DDialogBox 1.0 DDialogBox.qml
 DCheckBox 1.0 DCheckBox.qml
 DRadio 1.0 DRadio.qml
+DGroupBox 1.0 DGroupBox
