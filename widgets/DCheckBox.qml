@@ -6,23 +6,9 @@ CheckBox {
     text: "hello"
     style: CheckBoxStyle {
         background: Item {}
-        indicator: Rectangle {
-            radius: 3
-            width: 14
-            height: 14
-            color: "transparent"
-            border.width: 1
-            border.color: Qt.rgba(1, 1, 1, 0.5)
-
-            Rectangle {
-                width: 8
-                height: 8
-                radius: 2
-                color: Qt.rgba(1, 1, 1, 0.5)
-                visible: control.checked
-
-                anchors.centerIn: parent
-            }
+        indicator: Image {
+            source: control.checked ? control.hovered ? "images/checkbox_checked_hover.png" : "images/checkbox_checked.png" 
+                                    : control.hovered ? "images/checkbox_unchecked_hover.png" : "images/checkbox_unchecked.png"
         }
         label: Text {
             color: Qt.rgba(1, 1, 1, 0.5)
