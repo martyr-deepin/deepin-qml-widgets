@@ -63,6 +63,9 @@ void DIcon::paint(QPainter *painter)
     QIcon::setThemeName(m_theme);
     QIcon icon = QIcon::fromTheme(m_icon);
 
+    if(m_icon.startsWith("file://")){
+        m_icon = m_icon.replace("file://", "");
+    }
     if(QFile::exists(m_icon)){
         icon = QIcon(m_icon);
     }
@@ -80,7 +83,7 @@ void DIcon::paint(QPainter *painter)
         pixmap = icon.pixmap(this->width(), this->height());
     }
     pixmap = pixmap.scaled(this->width(), this->height());
-    qDebug() << "pixmap size:" << pixmap.width() << "x" << pixmap.height();
+    //qDebug() << "pixmap size:" << pixmap.width() << "x" << pixmap.height();
     QRect rect = QRect(0, 0, this->width(), this->height());
     painter->drawPixmap(rect, pixmap, rect);
 }

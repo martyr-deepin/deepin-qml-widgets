@@ -13,6 +13,29 @@ Item {
 
     signal clicked
 
+    property var parentWindow
+
+    property var popupWin: DPopupWindow {
+        parentWindow: combobox.parentWindow
+    }
+
+    function showMenu(x, y, w, h) {
+        popupWin.x = x
+        popupWin.y = y
+        popupWin.width = w
+        popupWin.height = h
+        popupWin.visible = true
+    }
+
+    onClicked: {
+        var pos = mapToItem(null, 0, 0)
+        var x = parentWindow.x + pos.x
+        var y = parentWindow.y + pos.y + height
+        var w = width
+        var h = 200
+        showMenu(x, y, w, h)
+    }
+
     QtObject {
         id: buttonImage
         property string status: "normal"
