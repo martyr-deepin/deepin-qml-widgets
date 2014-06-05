@@ -9,10 +9,6 @@ Window {
     height: 300
     color: "transparent"
 
-    DWindowFrame {
-        anchors.fill: parent
-    }
-
     property var parentWindow: null
 
     function isInRect(pos, rect){
@@ -39,6 +35,5 @@ Window {
             }
         }
     }
-
 }
 

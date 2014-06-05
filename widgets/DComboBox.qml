@@ -10,21 +10,22 @@ Item {
     property bool pressed: false
 
     property alias text: currentLabel.text
+    property var labels
 
     signal clicked
 
     property var parentWindow
 
-    property var popupWin: DPopupWindow {
+    property var menu: DMenu {
         parentWindow: combobox.parentWindow
+        labels: combobox.labels
     }
 
-    function showMenu(x, y, w, h) {
-        popupWin.x = x
-        popupWin.y = y
-        popupWin.width = w
-        popupWin.height = h
-        popupWin.visible = true
+    function showMenu(x, y, w) {
+        menu.x = x - menu.frameEdge
+        menu.y = y - menu.frameEdge
+        menu.width = w + menu.frameEdge * 2
+        menu.visible = true
     }
 
     onClicked: {
@@ -32,8 +33,7 @@ Item {
         var x = parentWindow.x + pos.x
         var y = parentWindow.y + pos.y + height
         var w = width
-        var h = 200
-        showMenu(x, y, w, h)
+        showMenu(x, y, w)
     }
 
     QtObject {

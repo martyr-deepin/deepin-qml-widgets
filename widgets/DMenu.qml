@@ -24,51 +24,52 @@
 import QtQuick 2.1
 import QtQuick.Window 2.1
 
-DWindowFrame{
-    id: popupWindow
-    z: 99
-
-    property int innerWidth: 50
+DPopupWindow {
+    id: menuPopupWindow
+    property int frameEdge: menuFrame.shadowRadius + menuFrame.frameRadius
+    property int minWidth: 30
     property real posX: 0
     property real posY: 0
-
-    property alias currentIndex: completeView.currentIndex
 
     x: posX - 28
     y: posY - 12
 
-    width: innerWidth + 24
+    width: minWidth + 24
     height: completeViewBox.height + 32
+
+    property alias currentIndex: completeView.currentIndex
+    property var labels
     visible: false
 
-    property var labels: []
-    property Item requestMenuItem: popupWindow
+    signal menuSelect(int index)
 
-    function menuSelect(i){}
+    DWindowFrame {
+        id: menuFrame
+        anchors.fill: parent
 
-    Item {
-        id: completeViewBox
-        anchors.centerIn: parent
-        width: parent.width - 6
-        height: childrenRect.height
-
-        ListView {
-            id: completeView
-            width: parent.width
+        Item {
+            id: completeViewBox
+            anchors.centerIn: parent
+            width: parent.width - 6
             height: childrenRect.height
-            model: labels
-            delegate: DMenuItem {
-                text: labels[index]
-                onSelectAction:{
-                    popupWindow.visible = false
-                    if(popupWindow.requestMenuItem){
-                        popupWindow.requestMenuItem.menuSelect(index)
+
+            ListView {
+                id: completeView
+                width: parent.width
+                height: childrenRect.height
+                model: labels
+                delegate: DMenuItem {
+                    text: labels[index]
+                    onSelectAction:{
+                        menuPopupWindow.visible = false
+                        menuPopupWindow.menuSelect(index)
                     }
                 }
+                clip: true
+                interactive: false
             }
-            clip: true
-            interactive: false
         }
+
     }
 
 }
