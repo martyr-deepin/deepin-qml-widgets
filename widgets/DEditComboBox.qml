@@ -8,6 +8,7 @@ DTextInput {
 
     property var parentWindow
     property var labels
+    property var values
     property int selectIndex: -1
     onSelectIndexChanged: menu.currentIndex = selectIndex
 
@@ -16,7 +17,11 @@ DTextInput {
 
     Component.onCompleted: {
         if(selectIndex != -1){
-            text = menu.labels[selectIndex]
+            if (values) {
+                text = values[selectIndex]
+            } else {
+                text = menu.labels[selectIndex]
+            }
             menu.currentIndex = selectIndex
         }
     }
@@ -28,7 +33,11 @@ DTextInput {
         onMenuSelect: {
             editComboBox.menuSelect(index)
             selectIndex = index
-            editComboBox.text = menu.labels[selectIndex]
+            if (values) {
+                editComboBox.text = values[selectIndex]
+            } else {
+                editComboBox.text = menu.labels[selectIndex]
+            }
         }
     }
 
