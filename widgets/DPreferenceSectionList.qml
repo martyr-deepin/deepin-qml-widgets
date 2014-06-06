@@ -92,7 +92,7 @@ ListView {
                     hoverEnabled: true
 					anchors.fill: parent
                     
-                    onEntered: main_column.state  = "hover"
+                    onEntered: root.currentSectionId == sectionId ? main_column.state = "selected" : main_column.state = "hover"
                     onExited: root.currentSectionId == sectionId ? main_column.state = "selected" : main_column.state = "normal"
 
 					onClicked: {
