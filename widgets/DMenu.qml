@@ -60,6 +60,7 @@ DPopupWindow {
                 width: parent.width
                 height: maxHeight != -1 ? Math.min(childrenHeight, maxHeight) : childrenHeight
                 property int childrenHeight: childrenRect.height
+                maximumFlickVelocity: 1000
                 model: labels
                 delegate: DMenuItem {
                     text: labels[index]
