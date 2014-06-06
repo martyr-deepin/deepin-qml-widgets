@@ -82,7 +82,6 @@ ListView {
 					text: sectionName
                     elide: Text.ElideRight
 					font.pixelSize: 13
-                    font.family: "Arial"
 
                     anchors.left: parent.left
                     anchors.leftMargin: 10
