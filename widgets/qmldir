@@ -70,3 +70,4 @@ DRadio 1.0 DRadio.qml
 DGroupBox 1.0 DGroupBox.qml
 DPopupWindow 1.0 DPopupWindow.qml
 DPopupRoundItem 1.0 DPopupRoundItem.qml
+DLinkText 1.0 DLinkText.qml
