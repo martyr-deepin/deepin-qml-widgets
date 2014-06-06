@@ -81,8 +81,7 @@ ListView {
 					id: txt
 					text: sectionName
                     elide: Text.ElideRight
-					font.pixelSize: 13
-
+					font.pixelSize: 15
                     anchors.left: parent.left
                     anchors.leftMargin: 10
 					anchors.verticalCenter: parent.verticalCenter
