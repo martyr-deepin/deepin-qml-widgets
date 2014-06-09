@@ -11,6 +11,7 @@ DWindow {
 	flags: Qt.FramelessWindowHint | Qt.SubWindow
     
 	property int windowGlowRadius: 8
+    property alias title: titlebar_title.text
     property alias content: loader.sourceComponent
 
 	DConstants { id: dconstants }
@@ -39,6 +40,13 @@ DWindow {
             z: loader.z + 1
 			width: rect.width
 			height: close_button.height
+            
+            Text {
+                id: titlebar_title
+                color: "white"
+                width: parent.width - 20
+                anchors.centerIn: parent
+            }
 
 			MouseArea {
 				anchors.fill: titlebar
