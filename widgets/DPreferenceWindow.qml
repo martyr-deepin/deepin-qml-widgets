@@ -4,7 +4,7 @@ import QtGraphicalEffects 1.0
 import Deepin.Widgets 1.0
 
 DWindow {
-	id: window
+	id: root
 	width: 300
 	height: 300
 	color: "transparent"
@@ -19,7 +19,7 @@ DWindow {
 	RectangularGlow {
 	    id: shadow
 	    anchors.fill: rect
-	    glowRadius: window.windowGlowRadius - 5
+	    glowRadius: root.windowGlowRadius - 5
 	    spread: 0
 	    color: Qt.rgba(0, 0, 0, 1)
 	    cornerRadius: 10
@@ -31,40 +31,25 @@ DWindow {
 		clip: true
 		radius: 3
 		color: dconstants.contentBgColor
-		width: window.width - window.windowGlowRadius * 2
-		height: window.height - window.windowGlowRadius * 2
+		width: root.width - root.windowGlowRadius * 2
+		height: root.height - root.windowGlowRadius * 2
 		anchors.centerIn: parent
 
-		Item {
+		DDragableArea {
 			id: titlebar
             z: loader.z + 1
 			width: rect.width
 			height: close_button.height
+            window: root
             
             Text {
                 id: titlebar_title
                 color: "white"
-                width: parent.width - 20
-                anchors.centerIn: parent
+                font.pixelSize: 13
+                width: Math.min(parent.width - 40, implicitWidth)
+                anchors.verticalCenter: close_button.verticalCenter
+                anchors.horizontalCenter: titlebar.horizontalCenter
             }
-
-			MouseArea {
-				anchors.fill: titlebar
-				property int startX
-				property int startY
-
-				onPressed: {
-					startX = mouse.x
-					startY = mouse.y
-				}
-
-				onPositionChanged: {
-					if (pressed) {
-						window.setX(window.x + mouse.x - startX)
-						window.setY(window.y + mouse.y - startY)
-					}
-				}
-			}
 
 			DImageButton {
 			    id: close_button
@@ -74,13 +59,13 @@ DWindow {
 			    anchors.top: parent.top
 			    anchors.right: parent.right
 
-			    onClicked: { window.close() }
+			    onClicked: { root.close() }
 			}
 		}
         
         Loader {
             id: loader
-            sourceComponent: window.content
+            sourceComponent: root.content
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: titlebar.bottom
