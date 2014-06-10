@@ -6,6 +6,8 @@ Item {
     height: 50
     width: 320
 
+    property var dconstants: DConstants {}
+
     property real min: -1
     property real max: 1
     property real init: min+(max-min)/2
