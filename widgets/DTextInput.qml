@@ -156,14 +156,4 @@ FocusScope {
 
         anchors.fill:text_input_box
     }
-
-    MouseArea {
-        anchors.fill: parent
-        onPressed: {
-            mouse.accepted = false
-            if (root.state == "warning") {
-                root.state = "normal"
-            }
-        }
-    }
 }
