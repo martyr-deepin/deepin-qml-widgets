@@ -1,10 +1,11 @@
 import QtQuick 2.1
 import QtQuick.Window 2.1
 import QtGraphicalEffects 1.0
+import Deepin.Widgets 1.0
 
-Window {
+DWindow {
 	id: win
-	flags: Qt.Tool | Qt.FramelessWindowHint
+	flags: Qt.FramelessWindowHint | Qt.SubWindow
     width: 400
     height: 300
     color: "transparent"

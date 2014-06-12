@@ -89,7 +89,7 @@ FocusScope {
             echoMode: isPassword ? TextInput.Password : TextInput.Normal
 
             anchors.fill: parent
-            anchors.leftMargin: 9
+            anchors.leftMargin: 3
             anchors.rightMargin: passwordShowButton.visible ? 3 + passwordShowButton.width : 3
 
             onAccepted: {
