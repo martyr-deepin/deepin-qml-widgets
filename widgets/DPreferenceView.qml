@@ -63,7 +63,8 @@ Row {
                 if(atYEnd) {
                     root.currentSectionId = col.visibleChildren[col.visibleChildren.length - 1].sectionId
                 } else {
-                    root.currentSectionId = col.childAt(50, contentY).sectionId
+                    var currentTopItem = col.childAt(50.contentY)
+                    root.currentSectionId = currentTopItem ? currentTopItem.sectionId : col.visibleChildren[0].sectionId
                 }
             }
 
