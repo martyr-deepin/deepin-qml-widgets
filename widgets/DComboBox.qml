@@ -39,9 +39,9 @@ Item {
     }
 
     function showMenu(x, y, w) {
-        menu.x = x - menu.frameEdge
+        menu.x = x - menu.frameEdge + 1
         menu.y = y - menu.frameEdge
-        menu.width = w + menu.frameEdge * 2
+        menu.width = w + menu.frameEdge * 2 -2
         menu.visible = true
     }
 
