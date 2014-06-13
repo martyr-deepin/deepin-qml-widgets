@@ -3,12 +3,17 @@ import QtQuick.Window 2.1
 import QtGraphicalEffects 1.0
 import Deepin.Widgets 1.0
 
-DWindow {
+DOverrideWindow {
 	id: win
-	flags: Qt.FramelessWindowHint | Qt.SubWindow
     width: 400
     height: 300
     color: "transparent"
+
+    onVisibleChanged: {
+        if(visible){
+            raise()
+        }
+    }
 
     property var parentWindow: null
 
