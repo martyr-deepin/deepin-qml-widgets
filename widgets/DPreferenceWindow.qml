@@ -29,11 +29,23 @@ DWindow {
 	Rectangle {
 		id: rect
 		clip: true
-		radius: 3
+		radius: 4
 		color: dconstants.contentBgColor
 		width: root.width - root.windowGlowRadius * 2
 		height: root.height - root.windowGlowRadius * 2
+        border.width: 1
+        border.color: "black"
 		anchors.centerIn: parent
+        
+        Rectangle {
+            width: parent.width - 2
+            height: parent.height - 2
+            anchors.centerIn: parent
+            color: "transparent"
+            radius: 3
+            border.width: 1
+            border.color: Qt.rgba(1, 1, 1, 0.1)
+        }
 
 		DDragableArea {
 			id: titlebar
