@@ -71,6 +71,7 @@ DWindow {
             anchors.top: titlebar.bottom
             anchors.bottom: parent.bottom
             anchors.topMargin: 5
+            anchors.bottomMargin: 10
         }
 	}
 }

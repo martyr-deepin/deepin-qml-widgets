@@ -86,7 +86,7 @@ Row {
         
         Rectangle {
             width: parent.width
-            height: 20
+            height: 8
             anchors.top: parent.top
             visible: preference_content.contentY != 0
             
@@ -98,7 +98,7 @@ Row {
         
         Rectangle {
             width: parent.width
-            height: 40
+            height: 8
             anchors.bottom: parent.bottom
             
             gradient: Gradient {
