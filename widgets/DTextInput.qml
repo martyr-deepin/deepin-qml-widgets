@@ -87,6 +87,7 @@ FocusScope {
             verticalAlignment: TextInput.AlignVCenter
             font.pixelSize: text_input.echoMode == TextInput.Password ? 18 : 12
             echoMode: isPassword ? TextInput.Password : TextInput.Normal
+            clip: true
 
             anchors.fill: parent
             anchors.leftMargin: 3
