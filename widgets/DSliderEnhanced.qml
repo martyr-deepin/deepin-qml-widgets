@@ -251,13 +251,14 @@ Item {
                         }
                     }
                     anchors.horizontalCenter: parent.horizontalCenter
-                    color: dconstants.fgColor
+                    color: "#505050"
                     width: 1
                     height: 7
                     opacity: rulerVisible ? 1 : 0
                 }
 
                 DssH3 {
+                    color: "#505050"
                     anchors.top: parent.top
                     anchors.topMargin: {
                         if(rulerLine.visible){
