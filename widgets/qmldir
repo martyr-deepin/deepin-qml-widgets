@@ -56,6 +56,7 @@ DRectWithCorner 1.0 DRectWithCorner.qml
 DComboBox 1.0 DComboBox.qml
 DComboBoxSimple 1.0 DComboBoxSimple.qml
 DEditComboBox 1.0 DEditComboBox.qml
+DEditComboBoxSimple 1.0 DEditComboBoxSimple.qml
 DRectangle 1.0 DRectangle.qml
 DListView 1.0 DListView.qml
 DGridView 1.0 DGridView.qml
