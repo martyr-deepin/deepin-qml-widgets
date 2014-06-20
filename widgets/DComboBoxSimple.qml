@@ -11,7 +11,7 @@ Item {
 
     property alias text: currentLabel.text
 
-    signal show(int x, int y, int width, int height)
+    signal showRequested(int x, int y, int width, int height)
 
     QtObject {
         id: buttonImage
@@ -99,7 +99,7 @@ Item {
             var y = pos.y + height
             var w = width
             var h = height
-            combobox.show(x, y, w, h)
+            combobox.showRequested(x, y, w, h)
         }
     }
 
