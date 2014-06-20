@@ -17,6 +17,8 @@ Row {
         section_indicator.pointerPos = pos + section_list.cellHeight / 2
     }
     
+    function scrollTo(sectionId) { sectionSelected(sectionId) }
+    
     signal sectionSelected (string sectionId)
     signal anotherSectionCompleted ()
 

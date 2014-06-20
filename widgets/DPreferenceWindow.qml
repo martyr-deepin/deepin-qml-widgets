@@ -57,7 +57,7 @@ DWindow {
             Text {
                 id: titlebar_title
                 color: "white"
-                font.pixelSize: 13
+                font.pixelSize: 10
                 width: Math.min(parent.width - 40, implicitWidth)
                 anchors.verticalCenter: close_button.verticalCenter
                 anchors.horizontalCenter: titlebar.horizontalCenter
