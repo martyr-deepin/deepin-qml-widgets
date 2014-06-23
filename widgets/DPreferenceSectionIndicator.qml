@@ -5,6 +5,10 @@ Item {
     width: 20
     height: 300
 
+    property alias pointerPos: canvas.pointerPos
+    property alias pointerHeight: canvas.pointerWidth
+    property alias pointerWidth: canvas.pointerHeight
+
     Canvas {
         id: canvas
         smooth: true
@@ -51,7 +55,7 @@ Item {
             ctx.lineTo(width - 3, height)
             var gradientBottom = ctx.createLinearGradient(width - 3, pointerPos + pointerWidth / 2, width - 3, height);
             gradientBottom.addColorStop(0.0, Qt.rgba(0.5, 0.5, 0.5, 0.2));
-            gradientBottom.addColorStop(bottomLineLength > 10 ? (bottomLineLength - 10) / bottomLineLength : 0.0, 
+            gradientBottom.addColorStop(bottomLineLength > 10 ? (bottomLineLength - 10) / bottomLineLength : 0.0,
                                         Qt.rgba(0.5, 0.5, 0.5, 0.2));
             gradientBottom.addColorStop(1.0, Qt.rgba(0.5, 0.5, 0.5, 0.0));
             ctx.strokeStyle = gradientBottom
@@ -59,7 +63,7 @@ Item {
             ctx.closePath()
         }
     }
-    
+
     DropShadow {
         anchors.fill: canvas
         horizontalOffset: 2
