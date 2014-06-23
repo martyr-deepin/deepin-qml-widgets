@@ -38,7 +38,7 @@ Row {
         height: root.height
     }
 
-    DPreferenceSectionIndicator { id: section_indicator; height: root.height; opacity: 0.6 }
+    DPreferenceSectionIndicator { id: section_indicator; height: root.height }
 
     Item {
         clip: true
