@@ -10,6 +10,7 @@ DWindow {
 	color: "transparent"
 	flags: Qt.FramelessWindowHint | Qt.SubWindow
     
+    property int titleContentPadding: 5
 	property int windowGlowRadius: 8
     property alias title: titlebar_title.text
     property alias content: loader.sourceComponent
@@ -82,7 +83,7 @@ DWindow {
             anchors.right: parent.right
             anchors.top: titlebar.bottom
             anchors.bottom: parent.bottom
-            anchors.topMargin: 5
+            anchors.topMargin: root.titleContentPadding
             anchors.bottomMargin: 10
         }
 	}
