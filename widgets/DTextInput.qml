@@ -1,4 +1,4 @@
-import QtQuick 2.1
+import QtQuick 2.2
 import QtGraphicalEffects 1.0
 
 FocusScope {
@@ -15,13 +15,16 @@ FocusScope {
     property alias textInput: text_input
     property alias textInputBox: textInputBox
     property alias readOnly: text_input.readOnly
+    property alias selectByMouse: text_input.selectByMouse
     property bool isPassword: false
+    property bool keyboardOperationsEnabled: true
 
     Component.onCompleted: {
         isPassword = (echoMode == TextInput.Password)
     }
 
     signal accepted
+    signal keyPressed (var event)
 
     states: [
         State {
@@ -96,6 +99,9 @@ FocusScope {
             onAccepted: {
                 root.accepted()
             }
+            
+            Keys.enabled: !root.keyboardOperationsEnabled 
+            Keys.onPressed: { event.accepted = true; root.keyPressed(event) }
         }
 
         Item {
