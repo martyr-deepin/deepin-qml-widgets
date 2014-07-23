@@ -94,7 +94,7 @@ DWindow {
         
         DTextButton {
             id: action_btn
-            visible: 
+            visible: false
             
             onClicked: root.action()
 
