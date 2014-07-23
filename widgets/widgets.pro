@@ -1,7 +1,9 @@
 TEMPLATE = lib
 TARGET = DeepinWidgets
-QT += qml quick gui
-CONFIG += qt plugin
+QT += qml quick gui x11extras opengl
+CONFIG += qt plugin c++11 link_pkgconfig
+PKGCONFIG += xcomposite xcb-damage
+
 
 HEADERS += \
     plugins/dicon.h \
@@ -11,6 +13,7 @@ HEADERS += \
 SOURCES += \
     plugins/dicon.cpp \
     plugins/dwindow.cpp \
+    plugins/previewwindow.cpp \
     plugins/plugin.cpp
 
 TARGET = $$qtLibraryTarget($$TARGET)
