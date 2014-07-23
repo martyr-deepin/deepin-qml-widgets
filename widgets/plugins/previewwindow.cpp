@@ -40,7 +40,7 @@ public:
 	return QMap<Key,T>::value(key);
     }
     bool contains(const Key &key) {
-	QMap<Key,T>::contains(key);
+	return QMap<Key,T>::contains(key);
     }
 private:
     QMap<Key, quint32> m_counts;
@@ -93,8 +93,8 @@ void initGLXfunc()
     }
 }
 
-DPreviewWindow::DPreviewWindow(QQuickItem *parent):
-        QQuickItem(parent),
+DPreviewWindow::DPreviewWindow(QQuickItem *parent)
+        :QQuickItem(parent),
         m_xid(0),
         m_pixmap(0),
         m_damaged(true)
@@ -277,6 +277,7 @@ void Monitor::remove(QPointer<DPreviewWindow> w)
 
 bool Monitor::nativeEventFilter(const QByteArray &eventType, void *message, long *result)
 {
+    Q_UNUSED(result);
     if (eventType=="xcb_generic_event_t") {
 	xcb_generic_event_t *event = static_cast<xcb_generic_event_t*>(message);
 	const uint8_t responseType = event->response_type & ~0x80;

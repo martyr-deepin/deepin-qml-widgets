@@ -1,6 +1,5 @@
-#ifndef PREVIEWWINDOW_H
-#define PREVIEWWINDOW_H
-
+#ifndef DPREVIEWWINDOW_H
+#define DPREVIEWWINDOW_H
 
 #include <QAbstractNativeEventFilter>
 #include <QQuickItem>
@@ -20,7 +19,6 @@ public:
     quint32 xid() { return m_xid; }
     void setXid(quint32 xid);
     Q_SIGNAL void xidChanged(quint32);
-
 private:
 
     Q_SLOT void onXidChanged(quint32 xid);
@@ -35,7 +33,6 @@ private:
     void releasePixmap();
     void updateWinSize(quint32 width, quint32 height);
     QRect getDisplayRect();
-    void loadTexture();
 
     quint16 win_width;
     quint16 win_height;
@@ -46,5 +43,5 @@ private:
     quint32 m_fbconfig;
     bool m_damaged;
 };
-#endif // PREVIEWWINDOW_H
+#endif // DPREVIEWWINDOW_H
 

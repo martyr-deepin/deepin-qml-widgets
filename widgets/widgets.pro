@@ -8,7 +8,8 @@ PKGCONFIG += xcomposite xcb-damage
 HEADERS += \
     plugins/dicon.h \
     plugins/dwindow.h \
-    plugins/plugin.h
+    plugins/plugin.h \
+    plugins/previewwindow.h
 
 SOURCES += \
     plugins/dicon.cpp \
