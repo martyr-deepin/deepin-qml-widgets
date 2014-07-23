@@ -14,6 +14,11 @@ DWindow {
 	property int windowGlowRadius: 8
     property alias title: titlebar_title.text
     property alias content: loader.sourceComponent
+    
+    property alias showActionButton: action_btn.visible
+    property alias actionButtonText: action_btn.text
+    
+    signal action()
 
 	DConstants { id: dconstants }
 
@@ -84,6 +89,18 @@ DWindow {
             anchors.top: titlebar.bottom
             anchors.bottom: parent.bottom
             anchors.topMargin: root.titleContentPadding
+            anchors.bottomMargin: 10
+        }
+        
+        DTextButton {
+            id: action_btn
+            visible: 
+            
+            onClicked: root.action()
+
+            anchors.left: parent.left
+            anchors.bottom: parent.bottom
+            anchors.leftMargin: 20
             anchors.bottomMargin: 10
         }
 	}
