@@ -6,11 +6,14 @@ Item {
     property url normal_image
     property url hover_image
     property url press_image
+    property alias containsMouse: mouseArea.containsMouse
 
     property alias mouseArea: mouseArea
     property alias sourceSize: image.sourceSize
     
     signal clicked
+    signal entered
+    signal exited
 
     property bool pressed: state == "pressed"
 
@@ -36,8 +39,8 @@ Item {
         id: mouseArea
         anchors.fill: parent
         hoverEnabled: true
-        onEntered: { button.state = "hovered" }
-        onExited: { button.state = "" }
+        onEntered: { button.state = "hovered"; button.entered() }
+        onExited: { button.state = ""; button.exited() }
         onPressed: { button.state = "pressed" }
         onReleased: { button.state = mouseArea.containsMouse ? "hovered" : ""}
         onClicked: button.clicked()
