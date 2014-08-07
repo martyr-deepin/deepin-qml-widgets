@@ -28,3 +28,5 @@ unix {
     target.path = $$installPath
     INSTALLS += qmldir target
 }
+
+LIBS += -lxcb
