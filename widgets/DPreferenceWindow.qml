@@ -9,9 +9,9 @@ DWindow {
 	height: 300
 	color: "transparent"
 	flags: Qt.FramelessWindowHint | Qt.SubWindow
+    shadowWidth: 8
     
     property int titleContentPadding: 5
-	property int windowGlowRadius: 8
     property alias title: titlebar_title.text
     property alias content: loader.sourceComponent
     
@@ -25,7 +25,7 @@ DWindow {
 	RectangularGlow {
 	    id: shadow
 	    anchors.fill: rect
-	    glowRadius: root.windowGlowRadius - 5
+	    glowRadius: root.shadowWidth - 5
 	    spread: 0
 	    color: Qt.rgba(0, 0, 0, 1)
 	    cornerRadius: 10
@@ -37,8 +37,8 @@ DWindow {
 		clip: true
 		radius: 4
 		color: dconstants.contentBgColor
-		width: root.width - root.windowGlowRadius * 2
-		height: root.height - root.windowGlowRadius * 2
+		width: root.width - root.shadowWidth * 2
+		height: root.height - root.shadowWidth * 2
         border.width: 1
         border.color: "black"
 		anchors.centerIn: parent
@@ -104,4 +104,4 @@ DWindow {
             anchors.bottomMargin: 10
         }
 	}
-}
+ }
