@@ -58,6 +58,7 @@ void DWindow::setShadowWidth(int shadowWidth)
         xcb_change_property_checked(_conn, XCB_PROP_MODE_REPLACE, this->winId(),
                                     reply->atom, XCB_ATOM_STRING, 8, strlen(shadowWidthStr),
                                     shadowWidthStr);
+        xcb_flush(_conn);
 
         free(reply);
     }
