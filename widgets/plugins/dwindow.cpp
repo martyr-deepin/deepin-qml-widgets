@@ -30,7 +30,9 @@ DWindow::DWindow(QQuickWindow *parent)
     sformat.setAlphaBufferSize(8);
     this->setFormat(sformat);
     this->setClearBeforeRendering(true);
+
     QObject::connect(qApp, SIGNAL(focusWindowChanged(QWindow*)), this, SLOT(focusChanged(QWindow *)));
+    QObject::connect(this, SIGNAL(visibilityChanged(QWindow::Visibility)), this, SLOT(visibilityChangedSlot(QWindow::Visibility)));
 }
 
 DWindow::~DWindow()
@@ -79,4 +81,11 @@ void DWindow::mousePressEvent(QMouseEvent *ev){
     QPointF p = QPointF(ev->x(), ev->y());
     DWindow::mousePressed(p);
     QQuickWindow::mousePressEvent(ev);
+}
+
+void DWindow::visibilityChangedSlot(QWindow::Visibility visibility)
+{
+    if(visibility != QWindow::Hidden) {
+        this->setShadowWidth(_shadowWidth);
+    }
 }

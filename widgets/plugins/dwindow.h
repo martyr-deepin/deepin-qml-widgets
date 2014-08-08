@@ -41,6 +41,9 @@ private:
     int _shadowWidth;
 
     xcb_connection_t *_conn;
+
+private slots:
+    void visibilityChangedSlot(QWindow::Visibility);
 };
 
 class DOverrideWindow: public DWindow
