@@ -9,9 +9,9 @@ DWindow {
     flags: Qt.Dialog | Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint
 
     width: Math.max(360, realContent.width + (window.frameRadius + window.shadowRadius) * 2)
-    height: 128
+    height: 150
 
-    Component.onCompleted: print(realContent.width)
+    shadowWidth: 15
 
     property int appId: 0
 
