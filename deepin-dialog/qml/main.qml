@@ -46,7 +46,8 @@ DWindow {
 
         Item {
             id: realContent
-            width: appIcon.width + appIcon.anchors.leftMargin + labelColumn.width + labelColumn.anchors.leftMargin * 2
+            width: Math.max(360 - (window.frameRadius + window.shadowRadius) * 2,
+                appIcon.width + appIcon.anchors.leftMargin + labelColumn.width + labelColumn.anchors.leftMargin * 2)
             height: parent.height
 
             DIcon {
@@ -81,7 +82,7 @@ DWindow {
                     font.pixelSize: 10
                     color: "#c99653"
                     text: "All dependences will be removed."
-                    width: parent.width
+                    width: realContent.width
                     wrapMode: TextEdit.WordWrap
                 }
             }
