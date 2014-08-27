@@ -3,10 +3,10 @@ import QtGraphicalEffects 1.0
 
 Item {
     id: root
-    
-    width: 55
+
+    width: 42
     height: 24
-    
+
     property bool checked: false
     property bool enabled: true
 
@@ -17,16 +17,16 @@ Item {
     transitions: Transition {
         NumberAnimation { properties: "x"; duration: 150; easing.type: Easing.InOutQuad }
     }
-    
+
     Rectangle {
         id: mask
 
-        width: 55
+        width: 42
         height: 24
         color: "transparent"
 
         Rectangle {
-            width: 52
+            width: 36
             height: 18
             radius: 9
             antialiasing: true
@@ -40,7 +40,7 @@ Item {
     Rectangle {
         id: inner
 
-        width: 55
+        width: 42
         height: 24
         color: "transparent"
         anchors.verticalCenter: parent.verticalCenter
@@ -50,13 +50,6 @@ Item {
 
             anchors.verticalCenter: parent.verticalCenter
         }
-
-        /* Desaturate { */
-        /*     id: desaturate */
-        /*     anchors.fill: inner_image */
-        /*     source: inner_image */
-        /*     desaturation: 1 */
-        /* } */
     }
 
     OpacityMask {
@@ -65,24 +58,26 @@ Item {
         maskSource: ShaderEffectSource { sourceItem: mask; hideSource: true }
     }
 
+    Image {
+        source: "images/switch_frame.png"
+        anchors.fill: mask
+    }
+
     states:  [
         State {
             name: "on"
-            PropertyChanges { target: inner_image; x: 0; source: "images/switch_inner.svg" }
+            PropertyChanges { target: inner_image; x: 0; source: "images/switch_inner.png" }
             PropertyChanges { target: mouse_area; enabled: true }
-            /* PropertyChanges { target: desaturate; visible: false } */
         },
         State {
             name: "off"
-            PropertyChanges { target: inner_image; x: -34; source: "images/switch_inner.svg" }
+            PropertyChanges { target: inner_image; x: -20; source: "images/switch_inner.png" }
             PropertyChanges { target: mouse_area; enabled: true }
-            /* PropertyChanges { target: desaturate; visible: false } */
         },
         State {
             name: "disabled"
-            PropertyChanges { target: inner_image; x: inner_image.x; source: "images/switch_inner_insensitive.svg" }
+            PropertyChanges { target: inner_image; x: inner_image.x; source: "images/switch_inner_insensitive.png" }
             PropertyChanges { target: mouse_area; enabled: false }
-            /* PropertyChanges { target: desaturate; visible: true } */
         }
     ]
 
