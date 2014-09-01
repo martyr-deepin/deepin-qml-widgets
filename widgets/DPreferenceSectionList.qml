@@ -10,7 +10,7 @@ ListView {
 
 	property var sections
     property int cellHeight: 24
-    
+
     DConstants { id: dconstants }
 
 	model: ListModel {
@@ -26,7 +26,7 @@ ListView {
 			id: main_column
 			state: "normal"
 			width: ListView.view.width
-            
+
             Component.onCompleted: root.anotherSectionCompleted()
 
 			states: [
@@ -48,15 +48,15 @@ ListView {
 					name: "selected"
 					PropertyChanges {
 						target: txt
-						color: isParent ? dconstants.hoverColor : dconstants.activeColor
+						color: dconstants.activeColor
 					}
 				}
 			]
 
 			property bool isParent: subSections.count != 0
-            
+
             onStateChanged: {
-                if (state == "selected" && !isParent) {
+                if (state == "selected") {
                     root.changeIndicatorPos(main_column.parent.mapToItem(root, main_column.x, main_column.y).y)
                 }
             }
@@ -67,7 +67,7 @@ ListView {
 				onCurrentSectionIdChanged: {
 					if (sectionId == root.currentSectionId) {
 						main_column.state = "selected"
-					} else if (!main_column.isParent) {
+					} else {
 						main_column.state = "normal"
 					}
 				}
@@ -91,13 +91,12 @@ ListView {
 					id: main_column_mouse
                     hoverEnabled: true
 					anchors.fill: parent
-                    
+
                     onEntered: root.currentSectionId == sectionId ? main_column.state = "selected" : main_column.state = "hover"
                     onExited: root.currentSectionId == sectionId ? main_column.state = "selected" : main_column.state = "normal"
 
 					onClicked: {
 						root.currentSectionId = sectionId
-                        root.sectionSelected(sectionId)
 					}
 				}
 			}
