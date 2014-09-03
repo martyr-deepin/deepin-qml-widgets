@@ -73,3 +73,5 @@ DGroupBox 1.0 DGroupBox.qml
 DPopupWindow 1.0 DPopupWindow.qml
 DPopupRoundItem 1.0 DPopupRoundItem.qml
 DLinkText 1.0 DLinkText.qml
+DDialog 1.0 DDialog.qml
+DInputDialog 1.0 DInputDialog.qml
