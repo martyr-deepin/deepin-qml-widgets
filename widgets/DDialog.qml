@@ -11,7 +11,7 @@ DWindow {
     flags: Qt.FramelessWindowHint | Qt.SubWindow
     shadowWidth: 8
 
-    property int titleContentPadding: 5
+    property int titleContentPadding: 0
     property alias title: titlebar_title.text
     default property alias content: loader.children
 
