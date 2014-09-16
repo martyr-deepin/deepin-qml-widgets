@@ -5,6 +5,8 @@
 #include <QDebug>
 #include <QPainter>
 #include <QProcess>
+#include <QMimeDatabase>
+#include <QMimeType>
 
 #include "plugins/dicon.h"
 
@@ -46,13 +48,19 @@ void DIcon::setIcon(const QString &v)
 QString searchPixmaps(QString key){
     QStringList searchPaths;
     searchPaths << "/usr/share/pixmaps/" << "/usr/local/share/pixmaps/" << "/usr/share/icons/" << "/usr/local/share/icons/";
+    QMimeDatabase mimeDB;
     for(int i=0; i<searchPaths.length();i++){
         QDir dir(searchPaths[i]);
         QStringList filters;
         filters << key + "*";
         QStringList allFiles = dir.entryList(filters);
-        if(allFiles.length() > 0){
-            return searchPaths[i] + allFiles[0];
+        for(int j=0; j<allFiles.length();j++){
+            QString path = searchPaths[i] + allFiles[0];
+            QMimeType fileType = mimeDB.mimeTypeForFile(path);
+            QString typeName = fileType.name();
+            if(typeName.startsWith("image/")){
+                return path;
+            }
         }
     }
     return "";
@@ -74,6 +82,7 @@ void DIcon::paint(QPainter *painter)
 
     if(pixmap.isNull()){
         QString pixmapPath = searchPixmaps(m_icon);
+        qDebug() << "pixmapPath:" << pixmapPath;
         if(QFile::exists(pixmapPath)){
             icon = QIcon(pixmapPath);
         }
