@@ -1,5 +1,6 @@
 import QtQuick 2.2
 import QtGraphicalEffects 1.0
+import Deepin.Widgets 1.0
 
 FocusScope {
     id: root
@@ -18,6 +19,8 @@ FocusScope {
     property alias selectByMouse: text_input.selectByMouse
     property bool isPassword: false
     property bool keyboardOperationsEnabled: true
+
+    property var cursorPosGetter: null
 
     Component.onCompleted: {
         isPassword = (echoMode == TextInput.Password)
@@ -99,8 +102,8 @@ FocusScope {
             onAccepted: {
                 root.accepted()
             }
-            
-            Keys.enabled: !root.keyboardOperationsEnabled 
+
+            Keys.enabled: !root.keyboardOperationsEnabled
             Keys.onPressed: { event.accepted = true; root.keyPressed(event) }
         }
 
@@ -130,7 +133,7 @@ FocusScope {
                         position: 1.0
                         color: passwordShowButton.pressed ? Qt.rgba(0, 0, 0, 0) : Qt.rgba(1, 1, 1, 0)
                     }
-                } 
+                }
             }
 
             DImageCheckButton {
@@ -162,5 +165,42 @@ FocusScope {
         color: "transparent"
 
         anchors.fill:text_input_box
+    }
+
+    DInputActions {
+        id: actions
+
+        canCopy: text_input.selectedText
+        canCut: text_input.selectedText
+        canPaste: text_input.canPaste
+        canReset: text_input.text
+
+        onCopyClicked: text_input.copy()
+        onCutClicked: text_input.cut()
+        onPasteClicked: text_input.paste()
+        onResetClicked: text_input.text = ""
+    }
+
+    MouseArea {
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+        propagateComposedEvents: true
+        anchors.fill: textInputBox
+
+        property bool pressed: false
+
+        onPressed: {
+            pressed = mouse.button == Qt.RightButton
+            mouse.accepted = pressed
+        }
+
+        onReleased: {
+            mouse.accepted = pressed
+            pressed = false
+
+            if (mouse.accepted && root.cursorPosGetter) {
+                var pos = root.cursorPosGetter.getCursorPos()
+                actions.show(pos.x, pos.y)
+            }
+        }
     }
 }
