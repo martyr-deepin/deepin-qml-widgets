@@ -10,6 +10,8 @@ DDialog {
     property alias confirmButtonLabel: confirm_button.text
     property alias cancelButtonLabel: cancel_button.text
 
+    property alias cursorPosGetter: input.cursorPosGetter
+
     signal confirmed (string input)
     signal cancelled
 
