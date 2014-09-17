@@ -1,5 +1,6 @@
 import QtQuick 2.1
 import DBus.Com.Deepin.Menu 1.0
+import Deepin.Locale 1.0
 
 Item {
 	id: root_item
@@ -12,6 +13,8 @@ Item {
 	signal cutClicked
 	signal pasteClicked
 	signal resetClicked
+
+	DLocale { domain: "dde-control-center" }
 
 	MenuManager { id: manager; path: "/com/deepin/menu" }
 	MenuObject {
@@ -31,6 +34,8 @@ Item {
 		}
 	}
 
+	function dsTr(s) { return dsslocale.dsTr(s) }
+
 	function show(x, y) {
 		menu.path = manager.RegisterMenu()
 		var menuCopy = {
@@ -38,7 +43,7 @@ Item {
 			"itemIcon": "",
 			"itemIconHover": "",
 			"itemIconInactive": "",
-			"itemText": "Copy",
+			"itemText": dsTr("Copy"),
 			"isActive": canCopy,
 			"checked": false,
 			"itemSubMenu": {}
@@ -48,7 +53,7 @@ Item {
 			"itemIcon": "",
 			"itemIconHover": "",
 			"itemIconInactive": "",
-			"itemText": "Cut",
+			"itemText": dsTr("Cut"),
 			"isActive": canCut,
 			"checked": false,
 			"itemSubMenu": {}
@@ -58,7 +63,7 @@ Item {
 			"itemIcon": "",
 			"itemIconHover": "",
 			"itemIconInactive": "",
-			"itemText": "Paste",
+			"itemText": dsTr("Paste"),
 			"isActive": canPaste,
 			"checked": false,
 			"itemSubMenu": {}
@@ -68,7 +73,7 @@ Item {
 			"itemIcon": "",
 			"itemIconHover": "",
 			"itemIconInactive": "",
-			"itemText": "Reset",
+			"itemText": dsTr("Reset"),
 			"isActive": canReset,
 			"checked": false,
 			"itemSubMenu": {}
