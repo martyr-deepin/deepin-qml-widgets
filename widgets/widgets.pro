@@ -9,13 +9,15 @@ HEADERS += \
     plugins/dicon.h \
     plugins/dwindow.h \
     plugins/plugin.h \
-    plugins/previewwindow.h
+    plugins/previewwindow.h \
+    plugins/dfiledialog.h
 
 SOURCES += \
     plugins/dicon.cpp \
     plugins/dwindow.cpp \
     plugins/previewwindow.cpp \
-    plugins/plugin.cpp
+    plugins/plugin.cpp \
+    plugins/dfiledialog.cpp
 
 TARGET = $$qtLibraryTarget($$TARGET)
 uri = Deepin.Widgets
