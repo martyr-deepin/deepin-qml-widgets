@@ -11,3 +11,4 @@ dtk.egg-info
 *.so
 Makefile
 *.user
+*.mo
