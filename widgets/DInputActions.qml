@@ -14,7 +14,7 @@ Item {
 	signal pasteClicked
 	signal resetClicked
 
-	DLocale { domain: "dde-control-center" }
+	DLocale { id: dsslocale;domain: "dde-control-center" }
 
 	MenuManager { id: manager; path: "/com/deepin/menu" }
 	MenuObject {
