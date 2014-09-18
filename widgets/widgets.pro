@@ -22,7 +22,7 @@ SOURCES += \
 TARGET = $$qtLibraryTarget($$TARGET)
 uri = Deepin.Widgets
 
-qmldir.files += *.qml qmldir images
+qmldir.files += *.qml qmldir images plugins.qmltypes
 
 unix {
     installPath = $$[QT_INSTALL_QML]/$$replace(uri, \\., /)

@@ -1,0 +1,7 @@
+Makefile
+*.cache
+*.o
+build
+lib
+mkspecs
+*.user

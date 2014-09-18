@@ -1,0 +1,2 @@
+module Deepin.Locale
+plugin dlocale
