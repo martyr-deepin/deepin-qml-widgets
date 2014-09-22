@@ -1,10 +1,19 @@
 #include "dfiledialog.h"
 #include <QFileDialog>
+#include <libintl.h>
 
 DFileDialog::DFileDialog(QQuickItem *parent) :
     QQuickItem(parent)
 {
+    m_domain = "deepin-qml-widgets";
+    setlocale(LC_ALL, "");
+    bindtextdomain(m_domain.toLatin1(), "/usr/share/locale");
+
     m_fileDialog = new QFileDialog();
+    m_fileDialog->setLabelText(m_fileDialog->LookIn, tr("Look in", true));
+    m_fileDialog->setLabelText(m_fileDialog->FileType, tr("Files of type", true));
+    m_fileDialog->setLabelText(m_fileDialog->Reject, tr("Cancel", true));
+
     connect(m_fileDialog, SIGNAL(accepted()), this, SIGNAL(accepted()));
     connect(m_fileDialog, SIGNAL(rejected()), this, SIGNAL(rejected()));
 
@@ -140,6 +149,7 @@ bool DFileDialog::isSaveMode()
 
 void DFileDialog::setSaveMode(bool saveMode)
 {
+    m_fileDialog->setLabelText(m_fileDialog->Accept, tr("Save", true));
     m_fileDialog->setAcceptMode(saveMode ? m_fileDialog->AcceptSave : m_fileDialog->AcceptOpen);
 }
 
@@ -157,11 +167,22 @@ void DFileDialog::m_setFileModeInternal()
 {
     if (m_selectFolder) {
         m_fileDialog->setFileMode(m_fileDialog->DirectoryOnly);
+
+        m_fileDialog->setLabelText(m_fileDialog->FileName, tr("Directory", true));
+        m_fileDialog->setLabelText(m_fileDialog->Accept, tr("Select", true));
     } else {
         if (m_selectMultiple) {
             m_fileDialog->setFileMode(m_selectExisting ? m_fileDialog->ExistingFiles : m_fileDialog->AnyFile);
         } else {
             m_fileDialog->setFileMode(m_selectExisting ? m_fileDialog->ExistingFile : m_fileDialog->AnyFile);
         }
+
+        m_fileDialog->setLabelText(m_fileDialog->FileName, tr("File name", true));
+        m_fileDialog->setLabelText(m_fileDialog->Accept, tr("Open", true));
     }
+}
+
+QString DFileDialog::tr(const char *s, bool)
+{
+    return dgettext(m_domain.toLatin1(), s);
 }

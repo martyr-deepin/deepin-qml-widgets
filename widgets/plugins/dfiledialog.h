@@ -78,7 +78,10 @@ private:
     bool m_selectFolder;
     QString m_defaultFileName;
 
+    QString m_domain;
+
     void m_setFileModeInternal();
+    QString tr(const char*, bool flag);
 };
 
 #endif // DFILEDIALOG_H

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-17 17:22+0800\n"
+"POT-Creation-Date: 2014-09-22 11:27+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,38 @@ msgstr ""
 
 #: ../widgets/DDownArrowHeader.qml:8
 msgid "Untitled"
+msgstr ""
+
+#: ../widgets/plugins/dfiledialog.cpp:13
+msgid "Search scope"
+msgstr ""
+
+#: ../widgets/plugins/dfiledialog.cpp:14
+msgid "Files of type"
+msgstr ""
+
+#: ../widgets/plugins/dfiledialog.cpp:15 ../widgets/DInputActions.qml:76
+msgid "Cancel"
+msgstr ""
+
+#: ../widgets/plugins/dfiledialog.cpp:152
+msgid "Save"
+msgstr ""
+
+#: ../widgets/plugins/dfiledialog.cpp:171
+msgid "Directory"
+msgstr ""
+
+#: ../widgets/plugins/dfiledialog.cpp:172
+msgid "Select"
+msgstr ""
+
+#: ../widgets/plugins/dfiledialog.cpp:180
+msgid "File name"
+msgstr ""
+
+#: ../widgets/plugins/dfiledialog.cpp:181
+msgid "Open"
 msgstr ""
 
 #: ../widgets/DInputActions.qml:46
@@ -33,6 +65,10 @@ msgstr ""
 msgid "Paste"
 msgstr ""
 
-#: ../widgets/DInputActions.qml:76
-msgid "Reset"
+#: ../qml-gettext-plugin/SubItem.qml:5
+msgid "shutdown"
+msgstr ""
+
+#: ../qml-gettext-plugin/test.qml:24
+msgid "guest"
 msgstr ""

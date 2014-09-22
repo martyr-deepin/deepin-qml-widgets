@@ -14,7 +14,7 @@ Item {
 	signal pasteClicked
 	signal resetClicked
 
-	DLocale { id: dsslocale;domain: "dde-control-center" }
+	DLocale { id: dsslocale; domain: "deepin-qml-widgets" }
 
 	MenuManager { id: manager; path: "/com/deepin/menu" }
 	MenuObject {
@@ -73,7 +73,7 @@ Item {
 			"itemIcon": "",
 			"itemIconHover": "",
 			"itemIconInactive": "",
-			"itemText": dsTr("Reset"),
+			"itemText": dsTr("Cancel"),
 			"isActive": canReset,
 			"checked": false,
 			"itemSubMenu": {}
