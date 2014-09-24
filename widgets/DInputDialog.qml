@@ -15,6 +15,10 @@ DDialog {
     signal confirmed (string input)
     signal cancelled
 
+    onClosing: { dialog.cancelled(); input.text = ""; }
+
+    function forceFocus() { input.forceActiveFocus() }
+
     Column {
         spacing: 10
         anchors.left: parent.left

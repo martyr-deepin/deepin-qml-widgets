@@ -15,6 +15,8 @@ DWindow {
     property alias title: titlebar_title.text
     default property alias content: loader.children
 
+    signal closing
+
     DConstants { id: dconstants }
 
     RectangularGlow {
@@ -31,6 +33,7 @@ DWindow {
         id: rect
         clip: true
         radius: 4
+        layer.enabled: true
         color: dconstants.contentBgColor
         width: root.width - root.shadowWidth * 2
         height: root.height - root.shadowWidth * 2
@@ -72,7 +75,7 @@ DWindow {
                 anchors.top: parent.top
                 anchors.right: parent.right
 
-                onClicked: { root.close() }
+                onClicked: { root.closing(); root.close() }
             }
         }
 
