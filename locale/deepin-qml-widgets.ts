@@ -2,18 +2,10 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-    <name>DDownArrowHeader</name>
-    <message>
-        <location filename="../widgets/DDownArrowHeader.qml" line="8"/>
-        <source>Untitled</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>DFileDialog</name>
     <message>
         <location filename="../widgets/plugins/dfiledialog.cpp" line="13"/>
-        <source>Search scope</source>
+        <source>Look in</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -72,22 +64,6 @@
     <message>
         <location filename="../widgets/DInputActions.qml" line="76"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SubItem</name>
-    <message>
-        <location filename="../qml-gettext-plugin/SubItem.qml" line="5"/>
-        <source>shutdown</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>test</name>
-    <message>
-        <location filename="../qml-gettext-plugin/test.qml" line="24"/>
-        <source>guest</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

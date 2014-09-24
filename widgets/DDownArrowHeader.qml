@@ -5,7 +5,7 @@ import QtQuick.Layouts 1.0
 Rectangle {
     id: header
 
-    property string text: dsTr("Untitled")
+    property string text: "Untitled"
     property string hintText
     property alias icon: iconImage.source
     property alias active: actionButton.checked
