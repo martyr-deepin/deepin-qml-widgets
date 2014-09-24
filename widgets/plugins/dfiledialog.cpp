@@ -149,7 +149,9 @@ bool DFileDialog::isSaveMode()
 
 void DFileDialog::setSaveMode(bool saveMode)
 {
-    m_fileDialog->setLabelText(m_fileDialog->Accept, tr("Save", true));
+    if (!m_selectFolder) {
+        m_fileDialog->setLabelText(m_fileDialog->Accept, saveMode ? tr("Save", true) : tr("Open", true));
+    }
     m_fileDialog->setAcceptMode(saveMode ? m_fileDialog->AcceptSave : m_fileDialog->AcceptOpen);
 }
 
