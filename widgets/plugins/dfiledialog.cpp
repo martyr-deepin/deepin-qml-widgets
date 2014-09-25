@@ -15,6 +15,7 @@ DFileDialog::DFileDialog(QQuickItem *parent) :
 
     connect(m_fileDialog, SIGNAL(accepted()), this, SIGNAL(accepted()));
     connect(m_fileDialog, SIGNAL(rejected()), this, SIGNAL(rejected()));
+    connect(m_fileDialog, SIGNAL(directoryEntered(QString)), this, SLOT(directoryEnteredSlot(QString)));
 
     this->setSelectExisting(true);
     this->setSelectFolder(false);
@@ -159,6 +160,9 @@ void DFileDialog::open()
     // don't know why, but if we don't set this everytime we open the dialog
     // the Reject label may happen to be not translated.
     m_fileDialog->setLabelText(m_fileDialog->Reject, tr("Cancel", true));
+    m_fileDialog->setOptions(m_fileDialog->options() | m_fileDialog->DontConfirmOverwrite);
+    m_fileDialog->selectFile(m_defaultFileName);
+    m_checkFileNameDuplication();
 
     m_fileDialog->show();
 }
@@ -190,4 +194,30 @@ void DFileDialog::m_setFileModeInternal()
 QString DFileDialog::tr(const char *s, bool)
 {
     return dgettext(m_domain.toLatin1(), s);
+}
+
+void DFileDialog::directoryEnteredSlot(const QString&) {
+    m_checkFileNameDuplication();
+}
+
+void DFileDialog::m_checkFileNameDuplication()
+{
+    if (defaultFileName().trimmed() != "") {
+        bool exist = QFile(m_fileDialog->selectedFiles().at(0)).exists();
+        int copyNum = 0;
+        QString newDefaultName;
+
+        while (exist) {
+            copyNum++;
+
+            QStringList fileNameParts = defaultFileName().split(".");
+            QString name(fileNameParts.at(0));
+            QString suffix(fileNameParts.length() > 1 ? QString(".%1").arg(fileNameParts.at(1)) : "");
+
+            newDefaultName = name + QString::number(copyNum) + suffix;
+            exist = QFile(m_fileDialog->directory().absolutePath() + QDir::separator() + newDefaultName).exists();
+        }
+
+        m_fileDialog->selectFile(newDefaultName);
+    }
 }

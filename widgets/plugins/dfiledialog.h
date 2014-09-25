@@ -81,7 +81,11 @@ private:
     QString m_domain;
 
     void m_setFileModeInternal();
+    void m_checkFileNameDuplication();
     QString tr(const char*, bool flag);
+
+private slots:
+    void directoryEnteredSlot(const QString&);
 };
 
 #endif // DFILEDIALOG_H
