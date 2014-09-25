@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# kdavid97 <kdavid97@gmail.hu>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: Deepin QML Widgets\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-09-25 10:25+0800\n"
+"PO-Revision-Date: 2014-09-25 06:07+0000\n"
+"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
+"Language-Team: Hungarian (http://www.transifex.com/projects/p/deepin-qml-widgets/language/hu/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../widgets/plugins/dfiledialog.cpp:13
+msgid "Look in"
+msgstr "Megtekint"
+
+#: ../widgets/plugins/dfiledialog.cpp:14
+msgid "Files of type"
+msgstr "Fájl típus"
+
+#: ../widgets/plugins/dfiledialog.cpp:161
+msgid "Cancel"
+msgstr "Mégse"
+
+#: ../widgets/plugins/dfiledialog.cpp:152
+msgid "Save"
+msgstr "Mentés"
+
+#: ../widgets/plugins/dfiledialog.cpp:176
+msgid "Directory"
+msgstr "Könyvtár"
+
+#: ../widgets/plugins/dfiledialog.cpp:177
+msgid "Select"
+msgstr ""
+
+#: ../widgets/plugins/dfiledialog.cpp:185
+msgid "File name"
+msgstr "Fájl név"
+
+#: ../widgets/plugins/dfiledialog.cpp:152
+#: ../widgets/plugins/dfiledialog.cpp:186
+msgid "Open"
+msgstr "Megnyitás"
+
+#: ../widgets/DInputActions.qml:46
+msgid "Copy"
+msgstr "Másolás"
+
+#: ../widgets/DInputActions.qml:56
+msgid "Cut"
+msgstr "Kivágás"
+
+#: ../widgets/DInputActions.qml:66
+msgid "Paste"
+msgstr "Beillesztés"
+
+#: ../widgets/DInputActions.qml:76
+msgid "Repeal"
+msgstr ""

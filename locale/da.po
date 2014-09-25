@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Carl Andersen <carl@manjaro.dk>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: Deepin QML Widgets\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-09-25 10:25+0800\n"
+"PO-Revision-Date: 2014-09-25 09:50+0000\n"
+"Last-Translator: Carl Andersen <carl@manjaro.dk>\n"
+"Language-Team: Danish (http://www.transifex.com/projects/p/deepin-qml-widgets/language/da/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../widgets/plugins/dfiledialog.cpp:13
+msgid "Look in"
+msgstr "Kig i"
+
+#: ../widgets/plugins/dfiledialog.cpp:14
+msgid "Files of type"
+msgstr "Filtype"
+
+#: ../widgets/plugins/dfiledialog.cpp:161
+msgid "Cancel"
+msgstr "Annuller"
+
+#: ../widgets/plugins/dfiledialog.cpp:152
+msgid "Save"
+msgstr "Gem"
+
+#: ../widgets/plugins/dfiledialog.cpp:176
+msgid "Directory"
+msgstr "Mappe"
+
+#: ../widgets/plugins/dfiledialog.cpp:177
+msgid "Select"
+msgstr "Vælg"
+
+#: ../widgets/plugins/dfiledialog.cpp:185
+msgid "File name"
+msgstr "Filnavn"
+
+#: ../widgets/plugins/dfiledialog.cpp:152
+#: ../widgets/plugins/dfiledialog.cpp:186
+msgid "Open"
+msgstr "Åbn"
+
+#: ../widgets/DInputActions.qml:46
+msgid "Copy"
+msgstr "kopiere"
+
+#: ../widgets/DInputActions.qml:56
+msgid "Cut"
+msgstr "Klip"
+
+#: ../widgets/DInputActions.qml:66
+msgid "Paste"
+msgstr "Indsæt"
+
+#: ../widgets/DInputActions.qml:76
+msgid "Repeal"
+msgstr "Ophævelse"
