@@ -12,7 +12,6 @@ DFileDialog::DFileDialog(QQuickItem *parent) :
     m_fileDialog = new QFileDialog();
     m_fileDialog->setLabelText(m_fileDialog->LookIn, tr("Look in", true));
     m_fileDialog->setLabelText(m_fileDialog->FileType, tr("Files of type", true));
-    m_fileDialog->setLabelText(m_fileDialog->Reject, tr("Cancel", true));
 
     connect(m_fileDialog, SIGNAL(accepted()), this, SIGNAL(accepted()));
     connect(m_fileDialog, SIGNAL(rejected()), this, SIGNAL(rejected()));
@@ -157,6 +156,10 @@ void DFileDialog::setSaveMode(bool saveMode)
 
 void DFileDialog::open()
 {
+    // don't know why, but if we don't set this everytime we open the dialog
+    // the Reject label may happen to be not translated.
+    m_fileDialog->setLabelText(m_fileDialog->Reject, tr("Cancel", true));
+
     m_fileDialog->show();
 }
 

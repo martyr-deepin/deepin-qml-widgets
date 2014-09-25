@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-24 11:42+0800\n"
+"POT-Creation-Date: 2014-09-25 10:25+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "Files of type"
 msgstr ""
 
-#: ../widgets/plugins/dfiledialog.cpp:15 ../widgets/DInputActions.qml:76
+#: ../widgets/plugins/dfiledialog.cpp:161
 msgid "Cancel"
 msgstr ""
 
@@ -33,19 +33,20 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: ../widgets/plugins/dfiledialog.cpp:171
+#: ../widgets/plugins/dfiledialog.cpp:176
 msgid "Directory"
 msgstr ""
 
-#: ../widgets/plugins/dfiledialog.cpp:172
+#: ../widgets/plugins/dfiledialog.cpp:177
 msgid "Select"
 msgstr ""
 
-#: ../widgets/plugins/dfiledialog.cpp:180
+#: ../widgets/plugins/dfiledialog.cpp:185
 msgid "File name"
 msgstr ""
 
-#: ../widgets/plugins/dfiledialog.cpp:181
+#: ../widgets/plugins/dfiledialog.cpp:152
+#: ../widgets/plugins/dfiledialog.cpp:186
 msgid "Open"
 msgstr ""
 
@@ -59,4 +60,8 @@ msgstr ""
 
 #: ../widgets/DInputActions.qml:66
 msgid "Paste"
+msgstr ""
+
+#: ../widgets/DInputActions.qml:76
+msgid "Repeal"
 msgstr ""

@@ -4,42 +4,43 @@
 <context>
     <name>DFileDialog</name>
     <message>
-        <location filename="../widgets/plugins/dfiledialog.cpp" line="13"/>
+        <location filename="../widgets/plugins/dfiledialog.cpp" line="+13"/>
         <source>Look in</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../widgets/plugins/dfiledialog.cpp" line="14"/>
+        <location line="+1"/>
         <source>Files of type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../widgets/plugins/dfiledialog.cpp" line="15"/>
+        <location line="+147"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../widgets/plugins/dfiledialog.cpp" line="152"/>
+        <location line="-9"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../widgets/plugins/dfiledialog.cpp" line="171"/>
+        <location line="+24"/>
         <source>Directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../widgets/plugins/dfiledialog.cpp" line="172"/>
+        <location line="+1"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../widgets/plugins/dfiledialog.cpp" line="180"/>
+        <location line="+8"/>
         <source>File name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../widgets/plugins/dfiledialog.cpp" line="181"/>
+        <location line="-33"/>
+        <location line="+34"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
@@ -47,23 +48,23 @@
 <context>
     <name>DInputActions</name>
     <message>
-        <location filename="../widgets/DInputActions.qml" line="46"/>
+        <location filename="../widgets/DInputActions.qml" line="+46"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../widgets/DInputActions.qml" line="56"/>
+        <location line="+10"/>
         <source>Cut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../widgets/DInputActions.qml" line="66"/>
+        <location line="+10"/>
         <source>Paste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../widgets/DInputActions.qml" line="76"/>
-        <source>Cancel</source>
+        <location line="+10"/>
+        <source>Repeal</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
