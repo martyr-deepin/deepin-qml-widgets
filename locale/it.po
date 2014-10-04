@@ -3,20 +3,32 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Maxximo88 <real.massimo@hotmail.it>, 2014
+# Massimo Antonio Carofano <real.massimo@hotmail.it>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin QML Widgets\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-25 10:25+0800\n"
-"PO-Revision-Date: 2014-09-26 19:03+0000\n"
-"Last-Translator: Maxximo88 <real.massimo@hotmail.it>\n"
+"POT-Creation-Date: 2014-10-10 13:18+0800\n"
+"PO-Revision-Date: 2014-10-11 10:51+0000\n"
+"Last-Translator: Massimo Antonio Carofano <real.massimo@hotmail.it>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/deepin-qml-widgets/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../widgets/DFileChooseDialog.qml:80
+msgid "Location: "
+msgstr "Paese:"
+
+#: ../widgets/DFileChooseDialog.qml:219 ../widgets/plugins/dfiledialog.cpp:162
+msgid "Cancel"
+msgstr "Cancella"
+
+#: ../widgets/DFileChooseDialog.qml:227
+msgid "OK"
+msgstr "OK"
 
 #: ../widgets/plugins/dfiledialog.cpp:13
 msgid "Look in"
@@ -26,28 +38,24 @@ msgstr "Guarda"
 msgid "Files of type"
 msgstr "Tipi di files"
 
-#: ../widgets/plugins/dfiledialog.cpp:161
-msgid "Cancel"
-msgstr "Cancella"
-
-#: ../widgets/plugins/dfiledialog.cpp:152
+#: ../widgets/plugins/dfiledialog.cpp:153
 msgid "Save"
 msgstr "Salva"
 
-#: ../widgets/plugins/dfiledialog.cpp:176
+#: ../widgets/plugins/dfiledialog.cpp:180
 msgid "Directory"
 msgstr "Cartella"
 
-#: ../widgets/plugins/dfiledialog.cpp:177
+#: ../widgets/plugins/dfiledialog.cpp:181
 msgid "Select"
 msgstr "Seleziona"
 
-#: ../widgets/plugins/dfiledialog.cpp:185
+#: ../widgets/plugins/dfiledialog.cpp:189
 msgid "File name"
 msgstr "Nome file"
 
-#: ../widgets/plugins/dfiledialog.cpp:152
-#: ../widgets/plugins/dfiledialog.cpp:186
+#: ../widgets/plugins/dfiledialog.cpp:153
+#: ../widgets/plugins/dfiledialog.cpp:190
 msgid "Open"
 msgstr "Apri"
 

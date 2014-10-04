@@ -3,74 +3,74 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Анатолий Валерианович <ffox909@mail.ru>, 2014
+# samson <sambelet@yahoo.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin QML Widgets\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-10 13:18+0800\n"
-"PO-Revision-Date: 2014-10-11 10:21+0000\n"
-"Last-Translator: Анатолий Валерианович <ffox909@mail.ru>\n"
-"Language-Team: Russian (http://www.transifex.com/projects/p/deepin-qml-widgets/language/ru/)\n"
+"PO-Revision-Date: 2014-10-11 02:00+0000\n"
+"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
+"Language-Team: Amharic (http://www.transifex.com/projects/p/deepin-qml-widgets/language/am/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: am\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../widgets/DFileChooseDialog.qml:80
 msgid "Location: "
-msgstr "Расположение:"
+msgstr ""
 
 #: ../widgets/DFileChooseDialog.qml:219 ../widgets/plugins/dfiledialog.cpp:162
 msgid "Cancel"
-msgstr "Отменить"
+msgstr "መሰረዣ"
 
 #: ../widgets/DFileChooseDialog.qml:227
 msgid "OK"
-msgstr "OK"
+msgstr ""
 
 #: ../widgets/plugins/dfiledialog.cpp:13
 msgid "Look in"
-msgstr "Заглянуть"
+msgstr "መፈለጊያ"
 
 #: ../widgets/plugins/dfiledialog.cpp:14
 msgid "Files of type"
-msgstr "Файлы типа"
+msgstr "የ ፋይሎች አይነት"
 
 #: ../widgets/plugins/dfiledialog.cpp:153
 msgid "Save"
-msgstr "Сохранить"
+msgstr "ማስቀመቻ"
 
 #: ../widgets/plugins/dfiledialog.cpp:180
 msgid "Directory"
-msgstr "Каталог"
+msgstr "ዳይሬክቶሪ "
 
 #: ../widgets/plugins/dfiledialog.cpp:181
 msgid "Select"
-msgstr "Выбрать"
+msgstr "ይምረጡ"
 
 #: ../widgets/plugins/dfiledialog.cpp:189
 msgid "File name"
-msgstr "Имя файла"
+msgstr "የ ፋይሉ ስም"
 
 #: ../widgets/plugins/dfiledialog.cpp:153
 #: ../widgets/plugins/dfiledialog.cpp:190
 msgid "Open"
-msgstr "Открыть"
+msgstr "መክፈቻ"
 
 #: ../widgets/DInputActions.qml:46
 msgid "Copy"
-msgstr "Копировать"
+msgstr "ኮፒ"
 
 #: ../widgets/DInputActions.qml:56
 msgid "Cut"
-msgstr "Вырезать"
+msgstr "መቁረጫ"
 
 #: ../widgets/DInputActions.qml:66
 msgid "Paste"
-msgstr "Вставить"
+msgstr "መለጠፊያ"
 
 #: ../widgets/DInputActions.qml:76
 msgid "Repeal"
-msgstr "Отмена"
+msgstr "መሻሪያ"
