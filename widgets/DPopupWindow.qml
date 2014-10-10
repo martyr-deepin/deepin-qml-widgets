@@ -4,7 +4,7 @@ import QtGraphicalEffects 1.0
 import Deepin.Widgets 1.0
 
 DOverrideWindow {
-	id: win
+    id: win
     width: 400
     height: 300
     color: "transparent"
@@ -40,6 +40,12 @@ DOverrideWindow {
                 win.visible = false
             }
         }
+
+        onWheel: {
+            var pos = parentWindow.getCursorPos()
+            if(!isInRect(pos, win)){
+                win.visible = false
+            }
+        }
     }
 }
-
