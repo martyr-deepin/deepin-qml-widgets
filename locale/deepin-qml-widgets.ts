@@ -2,6 +2,24 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>DFileChooseDialog</name>
+    <message>
+        <location filename="../widgets/DFileChooseDialog.qml" line="+80"/>
+        <source>Location: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+139"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DFileDialog</name>
     <message>
         <location filename="../widgets/plugins/dfiledialog.cpp" line="+13"/>
@@ -14,7 +32,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+147"/>
+        <location line="+148"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -24,7 +42,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+27"/>
         <source>Directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -39,8 +57,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-33"/>
-        <location line="+34"/>
+        <location line="-36"/>
+        <location line="+37"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
