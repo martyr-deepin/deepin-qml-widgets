@@ -1,5 +1,6 @@
 import QtQuick 2.1
 import QtQuick.Window 2.1
+import Deepin.Locale 1.0
 import Qt.labs.folderlistmodel 2.1
 
 Window {
@@ -9,6 +10,13 @@ Window {
     width: frame.width
     height: frame.height
     property var dconstants: DConstants {}
+    property var dssLocale: DLocale{
+        domain: "deepin-qml-widgets"
+    }
+
+    function dsTr(s){
+        return dssLocale.dsTr(s)
+    }
 
     property alias folderModel: folderModel
     property bool isVisible: false
@@ -69,7 +77,7 @@ Window {
 
                 DssH2 {
                     id: locationLabel
-                    text: "Location: "
+                    text: dsTr("Location: ")
                     anchors.verticalCenter: parent.verticalCenter
                 }
 
@@ -159,7 +167,7 @@ Window {
                                 source: fileIsDir ? "images/folder_24.png" : "images/file_24.png"
                             }
 
-                            DLabel { 
+                            DLabel {
                                 text: fileName;
                                 color: "white"
                                 anchors.left: parent.left
@@ -208,7 +216,7 @@ Window {
                 anchors.rightMargin: 15
                 spacing: 10
                 DTextButton {
-                    text: "Cancel"
+                    text: dsTr("Cancel")
                     onClicked: {
                         rootWindow.hideWindow()
                         rootWindow.cancelAction()
@@ -216,7 +224,7 @@ Window {
                 }
                 DTextButton {
                     minMiddleWidth: 48
-                    text: "OK"
+                    text: dsTr("OK")
                     onClicked: {
                         if(fileListView.currentIndex != -1){
                             if(isChooseFile && !folderModel.isFolder(fileListView.currentIndex)){
