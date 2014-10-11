@@ -33,9 +33,11 @@ signals:
     void shadowWidthChanged(int shadowWidth);
     void windowFocusChanged(QWindow *window);
     void mousePressed(QPointF point);
+    void wheel(QPointF point);
 
 protected:
-    void mousePressEvent(QMouseEvent *ev);
+    virtual void mousePressEvent(QMouseEvent *ev);
+    virtual void wheelEvent(QWheelEvent *ev);
 
 private:
     int _shadowWidth;

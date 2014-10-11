@@ -77,10 +77,14 @@ void DWindow::focusChanged(QWindow *win)
 }
 
 void DWindow::mousePressEvent(QMouseEvent *ev){
-    //qDebug() << "Event:" << ev->x() << "," << ev->y();
     QPointF p = QPointF(ev->x(), ev->y());
     DWindow::mousePressed(p);
     QQuickWindow::mousePressEvent(ev);
+}
+
+void DWindow::wheelEvent(QWheelEvent *ev) {
+    emit wheel(QPointF(ev->x(), ev->y()));
+    QQuickWindow::wheelEvent(ev);
 }
 
 void DWindow::visibilityChangedSlot(QWindow::Visibility visibility)
