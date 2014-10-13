@@ -93,3 +93,8 @@ void DWindow::visibilityChangedSlot(QWindow::Visibility visibility)
         this->setShadowWidth(_shadowWidth);
     }
 }
+
+int DWindow::getWinId()
+{
+    return QString("%1").arg(this->winId()).toInt();
+}

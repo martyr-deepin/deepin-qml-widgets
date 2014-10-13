@@ -22,6 +22,7 @@ public:
     Q_PROPERTY(int shadowWidth READ shadowWidth WRITE setShadowWidth NOTIFY shadowWidthChanged)
 
     Q_INVOKABLE QPoint getCursorPos();
+    Q_INVOKABLE int getWinId();
 
     int shadowWidth();
     void setShadowWidth(int);
