@@ -3,74 +3,75 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# samson <sambelet@yahoo.com>, 2014
+# eko ikhyar <ikhyar.com@gmail.com>, 2014
+# Yugo Purwanto <dedy.yugo.purwanto@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin QML Widgets\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-10 13:18+0800\n"
-"PO-Revision-Date: 2014-10-17 06:02+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
-"Language-Team: Amharic (http://www.transifex.com/projects/p/deepin-qml-widgets/language/am/)\n"
+"PO-Revision-Date: 2014-10-17 10:51+0000\n"
+"Last-Translator: eko ikhyar <ikhyar.com@gmail.com>\n"
+"Language-Team: Indonesian (Indonesia) (http://www.transifex.com/projects/p/deepin-qml-widgets/language/id_ID/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: am\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: id_ID\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../widgets/DFileChooseDialog.qml:80
 msgid "Location: "
-msgstr ""
+msgstr "Lokasi: "
 
 #: ../widgets/DFileChooseDialog.qml:219 ../widgets/plugins/dfiledialog.cpp:162
 msgid "Cancel"
-msgstr "መሰረዣ"
+msgstr "Batal"
 
 #: ../widgets/DFileChooseDialog.qml:227
 msgid "OK"
-msgstr "እሺ"
+msgstr "OK"
 
 #: ../widgets/plugins/dfiledialog.cpp:13
 msgid "Look in"
-msgstr "መፈለጊያ"
+msgstr "Lihat kedalam"
 
 #: ../widgets/plugins/dfiledialog.cpp:14
 msgid "Files of type"
-msgstr "የ ፋይሎች አይነት"
+msgstr "Jenis berkas"
 
 #: ../widgets/plugins/dfiledialog.cpp:153
 msgid "Save"
-msgstr "ማስቀመቻ"
+msgstr "Simpan"
 
 #: ../widgets/plugins/dfiledialog.cpp:180
 msgid "Directory"
-msgstr "ዳይሬክቶሪ "
+msgstr "Direktori"
 
 #: ../widgets/plugins/dfiledialog.cpp:181
 msgid "Select"
-msgstr "ይምረጡ"
+msgstr "Pilih"
 
 #: ../widgets/plugins/dfiledialog.cpp:189
 msgid "File name"
-msgstr "የ ፋይሉ ስም"
+msgstr "Nama berkas"
 
 #: ../widgets/plugins/dfiledialog.cpp:153
 #: ../widgets/plugins/dfiledialog.cpp:190
 msgid "Open"
-msgstr "መክፈቻ"
+msgstr "Buka"
 
 #: ../widgets/DInputActions.qml:46
 msgid "Copy"
-msgstr "ኮፒ"
+msgstr "Salin"
 
 #: ../widgets/DInputActions.qml:56
 msgid "Cut"
-msgstr "መቁረጫ"
+msgstr "Potong"
 
 #: ../widgets/DInputActions.qml:66
 msgid "Paste"
-msgstr "መለጠፊያ"
+msgstr "Tempel"
 
 #: ../widgets/DInputActions.qml:76
 msgid "Repeal"
-msgstr "መሻሪያ"
+msgstr "Mencabut"

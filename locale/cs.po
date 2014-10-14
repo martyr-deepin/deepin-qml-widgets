@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Deepin QML Widgets\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-10 13:18+0800\n"
-"PO-Revision-Date: 2014-10-11 02:00+0000\n"
+"PO-Revision-Date: 2014-10-17 06:02+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/deepin-qml-widgets/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "Zrušit"
 
 #: ../widgets/DFileChooseDialog.qml:227
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../widgets/plugins/dfiledialog.cpp:13
 msgid "Look in"

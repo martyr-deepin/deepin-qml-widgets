@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin QML Widgets\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-25 10:25+0800\n"
-"PO-Revision-Date: 2014-09-25 06:07+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
+"POT-Creation-Date: 2014-10-10 13:18+0800\n"
+"PO-Revision-Date: 2014-10-22 14:32+0000\n"
+"Last-Translator: JimSp472000 <jimspentzos2000@gmail.com>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/deepin-qml-widgets/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,36 +18,44 @@ msgstr ""
 "Language: el_GR\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ../widgets/DFileChooseDialog.qml:80
+msgid "Location: "
+msgstr "Τοποθεσία:"
+
+#: ../widgets/DFileChooseDialog.qml:219 ../widgets/plugins/dfiledialog.cpp:162
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+#: ../widgets/DFileChooseDialog.qml:227
+msgid "OK"
+msgstr "OK"
+
 #: ../widgets/plugins/dfiledialog.cpp:13
 msgid "Look in"
 msgstr "Αναζήτηση σε"
 
 #: ../widgets/plugins/dfiledialog.cpp:14
 msgid "Files of type"
-msgstr "Αρχείου του τύπου"
+msgstr "Αρχεία του τύπου"
 
-#: ../widgets/plugins/dfiledialog.cpp:161
-msgid "Cancel"
-msgstr "Ακύρωση"
-
-#: ../widgets/plugins/dfiledialog.cpp:152
+#: ../widgets/plugins/dfiledialog.cpp:153
 msgid "Save"
 msgstr "Αποθήκευση"
 
-#: ../widgets/plugins/dfiledialog.cpp:176
+#: ../widgets/plugins/dfiledialog.cpp:180
 msgid "Directory"
 msgstr "Κατάλογος"
 
-#: ../widgets/plugins/dfiledialog.cpp:177
+#: ../widgets/plugins/dfiledialog.cpp:181
 msgid "Select"
 msgstr "Επιλογή"
 
-#: ../widgets/plugins/dfiledialog.cpp:185
+#: ../widgets/plugins/dfiledialog.cpp:189
 msgid "File name"
 msgstr "Όνομα αρχείου"
 
-#: ../widgets/plugins/dfiledialog.cpp:152
-#: ../widgets/plugins/dfiledialog.cpp:186
+#: ../widgets/plugins/dfiledialog.cpp:153
+#: ../widgets/plugins/dfiledialog.cpp:190
 msgid "Open"
 msgstr "Άνοιγμα"
 
@@ -65,4 +73,4 @@ msgstr "Επικόλληση"
 
 #: ../widgets/DInputActions.qml:76
 msgid "Repeal"
-msgstr ""
+msgstr "Αναίρεση"
