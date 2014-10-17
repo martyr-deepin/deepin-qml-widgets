@@ -1,6 +1,6 @@
 TEMPLATE = lib
 TARGET = DeepinWidgets
-QT += qml quick gui x11extras opengl
+QT += qml quick gui x11extras opengl widgets
 CONFIG += qt plugin c++11 link_pkgconfig
 PKGCONFIG += xcomposite xcb-damage
 
@@ -10,14 +10,16 @@ HEADERS += \
     plugins/dwindow.h \
     plugins/plugin.h \
     plugins/previewwindow.h \
-    plugins/dfiledialog.h
+    plugins/dfiledialog.h \
+    plugins/dsinglelinetip.h
 
 SOURCES += \
     plugins/dicon.cpp \
     plugins/dwindow.cpp \
     plugins/previewwindow.cpp \
     plugins/plugin.cpp \
-    plugins/dfiledialog.cpp
+    plugins/dfiledialog.cpp \
+    plugins/dsinglelinetip.cpp
 
 TARGET = $$qtLibraryTarget($$TARGET)
 uri = Deepin.Widgets

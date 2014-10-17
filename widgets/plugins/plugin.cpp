@@ -3,6 +3,7 @@
 #include "plugins/dicon.h"
 #include "plugins/previewwindow.h"
 #include "plugins/dfiledialog.h"
+#include "plugins/dsinglelinetip.h"
 
 #include <qqml.h>
 
@@ -14,6 +15,5 @@ void DockAppletPlugin::registerTypes(const char *uri)
     qmlRegisterType<DIcon>(uri, 1, 0, "DIcon");
     qmlRegisterType<DPreviewWindow>(uri, 1, 0, "DPreviewWindow");
     qmlRegisterType<DFileDialog>(uri, 1, 0, "DFileDialog");
+    qmlRegisterType<DSingleLineTip>(uri, 1, 0, "DSingleLineTip");
 }
-
-

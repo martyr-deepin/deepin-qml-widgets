@@ -69,6 +69,29 @@ Module {
         Method { name: "getCursorPos"; type: "QPoint" }
     }
     Component {
+        name: "DSingleLineTip"
+        defaultProperty: "data"
+        propertyType: "QWidget"
+        exports: ["Deepin.Widgets/DSingleLineTip 1.0"]
+        exportMetaObjectRevisions: [0]
+        Property { name: "x"; type: "int" }
+        Property { name: "y"; type: "int" }
+        Property { name: "width"; type: "int" }
+        Property { name: "height"; type: "int" }
+        Signal {
+            name: "xChanged"
+        }
+        Signal {
+            name: "yChanged"
+        }
+        Signal {
+            name: "widthChanged"
+        }
+        Signal {
+            name: "heightChanged"
+        }
+    }
+    Component {
         name: "QQuickWindow"
         defaultProperty: "data"
         prototype: "QWindow"
