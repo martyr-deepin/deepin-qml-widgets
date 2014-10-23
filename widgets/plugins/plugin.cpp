@@ -4,6 +4,7 @@
 #include "plugins/previewwindow.h"
 #include "plugins/dfiledialog.h"
 #include "plugins/dsinglelinetip.h"
+#include "plugins/dfilechoosedialogaide.h"
 
 #include <qqml.h>
 
@@ -16,4 +17,5 @@ void DockAppletPlugin::registerTypes(const char *uri)
     qmlRegisterType<DPreviewWindow>(uri, 1, 0, "DPreviewWindow");
     qmlRegisterType<DFileDialog>(uri, 1, 0, "DFileDialog");
     qmlRegisterType<DSingleLineTip>(uri, 1, 0, "DSingleLineTip");
+    qmlRegisterType<DFileChooseDialogAide>(uri, 1, 0, "DFileChooseDialogAide");
 }

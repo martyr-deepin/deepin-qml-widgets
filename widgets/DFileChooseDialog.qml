@@ -1,5 +1,6 @@
 import QtQuick 2.1
 import QtQuick.Window 2.1
+import Deepin.Widgets 1.0
 import Deepin.Locale 1.0
 import Qt.labs.folderlistmodel 2.1
 
@@ -38,6 +39,8 @@ Window {
         isVisible = false
     }
 
+    DFileChooseDialogAide {id:dfcdAide}
+
     DWindowFrame {
         id: frame
         width: 600 + (shadowRadius + frameRadius) * 2
@@ -64,61 +67,35 @@ Window {
         }
 
         Item {
-            width: parent.width - xPadding * 2
-            height: parent.height - xPadding * 2
+            width: parent.width - 2
+            height: parent.height - xPadding
             anchors.centerIn: parent
             clip: true
 
             Item {
                 id: locationBox
-                height: 38
+                height: 25
                 width: parent.width
                 anchors.horizontalCenter: parent.horizontalCenter
 
-                DssH2 {
-                    id: locationLabel
-                    text: dsTr("Location: ")
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-
-                DTextInput {
-                    anchors.left: locationLabel.right
-                    anchors.leftMargin: 10
-                    anchors.right: goUpFolder.left
-                    anchors.rightMargin: 10
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: currentFolder
-                }
-
-                Rectangle {
-                    id: goUpFolder
+                DImageCheckButton {
+                    id: goUpFolderButton
                     width: 24
                     height: 24
                     anchors.verticalCenter: parent.verticalCenter
-                    anchors.right: parent.right
+                    anchors.left: parent.left
+                    anchors.leftMargin: 5
 
-                    color: {
-                        if(pressed){
-                            return Qt.rgba(0, 0, 0, 0.4)
-                        }
-                        else{
-                            if(hovered){
-                                return Qt.rgba(1, 1, 1, 0.1)
-                            }
-                            else{
-                                return "transparent"
-                            }
-                        }
-                    }
+                    inactivatedNormalImage: "images/up_normal.png"
+                    inactivatedHoverImage: "images/up_hover.png"
+                    inactivatedPressImage: "images/up_press.png"
 
-                    property bool hovered: false
-                    property bool pressed: false
+//                    activatedNormalImage: "images/delete_active.png"
+//                    activatedHoverImage: "images/delete_active.png"
+//                    activatedPressImage: "images/delete_active.png"
 
-                    Image {
-                        id: img
-                        anchors.centerIn: parent
-                        source: "images/folder_up_24.png"
-                        scale: 0.8
+                    Behavior on opacity {
+                        SmoothedAnimation { duration: 300 }
                     }
 
                     MouseArea {
@@ -128,18 +105,29 @@ Window {
                         onExited: parent.hovered = false
                         onPressed: parent.pressed = true
                         onReleased: { parent.pressed = false; parent.hovered = containsMouse; }
-                        onClicked: rootWindow.currentFolder = String(folderModel.parentFolder).slice(7)
+                        onClicked: rootWindow.currentFolder = rootWindow.currentFolder == "/"?"/":String(folderModel.parentFolder).slice(7)
                     }
+                }
+
+                DTextInput {
+                    anchors.left: goUpFolderButton.right
+                    anchors.leftMargin: 5
+                    anchors.right: parent.right
+                    anchors.rightMargin: 15
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: currentFolder
                 }
             }
 
             Rectangle {
                 id: fileListViewBox
                 anchors.top: locationBox.bottom
+                anchors.topMargin: 10
                 anchors.bottom: buttonBox.top
                 anchors.bottomMargin: 10
+                anchors.leftMargin: 2
                 width: parent.width
-                color: "transparent"
+                color: "#1f2021"
                 border.width: 1
                 border.color: dconstants.fgDarkColor
                 clip: true
@@ -156,22 +144,35 @@ Window {
 
                     Component {
                         id: fileDelegate
-                        Item {
+                        Rectangle {
+                            color: index % 2 == 0 ? "#1f2021" : "#1d1e1f"
                             width: parent.width
-                            height: 30
+                            height: 28
 
-                            Image {
-                                anchors.left: parent.left
-                                anchors.leftMargin: 4
+                            DSeparatorHorizontal {
+                                anchors.top: parent.top
                                 anchors.verticalCenter: parent.verticalCenter
-                                source: fileIsDir ? "images/folder_24.png" : "images/file_24.png"
+                                width: parent.width
+                            }
+
+                            DIcon {
+                                id:fileIcon
+                                anchors.left: parent.left
+                                anchors.leftMargin: 6
+                                anchors.verticalCenter: parent.verticalCenter
+
+                                height: 24
+                                width: 24
+                                theme: "Deepin-blue"
+                                icon: dfcdAide.getIconName(filePath)
                             }
 
                             DLabel {
+                                id:fileNameLabel
                                 text: fileName;
-                                color: "white"
-                                anchors.left: parent.left
-                                anchors.leftMargin: 36
+                                color: folderModel.get(fileListView.currentIndex, "fileName") == fileName ?"#00bbfc" : "white"
+                                anchors.left: fileIcon.right
+                                anchors.leftMargin: 8
                                 anchors.verticalCenter: parent.verticalCenter
                             }
 
@@ -179,6 +180,7 @@ Window {
                                 anchors.fill: parent
                                 onClicked: {
                                     parent.ListView.view.currentIndex = index
+                                    console.log(index)
                                 }
                                 onDoubleClicked: {
                                     if(fileIsDir){
@@ -196,11 +198,11 @@ Window {
 
                     model: folderModel
                     delegate: fileDelegate
-                    highlight: Rectangle{
-                        width: fileListView.width
-                        height: 30
-                        color: Qt.rgba(0, 189/255, 1, 0.5)
-                    }
+//                    highlight: Rectangle{
+//                        width: fileListView.width
+//                        height: 30
+//                        color: Qt.rgba(0, 189/255, 1, 0.5)
+//                    }
                     highlightMoveDuration: 0
 
                     DScrollBar {
@@ -209,6 +211,10 @@ Window {
                 }
             }
 
+            DSeparatorHorizontal {
+                anchors.top: fileListViewBox.bottom
+                width: parent.width
+            }
             Row {
                 id: buttonBox
                 anchors.bottom: parent.bottom

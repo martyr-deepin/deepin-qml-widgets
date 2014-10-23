@@ -11,7 +11,8 @@ HEADERS += \
     plugins/plugin.h \
     plugins/previewwindow.h \
     plugins/dfiledialog.h \
-    plugins/dsinglelinetip.h
+    plugins/dsinglelinetip.h\
+    plugins/dfilechoosedialogaide.h
 
 SOURCES += \
     plugins/dicon.cpp \
@@ -19,7 +20,8 @@ SOURCES += \
     plugins/previewwindow.cpp \
     plugins/plugin.cpp \
     plugins/dfiledialog.cpp \
-    plugins/dsinglelinetip.cpp
+    plugins/dsinglelinetip.cpp\
+    plugins/dfilechoosedialogaide.cpp
 
 TARGET = $$qtLibraryTarget($$TARGET)
 uri = Deepin.Widgets
