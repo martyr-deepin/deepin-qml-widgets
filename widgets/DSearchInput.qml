@@ -13,7 +13,7 @@ DTextInput {
         Image {
             id: searchImage
             anchors.centerIn: parent
-            source: "images/search_white.png"
+            source: "images/search_white.svg"
         }
     }
 
