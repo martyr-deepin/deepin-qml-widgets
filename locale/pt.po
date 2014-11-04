@@ -3,24 +3,24 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# RAFAEL GAUNA <rafaelgt.mbin@gmail.com>, 2014
+# Ricardo Simões <xmcorporation@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin QML Widgets\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-10 13:18+0800\n"
-"PO-Revision-Date: 2014-10-29 19:41+0000\n"
-"Last-Translator: RAFAEL GAUNA <rafaelgt.mbin@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/deepin-qml-widgets/language/pt_BR/)\n"
+"PO-Revision-Date: 2014-10-29 20:31+0000\n"
+"Last-Translator: Ricardo Simões <xmcorporation@gmail.com>\n"
+"Language-Team: Portuguese (http://www.transifex.com/projects/p/deepin-qml-widgets/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: pt\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../widgets/DFileChooseDialog.qml:80
 msgid "Location: "
-msgstr "Localização"
+msgstr "Localização:"
 
 #: ../widgets/DFileChooseDialog.qml:219 ../widgets/plugins/dfiledialog.cpp:162
 msgid "Cancel"
@@ -32,19 +32,19 @@ msgstr "OK"
 
 #: ../widgets/plugins/dfiledialog.cpp:13
 msgid "Look in"
-msgstr "Olhar"
+msgstr "Olhar dentro"
 
 #: ../widgets/plugins/dfiledialog.cpp:14
 msgid "Files of type"
-msgstr "Arquivos do tipo"
+msgstr "Ficheiros do tipo"
 
 #: ../widgets/plugins/dfiledialog.cpp:153
 msgid "Save"
-msgstr "Salvar"
+msgstr "Guardar"
 
 #: ../widgets/plugins/dfiledialog.cpp:180
 msgid "Directory"
-msgstr "Diretório"
+msgstr "Diretoria"
 
 #: ../widgets/plugins/dfiledialog.cpp:181
 msgid "Select"
@@ -52,7 +52,7 @@ msgstr "Selecionar"
 
 #: ../widgets/plugins/dfiledialog.cpp:189
 msgid "File name"
-msgstr "Nome do arq."
+msgstr "Nome de ficheiro"
 
 #: ../widgets/plugins/dfiledialog.cpp:153
 #: ../widgets/plugins/dfiledialog.cpp:190
@@ -65,7 +65,7 @@ msgstr "Copiar"
 
 #: ../widgets/DInputActions.qml:56
 msgid "Cut"
-msgstr "Recortar"
+msgstr "Cortar"
 
 #: ../widgets/DInputActions.qml:66
 msgid "Paste"
@@ -73,4 +73,4 @@ msgstr "Colar"
 
 #: ../widgets/DInputActions.qml:76
 msgid "Repeal"
-msgstr "Anular"
+msgstr "Revogar"
