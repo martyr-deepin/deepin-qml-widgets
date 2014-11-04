@@ -6,6 +6,9 @@ DTextInput {
     property int step: 1
 
     property int value: parseInt(textInput.text)
+    property int initValue:0
+
+    Component.onCompleted: textInput.text = initValue
 
     function setValue(i){
         textInput.text = i
@@ -18,9 +21,6 @@ DTextInput {
     Connections{
         target: textInput
         onTextChanged: {
-            if(textInput.text == ""){
-                textInput.text = min
-            }
             if (parseInt(textInput.text) < min) {
                 textInput.text = min
             }
@@ -98,6 +98,41 @@ DTextInput {
         }
 
         Item {
+            width: resetButton.width
+            height: parent.height
+
+            Rectangle {
+                anchors.fill: parent
+                gradient: Gradient {
+                    GradientStop {
+                        position: 0.0
+                        color: resetButton.pressed ? Qt.rgba(0, 0, 0, 0.05) : Qt.rgba(1, 1, 1, 0.05)
+                    }
+                    GradientStop {
+                        position: 1.0
+                        color: resetButton.pressed ? Qt.rgba(0, 0, 0, 0) : Qt.rgba(1, 1, 1, 0)
+                    }
+                }
+            }
+
+            DImageButton {
+                id: resetButton
+                anchors.verticalCenter: parent.verticalCenter
+                normal_image: "images/restore_normal.png"
+                hover_image: "images/restore_hover.png"
+                press_image: "images/restore_press.png"
+
+                onClicked: textInput.text = initValue
+            }
+        }
+
+        Rectangle {
+            width: 1
+            height: parent.height
+            color: Qt.rgba(1, 1, 1, 0.1)
+        }
+
+        Item {
             width: increaseButton.width
             height: parent.height
 
@@ -112,7 +147,7 @@ DTextInput {
                         position: 1.0
                         color: increaseButton.pressed ? Qt.rgba(0, 0, 0, 0) : Qt.rgba(1, 1, 1, 0)
                     }
-                } 
+                }
             }
 
             DImageButton {
@@ -148,7 +183,7 @@ DTextInput {
                         position: 1.0
                         color: decreaseButton.pressed ? Qt.rgba(0, 0, 0, 0) : Qt.rgba(1, 1, 1, 0)
                     }
-                } 
+                }
             }
 
             DImageButton{
