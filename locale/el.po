@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# JimSp472000 <jimspentzos2000@gmail.com>, 2014
+# Jim Spentzos <jimspentzos2000@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin QML Widgets\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-10 13:18+0800\n"
-"PO-Revision-Date: 2014-10-29 09:33+0000\n"
+"PO-Revision-Date: 2014-12-04 04:51+0000\n"
 "Last-Translator: szd_liufei <liufei@linuxdeepin.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/deepin-qml-widgets/language/el/)\n"
 "MIME-Version: 1.0\n"
