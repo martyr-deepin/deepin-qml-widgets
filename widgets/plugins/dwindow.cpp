@@ -1,6 +1,5 @@
 #include "plugins/dwindow.h"
 #include <QCursor>
-#include <QGuiApplication>
 #include <QX11Info>
 
 #include <cstdio>

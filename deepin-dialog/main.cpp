@@ -1,15 +1,15 @@
-#include <QGuiApplication>
-#include <QQmlEngine>
-#include <QCoreApplication>
-#include <QDebug>
-#include <QDBusConnection>
 
 #include "qmlloader.h"
 
+#include <QApplication>
+#include <QQmlEngine>
+#include <QDebug>
+#include <QDBusConnection>
+
 int main(int argc, char* argv[])
 {
-    QCoreApplication::setAttribute(Qt::AA_X11InitThreads, true);
-    QGuiApplication app(argc, argv);
+    QApplication::setAttribute(Qt::AA_X11InitThreads, true);
+    QApplication app(argc, argv);
     if(QDBusConnection::sessionBus().registerService("com.deepin.dialog")){
 
         QmlLoader* qmlLoader = new QmlLoader();

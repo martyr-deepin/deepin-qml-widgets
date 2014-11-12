@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-QT += quick qml gui core dbus
+QT += quick qml gui core dbus widgets
 
 SOURCES += main.cpp \
     qmlloader.cpp
