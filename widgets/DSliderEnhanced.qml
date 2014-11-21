@@ -62,6 +62,10 @@ Item {
         })
     }
 
+    function showValue(){
+
+    }
+
     property real value: min + (max - min) * mousearea.value
     property int grooveWidth: width - handleWidth + 2
     property int grooveHeight: 8
@@ -202,17 +206,24 @@ Item {
                 drag.minimumX: 0
                 drag.maximumX: realValueRect.width
 
+                hoverEnabled: true
                 property real value: (handle.x - drag.minimumX) / (drag.maximumX - drag.minimumX)
-                
+
                 onPressed: slider.pressedFlag = true
                 onReleased: {
                     slider.pressedFlag = false
                     valueConfirmed()
                 }
+                onEntered: {
+                    if(valueDisplayVisible && !_first_running){
+                        valueDisplay.showValue()
+                    }
+                }
+                onExited: valueDisplay.visible = false
             }
         }
     }
-    
+
     Item {
         id: rulerArea
         anchors.top: sliderDragArea.bottom
@@ -228,7 +239,7 @@ Item {
                 for(var i=0; i<model.count; i++){
                     var v = model.get(i).rulerValue
                     var xPos = getXPos(v)
-                    rDict[xPos] = v 
+                    rDict[xPos] = v
                 }
                 return rDict
             }
