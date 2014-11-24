@@ -35,6 +35,7 @@ DDialog {
         DTextInput {
             id: input
             width: parent.width - 8 * 2
+            showClearButton: true
 
             anchors.horizontalCenter: parent.horizontalCenter
         }

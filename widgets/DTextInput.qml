@@ -18,6 +18,7 @@ FocusScope {
     property alias readOnly: text_input.readOnly
     property alias selectByMouse: text_input.selectByMouse
     property bool isPassword: false
+    property bool showClearButton: false
     property bool keyboardOperationsEnabled: true
 
     property var cursorPosGetter: null
@@ -97,7 +98,7 @@ FocusScope {
 
             anchors.fill: parent
             anchors.leftMargin: 3
-            anchors.rightMargin: passwordShowButton.visible ? 3 + passwordShowButton.width : 3
+            anchors.rightMargin: action_button_place_holder.width + 3
 
             onAccepted: {
                 root.accepted()
@@ -108,10 +109,30 @@ FocusScope {
         }
 
         Item {
-            width: passwordShowButton.width
+            id: action_button_place_holder
+            width: height
             height: parent.height
             anchors.right: parent.right
+        }
+
+        Item {
+            visible: !isPassword && root.showClearButton
+            anchors.fill: action_button_place_holder
+
+            DImageButton {
+                normal_image: "images/clear_content_normal.png"
+                hover_image: "images/clear_content_hover.png"
+                press_image: "images/clear_content_press.png"
+
+                anchors.centerIn: parent
+
+                onClicked: text_input.text = ""
+            }
+        }
+
+        Item {
             visible: isPassword
+            anchors.fill: action_button_place_holder
 
             Rectangle {
                 width: 1
