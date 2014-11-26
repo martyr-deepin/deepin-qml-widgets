@@ -12,7 +12,7 @@ DBaseLine {
 
     leftLoader.sourceComponent: DssH1 {
         id: title
-        font.bold: true
+        font.weight: Font.DemiBold
         color: "white"
         text: dssTitle.text
 
