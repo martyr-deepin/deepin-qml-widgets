@@ -8,7 +8,14 @@ DTextInput {
     property int value: parseInt(textInput.text)
     property int initValue:0
 
-    Component.onCompleted: textInput.text = initValue
+    Component.onCompleted: {
+        if (textInput.text == ""){
+            textInput.text = initValue
+        }
+        else{
+            initValue = textInput.text
+        }
+    }
 
     function setValue(i){
         textInput.text = i
