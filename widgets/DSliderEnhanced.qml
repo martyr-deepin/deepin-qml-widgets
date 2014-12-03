@@ -188,6 +188,19 @@ Item {
                         valueConfirmed()
                     }
                 }
+
+                onWheel: {
+                    if (wheel.angleDelta.y > 0){
+                        handle.x += adsorptionPixel
+                        handle.x = handle.x >= realValueRect.width ? realValueRect.width : handle.x
+                        valueConfirmed()
+                    }
+                    else{
+                        handle.x -= adsorptionPixel
+                        handle.x = handle.x <= 0 ? 0 : handle.x
+                        valueConfirmed()
+                    }
+                }
             }
 
         }
