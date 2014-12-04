@@ -98,7 +98,7 @@ FocusScope {
 
             anchors.fill: parent
             anchors.leftMargin: 3
-            anchors.rightMargin: action_button_place_holder.width + 3
+            anchors.rightMargin: root.isPassword || root.showClearButton ? action_button_place_holder.width + 3 : 3
 
             onAccepted: {
                 root.accepted()
