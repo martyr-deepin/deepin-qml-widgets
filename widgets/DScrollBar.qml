@@ -3,16 +3,12 @@ import QtQuick 2.0;
 Item {
     id: scrollbar
     width: handleSize
+    height: parent.height
     visible: (flickable.visibleArea.heightRatio < 1.0)
-    anchors {
-        top: flickable.top
-        right: flickable.right
-        bottom: flickable.bottom
-        //margins: 1
-    }
+    anchors.right: parent.right
 
     property Flickable flickable : null
-    property int handleSize: 12
+    property int handleSize: 6
     property alias backHandle: backHandle
     property color inactiveColor: Qt.rgba(0, 0, 0, 0.5)
     property color activeColor: Qt.rgba(0, 0, 0, 0.9)
@@ -46,7 +42,7 @@ Item {
         value: (flickable.contentY * clicker.drag.maximumY / (flickable.contentHeight - flickable.height))
         when: (!clicker.drag.active)
     }
-    
+
     Binding {
         target: flickable
         property: "contentY"
@@ -61,38 +57,35 @@ Item {
             handleHide()
         }
     }
-    
+
     Item {
         id: groove
         clip: true
-        anchors {
-            fill: parent
-            margins: 1
-        }
+        anchors.fill: parent
 
         MouseArea {
             anchors.fill: parent
             hoverEnabled: true
-            
+
             drag.target: handle
             drag.axis: Drag.YAxis
             drag.minimumY: 0
             drag.maximumY: (groove.height - handle.height)
             drag.filterChildren: true
-            
-            onClicked: { 
-                flickable.contentY = (mouse.y / groove.height * (flickable.contentHeight - flickable.height)) 
+
+            onClicked: {
+                flickable.contentY = (mouse.y / groove.height * (flickable.contentHeight - flickable.height))
             }
 
             onEntered: {
                 handleShow()
             }
-            
+
             onExited: {
                 handleHide()
             }
         }
-        
+
         Item {
             id: handle
             height: Math.max(50, (flickable.visibleArea.heightRatio * groove.height))
@@ -105,14 +98,14 @@ Item {
                 id: backHandle
                 color: scrollbar.inactiveColor
                 anchors { fill: parent }
-                border.color: "#44ffffff"
+                border.color: Qt.rgba(1, 1, 1, 0.1)
                 border.width: 1
                 radius: 6
                 opacity: 0
 
                 Behavior on opacity { NumberAnimation { duration: 150 } }
             }
-            
+
             MouseArea {
                 id: clicker
                 anchors.fill: parent
@@ -126,11 +119,11 @@ Item {
 
                 onPressed: {
                 }
-        
+
                 onEntered: {
                     handleShow()
                 }
-                
+
                 onExited: {
                     handleHide()
                 }
