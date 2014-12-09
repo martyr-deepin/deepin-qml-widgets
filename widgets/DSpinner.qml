@@ -4,36 +4,65 @@ DTextInput {
     property int min: 0
     property int max: 65535
     property int step: 1
+    property int precision: 0
 
-    property int value: parseInt(textInput.text)
     property int initValue:0
+    property int value
+
+    textInput.validator: RegExpValidator { regExp: /^-?([0-9]|\.)*$/ }
+
+    textInput.anchors.rightMargin: 3 + buttonBox.width
 
     Component.onCompleted: {
         if (textInput.text == ""){
-            textInput.text = initValue
+            textInput.text = initValue.toFixed(precision)
         }
         else{
-            initValue = textInput.text
+            if (_validate()) {
+                value = parseFloat(textInput.text)
+                initValue = value
+            } else {
+                initValue = min
+                textInput.text = initValue.toFixed(precision)
+            }
         }
     }
 
     function setValue(i){
-        textInput.text = i
+        textInput.text = i.toFixed(precision)
     }
 
-    textInput.validator: IntValidator{bottom: min; top: max;}
+    function _validate() {
+        var value =  parseFloat(textInput.text)
+        return min <= value && value <= max
+    }
 
-    textInput.anchors.rightMargin: 3 + buttonBox.width
+    function _changeTextToValid() {
+        if (!_validate()) {
+            var value = parseFloat(textInput.text)
+            if (isNaN(value)) {
+                textInput.text = initValue.toFixed(precision)
+            } else {
+                textInput.text = Math.min(max, Math.max(min, value)).toFixed(precision)
+            }
+        }
+    }
 
     Connections{
         target: textInput
+
         onTextChanged: {
-            if (parseInt(textInput.text) < min) {
-                textInput.text = min
+            if (_validate()) {
+                var textValue = parseFloat(textInput.text)
+                value = textValue.toFixed(precision)
+            } else  {
+                validate_timer.restart()
             }
-            if (parseInt(textInput.text) > max) {
-                textInput.text = max
-            }
+        }
+
+        onActiveFocusChanged: {
+            if (textInput.activeFocus) return
+            _changeTextToValid()
         }
     }
 
@@ -57,6 +86,12 @@ DTextInput {
         onReleased: {
             holdTimer.stop()
         }
+    }
+
+    Timer {
+        id: validate_timer
+        interval: 1000
+        onTriggered: _changeTextToValid()
     }
 
     Timer {
