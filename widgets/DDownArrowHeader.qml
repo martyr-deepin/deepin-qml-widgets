@@ -6,7 +6,8 @@ Rectangle {
     id: header
 
     property string text: "Untitled"
-    property string hintText
+    property string hintText: ""
+    property int hintTextSize: 12
     property alias icon: iconImage.source
     property alias active: actionButton.checked
 
@@ -55,15 +56,15 @@ Rectangle {
             DssH2 {
                 id: darkArea
                 anchors.verticalCenter: parent.verticalCenter
-                font.pixelSize: 12
+                font.pixelSize: header.hintTextSize
                 color: dconstants.fgDarkColor
-                visible: hintText ? true : false
+                visible: text != "" ? true : false
                 text: header.hintText
-                elide: Text.ElideRight
             }
             Component.onCompleted: {
                 darkArea.width = width - iconArea.width - titleArea.width
             }
+
         }
 
         Item {
