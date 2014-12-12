@@ -3,6 +3,7 @@
 
 #include <QQuickItem>
 #include <QQuickWindow>
+#include <QScreen>
 
 #include <xcb/xcb.h>
 #include <xcb/xproto.h>
@@ -24,11 +25,16 @@ public:
     Q_INVOKABLE QPoint getCursorPos();
     Q_INVOKABLE int getWinId();
 
+    //This signal just for Qt5 double screen switch bug
+    //When screen switch,
+    Q_SIGNAL void qt5ScreenChanged();
+
     int shadowWidth();
     void setShadowWidth(int);
 
 public slots:
     void focusChanged(QWindow * win);
+    void handlerScreenChanged(QScreen* s);
 
 signals:
     void shadowWidthChanged(int shadowWidth);

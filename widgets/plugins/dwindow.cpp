@@ -1,6 +1,7 @@
 #include "plugins/dwindow.h"
 #include <QCursor>
 #include <QX11Info>
+#include <QScreen>
 
 #include <cstdio>
 #include <cstring>
@@ -30,8 +31,9 @@ DWindow::DWindow(QQuickWindow *parent)
     this->setFormat(sformat);
     this->setClearBeforeRendering(true);
 
-    QObject::connect(qApp, SIGNAL(focusWindowChanged(QWindow*)), this, SLOT(focusChanged(QWindow *)));
-    QObject::connect(this, SIGNAL(visibilityChanged(QWindow::Visibility)), this, SLOT(visibilityChangedSlot(QWindow::Visibility)));
+    connect(qApp, SIGNAL(focusWindowChanged(QWindow*)), this, SLOT(focusChanged(QWindow *)));
+    connect(this, SIGNAL(visibilityChanged(QWindow::Visibility)), this, SLOT(visibilityChangedSlot(QWindow::Visibility)));
+    connect(this, SIGNAL(screenChanged(QScreen*)), this, SLOT(handlerScreenChanged(QScreen*)));
 }
 
 DWindow::~DWindow()
@@ -73,6 +75,13 @@ QPoint DWindow::getCursorPos()
 void DWindow::focusChanged(QWindow *win)
 {
     Q_EMIT windowFocusChanged(win);
+}
+
+void DWindow::handlerScreenChanged(QScreen *s)
+{
+    if(s == 0){
+        Q_EMIT qt5ScreenChanged();
+    }
 }
 
 void DWindow::mousePressEvent(QMouseEvent *ev){
