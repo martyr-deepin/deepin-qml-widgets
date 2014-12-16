@@ -116,7 +116,7 @@ FocusScope {
         }
 
         Item {
-            visible: !isPassword && root.showClearButton
+            visible: !isPassword && root.showClearButton && text_input.text.trim() != ""
             anchors.fill: action_button_place_holder
 
             DImageButton {
