@@ -29,6 +29,12 @@ Item {
 
     property bool _first_running: true
 
+    onInitChanged: {
+        if(!pressedFlag){
+            setValue(init, false)
+        }
+    }
+
     Component.onCompleted: {
         if(valueDisplayVisible){
             setValue(init, false)
@@ -175,6 +181,8 @@ Item {
                 hoverEnabled: true
                 visible: clickable
 
+                onPressed: pressedFlag = true
+
                 onReleased: {
                     if(containsMouse){
                         var rulerPos = Object.keys(ruler.xToValueDict)
@@ -185,11 +193,16 @@ Item {
                             }
                         }
                         handle.x = mouse.x
+                        pressedFlag = false
                         valueConfirmed()
+                    }
+                    else{
+                        pressedFlag = false
                     }
                 }
 
                 onWheel: {
+                    pressedFlag = true
                     if (wheel.angleDelta.y > 0){
                         handle.x += adsorptionPixel
                         handle.x = handle.x >= realValueRect.width ? realValueRect.width : handle.x
@@ -200,6 +213,7 @@ Item {
                         handle.x = handle.x <= 0 ? 0 : handle.x
                         valueConfirmed()
                     }
+                    pressedFlag = false
                 }
             }
 
