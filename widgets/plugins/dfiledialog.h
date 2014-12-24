@@ -2,7 +2,10 @@
 #define DFILEDIALOG_H
 
 #include <QQuickItem>
+#include <xcb/xcb.h>
+#include <xcb/xproto.h>
 
+class QWindow;
 class QFileDialog;
 class DFileDialog : public QQuickItem
 {
@@ -25,6 +28,8 @@ public:
     Q_PROPERTY(bool saveMode READ isSaveMode WRITE setSaveMode)
 
     Q_PROPERTY(QString defaultFileName READ defaultFileName WRITE setDefaultFileName)
+
+    Q_PROPERTY(QWindow* transientParent READ transientParent WRITE setTransientParent)
 
     QUrl fileUrl();
 
@@ -63,6 +68,9 @@ public:
     QString defaultFileName();
     void setDefaultFileName(QString defaultFileName);
 
+    QWindow* transientParent();
+    void setTransientParent(QWindow*);
+
     Q_INVOKABLE void open();
     Q_INVOKABLE void close();
 
@@ -71,17 +79,20 @@ signals:
     void rejected();
 
 private:
+    xcb_connection_t *m_conn;
     QFileDialog *m_fileDialog;
 
     bool m_selectMultiple;
     bool m_selectExisting;
     bool m_selectFolder;
     QString m_defaultFileName;
+    QWindow *m_transientParent;
 
     QString m_domain;
 
-    void m_setFileModeInternal();
-    void m_checkFileNameDuplication();
+    void setFileModeInternal();
+    void checkFileNameDuplication();
+    void setTransientParentInternal();
     QString tr(const char*, bool flag);
 
 private slots:

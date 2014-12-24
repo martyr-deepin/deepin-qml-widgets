@@ -1,13 +1,17 @@
 #include "dfiledialog.h"
 #include <QFileDialog>
+#include <QWindow>
+#include <QX11Info>
 #include <libintl.h>
 
 DFileDialog::DFileDialog(QQuickItem *parent) :
-    QQuickItem(parent)
+    QQuickItem(parent),
+    m_transientParent(NULL)
 {
     m_domain = "deepin-qml-widgets";
     setlocale(LC_ALL, "");
     bindtextdomain(m_domain.toLatin1(), "/usr/share/locale");
+    m_conn = QX11Info::connection();
 
     m_fileDialog = new QFileDialog();
     m_fileDialog->setLabelText(m_fileDialog->LookIn, tr("Look in", true));
@@ -86,7 +90,7 @@ bool DFileDialog::selectExisting()
 void DFileDialog::setSelectExisting(bool selectExisting)
 {
     m_selectExisting = selectExisting;
-    m_setFileModeInternal();
+    setFileModeInternal();
 }
 
 bool DFileDialog::selectFolder()
@@ -97,7 +101,7 @@ bool DFileDialog::selectFolder()
 void DFileDialog::setSelectFolder(bool selectFolder)
 {
     m_selectFolder = selectFolder;
-    m_setFileModeInternal();
+    setFileModeInternal();
 }
 
 bool DFileDialog::selectMultiple()
@@ -108,7 +112,7 @@ bool DFileDialog::selectMultiple()
 void DFileDialog::setSelectMultiple(bool selectMultiple)
 {
     m_selectMultiple = selectMultiple;
-    m_setFileModeInternal();
+    setFileModeInternal();
 }
 
 QString DFileDialog::defaultFileName()
@@ -120,6 +124,16 @@ void DFileDialog::setDefaultFileName(QString defaultFileName)
 {
     m_defaultFileName = defaultFileName;
     m_fileDialog->selectFile(m_defaultFileName);
+}
+
+QWindow* DFileDialog::transientParent()
+{
+    return m_transientParent;
+}
+
+void DFileDialog::setTransientParent(QWindow *transientParent)
+{
+    m_transientParent = transientParent;
 }
 
 QString DFileDialog::title()
@@ -162,9 +176,10 @@ void DFileDialog::open()
     m_fileDialog->setLabelText(m_fileDialog->Reject, tr("Cancel", true));
     m_fileDialog->setOptions(m_fileDialog->options() | m_fileDialog->DontConfirmOverwrite);
     m_fileDialog->selectFile(m_defaultFileName);
-    m_checkFileNameDuplication();
+    checkFileNameDuplication();
 
     m_fileDialog->show();
+    setTransientParentInternal();
 }
 
 void DFileDialog::close()
@@ -172,7 +187,7 @@ void DFileDialog::close()
     m_fileDialog->close();
 }
 
-void DFileDialog::m_setFileModeInternal()
+void DFileDialog::setFileModeInternal()
 {
     if (m_selectFolder) {
         m_fileDialog->setFileMode(m_fileDialog->DirectoryOnly);
@@ -197,10 +212,10 @@ QString DFileDialog::tr(const char *s, bool)
 }
 
 void DFileDialog::directoryEnteredSlot(const QString&) {
-    m_checkFileNameDuplication();
+    checkFileNameDuplication();
 }
 
-void DFileDialog::m_checkFileNameDuplication()
+void DFileDialog::checkFileNameDuplication()
 {
     if (defaultFileName().trimmed() != "") {
         bool exist = QFile(m_fileDialog->selectedFiles().at(0)).exists();
@@ -219,5 +234,18 @@ void DFileDialog::m_checkFileNameDuplication()
         }
 
         m_fileDialog->selectFile(newDefaultName);
+    }
+}
+
+void DFileDialog::setTransientParentInternal()
+{
+    if (m_transientParent) {
+        xcb_window_t winId = m_transientParent->winId();
+
+        xcb_void_cookie_t cookie = xcb_change_property_checked(m_conn, XCB_PROP_MODE_REPLACE, m_fileDialog->winId(),
+                                                               XCB_ATOM_WM_TRANSIENT_FOR, XCB_ATOM_WINDOW, 32,
+                                                               1, &winId);
+        xcb_request_check(m_conn, cookie);
+        xcb_flush(m_conn);
     }
 }
