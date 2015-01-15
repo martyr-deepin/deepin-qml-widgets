@@ -86,6 +86,17 @@ bool DFileChooseDialogAide::isImage(QString fileName)
         return false;
 }
 
+bool DFileChooseDialogAide::fileExist(QString fileName)
+{
+    return QFile::exists(fileName);
+}
+
+bool DFileChooseDialogAide::fileIsDir(QString fileName)
+{
+    QFileInfo checkInfo(fileName);
+    return checkInfo.isDir();
+}
+
 void DFileChooseDialogAide::initThumbnailConfig()
 {
     QDir localConfigDir;
