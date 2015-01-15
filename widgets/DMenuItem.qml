@@ -31,9 +31,10 @@ Item {
     signal selectAction(int index)
 
     property alias text: label.text
+    property bool itemOnHover: false    //use wrapper.ListView.view.currentIndex to record index may cause crash,like deepin-movie font-list
 
     Rectangle {
-        color: wrapper.ListView.view.currentIndex == index ? "#141414" : "#232323"
+        color: itemOnHover ? "#141414" : "#232323"
         anchors.fill: parent
     }
 
@@ -43,7 +44,7 @@ Item {
         anchors.leftMargin: 5
         anchors.verticalCenter: parent.verticalCenter
         text: "text " + index
-        color: wrapper.ListView.view.currentIndex == index ? dconstants.activeColor : dconstants.fgColor
+        color: itemOnHover ? dconstants.activeColor : dconstants.fgColor
     }
 
     MouseArea {
@@ -51,11 +52,12 @@ Item {
         anchors.fill: parent
         hoverEnabled: true
         onEntered:{
-            wrapper.ListView.view.currentIndex = index
+            itemOnHover = true
         }
         onExited: {
-            wrapper.ListView.view.currentIndex = -1
+            itemOnHover = false
         }
         onClicked: selectAction(index)
     }
 }
+

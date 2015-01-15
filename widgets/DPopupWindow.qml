@@ -3,11 +3,14 @@ import QtQuick.Window 2.1
 import QtGraphicalEffects 1.0
 import Deepin.Widgets 1.0
 
-DOverrideWindow {
+//Use DWindow or DOverrideWindow will cause DComboBox Exception crash in some situation when use it in DMenu
+Window {
     id: win
     width: 400
     height: 300
     color: "transparent"
+
+    flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.X11BypassWindowManagerHint
 
     onVisibleChanged: {
         if(visible){
