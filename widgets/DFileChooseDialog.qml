@@ -184,7 +184,7 @@ Window {
 
                                 height: 24
                                 width: 24
-                                theme: "Deepin-blue"
+                                theme: "Deepin"
                                 icon: dfcdAide.getIconName(filePath)
                             }
 
