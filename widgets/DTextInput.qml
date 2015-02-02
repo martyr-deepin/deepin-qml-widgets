@@ -105,7 +105,7 @@ FocusScope {
             }
 
             Keys.enabled: !root.keyboardOperationsEnabled
-            Keys.onPressed: { event.accepted = true; root.keyPressed(event) }
+            Keys.onPressed: {root.keyPressed(event) }
         }
 
         Item {

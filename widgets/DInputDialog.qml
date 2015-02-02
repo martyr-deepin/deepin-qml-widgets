@@ -40,16 +40,14 @@ DDialog {
 
         Text {
             id: msg
-            text: "hello world"
+            text: ""
             color: "white"
             font.pixelSize: 12
         }
         DTextInput {
             id: input
-            width: parent.width - 8 * 2
+            width: parent.width
             showClearButton: true
-
-            anchors.horizontalCenter: parent.horizontalCenter
 
             onAccepted: dialog._accept()
         }
