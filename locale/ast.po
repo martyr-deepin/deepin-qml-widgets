@@ -3,71 +3,70 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# iceleaf <iceleaf916@gmail.com>, 2014
-# szd_liufei <liufei@linuxdeepin.com>, 2014-2015
+# Ḷḷumex03 <tornes@opmbx.org>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin QML Widgets\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-12 14:13+0800\n"
-"PO-Revision-Date: 2015-02-03 01:37+0000\n"
-"Last-Translator: szd_liufei <liufei@linuxdeepin.com>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/deepin-qml-widgets/language/zh_CN/)\n"
+"PO-Revision-Date: 2015-02-03 00:21+0000\n"
+"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
+"Language-Team: Asturian (http://www.transifex.com/projects/p/deepin-qml-widgets/language/ast/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: ast\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../widgets/DFileChooseDialog.qml:225 ../widgets/plugins/dfiledialog.cpp:176
 msgid "Cancel"
-msgstr "取消"
+msgstr "Encaboxar"
 
 #: ../widgets/DFileChooseDialog.qml:233
 msgid "OK"
-msgstr "确定 "
+msgstr "Aceutar"
 
 #: ../widgets/plugins/dfiledialog.cpp:17
 msgid "Look in"
-msgstr "查看"
+msgstr ""
 
 #: ../widgets/plugins/dfiledialog.cpp:18
 msgid "Files of type"
-msgstr "文件类型"
+msgstr "Ficheros de la triba"
 
 #: ../widgets/plugins/dfiledialog.cpp:167
 msgid "Save"
-msgstr "保存"
+msgstr "Guardar"
 
 #: ../widgets/plugins/dfiledialog.cpp:195
 msgid "Directory"
-msgstr "目录"
+msgstr "Direutoriu"
 
 #: ../widgets/plugins/dfiledialog.cpp:196
 msgid "Select"
-msgstr "选择"
+msgstr "Esbillar"
 
 #: ../widgets/plugins/dfiledialog.cpp:204
 msgid "File name"
-msgstr "文件名"
+msgstr "Nome de ficheru"
 
 #: ../widgets/plugins/dfiledialog.cpp:167
 #: ../widgets/plugins/dfiledialog.cpp:205
 msgid "Open"
-msgstr "打开"
+msgstr "Abrir"
 
 #: ../widgets/DInputActions.qml:46
 msgid "Copy"
-msgstr "复制"
+msgstr "Copiar"
 
 #: ../widgets/DInputActions.qml:56
 msgid "Cut"
-msgstr "剪切"
+msgstr "Cortar"
 
 #: ../widgets/DInputActions.qml:66
 msgid "Paste"
-msgstr "粘贴"
+msgstr "Apegar"
 
 #: ../widgets/DInputActions.qml:76
 msgid "Select all"
-msgstr "全选"
+msgstr "Esbillar too"

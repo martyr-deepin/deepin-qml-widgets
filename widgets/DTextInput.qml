@@ -105,7 +105,7 @@ FocusScope {
             }
 
             Keys.enabled: !root.keyboardOperationsEnabled
-            Keys.onPressed: { event.accepted = true; root.keyPressed(event) }
+            Keys.onPressed: {root.keyPressed(event) }
         }
 
         Item {
@@ -199,7 +199,7 @@ FocusScope {
         onCopyClicked: text_input.copy()
         onCutClicked: text_input.cut()
         onPasteClicked: text_input.paste()
-        onResetClicked: text_input.text = ""
+        onSelectAllClicked: text_input.selectAll()
     }
 
     MouseArea {

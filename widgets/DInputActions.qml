@@ -12,7 +12,7 @@ Item {
     signal copyClicked
     signal cutClicked
     signal pasteClicked
-    signal resetClicked
+    signal selectAllClicked
 
     DLocale { id: dsslocale; domain: "deepin-qml-widgets" }
 
@@ -28,8 +28,8 @@ Item {
                 root_item.cutClicked(); break
                 case "paste":
                 root_item.pasteClicked(); break
-                case "reset":
-                root_item.resetClicked(); break
+                case "select_all":
+                root_item.selectAllClicked(); break
             }
         }
     }
@@ -68,12 +68,12 @@ Item {
             "checked": false,
             "itemSubMenu": {}
         }
-        var menuReset = {
-            "itemId": "reset",
+        var menuSelectAll = {
+            "itemId": "select_all",
             "itemIcon": "",
             "itemIconHover": "",
             "itemIconInactive": "",
-            "itemText": dsTr("Repeal"),
+            "itemText": dsTr("Select all"),
             "isActive": canReset,
             "checked": false,
             "itemSubMenu": {}
@@ -86,7 +86,7 @@ Item {
                 menuCopy,
                 menuCut,
                 menuPaste,
-                menuReset
+                menuSelectAll
                 ]
                 })
         }

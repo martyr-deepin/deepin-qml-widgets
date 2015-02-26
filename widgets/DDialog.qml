@@ -8,7 +8,7 @@ DWindow {
     width: 300
     height: 300
     color: "transparent"
-    flags: Qt.FramelessWindowHint | Qt.SubWindow
+    flags: Qt.FramelessWindowHint | Qt.Dialog
     shadowWidth: 8
 
     property int titleContentPadding: 0

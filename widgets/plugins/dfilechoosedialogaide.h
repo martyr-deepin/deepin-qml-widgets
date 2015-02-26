@@ -26,6 +26,9 @@ public:
     Q_INVOKABLE bool removeThumbnail(QString fileName);
     Q_INVOKABLE bool isImage(QString fileName);
 
+    Q_INVOKABLE bool fileExist(QString fileName);
+    Q_INVOKABLE bool fileIsDir(QString fileName);
+
 private:
     enum ThumbnailSize
     {

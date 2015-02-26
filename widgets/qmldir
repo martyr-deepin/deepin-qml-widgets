@@ -78,3 +78,4 @@ DInputDialog 1.0 DInputDialog.qml
 DInputActions 1.0 DInputActions.qml
 DRectangularRing 1.0 DRectangularRing.qml
 DRectangularGlow 1.0 DRectangularGlow.qml
+DImageCheckBox 1.0 DImageCheckBox.qml

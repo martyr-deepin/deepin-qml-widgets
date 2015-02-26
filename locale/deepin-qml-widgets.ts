@@ -4,12 +4,7 @@
 <context>
     <name>DFileChooseDialog</name>
     <message>
-        <location filename="../widgets/DFileChooseDialog.qml" line="+80"/>
-        <source>Location: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+139"/>
+        <location filename="../widgets/DFileChooseDialog.qml" line="+225"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -22,7 +17,7 @@
 <context>
     <name>DFileDialog</name>
     <message>
-        <location filename="../widgets/plugins/dfiledialog.cpp" line="+13"/>
+        <location filename="../widgets/plugins/dfiledialog.cpp" line="+17"/>
         <source>Look in</source>
         <translation type="unfinished"></translation>
     </message>
@@ -32,7 +27,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+148"/>
+        <location line="+158"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -42,7 +37,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+28"/>
         <source>Directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -57,8 +52,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-36"/>
-        <location line="+37"/>
+        <location line="-37"/>
+        <location line="+38"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
@@ -82,7 +77,7 @@
     </message>
     <message>
         <location line="+10"/>
-        <source>Repeal</source>
+        <source>Select all</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

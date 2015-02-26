@@ -110,12 +110,33 @@ Window {
                 }
 
                 DTextInput {
+                    id:pathInput
                     anchors.left: goUpFolderButton.right
                     anchors.leftMargin: 5
                     anchors.right: parent.right
                     anchors.rightMargin: 15
                     anchors.verticalCenter: parent.verticalCenter
                     text: currentFolder
+
+                    keyboardOperationsEnabled: false
+                    onKeyPressed: {
+                        if ((event.key == Qt.Key_Enter) || (event.key == Qt.Key_Return)){
+                            if (dfcdAide.fileExist(text)){
+                                pathInput.state = "normal"
+                                if (dfcdAide.fileIsDir(text)){
+                                    currentFolder = text
+                                }
+                                else{
+                                    rootWindow.selectAction(text)
+                                    rootWindow.hideWindow()
+                                }
+                            }
+                            else{
+                                print ("[Warning] file not exist...")
+                                pathInput.state = "warning"
+                            }
+                        }
+                    }
                 }
             }
 
@@ -163,7 +184,7 @@ Window {
 
                                 height: 24
                                 width: 24
-                                theme: "Deepin-blue"
+                                theme: "Deepin"
                                 icon: dfcdAide.getIconName(filePath)
                             }
 
