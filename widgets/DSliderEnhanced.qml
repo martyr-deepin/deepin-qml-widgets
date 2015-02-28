@@ -238,6 +238,7 @@ Item {
                 anchors.margins: -4
                 drag.target: parent
                 drag.axis: Drag.XAxis
+                drag.threshold: 1
                 drag.minimumX: 0
                 drag.maximumX: realValueRect.width
 
