@@ -36,34 +36,42 @@ DPopupWindow {
 
     width: minWidth + 24
     height: completeViewBox.height + 32
+    visible: false
 
     property int maxHeight: -1
 
-    property alias currentIndex: completeView.currentIndex
-    property var currentTextValue
+    property int currentIndex: 0
+    // labels property is deprecated, use model instead
     property var labels
-    property var sortLabels
-    visible: false
+    property alias model: menuPopupWindow.labels
+    property Component delegate: Component {
+        DMenuItem { width: menuPopupWindow.width; height: 26 }
+    }
 
     signal menuSelect(int index)
 
-    function showMenu(){
-        sortLabels = getSortLabels()
+    function showMenu() {
+        completeView.model = getSortedModel()
         menuPopupWindow.visible = true
     }
 
-    function getSortLabels(){
-        //move combobox's current value to the top
-        //array.unshift() not work well here,so use reverse and reverse back
-        var tmpLabels = labels.slice()//copy array data
-        tmpLabels.splice(tmpLabels.indexOf(currentTextValue), 1)
-        tmpLabels.reverse()
-        tmpLabels.push(currentTextValue)
-        tmpLabels.reverse()
+    function getSortedModel() {
+        var temp = model.slice()
+        var itemArray = temp.splice(currentIndex, 1)
+        temp.splice(0, 0, itemArray[0])
 
-        return tmpLabels
+        return temp
     }
 
+    function getIndexBeforeSorted(index) {
+        if (0 == index) {
+            return currentIndex
+        } else if (index <= currentIndex) {
+            return index - 1
+        } else {
+            return index
+        }
+    }
 
     DWindowFrame {
         id: menuFrame
@@ -84,18 +92,40 @@ DPopupWindow {
                 height: maxHeight != -1 ? Math.min(childrenHeight, maxHeight) : childrenHeight
                 property int childrenHeight: childrenRect.height
                 maximumFlickVelocity: 1000
-                model: sortLabels
-                delegate: DMenuItem {
-                    text: sortLabels[index]
-                    onSelectAction:{
-                        menuPopupWindow.visible = false
-                        menuPopupWindow.menuSelect(labels.indexOf(sortLabels[index]))
+                model: menuPopupWindow.model
+                delegate: Item {
+                    width: loader.width
+                    height: loader.height
+
+                    Loader {
+                        id: loader
+                        sourceComponent: menuPopupWindow.delegate
+
+                        onLoaded: {
+                            item.width = Qt.binding(function() { return completeView.width })
+                            item.index = index
+                            item.value = completeView.model[index]
+                        }
+                    }
+                    MouseArea {
+                        id: mouseArea
+                        anchors.fill: loader
+                        hoverEnabled: true
+                        onEntered:{
+                            loader.item.itemOnHover = true
+                        }
+                        onExited: {
+                            loader.item.itemOnHover = false
+                        }
+                        onClicked: {
+                            menuPopupWindow.currentIndex = menuPopupWindow.getIndexBeforeSorted(index)
+                            menuPopupWindow.visible = false
+                            menuPopupWindow.menuSelect(menuPopupWindow.currentIndex)
+                        }
                     }
                 }
                 clip: true
             }
         }
-
     }
-
 }
