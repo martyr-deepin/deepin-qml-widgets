@@ -40,14 +40,37 @@ DPopupWindow {
     property int maxHeight: -1
 
     property alias currentIndex: completeView.currentIndex
+    property var currentTextValue
     property var labels
+    property var sortLabels
     visible: false
 
     signal menuSelect(int index)
 
+    function showMenu(){
+        sortLabels = getSortLabels()
+        menuPopupWindow.visible = true
+    }
+
+    function getSortLabels(){
+        //move combobox's current value to the top
+        //array.unshift() not work well here,so use reverse and reverse back
+        var tmpLabels = labels.slice()//copy array data
+        tmpLabels.splice(tmpLabels.indexOf(currentTextValue), 1)
+        tmpLabels.reverse()
+        tmpLabels.push(currentTextValue)
+        tmpLabels.reverse()
+
+        return tmpLabels
+    }
+
+
     DWindowFrame {
         id: menuFrame
         anchors.fill: parent
+        frame.color: "#191919"
+        frame.border.width: 1
+        frame.border.color: "#101010"
 
         Item {
             id: completeViewBox
@@ -61,12 +84,12 @@ DPopupWindow {
                 height: maxHeight != -1 ? Math.min(childrenHeight, maxHeight) : childrenHeight
                 property int childrenHeight: childrenRect.height
                 maximumFlickVelocity: 1000
-                model: labels
+                model: sortLabels
                 delegate: DMenuItem {
-                    text: labels[index]
+                    text: sortLabels[index]
                     onSelectAction:{
                         menuPopupWindow.visible = false
-                        menuPopupWindow.menuSelect(index)
+                        menuPopupWindow.menuSelect(labels.indexOf(sortLabels[index]))
                     }
                 }
                 clip: true

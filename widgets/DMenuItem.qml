@@ -34,14 +34,23 @@ Item {
     property bool itemOnHover: false    //use wrapper.ListView.view.currentIndex to record index may cause crash,like deepin-movie font-list
 
     Rectangle {
-        color: itemOnHover ? "#141414" : "#232323"
+        color: itemOnHover ? "#141414" : "#191919"
         anchors.fill: parent
+    }
+
+    Image {
+        id: headImg
+        source: itemOnHover ? "images/select-dark-hover.png" : "images/select-dark.png"
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: parent.left
+        anchors.leftMargin: 5
+        visible: index == 0
     }
 
     DssH2 {
         id: label
         anchors.left: parent.left
-        anchors.leftMargin: 5
+        anchors.leftMargin: 28
         anchors.verticalCenter: parent.verticalCenter
         text: "text " + index
         color: itemOnHover ? dconstants.activeColor : dconstants.fgColor
