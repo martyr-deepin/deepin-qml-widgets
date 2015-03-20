@@ -12,6 +12,7 @@ Item {
     property alias sourceSize: image.sourceSize
     property alias drawBackground: background.visible
     property int minMiddleWidth: 10
+    property bool lightVersion: false
 
     signal clicked
     signal entered
@@ -24,23 +25,23 @@ Item {
         State {
             name: "normal"
             PropertyChanges { target: image; source: button.normal_image }
-            PropertyChanges { target: bg_head; source: "images/button_left_normal.png" }
-            PropertyChanges { target: bg_body; source: "images/button_center_normal.png" }
-            PropertyChanges { target: bg_tail; source: "images/button_right_normal.png" }
+            PropertyChanges { target: bg_head; source: "images/%1button_left_normal.png".arg(lightVersion ? "light_" : "") }
+            PropertyChanges { target: bg_body; source: "images/%1button_center_normal.png".arg(lightVersion ? "light_" : "") }
+            PropertyChanges { target: bg_tail; source: "images/%1button_right_normal.png".arg(lightVersion ? "light_" : "") }
         },
         State {
             name: "hovered"
             PropertyChanges { target: image; source: button.hover_image }
-            PropertyChanges { target: bg_head; source: "images/button_left_normal.png" }
-            PropertyChanges { target: bg_body; source: "images/button_center_normal.png" }
-            PropertyChanges { target: bg_tail; source: "images/button_right_normal.png" }
+            PropertyChanges { target: bg_head; source: "images/%1button_left_normal.png".arg(lightVersion ? "light_" : "") }
+            PropertyChanges { target: bg_body; source: "images/%1button_center_normal.png".arg(lightVersion ? "light_" : "") }
+            PropertyChanges { target: bg_tail; source: "images/%1button_right_normal.png".arg(lightVersion ? "light_" : "") }
         },
         State {
             name: "pressed"
             PropertyChanges { target: image; source: button.press_image }
-            PropertyChanges { target: bg_head; source: "images/button_left_press.png" }
-            PropertyChanges { target: bg_body; source: "images/button_center_press.png" }
-            PropertyChanges { target: bg_tail; source: "images/button_right_press.png" }
+            PropertyChanges { target: bg_head; source: "images/%1button_left_press.png".arg(lightVersion ? "light_" : "") }
+            PropertyChanges { target: bg_body; source: "images/%1button_center_press.png".arg(lightVersion ? "light_" : "") }
+            PropertyChanges { target: bg_tail; source: "images/%1button_right_press.png".arg(lightVersion ? "light_" : "") }
         }
     ]
 
