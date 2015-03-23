@@ -32,9 +32,9 @@ Item {
         State {
             name: "hovered"
             PropertyChanges { target: image; source: button.hover_image }
-            PropertyChanges { target: bg_head; source: "images/%1button_left_normal.png".arg(lightVersion ? "light_" : "") }
-            PropertyChanges { target: bg_body; source: "images/%1button_center_normal.png".arg(lightVersion ? "light_" : "") }
-            PropertyChanges { target: bg_tail; source: "images/%1button_right_normal.png".arg(lightVersion ? "light_" : "") }
+            PropertyChanges { target: bg_head; source: lightVersion ? "images/light_button_left_hover.png" : "images/button_left_normal.png" }
+            PropertyChanges { target: bg_body; source: lightVersion ? "images/light_button_center_hover.png" : "images/button_center_normal.png" }
+            PropertyChanges { target: bg_tail; source: lightVersion ? "images/light_button_right_hover.png" : "images/button_right_normal.png" }
         },
         State {
             name: "pressed"
