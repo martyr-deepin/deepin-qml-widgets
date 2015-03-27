@@ -20,6 +20,7 @@ Window {
     }
 
     property alias folderModel: folderModel
+    property alias showHidden: folderModel.showHidden
     property bool isVisible: false
 
     property int xPadding: 16
