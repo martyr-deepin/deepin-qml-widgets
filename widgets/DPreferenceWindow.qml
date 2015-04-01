@@ -10,14 +10,16 @@ DWindow {
 	color: "transparent"
 	flags: Qt.FramelessWindowHint | Qt.SubWindow
     shadowWidth: 8
-    
+
     property int titleContentPadding: 5
+    property int bottomContentPadding: 10
+    property int leftRightMargin: 10
     property alias title: titlebar_title.text
-    property alias content: loader.sourceComponent
-    
+    default property alias content: loader.children
+
     property alias showActionButton: action_btn.visible
     property alias actionButtonText: action_btn.text
-    
+
     signal action()
 
 	DConstants { id: dconstants }
@@ -42,7 +44,7 @@ DWindow {
         border.width: 1
         border.color: "black"
 		anchors.centerIn: parent
-        
+
         Rectangle {
             width: parent.width - 2
             height: parent.height - 2
@@ -59,7 +61,7 @@ DWindow {
 			width: rect.width
 			height: close_button.height
             window: root
-            
+
             Text {
                 id: titlebar_title
                 color: "white"
@@ -80,22 +82,23 @@ DWindow {
 			    onClicked: { root.close() }
 			}
 		}
-        
-        Loader {
+
+        Item {
             id: loader
-            sourceComponent: root.content
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: titlebar.bottom
             anchors.bottom: parent.bottom
+            anchors.leftMargin: root.leftRightMargin
+            anchors.rightMargin: root.leftRightMargin
             anchors.topMargin: root.titleContentPadding
-            anchors.bottomMargin: 10
+            anchors.bottomMargin: root.bottomContentPadding
         }
-        
+
         DTextButton {
             id: action_btn
             visible: false
-            
+
             onClicked: root.action()
 
             anchors.left: parent.left
