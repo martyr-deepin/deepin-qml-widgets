@@ -2,13 +2,13 @@ import QtQuick 2.0
 
 DTextInput {
     id: textInput
-    property int min: 0
-    property int max: 65535
-    property int step: 1
+    property real min: 0
+    property real max: 65535
+    property real step: 1
     property int precision: 0
 
-    property int initValue:0
-    property int value
+    property real initValue:0
+    property real value
 
     property color warningColor: "#FF8F00"
     property color modifiedColor: "#505050"
