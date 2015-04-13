@@ -17,8 +17,10 @@ DWindow {
     property alias title: titlebar_title.text
     default property alias content: loader.children
 
-    property alias showActionButton: action_btn.visible
-    property alias actionButtonText: action_btn.text
+    // below three properties are deprecated, it's here only for compat purpose.
+    property string currentSectionId
+    property bool showActionButton
+    property string actionButtonText
 
     signal action()
 
@@ -93,18 +95,6 @@ DWindow {
             anchors.rightMargin: root.leftRightMargin
             anchors.topMargin: root.titleContentPadding
             anchors.bottomMargin: root.bottomContentPadding
-        }
-
-        DTextButton {
-            id: action_btn
-            visible: false
-
-            onClicked: root.action()
-
-            anchors.left: parent.left
-            anchors.bottom: parent.bottom
-            anchors.leftMargin: 20
-            anchors.bottomMargin: 10
         }
 	}
  }

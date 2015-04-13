@@ -2,13 +2,19 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 
 Item {
-    width: label.width + 8
-    height: label.height + 6
+    id: root
+    width: label.width + leftRightMargin * 2
+    height: label.height + topBottomMargin * 2
 
     property alias text: label.text
     property alias fontSize: label.font.pixelSize
     property alias hasUnderline: label.font.underline
     property alias label: label
+
+    property int maxWidth
+    property int leftRightMargin: 4
+    property int topBottomMargin: 3
+    property alias wrapMode: label.wrapMode
 
     signal clicked
 
@@ -17,6 +23,12 @@ Item {
         color: "#b4b4b4"
         font.pixelSize: 12
         anchors.centerIn: parent
+
+        function update() {
+            width = Math.min(root.maxWidth - root.leftRightMargin * 2, implicitWidth)
+        }
+
+        onTextChanged: root.maxWidth && update()
     }
 
     states: [
