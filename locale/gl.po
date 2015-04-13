@@ -3,70 +3,70 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Jim Spentzos <jimspentzos2000@gmail.com>, 2014
+# Xurxo Guerra Perez <xguerrap@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin QML Widgets\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-12 14:13+0800\n"
-"PO-Revision-Date: 2015-04-05 14:35+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
-"Language-Team: Greek (http://www.transifex.com/projects/p/deepin-qml-widgets/language/el/)\n"
+"PO-Revision-Date: 2015-04-06 21:01+0000\n"
+"Last-Translator: Xurxo Guerra Perez <xguerrap@gmail.com>\n"
+"Language-Team: Galician (http://www.transifex.com/projects/p/deepin-qml-widgets/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
+"Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../widgets/DFileChooseDialog.qml:225 ../widgets/plugins/dfiledialog.cpp:176
 msgid "Cancel"
-msgstr "Ακύρωση"
+msgstr "Cancelar"
 
 #: ../widgets/DFileChooseDialog.qml:233
 msgid "OK"
-msgstr "OK"
+msgstr "Aceptar"
 
 #: ../widgets/plugins/dfiledialog.cpp:17
 msgid "Look in"
-msgstr "Αναζήτηση σε"
+msgstr "Mirar"
 
 #: ../widgets/plugins/dfiledialog.cpp:18
 msgid "Files of type"
-msgstr "Αρχεία του τύπου"
+msgstr "Ficheiros do tipo"
 
 #: ../widgets/plugins/dfiledialog.cpp:167
 msgid "Save"
-msgstr "Αποθήκευση"
+msgstr "Gardar"
 
 #: ../widgets/plugins/dfiledialog.cpp:195
 msgid "Directory"
-msgstr "Κατάλογος"
+msgstr "Cartafol"
 
 #: ../widgets/plugins/dfiledialog.cpp:196
 msgid "Select"
-msgstr "Επιλογή"
+msgstr "Seleccionar"
 
 #: ../widgets/plugins/dfiledialog.cpp:204
 msgid "File name"
-msgstr "Όνομα αρχείου"
+msgstr "Nome do ficheiro"
 
 #: ../widgets/plugins/dfiledialog.cpp:167
 #: ../widgets/plugins/dfiledialog.cpp:205
 msgid "Open"
-msgstr "Άνοιγμα"
+msgstr "Abrir"
 
 #: ../widgets/DInputActions.qml:46
 msgid "Copy"
-msgstr "Αντιγραφή"
+msgstr "Copiar"
 
 #: ../widgets/DInputActions.qml:56
 msgid "Cut"
-msgstr "Αποκοπή"
+msgstr "Cortar"
 
 #: ../widgets/DInputActions.qml:66
 msgid "Paste"
-msgstr "Επικόλληση"
+msgstr "Pegar"
 
 #: ../widgets/DInputActions.qml:76
 msgid "Select all"
-msgstr "Επιλογή όλων"
+msgstr "Seleccionar todo"

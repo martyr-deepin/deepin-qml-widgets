@@ -3,70 +3,71 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Jim Spentzos <jimspentzos2000@gmail.com>, 2014
+# AnandVivek, 2015
+# Tarsem singh <tarsemsinghtarsemsingh@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin QML Widgets\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-12 14:13+0800\n"
-"PO-Revision-Date: 2015-04-05 14:35+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
-"Language-Team: Greek (http://www.transifex.com/projects/p/deepin-qml-widgets/language/el/)\n"
+"PO-Revision-Date: 2015-03-31 07:44+0000\n"
+"Last-Translator: AnandVivek\n"
+"Language-Team: Hindi (http://www.transifex.com/projects/p/deepin-qml-widgets/language/hi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
+"Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../widgets/DFileChooseDialog.qml:225 ../widgets/plugins/dfiledialog.cpp:176
 msgid "Cancel"
-msgstr "Ακύρωση"
+msgstr "रद्द करो"
 
 #: ../widgets/DFileChooseDialog.qml:233
 msgid "OK"
-msgstr "OK"
+msgstr "ठीक"
 
 #: ../widgets/plugins/dfiledialog.cpp:17
 msgid "Look in"
-msgstr "Αναζήτηση σε"
+msgstr "अंदर देखो"
 
 #: ../widgets/plugins/dfiledialog.cpp:18
 msgid "Files of type"
-msgstr "Αρχεία του τύπου"
+msgstr "फ़ाइल के प्रकार"
 
 #: ../widgets/plugins/dfiledialog.cpp:167
 msgid "Save"
-msgstr "Αποθήκευση"
+msgstr "सहेजें"
 
 #: ../widgets/plugins/dfiledialog.cpp:195
 msgid "Directory"
-msgstr "Κατάλογος"
+msgstr "निर्देशिका"
 
 #: ../widgets/plugins/dfiledialog.cpp:196
 msgid "Select"
-msgstr "Επιλογή"
+msgstr "चुनो"
 
 #: ../widgets/plugins/dfiledialog.cpp:204
 msgid "File name"
-msgstr "Όνομα αρχείου"
+msgstr "फाइल का नाम"
 
 #: ../widgets/plugins/dfiledialog.cpp:167
 #: ../widgets/plugins/dfiledialog.cpp:205
 msgid "Open"
-msgstr "Άνοιγμα"
+msgstr "खोलो"
 
 #: ../widgets/DInputActions.qml:46
 msgid "Copy"
-msgstr "Αντιγραφή"
+msgstr "प्रति"
 
 #: ../widgets/DInputActions.qml:56
 msgid "Cut"
-msgstr "Αποκοπή"
+msgstr "काटें"
 
 #: ../widgets/DInputActions.qml:66
 msgid "Paste"
-msgstr "Επικόλληση"
+msgstr "चिपकाएँ"
 
 #: ../widgets/DInputActions.qml:76
 msgid "Select all"
-msgstr "Επιλογή όλων"
+msgstr "सबको चुनें"
