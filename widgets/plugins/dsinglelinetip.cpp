@@ -122,10 +122,10 @@ void DSingleLineTip::paintEvent(QPaintEvent *)
     }
 
     QPen strokePen;
-    strokePen.setColor(strokeColor);
-    strokePen.setWidth(strokeWidth);
+    strokePen.setColor(borderColor);
+    strokePen.setWidth(borderWidth);
     painter.strokePath(border, strokePen);
-    painter.fillPath(border, QBrush(backgroundColor == "" ? Qt::black : QColor(backgroundColor)));
+    painter.fillPath(border, QBrush(backgroundColor.name() == "" ? Qt::black : backgroundColor));
 
     QPen penHText(QColor(textColor == "" ? "#00e0fc" : textColor));
     QFont textFont = painter.font();
@@ -172,12 +172,42 @@ int DSingleLineTip::getArrowWidth()
     return this->arrowWidth;
 }
 
+int DSingleLineTip::getArrowLeftMargin()
+{
+    return this->arrowLeftMargin;
+}
+
 int DSingleLineTip::getDestroyInterval()
 {
     return this->destroyInterval;
 }
 
-QString DSingleLineTip::getBackgroundColor()
+int DSingleLineTip::getBorderWidth()
+{
+    return this->borderWidth;
+}
+
+int DSingleLineTip::getFontPixelSize()
+{
+    return this->fontPixelSize;
+}
+
+int DSingleLineTip::getShadowWidth()
+{
+    return this->shadowWidth;
+}
+
+QString DSingleLineTip::getShadowColor()
+{
+    return this->shadowColor.name();
+}
+
+QString DSingleLineTip::getBorderColor()
+{
+    return this->borderColor.name();
+}
+
+QColor DSingleLineTip::getBackgroundColor()
 {
     return this->backgroundColor;
 }
@@ -240,13 +270,49 @@ void DSingleLineTip::setArrowWidth(int value)
     emit arrowWidthChanged();
 }
 
+void DSingleLineTip::setArrowLeftMargin(int value)
+{
+    this->arrowLeftMargin = value;
+    emit arrowLeftMarginChanged();
+}
+
 void DSingleLineTip::setDestroyInterval(int value)
 {
     this->destroyInterval = value;
     emit destroyIntervalChanged();
 }
 
-void DSingleLineTip::setBackgroundColor(QString value)
+void DSingleLineTip::setBorderWidth(int value)
+{
+    this->borderWidth = value;
+    emit borderWidthChanged();
+}
+
+void DSingleLineTip::setFontPixelSize(int value)
+{
+    this->fontPixelSize = value;
+    emit fontPixelSizeChanged();
+}
+
+void DSingleLineTip::setShadowWidth(int value)
+{
+    this->shadowWidth = value;
+    emit shadowWidthChanged();
+}
+
+void DSingleLineTip::setShadowColor(QString value)
+{
+    this->shadowColor = QColor(value);
+    emit shadowColorChanged();
+}
+
+void DSingleLineTip::setBorderColor(QString value)
+{
+    this->borderColor = QColor(value);
+    emit borderColorChanged();
+}
+
+void DSingleLineTip::setBackgroundColor(QColor value)
 {
     this->backgroundColor = value;
     emit backgroundColorChanged();
@@ -317,7 +383,7 @@ QPainterPath DSingleLineTip::getTopCornerPath()
 {
     QRect rect = this->rect().marginsRemoved(QMargins(shadowWidth,shadowWidth,shadowWidth,shadowWidth));
 
-    QPoint cornerPoint(rect.x() + rect.width() / 2, rect.y());
+    QPoint cornerPoint(rect.x() + arrowLeftMargin, rect.y());
     QPoint topLeft(rect.x(), rect.y() + arrowHeight);
     QPoint topRight(rect.x() + rect.width(), rect.y() + arrowHeight);
     QPoint bottomRight(rect.x() + rect.width(), rect.y() + rect.height());
@@ -345,7 +411,7 @@ QPainterPath DSingleLineTip::getBottomCornerPath()
 {
     QRect rect = this->rect().marginsRemoved(QMargins(shadowWidth,shadowWidth,shadowWidth,shadowWidth));
 
-    QPoint cornerPoint(rect.x() + rect.width() / 2, rect.y()  + rect.height());
+    QPoint cornerPoint(rect.x() + arrowLeftMargin, rect.y()  + rect.height());
     QPoint topLeft(rect.x(), rect.y());
     QPoint topRight(rect.x() + rect.width(), rect.y());
     QPoint bottomRight(rect.x() + rect.width(), rect.y() + rect.height() - arrowHeight);

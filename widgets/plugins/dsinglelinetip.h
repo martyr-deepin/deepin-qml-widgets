@@ -22,10 +22,16 @@ public:
     Q_PROPERTY(int width READ getWidth WRITE setWidth NOTIFY widthChanged)
     Q_PROPERTY(int height READ getHeight WRITE setHeight NOTIFY heightChanged)
     Q_PROPERTY(int radius READ getRadius WRITE setRadius NOTIFY radiusChanged)
-    Q_PROPERTY(int arrowHeight READ getArrowHeight WRITE setArrowHeight NOTIFY arrowWidthChanged)
+    Q_PROPERTY(int borderWidth READ getBorderWidth WRITE setBorderWidth NOTIFY borderWidthChanged)
+    Q_PROPERTY(int arrowHeight READ getArrowHeight WRITE setArrowHeight NOTIFY arrowHeightChanged)
     Q_PROPERTY(int arrowWidth READ getArrowWidth WRITE setArrowWidth NOTIFY arrowWidthChanged)
+    Q_PROPERTY(int arrowLeftMargin READ getArrowLeftMargin WRITE setArrowLeftMargin NOTIFY arrowLeftMarginChanged)
     Q_PROPERTY(int destroyInterval READ getDestroyInterval WRITE setDestroyInterval NOTIFY destroyIntervalChanged)
-    Q_PROPERTY(QString backgroundColor READ getBackgroundColor WRITE setBackgroundColor NOTIFY backgroundColorChanged)
+    Q_PROPERTY(int fontPixelSize READ getFontPixelSize WRITE setFontPixelSize NOTIFY fontPixelSizeChanged)
+    Q_PROPERTY(int shadowWidth READ getShadowWidth WRITE setShadowWidth NOTIFY shadowWidthChanged)
+    Q_PROPERTY(QString shadowColor READ getShadowColor WRITE setShadowColor NOTIFY shadowColorChanged)
+    Q_PROPERTY(QString borderColor READ getBorderColor WRITE setBorderColor NOTIFY borderColorChanged)
+    Q_PROPERTY(QColor backgroundColor READ getBackgroundColor WRITE setBackgroundColor NOTIFY backgroundColorChanged)
     Q_PROPERTY(QString textColor READ getTextColor WRITE setTextColor NOTIFY textColorChanged)
     Q_PROPERTY(QString toolTip READ getToolTip WRITE setToolTip NOTIFY toolTipChanged)
 
@@ -36,8 +42,14 @@ public:
     int getRadius();
     int getArrowHeight();
     int getArrowWidth();
+    int getArrowLeftMargin();
     int getDestroyInterval();
-    QString getBackgroundColor();
+    int getBorderWidth();
+    int getFontPixelSize();
+    int getShadowWidth();
+    QString getShadowColor();
+    QString getBorderColor();
+    QColor getBackgroundColor();
     QString getTextColor();
     QString getToolTip();
 
@@ -48,8 +60,14 @@ public:
     void setRadius(int value);
     void setArrowHeight(int value);
     void setArrowWidth(int value);
+    void setArrowLeftMargin(int value);
     void setDestroyInterval(int value);
-    void setBackgroundColor(QString value);
+    void setBorderWidth(int value);
+    void setFontPixelSize(int value);
+    void setShadowWidth(int value);
+    void setShadowColor(QString value);
+    void setBorderColor(QString value);
+    void setBackgroundColor(QColor value);
     void setTextColor(QString value);
     void setToolTip(QString value);
 
@@ -72,7 +90,13 @@ signals:
     void radiusChanged();
     void arrowHeightChanged();
     void arrowWidthChanged();
+    void arrowLeftMarginChanged();
     void destroyIntervalChanged();
+    void fontPixelSizeChanged();
+    void shadowWidthChanged();
+    void shadowColorChanged();
+    void borderWidthChanged();
+    void borderColorChanged();
     void backgroundColorChanged();
     void textColorChanged();
     void toolTipChanged();
@@ -92,14 +116,15 @@ private:
     int radius = 1;
     int arrowHeight = 8;
     int arrowWidth = 20;
+    int arrowLeftMargin = 20;
     int destroyInterval = -1;
-    QString backgroundColor;
+    QColor backgroundColor;
     QString textColor;
     QString toolTip;
 
     int fontPixelSize = 14;
-    int strokeWidth = 2;
-    QColor strokeColor = Qt::white;
+    int borderWidth = 2;
+    QColor borderColor = Qt::white;
     int shadowWidth = 2;
     QColor shadowColor = Qt::black;
 
