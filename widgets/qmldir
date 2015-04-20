@@ -79,3 +79,7 @@ DInputActions 1.0 DInputActions.qml
 DRectangularRing 1.0 DRectangularRing.qml
 DRectangularGlow 1.0 DRectangularGlow.qml
 DImageCheckBox 1.0 DImageCheckBox.qml
+DTitleCloseButton 1.0 DTitleCloseButton.qml
+DTitleMaxUnmaxButton 1.0 DTitleMaxUnmaxButton.qml
+DTitleMinimizeButton 1.0 DTitleMinimizeButton.qml
+DTitleOptionButton 1.0 DTitleOptionButton.qml
