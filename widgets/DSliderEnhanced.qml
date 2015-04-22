@@ -21,6 +21,7 @@ Item {
     property bool pressedFlag: false
     property int floatNumber: 0
     property bool displayPercent: false
+    property alias percentFont: valueDisplay.font
     property real adsorptionPixel: 10
     property bool rulerVisible: true
 
