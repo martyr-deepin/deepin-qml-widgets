@@ -37,6 +37,16 @@ Module {
             type: "bool"
             Parameter { name: "fileName"; type: "string" }
         }
+        Method {
+            name: "fileExist"
+            type: "bool"
+            Parameter { name: "fileName"; type: "string" }
+        }
+        Method {
+            name: "fileIsDir"
+            type: "bool"
+            Parameter { name: "fileName"; type: "string" }
+        }
     }
     Component {
         name: "DFileDialog"
@@ -57,6 +67,7 @@ Module {
         Property { name: "visible"; type: "bool" }
         Property { name: "saveMode"; type: "bool" }
         Property { name: "defaultFileName"; type: "string" }
+        Property { name: "transientParent"; type: "QWindow"; isPointer: true }
         Signal { name: "accepted" }
         Signal { name: "rejected" }
         Method { name: "open" }
@@ -120,6 +131,24 @@ Module {
         Method { name: "showTipAtTop" }
         Method { name: "showTipAtBottom" }
         Method { name: "destroyTip" }
+    }
+    Component {
+        name: "DWidgetStyleController"
+        prototype: "QObject"
+        exports: ["DWidgetStyleController 1.0"]
+        exportMetaObjectRevisions: [0]
+        Enum {
+            name: "WidgetStype"
+            values: {
+                "StyleWhite": 0,
+                "StyleBlack": 1
+            }
+        }
+        Property { name: "currentWidgetStyle"; type: "WidgetStype"; isReadonly: true }
+        Method {
+            name: "setCurrentWidgetStyle"
+            Parameter { name: "style"; type: "WidgetStype" }
+        }
     }
     Component {
         name: "DWindow"
