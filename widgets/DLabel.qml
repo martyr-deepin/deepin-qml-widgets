@@ -5,5 +5,5 @@ Label {
     focus: true
     property QtObject dconstants: DConstants {}
     
-    color: dconstants.fgColor
+    color: dconstants.textNormalColor
 }
