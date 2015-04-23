@@ -11,8 +11,8 @@ import Deepin.Widgets 1.0
 
 Rectangle {
     id: mainRec
-    width: 300
-    height: 200
+    width: 800
+    height: 600
     color: dconstants.contentBgColor
 
     DConstants { id: dconstants }
@@ -28,4 +28,10 @@ Rectangle {
             mainRec.color = "dconstants.contentBgColor"
 	}
 
+	Row {
+		anchors.fill: parent
+		DArrowButton {
+			direction: directionDown
+		}
+	}
 }
