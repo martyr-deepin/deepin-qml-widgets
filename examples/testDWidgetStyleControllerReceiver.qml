@@ -16,17 +16,6 @@ Rectangle {
     color: dconstants.contentBgColor
 
     DConstants { id: dconstants }
-    DWidgetStyleController {id: styleController}
-
-    property var currentWidgetStyle: styleController.currentWidgetStyle
-
-    onCurrentWidgetStyleChanged: {
-        print ("CurrentWidget change...",currentWidgetStyle)
-        if (currentWidgetStyle == DWidgetStyleController.StyleWhite)
-            mainRec.color = "#ffffff"
-        else
-            mainRec.color = "dconstants.contentBgColor"
-	}
 
 	Row {
 		anchors.fill: parent

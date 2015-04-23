@@ -14,52 +14,104 @@ void DWidgetStyleController::init()
         configDir.mkpath(CONFIG_FILE_DIR);
     }
     //makesure config-file exits
-    QFile file(CONFIG_FILE_NARMAL);
-    if (!file.exists(CONFIG_FILE_NARMAL))
+    QFile file(CONFIG_FILE_NAME);
+    if (!file.exists(CONFIG_FILE_NAME))
     {
-        file.open(QIODevice::WriteOnly);
-        file.close();
+        updateCurrentWidgetStyle(DEEPIN_WIDGETS_DEFAULT_STYLE);
     }
 
     currentWidgetStyle = getWidgetStyleFromJson();
+    imagesPath = getImagesPath();
+    configObject = getConfigFromJson();
 
     fileWatcher = new QFileSystemWatcher(this);
-    fileWatcher->addPath(CONFIG_FILE_NARMAL);
+    fileWatcher->addPath(CONFIG_FILE_NAME);
+    fileWatcher->addPath(DEEPIN_WIDGETS_STYLE_PATH);
     connect(fileWatcher, SIGNAL(fileChanged(QString)), this, SLOT(configFileChanged(QString)));
+    connect(fileWatcher, SIGNAL(directoryChanged(QString)), this, SLOT(styleDirChanged(QString)));
 }
 
 void DWidgetStyleController::configFileChanged(const QString &path)
 {
-    if (path == CONFIG_FILE_NARMAL)
+    if (path == CONFIG_FILE_NAME)
     {
         currentWidgetStyle = getWidgetStyleFromJson();
         emit currentWidgetStyleChanged();
+
+        imagesPath = getImagesPath();
+        emit imagesPathChanged();
+
+        configObject = getConfigFromJson();
+        emit configObjectChanged();
     }
 }
 
-DWidgetStyleController::WidgetStype DWidgetStyleController::getCurrentWidgetStyle()
+void DWidgetStyleController::styleDirChanged(const QString &path)
+{
+    if (path == DEEPIN_WIDGETS_STYLE_PATH)
+    {
+        emit styleListChanged();
+    }
+}
+
+QJsonObject DWidgetStyleController::getConfigObject()
+{
+    return configObject;
+}
+
+QString DWidgetStyleController::getImagesPath()
+{
+    return getResourceDir() + "/images/";
+}
+
+QString DWidgetStyleController::getCurrentWidgetStyle()
 {
     return currentWidgetStyle;
 }
 
-void DWidgetStyleController::setCurrentWidgetStyle(WidgetStype style)
+QStringList DWidgetStyleController::getStyleList()
 {
+    QDir tmpDir(DEEPIN_WIDGETS_STYLE_PATH);
+    QStringList styleDirList;
+    QStringList tmpDirList = tmpDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+    for (int i = 0; i < tmpDirList.count(); i ++)
+    {
+        if (QFile::exists(DEEPIN_WIDGETS_STYLE_PATH + tmpDirList.at(i) + "/images")
+                && QFile::exists(DEEPIN_WIDGETS_STYLE_PATH + tmpDirList.at(i) + "/style.json"))
+        {
+            styleDirList.append(tmpDirList.at(i));
+        }
+    }
+
+    return styleDirList;
+}
+
+void DWidgetStyleController::setCurrentWidgetStyle(const QString & style)
+{
+    if (!isAvailableStyle(style))
+        return;
+
     currentWidgetStyle = style;
     updateCurrentWidgetStyle(style);
     emit currentWidgetStyleChanged();
 }
 
-void DWidgetStyleController::updateCurrentWidgetStyle(WidgetStype style)
+bool DWidgetStyleController::isAvailableStyle(const QString &style)
 {
-    QFile file(CONFIG_FILE_NARMAL);
-    if (!file.exists(CONFIG_FILE_NARMAL))
+    return getStyleList().indexOf(style) != -1;
+}
+
+void DWidgetStyleController::updateCurrentWidgetStyle(const QString & style)
+{
+    QFile file(CONFIG_FILE_NAME);
+    if (!file.exists(CONFIG_FILE_NAME))
     {
         file.open(QIODevice::WriteOnly);
         file.close();
     }
 
     QJsonObject styleObj;
-    styleObj.insert("CurrentWidgetStyle", int(style));
+    styleObj.insert("CurrentWidgetStyle", style);
 
     QJsonDocument jsonDocument;
     jsonDocument.setObject(styleObj);
@@ -73,17 +125,22 @@ void DWidgetStyleController::updateCurrentWidgetStyle(WidgetStype style)
         qDebug() << "Open DUI style-config file error!";
 }
 
-DWidgetStyleController::WidgetStype DWidgetStyleController::getWidgetStyleFromJson()
+QString DWidgetStyleController::getResourceDir()
 {
-    QFile file(CONFIG_FILE_NARMAL);
-    if (!file.exists(CONFIG_FILE_NARMAL))
+    return DEEPIN_WIDGETS_STYLE_PATH + currentWidgetStyle;
+}
+
+QString DWidgetStyleController::getWidgetStyleFromJson()
+{
+    QFile file(CONFIG_FILE_NAME);
+    if (!file.exists(CONFIG_FILE_NAME))
     {
         file.open(QIODevice::WriteOnly);
         file.close();
     }
 
     if (!file.open(QIODevice::ReadOnly))
-        return DWidgetStyleController::StyleBlack;
+        return DEEPIN_WIDGETS_DEFAULT_STYLE;
 
     //if got error,return black style
     QJsonParseError jsonError;
@@ -99,15 +156,45 @@ DWidgetStyleController::WidgetStype DWidgetStyleController::getWidgetStyleFromJs
             if(obj.contains("CurrentWidgetStyle"))
             {
                 QJsonValue styleValue = obj.take("CurrentWidgetStyle");
-                if(styleValue.isDouble())
-                    return DWidgetStyleController::WidgetStype(styleValue.toVariant().toInt());
+                if(styleValue.isString())
+                    return styleValue.toVariant().toString();
             }
-            return DWidgetStyleController::StyleBlack;
+            return DEEPIN_WIDGETS_DEFAULT_STYLE;
         }
-        return DWidgetStyleController::StyleBlack;
+        return DEEPIN_WIDGETS_DEFAULT_STYLE;
     }
     else
-        return DWidgetStyleController::StyleBlack;
+        return DEEPIN_WIDGETS_DEFAULT_STYLE;
+}
+
+QJsonObject DWidgetStyleController::getConfigFromJson()
+{
+    QJsonObject tmpObj;
+    QString fileName = getResourceDir() + "/style.json";
+    QFile file(fileName);
+
+    if (!file.exists(fileName))
+    {
+        qWarning() << "[Error]: No such style config file!";
+        return tmpObj;
+    }
+
+    if (!file.open(QIODevice::ReadOnly))
+    {
+        qWarning() << "[Error]:Open style config file for read error!";
+        return tmpObj;
+    }
+
+    QJsonDocument parseDoucment = QJsonDocument::fromJson(file.readAll());
+
+    file.close();
+
+    if(parseDoucment.isObject())
+        tmpObj = parseDoucment.object();
+    else
+        qWarning() << "[Error]:Style config file value unavailable!";
+
+    return tmpObj;
 }
 
 DWidgetStyleController::~DWidgetStyleController()

@@ -28,13 +28,16 @@ SOURCES += \
 TARGET = $$qtLibraryTarget($$TARGET)
 uri = Deepin.Widgets
 
-qmldir.files += *.qml qmldir images plugins.qmltypes
+qmldir.files += *.qml qmldir plugins.qmltypes
+styleresourcedir.files += ../style-resource/Style*
 
 unix {
     installPath = $$[QT_INSTALL_QML]/$$replace(uri, \\., /)
+    styleInstallPath = $$[QT_INSTALL_QML]/Deepin/StyleResources
+    styleresourcedir.path = $$styleInstallPath
     qmldir.path = $$installPath
     target.path = $$installPath
-    INSTALLS += qmldir target
+    INSTALLS += qmldir styleresourcedir target
 }
 
 CONFIG += link_pkgconfig
