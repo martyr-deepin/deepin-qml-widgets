@@ -26,6 +26,8 @@ public:
 
     void paint(QPainter *painter);
 
+    QString iconNameToPath(QString qname, int size);
+
 private:
     QString m_icon;
     QString m_theme;

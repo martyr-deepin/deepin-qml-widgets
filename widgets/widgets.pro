@@ -37,4 +37,6 @@ unix {
     INSTALLS += qmldir target
 }
 
-LIBS += -lxcb
+CONFIG += link_pkgconfig
+PKGCONFIG += gtk+-2.0
+PKGCONFIG += xcb
