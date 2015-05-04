@@ -2,16 +2,26 @@ import QtQuick 2.1
 
 Row {
     id: root
-    width: 300
+    width: section_list.width
+           + section_indicator.width
+           + section_content.width
+           + spacing * 2
     height: 300
     spacing: 10
 
+    // this property's deprecated, DPreferenceSectionList will adapt its size
+    // accordingly, use sectionListMaxWidth to set a limit on its width.
     property int sectionListWidth: 200
+    property int sectionListMaxWidth: 200
 
     property string currentSectionId
+    property alias showActionButton: action_btn.visible
+    property alias actionButtonText: action_btn.text
 
     default property alias content: col.children
     property alias sections: section_list.sections
+
+    signal action()
 
     function changeIndicatorPos(pos) {
         section_indicator.pointerPos = pos + section_list.cellHeight / 2
@@ -33,15 +43,31 @@ Row {
 
     DPreferenceSectionList {
         id: section_list
-        width: root.sectionListWidth
         height: root.height
+        maxWidth: root.sectionListMaxWidth
+
+        DTextAction {
+            id: action_btn
+            visible: false
+            wrapMode: Text.WordWrap
+            maxWidth: section_indicator.x - anchors.leftMargin
+            leftRightMargin: 0
+            topBottomMargin: 0
+            anchors.left: parent.left
+            anchors.leftMargin: 10
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 10
+
+            onClicked: root.action()
+        }
     }
 
     DPreferenceSectionIndicator { id: section_indicator; height: root.height }
 
     Item {
+        id: section_content
         clip: true
-        width: root.width - section_list.width - section_indicator.width - root.spacing * 2
+        width: 390
         height: root.height
 
         Flickable {

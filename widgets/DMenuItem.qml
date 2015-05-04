@@ -26,38 +26,33 @@ import Deepin.Widgets 1.0
 
 Item {
     id: wrapper
-    width: wrapper.ListView.view.width; height: 26
+    width: 100; height: 26
 
-    signal selectAction(int index)
-
-    property alias text: label.text
+    property alias value: label.text
     property bool itemOnHover: false    //use wrapper.ListView.view.currentIndex to record index may cause crash,like deepin-movie font-list
+    property int index: 0
 
     Rectangle {
-        color: itemOnHover ? "#141414" : "#232323"
+        color: itemOnHover ? "#141414" : "#191919"
         anchors.fill: parent
+    }
+
+    Image {
+        id: headImg
+        source: itemOnHover ? "images/select-dark-hover.png" : "images/select-dark.png"
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: parent.left
+        anchors.leftMargin: 5
+        visible: index == 0
     }
 
     DssH2 {
         id: label
         anchors.left: parent.left
-        anchors.leftMargin: 5
+        anchors.leftMargin: 28
         anchors.verticalCenter: parent.verticalCenter
         text: "text " + index
         color: itemOnHover ? dconstants.activeColor : dconstants.fgColor
-    }
-
-    MouseArea {
-        id: mouseArea
-        anchors.fill: parent
-        hoverEnabled: true
-        onEntered:{
-            itemOnHover = true
-        }
-        onExited: {
-            itemOnHover = false
-        }
-        onClicked: selectAction(index)
     }
 }
 

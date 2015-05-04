@@ -1,13 +1,17 @@
 import QtQuick 2.0
 
 DTextInput {
-    property int min: 0
-    property int max: 65535
-    property int step: 1
+    id: textInput
+    property real min: 0
+    property real max: 65535
+    property real step: 1
     property int precision: 0
 
-    property int initValue:0
-    property int value
+    property real initValue:0
+    property real value
+
+    property color warningColor: "#FF8F00"
+    property color modifiedColor: "#505050"
 
     textInput.validator: RegExpValidator { regExp: /^-?([0-9]|\.)*$/ }
 
@@ -16,15 +20,12 @@ DTextInput {
     Component.onCompleted: {
         if (textInput.text == ""){
             textInput.text = initValue.toFixed(precision)
-        }
-        else{
-            if (_validate()) {
-                value = parseFloat(textInput.text)
-                initValue = value
-            } else {
-                initValue = min
-                textInput.text = initValue.toFixed(precision)
-            }
+        } else if (_validate()) {
+            value = parseFloat(textInput.text)
+            initValue = value
+        } else {
+            initValue = min
+            textInput.text = initValue.toFixed(precision)
         }
     }
 
@@ -37,32 +38,20 @@ DTextInput {
         return min <= value && value <= max
     }
 
-    function _changeTextToValid() {
-        if (!_validate()) {
-            var value = parseFloat(textInput.text)
-            if (isNaN(value)) {
-                textInput.text = initValue.toFixed(precision)
-            } else {
-                textInput.text = Math.min(max, Math.max(min, value)).toFixed(precision)
-            }
-        }
-    }
-
     Connections{
         target: textInput
 
-        onTextChanged: {
-            if (_validate()) {
-                var textValue = parseFloat(textInput.text)
-                value = textValue.toFixed(precision)
-            } else  {
-                validate_timer.restart()
-            }
-        }
+        onTextChanged: check_valid_timer.restart()
 
         onActiveFocusChanged: {
-            if (textInput.activeFocus) return
-            _changeTextToValid()
+            if (!textInput.activeFocus) {
+                if (!_validate()) {
+                    textInput.reset()
+                } else {
+                    textInput.initValue = value
+                    warning_label.visible = false
+                }
+            }
         }
     }
 
@@ -89,9 +78,22 @@ DTextInput {
     }
 
     Timer {
-        id: validate_timer
-        interval: 1000
-        onTriggered: _changeTextToValid()
+        id: check_valid_timer
+        interval: 300
+
+        onTriggered: {
+            if (textInput._validate()) {
+                if (warning_label.visible) {
+                    warning_label.color = modifiedColor
+                }
+
+                var textValue = parseFloat(textInput.text)
+                textInput.value = textValue.toFixed(textInput.precision)
+            } else  {
+                warning_label.color = warningColor
+                warning_label.visible = true
+            }
+        }
     }
 
     Timer {
@@ -107,6 +109,11 @@ DTextInput {
                 decrease()
             }
         }
+    }
+
+    function reset() {
+        textInput.text = initValue
+        warning_label.visible = false
     }
 
     function increase(){
@@ -125,6 +132,17 @@ DTextInput {
         else{
             setValue(min)
         }
+    }
+
+    Text {
+        id: warning_label
+        visible: false
+        font.pixelSize: 12
+        text: "%1-%2".arg(min).arg(max)
+
+        anchors.right: parent.right
+        anchors.rightMargin: buttonBox.width + 5
+        anchors.verticalCenter: parent.verticalCenter
     }
 
     Row {
@@ -164,7 +182,7 @@ DTextInput {
                 hover_image: "images/restore_hover.png"
                 press_image: "images/restore_press.png"
 
-                onClicked: textInput.text = initValue
+                onClicked: textInput.reset()
             }
         }
 
