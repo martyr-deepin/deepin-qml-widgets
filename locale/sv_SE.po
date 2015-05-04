@@ -3,70 +3,70 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Luis Castillo <castilloluis2005@gmail.com>, 2014
+# Tobias Ahlström <tobias.ahlstrom@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin QML Widgets\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-12 14:13+0800\n"
-"PO-Revision-Date: 2015-02-03 00:21+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/deepin-qml-widgets/language/es/)\n"
+"PO-Revision-Date: 2015-03-21 18:59+0000\n"
+"Last-Translator: Tobias Ahlström <tobias.ahlstrom@gmail.com>\n"
+"Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/deepin-qml-widgets/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
+"Language: sv_SE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../widgets/DFileChooseDialog.qml:225 ../widgets/plugins/dfiledialog.cpp:176
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Avbryt"
 
 #: ../widgets/DFileChooseDialog.qml:233
 msgid "OK"
-msgstr "Bueno"
+msgstr "Okej"
 
 #: ../widgets/plugins/dfiledialog.cpp:17
 msgid "Look in"
-msgstr "Buscar en"
+msgstr "Titta i"
 
 #: ../widgets/plugins/dfiledialog.cpp:18
 msgid "Files of type"
-msgstr "Tipo de archivos"
+msgstr "Filer av typen"
 
 #: ../widgets/plugins/dfiledialog.cpp:167
 msgid "Save"
-msgstr "Guardar"
+msgstr "Spara"
 
 #: ../widgets/plugins/dfiledialog.cpp:195
 msgid "Directory"
-msgstr "Directorio"
+msgstr "Katalog"
 
 #: ../widgets/plugins/dfiledialog.cpp:196
 msgid "Select"
-msgstr "Seleccionar"
+msgstr "Välj"
 
 #: ../widgets/plugins/dfiledialog.cpp:204
 msgid "File name"
-msgstr "Nombre del archivo"
+msgstr "Filnamn"
 
 #: ../widgets/plugins/dfiledialog.cpp:167
 #: ../widgets/plugins/dfiledialog.cpp:205
 msgid "Open"
-msgstr "Abrir"
+msgstr "Öppna"
 
 #: ../widgets/DInputActions.qml:46
 msgid "Copy"
-msgstr "Copiar"
+msgstr "Kopiera"
 
 #: ../widgets/DInputActions.qml:56
 msgid "Cut"
-msgstr "Cortar"
+msgstr "Klipp ut"
 
 #: ../widgets/DInputActions.qml:66
 msgid "Paste"
-msgstr "Pegar"
+msgstr "Klistra in"
 
 #: ../widgets/DInputActions.qml:76
 msgid "Select all"
-msgstr "Seleccionar todo"
+msgstr "Välj alla"

@@ -3,70 +3,71 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Luis Castillo <castilloluis2005@gmail.com>, 2014
+# AnandVivek, 2015
+# Tarsem singh <tarsemsinghtarsemsingh@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin QML Widgets\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-12 14:13+0800\n"
-"PO-Revision-Date: 2015-02-03 00:21+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/deepin-qml-widgets/language/es/)\n"
+"PO-Revision-Date: 2015-03-31 07:44+0000\n"
+"Last-Translator: AnandVivek\n"
+"Language-Team: Hindi (http://www.transifex.com/projects/p/deepin-qml-widgets/language/hi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
+"Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../widgets/DFileChooseDialog.qml:225 ../widgets/plugins/dfiledialog.cpp:176
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "रद्द करो"
 
 #: ../widgets/DFileChooseDialog.qml:233
 msgid "OK"
-msgstr "Bueno"
+msgstr "ठीक"
 
 #: ../widgets/plugins/dfiledialog.cpp:17
 msgid "Look in"
-msgstr "Buscar en"
+msgstr "अंदर देखो"
 
 #: ../widgets/plugins/dfiledialog.cpp:18
 msgid "Files of type"
-msgstr "Tipo de archivos"
+msgstr "फ़ाइल के प्रकार"
 
 #: ../widgets/plugins/dfiledialog.cpp:167
 msgid "Save"
-msgstr "Guardar"
+msgstr "सहेजें"
 
 #: ../widgets/plugins/dfiledialog.cpp:195
 msgid "Directory"
-msgstr "Directorio"
+msgstr "निर्देशिका"
 
 #: ../widgets/plugins/dfiledialog.cpp:196
 msgid "Select"
-msgstr "Seleccionar"
+msgstr "चुनो"
 
 #: ../widgets/plugins/dfiledialog.cpp:204
 msgid "File name"
-msgstr "Nombre del archivo"
+msgstr "फाइल का नाम"
 
 #: ../widgets/plugins/dfiledialog.cpp:167
 #: ../widgets/plugins/dfiledialog.cpp:205
 msgid "Open"
-msgstr "Abrir"
+msgstr "खोलो"
 
 #: ../widgets/DInputActions.qml:46
 msgid "Copy"
-msgstr "Copiar"
+msgstr "प्रति"
 
 #: ../widgets/DInputActions.qml:56
 msgid "Cut"
-msgstr "Cortar"
+msgstr "काटें"
 
 #: ../widgets/DInputActions.qml:66
 msgid "Paste"
-msgstr "Pegar"
+msgstr "चिपकाएँ"
 
 #: ../widgets/DInputActions.qml:76
 msgid "Select all"
-msgstr "Seleccionar todo"
+msgstr "सबको चुनें"

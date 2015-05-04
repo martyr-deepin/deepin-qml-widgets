@@ -9,40 +9,49 @@ Item {
     property bool hovered: false
     property bool pressed: false
 
-    property alias text: currentLabel.text
+    // text property is deprecated, use value instead
+    property var text: ""
+    property alias value: combobox.text
     property alias menu: menu
+    // labels property is deprecated, use itemModel instead
+    property alias labels: menu.labels
 
     property var parentWindow
-    property var labels
-    property int selectIndex: 0
-    onSelectIndexChanged: menu.currentIndex = selectIndex
+    property alias selectIndex: menu.currentIndex
+
+    property Component delegate: Component {
+        DssH2 { text: combobox.value; elide: Text.ElideRight }
+    }
+    property alias itemDelegate: menu.delegate
+    property alias itemModel: menu.labels
 
     signal clicked
     signal menuSelect(int index)
 
-    Component.onCompleted: {
-        if(selectIndex != -1){
-            text = menu.labels[selectIndex]
-            menu.currentIndex = selectIndex
+    function select(index) {
+        if(index != -1 && itemModel){
+            value = itemModel[index]
         }
     }
+
+    onSelectIndexChanged: select(selectIndex)
+
+    Component.onCompleted: select(selectIndex)
 
     DMenu {
         id: menu
         parentWindow: combobox.parentWindow
-        labels: combobox.labels
         onMenuSelect: {
+            combobox.select(index)
             combobox.menuSelect(index)
-            selectIndex = index
-            combobox.text = menu.labels[selectIndex]
         }
     }
 
     function showMenu(x, y, w) {
         menu.x = x - menu.frameEdge + 1
-        menu.y = y - menu.frameEdge
+        menu.y = y - menu.frameEdge - combobox.height
         menu.width = w + menu.frameEdge * 2 -2
-        menu.visible = true
+        menu.showMenu()
     }
 
     onClicked: {
@@ -94,12 +103,15 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         color: Qt.rgba(1, 0, 0, 0)
 
-        DssH2 {
-            id: currentLabel
+        Loader {
+            id: button_loader
+            sourceComponent: combobox.delegate
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
-            width: parent.width - downArrow.width
-            elide: Text.ElideRight
+
+            onLoaded: {
+                item.width = Qt.binding(function() { return content.width - downArrow.width })
+            }
         }
 
         Image {
@@ -137,5 +149,4 @@ Item {
             combobox.clicked()
         }
     }
-
 }

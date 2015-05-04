@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin QML Widgets\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-10 13:18+0800\n"
-"PO-Revision-Date: 2014-12-04 04:51+0000\n"
-"Last-Translator: fri\n"
+"POT-Creation-Date: 2015-01-12 14:13+0800\n"
+"PO-Revision-Date: 2015-03-23 10:32+0000\n"
+"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/deepin-qml-widgets/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,44 +18,40 @@ msgstr ""
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: ../widgets/DFileChooseDialog.qml:80
-msgid "Location: "
-msgstr "Umístění:"
-
-#: ../widgets/DFileChooseDialog.qml:219 ../widgets/plugins/dfiledialog.cpp:162
+#: ../widgets/DFileChooseDialog.qml:225 ../widgets/plugins/dfiledialog.cpp:176
 msgid "Cancel"
 msgstr "Zrušit"
 
-#: ../widgets/DFileChooseDialog.qml:227
+#: ../widgets/DFileChooseDialog.qml:233
 msgid "OK"
 msgstr "OK"
 
-#: ../widgets/plugins/dfiledialog.cpp:13
+#: ../widgets/plugins/dfiledialog.cpp:17
 msgid "Look in"
 msgstr "Náhled"
 
-#: ../widgets/plugins/dfiledialog.cpp:14
+#: ../widgets/plugins/dfiledialog.cpp:18
 msgid "Files of type"
 msgstr "Typ souboru"
 
-#: ../widgets/plugins/dfiledialog.cpp:153
+#: ../widgets/plugins/dfiledialog.cpp:167
 msgid "Save"
 msgstr "Uložit"
 
-#: ../widgets/plugins/dfiledialog.cpp:180
+#: ../widgets/plugins/dfiledialog.cpp:195
 msgid "Directory"
 msgstr "Adresář"
 
-#: ../widgets/plugins/dfiledialog.cpp:181
+#: ../widgets/plugins/dfiledialog.cpp:196
 msgid "Select"
 msgstr "Vybrat"
 
-#: ../widgets/plugins/dfiledialog.cpp:189
+#: ../widgets/plugins/dfiledialog.cpp:204
 msgid "File name"
 msgstr "Název souboru"
 
-#: ../widgets/plugins/dfiledialog.cpp:153
-#: ../widgets/plugins/dfiledialog.cpp:190
+#: ../widgets/plugins/dfiledialog.cpp:167
+#: ../widgets/plugins/dfiledialog.cpp:205
 msgid "Open"
 msgstr "Otevřít"
 
@@ -72,5 +68,5 @@ msgid "Paste"
 msgstr "Vložit"
 
 #: ../widgets/DInputActions.qml:76
-msgid "Repeal"
-msgstr "Odvolat"
+msgid "Select all"
+msgstr "Vybrat vše"

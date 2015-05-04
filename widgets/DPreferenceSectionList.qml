@@ -4,56 +4,61 @@
 import QtQuick 2.1
 
 ListView {
-	id: listview
-	width: 300
-	height: childrenRect.height
+    id: listview
+    width: 0
+    height: childrenRect.height
 
-	property var sections
+    property var sections
+    property int maxWidth: 200
     property int cellHeight: 24
 
     DConstants { id: dconstants }
 
-	model: ListModel {
-		Component.onCompleted: {
-			var sections = listview.sections || []
-			for (var i = 0; i < sections.length; i++) {
-				append(sections[i])
-			}
-		}
-	}
-	delegate: Component {
-		Column {
-			id: main_column
-			state: "normal"
-			width: ListView.view.width
+    model: ListModel {
+        Component.onCompleted: {
+            var sections = listview.sections || []
+            for (var i = 0; i < sections.length; i++) {
+                append(sections[i])
+            }
+        }
+    }
+    delegate: Component {
+        Column {
+            id: main_column
+            state: "normal"
+            width: Math.max(wrapper.width, sub.x + sub.width)
+            height: childrenRect.height
 
-            Component.onCompleted: root.anotherSectionCompleted()
+            Component.onCompleted: {
+                root.anotherSectionCompleted()
+                listview.width = Math.max(main_column.width, listview.width)
+            }
 
-			states: [
-				State {
-					name: "normal"
-					PropertyChanges {
-						target: txt
-						color: "#b4b4b4"
-					}
-				},
-				State {
-					name: "hover"
-					PropertyChanges {
-						target: txt
-						color: "white"
-					}
-				},
-				State {
-					name: "selected"
-					PropertyChanges {
-						target: txt
-						color: dconstants.activeColor
-					}
-				}
-			]
+            states: [
+                State {
+                    name: "normal"
+                    PropertyChanges {
+                        target: txt
+                        color: "#b4b4b4"
+                    }
+                },
+                State {
+                    name: "hover"
+                    PropertyChanges {
+                        target: txt
+                        color: "white"
+                    }
+                },
+                State {
+                    name: "selected"
+                    PropertyChanges {
+                        target: txt
+                        color: dconstants.activeColor
+                    }
+                }
+            ]
 
-			property bool isParent: subSections.count != 0
+            property bool isParent: subSections.count != 0
 
             onStateChanged: {
                 if (state == "selected") {
@@ -61,57 +66,59 @@ ListView {
                 }
             }
 
-			Connections {
-				target: root
+            Connections {
+                target: root
 
-				onCurrentSectionIdChanged: {
-					if (sectionId == root.currentSectionId) {
-						main_column.state = "selected"
-					} else {
-						main_column.state = "normal"
-					}
-				}
-			}
+                onCurrentSectionIdChanged: {
+                    if (sectionId == root.currentSectionId) {
+                        main_column.state = "selected"
+                    } else {
+                        main_column.state = "normal"
+                    }
+                }
+            }
 
-			Item {
-				width: main_column.width
-				height: listview.cellHeight
+            Item {
+                id: wrapper
+                width: Math.min(txt.implicitWidth + leftRightMargin * 2, listview.maxWidth)
+                height: listview.cellHeight
 
-				Text {
-					id: txt
-					text: sectionName
+                property int leftRightMargin: 10
+
+                Text {
+                    id: txt
+                    width: wrapper.width - wrapper.leftRightMargin * 2
+                    text: sectionName
                     elide: Text.ElideRight
-					font.pixelSize: 13
-                    anchors.left: parent.left
-                    anchors.leftMargin: 10
-					anchors.verticalCenter: parent.verticalCenter
-				}
+                    font.pixelSize: 13
+                    anchors.centerIn: parent
+                }
 
-				MouseArea {
-					id: main_column_mouse
+                MouseArea {
+                    id: main_column_mouse
                     hoverEnabled: true
-					anchors.fill: parent
+                    anchors.fill: parent
 
                     onEntered: root.currentSectionId == sectionId ? main_column.state = "selected" : main_column.state = "hover"
                     onExited: root.currentSectionId == sectionId ? main_column.state = "selected" : main_column.state = "normal"
 
-					onClicked: {
-						root.currentSectionId = sectionId
-					}
-				}
-			}
+                    onClicked: {
+                        root.currentSectionId = sectionId
+                    }
+                }
+            }
 
-			Loader {
-				id: sub
-				x: 10
-				active: main_column.isParent
-				source: "DPreferenceSectionList.qml"
-				asynchronous: true
-				onLoaded: {
-					item.model = subSections
+            Loader {
+                id: sub
+                x: 10
+                active: main_column.isParent
+                source: "DPreferenceSectionList.qml"
+                asynchronous: true
+                onLoaded: {
+                    item.model = subSections
                     item.width = main_column.width - 10
-				}
-			}
-		}
-	}
+                }
+            }
+        }
+    }
 }

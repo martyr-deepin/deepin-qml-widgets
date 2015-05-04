@@ -6,6 +6,7 @@ import Deepin.Widgets 1.0
 CheckBox {
     property int fontSize: 12
     property url imageSource
+    property int spacing: 2
 
     property string widgetStyle:{
         switch (styleController.currentWidgetStyle){
@@ -22,7 +23,7 @@ CheckBox {
 
     text: "hello"
     style: CheckBoxStyle {
-        spacing: 2
+        spacing: control.spacing
         background: Item {}
         indicator: Image {
             source: control.checked ? control.hovered ? "images/" + widgetStyle + "_checkbox_checked_hover.png" : "images/" + widgetStyle + "_checkbox_checked.png"

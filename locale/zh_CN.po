@@ -4,13 +4,13 @@
 # 
 # Translators:
 # iceleaf <iceleaf916@gmail.com>, 2014
-# szd_liufei <liufei@linuxdeepin.com>, 2014
+# szd_liufei <liufei@linuxdeepin.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin QML Widgets\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-10 13:18+0800\n"
-"PO-Revision-Date: 2014-12-04 04:51+0000\n"
+"POT-Creation-Date: 2015-01-12 14:13+0800\n"
+"PO-Revision-Date: 2015-03-24 03:31+0000\n"
 "Last-Translator: szd_liufei <liufei@linuxdeepin.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/deepin-qml-widgets/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -19,44 +19,40 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../widgets/DFileChooseDialog.qml:80
-msgid "Location: "
-msgstr "位置"
-
-#: ../widgets/DFileChooseDialog.qml:219 ../widgets/plugins/dfiledialog.cpp:162
+#: ../widgets/DFileChooseDialog.qml:225 ../widgets/plugins/dfiledialog.cpp:176
 msgid "Cancel"
 msgstr "取消"
 
-#: ../widgets/DFileChooseDialog.qml:227
+#: ../widgets/DFileChooseDialog.qml:233
 msgid "OK"
 msgstr "确定 "
 
-#: ../widgets/plugins/dfiledialog.cpp:13
+#: ../widgets/plugins/dfiledialog.cpp:17
 msgid "Look in"
 msgstr "查看"
 
-#: ../widgets/plugins/dfiledialog.cpp:14
+#: ../widgets/plugins/dfiledialog.cpp:18
 msgid "Files of type"
 msgstr "文件类型"
 
-#: ../widgets/plugins/dfiledialog.cpp:153
+#: ../widgets/plugins/dfiledialog.cpp:167
 msgid "Save"
 msgstr "保存"
 
-#: ../widgets/plugins/dfiledialog.cpp:180
+#: ../widgets/plugins/dfiledialog.cpp:195
 msgid "Directory"
 msgstr "目录"
 
-#: ../widgets/plugins/dfiledialog.cpp:181
+#: ../widgets/plugins/dfiledialog.cpp:196
 msgid "Select"
 msgstr "选择"
 
-#: ../widgets/plugins/dfiledialog.cpp:189
+#: ../widgets/plugins/dfiledialog.cpp:204
 msgid "File name"
 msgstr "文件名"
 
-#: ../widgets/plugins/dfiledialog.cpp:153
-#: ../widgets/plugins/dfiledialog.cpp:190
+#: ../widgets/plugins/dfiledialog.cpp:167
+#: ../widgets/plugins/dfiledialog.cpp:205
 msgid "Open"
 msgstr "打开"
 
@@ -73,5 +69,5 @@ msgid "Paste"
 msgstr "粘贴"
 
 #: ../widgets/DInputActions.qml:76
-msgid "Repeal"
-msgstr "撤销"
+msgid "Select all"
+msgstr "全选"

@@ -3,70 +3,70 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Luis Castillo <castilloluis2005@gmail.com>, 2014
+# Petya Antonova <gothfield@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin QML Widgets\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-12 14:13+0800\n"
-"PO-Revision-Date: 2015-02-03 00:21+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/deepin-qml-widgets/language/es/)\n"
+"PO-Revision-Date: 2015-04-02 11:42+0000\n"
+"Last-Translator: Petya Antonova <gothfield@gmail.com>\n"
+"Language-Team: Bulgarian (http://www.transifex.com/projects/p/deepin-qml-widgets/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
+"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../widgets/DFileChooseDialog.qml:225 ../widgets/plugins/dfiledialog.cpp:176
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Отмяна"
 
 #: ../widgets/DFileChooseDialog.qml:233
 msgid "OK"
-msgstr "Bueno"
+msgstr "ОК"
 
 #: ../widgets/plugins/dfiledialog.cpp:17
 msgid "Look in"
-msgstr "Buscar en"
+msgstr "Виж в"
 
 #: ../widgets/plugins/dfiledialog.cpp:18
 msgid "Files of type"
-msgstr "Tipo de archivos"
+msgstr "Файлове от тип"
 
 #: ../widgets/plugins/dfiledialog.cpp:167
 msgid "Save"
-msgstr "Guardar"
+msgstr "Запазване"
 
 #: ../widgets/plugins/dfiledialog.cpp:195
 msgid "Directory"
-msgstr "Directorio"
+msgstr "Директория"
 
 #: ../widgets/plugins/dfiledialog.cpp:196
 msgid "Select"
-msgstr "Seleccionar"
+msgstr "Избери"
 
 #: ../widgets/plugins/dfiledialog.cpp:204
 msgid "File name"
-msgstr "Nombre del archivo"
+msgstr "Име на файл"
 
 #: ../widgets/plugins/dfiledialog.cpp:167
 #: ../widgets/plugins/dfiledialog.cpp:205
 msgid "Open"
-msgstr "Abrir"
+msgstr "Отваряне"
 
 #: ../widgets/DInputActions.qml:46
 msgid "Copy"
-msgstr "Copiar"
+msgstr "Копиране"
 
 #: ../widgets/DInputActions.qml:56
 msgid "Cut"
-msgstr "Cortar"
+msgstr "Изрежи"
 
 #: ../widgets/DInputActions.qml:66
 msgid "Paste"
-msgstr "Pegar"
+msgstr "Поставяне"
 
 #: ../widgets/DInputActions.qml:76
 msgid "Select all"
-msgstr "Seleccionar todo"
+msgstr "Избери всички"

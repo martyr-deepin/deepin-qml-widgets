@@ -20,6 +20,8 @@ Item {
     property bool clickable: true
     property bool pressedFlag: false
     property int floatNumber: 0
+    property bool displayPercent: false
+    property alias percentFont: valueDisplay.font
     property real adsorptionPixel: 10
     property bool rulerVisible: true
 
@@ -83,18 +85,25 @@ Item {
         }
     }
 
+    function _getPropertyNumString(number) {
+        var intV = parseInt(number)
+        if(intV == number){
+            return intV
+        } else{
+            return number.toFixed(floatNumber)
+        }
+    }
+
     DLabel{
         id: valueDisplay
         visible: false
         anchors.bottom: sliderDragArea.top
         x: handle.x + (handle.width - width)/2
         text: {
-            var intV = parseInt(slider.value)
-            if(intV == slider.value){
-                return intV
-            }
-            else{
-                slider.value.toFixed(floatNumber)
+            if (slider.displayPercent) {
+                return "%1%".arg(slider._getPropertyNumString(slider.value * 100))
+            } else {
+                return slider._getPropertyNumString(slider.value)
             }
         }
 
@@ -230,6 +239,7 @@ Item {
                 anchors.margins: -4
                 drag.target: parent
                 drag.axis: Drag.XAxis
+                drag.threshold: 1
                 drag.minimumX: 0
                 drag.maximumX: realValueRect.width
 

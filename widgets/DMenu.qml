@@ -36,18 +36,49 @@ DPopupWindow {
 
     width: minWidth + 24
     height: completeViewBox.height + 32
+    visible: false
 
     property int maxHeight: -1
 
-    property alias currentIndex: completeView.currentIndex
+    property int currentIndex: 0
+    // labels property is deprecated, use model instead
     property var labels
-    visible: false
+    property alias model: menuPopupWindow.labels
+    property Component delegate: Component {
+        DMenuItem { width: menuPopupWindow.width; height: 26 }
+    }
 
     signal menuSelect(int index)
+
+    function showMenu() {
+        completeView.model = getSortedModel()
+        menuPopupWindow.visible = true
+    }
+
+    function getSortedModel() {
+        var temp = model.slice()
+        var itemArray = temp.splice(currentIndex, 1)
+        temp.splice(0, 0, itemArray[0])
+
+        return temp
+    }
+
+    function getIndexBeforeSorted(index) {
+        if (0 == index) {
+            return currentIndex
+        } else if (index <= currentIndex) {
+            return index - 1
+        } else {
+            return index
+        }
+    }
 
     DWindowFrame {
         id: menuFrame
         anchors.fill: parent
+        frame.color: "#191919"
+        frame.border.width: 1
+        frame.border.color: "#101010"
 
         Item {
             id: completeViewBox
@@ -61,18 +92,40 @@ DPopupWindow {
                 height: maxHeight != -1 ? Math.min(childrenHeight, maxHeight) : childrenHeight
                 property int childrenHeight: childrenRect.height
                 maximumFlickVelocity: 1000
-                model: labels
-                delegate: DMenuItem {
-                    text: labels[index]
-                    onSelectAction:{
-                        menuPopupWindow.visible = false
-                        menuPopupWindow.menuSelect(index)
+                model: menuPopupWindow.model
+                delegate: Item {
+                    width: loader.width
+                    height: loader.height
+
+                    Loader {
+                        id: loader
+                        sourceComponent: menuPopupWindow.delegate
+
+                        onLoaded: {
+                            item.width = Qt.binding(function() { return completeView.width })
+                            item.index = index
+                            item.value = completeView.model[index]
+                        }
+                    }
+                    MouseArea {
+                        id: mouseArea
+                        anchors.fill: loader
+                        hoverEnabled: true
+                        onEntered:{
+                            loader.item.itemOnHover = true
+                        }
+                        onExited: {
+                            loader.item.itemOnHover = false
+                        }
+                        onClicked: {
+                            menuPopupWindow.currentIndex = menuPopupWindow.getIndexBeforeSorted(index)
+                            menuPopupWindow.visible = false
+                            menuPopupWindow.menuSelect(menuPopupWindow.currentIndex)
+                        }
                     }
                 }
                 clip: true
             }
         }
-
     }
-
 }
