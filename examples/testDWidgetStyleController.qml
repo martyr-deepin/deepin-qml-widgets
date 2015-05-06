@@ -14,6 +14,10 @@ Rectangle {
     height: 200
     color: dconstants.contentBgColor
 
+	property var testList: dconstants.styleList
+	onTestListChanged: {
+		print ("============",testList)
+	}
 
     DConstants { id: dconstants }
     DWidgetStyleController {id: styleController}
@@ -45,7 +49,7 @@ Rectangle {
                 hoverEnabled: true
                 onClicked: {
                     print ("Change to white style...")
-                    styleController.setCurrentWidgetStyle(DWidgetStyleController.StyleWhite)
+                    styleController.setCurrentWidgetStyle("StyleWhite")
                 }
                 onEntered: parent.border.width = 2
                 onExited: parent.border.width = 0
@@ -71,7 +75,7 @@ Rectangle {
                 hoverEnabled: true
                 onClicked: {
                     print ("Change to black style...")
-                    styleController.setCurrentWidgetStyle(DWidgetStyleController.StyleBlack)
+                    styleController.setCurrentWidgetStyle("StyleBlack")
                 }
                 onEntered: parent.border.width = 2
                 onExited: parent.border.width = 0
