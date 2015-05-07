@@ -6,25 +6,15 @@ import Deepin.Widgets 1.0
 CheckBox {
     property int fontSize: 12
 
-    property string widgetStyle:{
-        switch (styleController.currentWidgetStyle){
-        case DWidgetStyleController.StyleBlack:
-            return "black"
-        case DWidgetStyleController.StyleWhite:
-            return "white"
-        }
-    }
-
-    DWidgetStyleController {
-        id: styleController
-    }
+    DConstants {id: dconstants}
+    property string imagesPath: dconstants.imagesPath
 
     text: "hello"
     style: CheckBoxStyle {
         background: Item {}
         indicator: Image {
-            source: control.checked ? control.hovered ? "images/" + widgetStyle + "_checkbox_checked_hover.png" : "images/" + widgetStyle + "_checkbox_checked.png"
-                                    : control.hovered ? "images/" + widgetStyle + "_checkbox_unchecked_hover.png" : "images/" + widgetStyle + "_checkbox_unchecked.png"
+            source: control.checked ? control.hovered ? imagesPath + "checkbox_checked_hover.png" : imagesPath + "checkbox_checked.png"
+                                    : control.hovered ? imagesPath + "checkbox_unchecked_hover.png" : imagesPath + "checkbox_unchecked.png"
         }
         label: Text {
             color: Qt.rgba(1, 1, 1, 0.5)
