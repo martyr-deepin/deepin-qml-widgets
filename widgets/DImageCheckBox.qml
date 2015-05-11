@@ -8,26 +8,15 @@ CheckBox {
     property url imageSource
     property int spacing: 2
 
-    property string widgetStyle:{
-        switch (styleController.currentWidgetStyle){
-        case DWidgetStyleController.StyleBlack:
-            return "black"
-        case DWidgetStyleController.StyleWhite:
-            return "white"
-        }
-    }
-
-    DWidgetStyleController {
-        id: styleController
-    }
+    DConstants {id: dconstants}
 
     text: "hello"
     style: CheckBoxStyle {
         spacing: control.spacing
         background: Item {}
         indicator: Image {
-            source: control.checked ? control.hovered ? "images/" + widgetStyle + "_checkbox_checked_hover.png" : "images/" + widgetStyle + "_checkbox_checked.png"
-                                    : control.hovered ? "images/" + widgetStyle + "_checkbox_unchecked_hover.png" : "images/" + widgetStyle + "_checkbox_unchecked.png"
+            source: control.checked ? control.hovered ? dconstants.imagesPath + "checkbox_checked_hover.png" : dconstants.imagesPath + "checkbox_checked.png"
+                                    : control.hovered ? dconstants.imagesPath + "checkbox_unchecked_hover.png" : dconstants.imagesPath + "checkbox_unchecked.png"
         }
         label: Image {
             source: control.imageSource
