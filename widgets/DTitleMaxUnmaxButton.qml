@@ -26,8 +26,11 @@ import Deepin.Widgets 1.0
 
 DImageButton {
     property bool maximized: false
-    normal_image: maximized ? "images/window_unmax_normal.png" : "images/window_max_normal.png"
-    hover_image: maximized ? "images/window_unmax_hover.png" : "images/window_max_hover.png"
-    press_image: maximized ? "images/window_unmax_press.png" : "images/window_max_press.png"
+
+    DConstants {id:dconstants}
+
+    normal_image: maximized ? dconstants.imagesPath + "window_unmax_normal.png" : dconstants.imagesPath + "window_max_normal.png"
+    hover_image: maximized ? dconstants.imagesPath + "window_unmax_hover.png" : dconstants.imagesPath + "window_max_hover.png"
+    press_image: maximized ? dconstants.imagesPath + "window_unmax_press.png" : dconstants.imagesPath + "window_max_press.png"
 }
 
