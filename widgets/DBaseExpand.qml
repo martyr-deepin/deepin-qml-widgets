@@ -29,7 +29,7 @@ Item{
             width: parent.width
             height: 28
             clip: true
-            color: dconstants.bgColor
+            color: dconstants.panelBgColor
 
             Loader {
                 id: header
