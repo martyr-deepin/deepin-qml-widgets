@@ -5,11 +5,14 @@ import QtQuick.Controls.Styles 1.1
 RadioButton {
     property int fontSize: 12
     
+    DConstants {id:dconstants}
+    property string imagesPath: dconstants.imagesPath
+
     style: RadioButtonStyle {
         background: Item {}
         indicator: Image {
-            source: control.checked ? control.hovered ? "images/radio_selected_hover.png" : "images/radio_selected.png" 
-                                    : control.hovered ? "images/radio_unselected_hover.png" : "images/radio_unselected.png"
+            source: control.checked ? control.hovered ? imagesPath + "radio_selected_hover.png" : imagesPath + "radio_selected.png"
+                                    : control.hovered ? imagesPath + "radio_unselected_hover.png" : imagesPath + "radio_unselected.png"
         }
         label: Text {
             color: Qt.rgba(1, 1, 1, 0.5)
