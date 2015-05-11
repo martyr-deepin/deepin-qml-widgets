@@ -18,7 +18,7 @@ Rectangle {
 
     height: 30
     width: parent.width
-    color: dconstants.bgColor
+    color: dconstants.panelBgColor
 
     signal clicked
 
@@ -57,7 +57,7 @@ Rectangle {
                 id: darkArea
                 anchors.verticalCenter: parent.verticalCenter
                 font.pixelSize: header.hintTextSize
-                color: dconstants.fgDarkColor
+                color: dconstants.itemTipColor
                 visible: text != "" ? true : false
                 text: header.hintText
             }
@@ -74,13 +74,12 @@ Rectangle {
             height: parent.height - 2
             width: actionButton.width
 
-            DDownArrowButton {
+            DArrowButton {
                 id: actionButton
+                direction: checked ? directionUp : directionDown
                 anchors.centerIn: parent
 
-                onClicked: {
-                    header.clicked()
-                }
+                property bool checked: false
             }
         }
     }
@@ -89,7 +88,7 @@ Rectangle {
         anchors.fill: parent
         onClicked: {
             actionButton.checked = !actionButton.checked
-            actionButton.clicked()
+            header.clicked()
         }
     }
 }
