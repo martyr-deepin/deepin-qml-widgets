@@ -6,19 +6,20 @@ DBaseLine {
     id: header
 
     property string text: "untitled"
-    property var dconstants: DConstants {}
 
     signal toggled
+
+    DConstants {id: dconstants}
 
     leftLoader.sourceComponent: Label {
         id: titleLabel
         text: header.text
-        color: dconstants.fgColor
+        color: dconstants.textNormalColor
     }
 
     rightLoader.sourceComponent: Image {
         id: arrow
-        source: "images/arrow_right_normal.png"
+        source: dconstants.imagesPath + "arrow_right_normal.png"
         MouseArea {
             anchors.fill:parent
             onClicked: {
