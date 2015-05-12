@@ -1,13 +1,69 @@
 {
     "General": {
         "contentBgColor": "#ffffff",
-        "contentSelectedColor": "#ffffff",
-        "itemTipColor": "#797979",
         "panelBgColor": "#fafafa",
+        "menuBgColor": "#ffffff",
+        "tabBgColor": "#fcfcfc",
+        "radioItemSelectedColor": "#ffffff",
+        "tooltipBorderColor": "#26000000",
+        "textSelectedBgColor": "#61b5f8",
+        "inputGrooveColor": "#4cffffff",
+        "buttonGrooveColor": "#02000000",
         "textActiveColor": "#2CA7F8",
         "textHoverColor": "#000000",
         "textNormalColor": "#474747",
-        "warningColor": "#FF6100"
+        "textHintColor": "#909090",
+        "linkColor": "#1b85ff",
+        "itemTipColor": "#d98424",
+        "warningColor": "#FF8F00",
+        "outsideBorder": {
+            "color": "#26000000",
+            "width": 1
+        },
+        "insideBorder": {
+            "top": {
+                "color": "#33ffffff",
+                "width": 1
+            },
+            "bottom": {
+                "color": "#19ffffff",
+                "width": 1
+            },
+            "left": {
+                "color": "#19ffffff",
+                "width": 1
+            },
+            "right": {
+                "color": "#19ffffff",
+                "width": 1
+            }
+        },
+        "popupShadow": {
+            "color": "#26000000",
+            "verticalOffset": 4,
+            "horizontalOffset": 0,
+            "radius": 9
+        },
+        "buttonGradient": {
+            "topStop": {
+                "position": 0,
+                "color": "#ffffff"
+            },
+            "bottomStop": {
+                "position": 1,
+                "color": "#fafafa"
+            }
+        },
+        "tooltipGradient": {
+            "topStop": {
+                "position": 0,
+                "color": "#ccffffff"
+            },
+            "bottomStop": {
+                "position": 1,
+                "color": "#b3ffffff"
+            }
+        }
     },
     "Separator": {
         "bottomColor": "#19000000",

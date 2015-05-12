@@ -1,22 +1,78 @@
 {
     "General": {
         "contentBgColor": "#1A1B1B",
-        "contentSelectedColor": "#66000000",
-        "itemTipColor": "#505050",
         "panelBgColor": "#252627",
+        "menuBgColor": "#ffffff",
+        "tabBgColor": "#1d1d1d",
+        "radioItemSelectedColor": "#66000000",
+        "tooltipBorderColor": "#26ffffff",
+        "textSelectedBgColor": "#276ea7",
+        "inputGrooveColor": "#0cffffff",
+        "buttonGrooveColor": "#02000000",
         "textActiveColor": "#01BDFF",
         "textHoverColor": "#FFFFFF",
         "textNormalColor": "#b4b4b4",
-        "warningColor": "#FF8F00"
+        "textHintColor": "#505050",
+        "linkColor": "#1b85ff",
+        "itemTipColor": "#fdbd25",
+        "warningColor": "#FF8F00",
+        "outsideBorder":{
+            "color":"#000000",
+            "width":1
+        },
+        "insideBorder":{
+            "top":{
+                "color": "#19ffffff",
+                "width":1
+            },
+            "bottom": {
+                "color": "#0cffffff",
+                "width": 1
+            },
+            "left": {
+                "color": "#0cffffff",
+                "width": 1
+            },
+            "right": {
+                "color": "#0cffffff",
+                "width": 1
+            }
+        },
+        "popupShadow":{
+            "color":"#26000000",
+            "verticalOffset": 4,
+            "horizontalOffset": 0,
+            "radius": 9
+        },
+        "buttonGradient": {
+            "topStop":{
+                "position": 0,
+                "color": "#272727"
+            },
+            "bottomStop": {
+                "position": 1,
+                "color": "#191919"
+            }
+        },
+        "tooltipGradient": {
+            "topStop":{
+                "position": 0,
+                "color": "#b3000000"
+            },
+            "bottomStop": {
+                "position": 1,
+                "color": "#cc000000"
+            }
+        }
     },
     "Separator": {
-        "bottomColor": "#303132",
+        "bottomColor": "#0cffffff",
         "bottomHeight": 1,
-        "leftColor": "#120f10",
+        "leftColor": "#99000000",
         "leftWidth": 1,
-        "rightColor": "#303132",
+        "rightColor": "#0cffffff",
         "rightWidth": 1,
-        "topColor": "#120f10",
+        "topColor": "#99000000",
         "topHeight": 1
     },
     "SwitchButton": {
