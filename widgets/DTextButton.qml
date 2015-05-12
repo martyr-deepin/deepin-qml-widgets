@@ -11,14 +11,16 @@ Rectangle{
     property alias textColor: title.color
     signal clicked
 
+    DConstants {id: dconstants}
+
     QtObject { //enumeration for button image
         id: buttonImage
-        property string headerNormal: "images/button_left_normal.png"
-        property string headerPress: "images/button_left_press.png"
-        property string middleNormal: "images/button_center_normal.png"
-        property string middlePress: "images/button_center_press.png"
-        property string tailNormal: "images/button_right_normal.png"
-        property string tailPress: "images/button_right_press.png"
+        property string headerNormal: dconstants.imagesPath + "button_left_normal.png"
+        property string headerPress: dconstants.imagesPath + "button_left_press.png"
+        property string middleNormal: dconstants.imagesPath + "button_center_normal.png"
+        property string middlePress: dconstants.imagesPath + "button_center_press.png"
+        property string tailNormal: dconstants.imagesPath + "button_right_normal.png"
+        property string tailPress: dconstants.imagesPath + "button_right_press.png"
     }
 
     Row {
@@ -39,7 +41,7 @@ Rectangle{
                 id: title
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                color: "#b4b4b4"
+                color: dconstants.textNormalColor
                 font.pixelSize: 12
             }
 
