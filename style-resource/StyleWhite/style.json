@@ -47,11 +47,13 @@
         "buttonGradient": {
             "topStop": {
                 "position": 0,
-                "color": "#ffffff"
+                "normalColor": "#ffffff",
+                "pressColor": "#68c3ff"
             },
             "bottomStop": {
                 "position": 1,
-                "color": "#fafafa"
+                "normalColor": "#fafafa",
+                "pressColor": "#68c3ff"
             }
         },
         "tooltipGradient": {
