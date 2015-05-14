@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import Deepin.Widgets 1.0
 
 DTextInput {
     id: textInput
@@ -10,8 +11,8 @@ DTextInput {
     property real initValue:0
     property real value
 
-    property color warningColor: "#FF8F00"
-    property color modifiedColor: "#505050"
+    property color warningColor: DPalette.warningColor
+    property color modifiedColor: DPalette.textHintColor
 
     textInput.validator: RegExpValidator { regExp: /^-?([0-9]|\.)*$/ }
 
@@ -147,111 +148,64 @@ DTextInput {
 
     Row {
         id: buttonBox
-        parent: textInputBox
         height: parent.height
         anchors.right: parent.right
+        anchors.verticalCenter: parent.verticalCenter
+        spacing: -1
 
-        Rectangle {
-            width: 1
+        DButtonFrame {
+            width: DPalette.imageButtonWidth
             height: parent.height
-            color: Qt.rgba(1, 1, 1, 0.1)
-        }
-
-        Item {
-            width: resetButton.width
-            height: parent.height
-
-            Rectangle {
-                anchors.fill: parent
-                gradient: Gradient {
-                    GradientStop {
-                        position: 0.0
-                        color: resetButton.pressed ? Qt.rgba(0, 0, 0, 0.05) : Qt.rgba(1, 1, 1, 0.05)
-                    }
-                    GradientStop {
-                        position: 1.0
-                        color: resetButton.pressed ? Qt.rgba(0, 0, 0, 0) : Qt.rgba(1, 1, 1, 0)
-                    }
-                }
-            }
+            topLeftRadius: 0
+            topRightRadius: 0
+            bottomLeftRadius: 0
+            bottomRightRadius: 0
 
             DImageButton {
                 id: resetButton
+                transitionEnabled: true
                 anchors.verticalCenter: parent.verticalCenter
-                normal_image: "images/restore_normal.png"
-                hover_image: "images/restore_hover.png"
-                press_image: "images/restore_press.png"
+                normal_image: DPalette.imagesPath + "restore_normal.png"
+                hover_image: DPalette.imagesPath + "restore_hover.png"
+                press_image: DPalette.imagesPath + "restore_press.png"
 
                 onClicked: textInput.reset()
             }
         }
 
-        Rectangle {
-            width: 1
+        DButtonFrame {
+            width: DPalette.imageButtonWidth
             height: parent.height
-            color: Qt.rgba(1, 1, 1, 0.1)
-        }
-
-        Item {
-            width: increaseButton.width
-            height: parent.height
-
-            Rectangle {
-                anchors.fill: parent
-                gradient: Gradient {
-                    GradientStop {
-                        position: 0.0
-                        color: increaseButton.pressed ? Qt.rgba(0, 0, 0, 0.05) : Qt.rgba(1, 1, 1, 0.05)
-                    }
-                    GradientStop {
-                        position: 1.0
-                        color: increaseButton.pressed ? Qt.rgba(0, 0, 0, 0) : Qt.rgba(1, 1, 1, 0)
-                    }
-                }
-            }
+            topLeftRadius: 0
+            topRightRadius: 0
+            bottomLeftRadius: 0
+            bottomRightRadius: 0
 
             DImageButton {
                 id: increaseButton
+                transitionEnabled: true
                 anchors.verticalCenter: parent.verticalCenter
-                normal_image: "images/spinner_increase_normal.png"
-                hover_image: "images/spinner_increase_hover.png"
-                press_image: "images/spinner_increase_press.png"
+                normal_image: DPalette.imagesPath + "spinner_increase_normal.png"
+                hover_image: DPalette.imagesPath + "spinner_increase_hover.png"
+                press_image: DPalette.imagesPath + "spinner_increase_press.png"
 
                 onClicked: increase()
             }
         }
 
-        Rectangle {
-            width: 1
+        DButtonFrame {
+            width: DPalette.imageButtonWidth
             height: parent.height
-            color: Qt.rgba(1, 1, 1, 0.1)
-        }
-
-        Item {
-            width: decreaseButton.width
-            height: parent.height
-
-            Rectangle {
-                anchors.fill: parent
-                radius: 3
-                gradient: Gradient {
-                    GradientStop {
-                        position: 0.0
-                        color: decreaseButton.pressed ? Qt.rgba(0, 0, 0, 0.05) : Qt.rgba(1, 1, 1, 0.05)
-                    }
-                    GradientStop {
-                        position: 1.0
-                        color: decreaseButton.pressed ? Qt.rgba(0, 0, 0, 0) : Qt.rgba(1, 1, 1, 0)
-                    }
-                }
-            }
+            topLeftRadius: 0
+            bottomLeftRadius: 0
 
             DImageButton{
                 id: decreaseButton
+                transitionEnabled: true
                 anchors.verticalCenter: parent.verticalCenter
-                normal_image: "images/spinner_decrease_normal.png"
-                hover_image: "images/spinner_decrease_hover.png"
-                press_image: "images/spinner_decrease_press.png"
+                normal_image: DPalette.imagesPath + "spinner_decrease_normal.png"
+                hover_image: DPalette.imagesPath + "spinner_decrease_hover.png"
+                press_image: DPalette.imagesPath + "spinner_decrease_press.png"
 
                 onClicked: decrease()
             }
