@@ -1,7 +1,11 @@
 import QtQuick 2.0;
+import Deepin.Widgets 1.0
+
 Flickable{
     id: root
     property Flickable flickable : root
+
+    DConstants {id: dconstants}
 
     Item {
         id: scrollbar
@@ -13,8 +17,8 @@ Flickable{
 
         property int handleSize: 12
         property alias backHandle: backHandle
-        property color inactiveColor: Qt.rgba(0, 0, 0, 0.5)
-        property color activeColor: Qt.rgba(0, 0, 0, 0.9)
+        property color inactiveColor: dconstants.scrollBarStyle.inactiveColor
+        property color activeColor: dconstants.scrollBarStyle.activeColor
         property bool inInteractive: false
 
         function scrollDown () {
@@ -104,7 +108,7 @@ Flickable{
                     id: backHandle
                     color: scrollbar.inactiveColor
                     anchors { fill: parent }
-                    border.color: "#44ffffff"
+                    border.color: dconstants.scrollBarStyle.borderColor
                     border.width: 1
                     radius: 6
                     opacity: 0
