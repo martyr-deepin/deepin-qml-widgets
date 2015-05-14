@@ -101,5 +101,11 @@
                 "outOnColor": "#038FF0"
             }
         }
+    },
+    "ScrollBar": {
+        "width": 6,
+        "borderColor": "#19ffffff",
+        "inactiveColor": "#66000000",
+        "activeColor": "#99000000"
     }
 }

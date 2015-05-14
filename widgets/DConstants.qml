@@ -31,6 +31,7 @@ QtObject {
     property var separatorStyle: configObj.Separator
     property var switchButtonStyle: configObj.SwitchButton
     property var dssTitleStyle: configObj.dssTitle
+    property var scrollBarStyle: configObj.ScrollBar
 
     //basis property
     onGeneralConfigObjChanged: {
