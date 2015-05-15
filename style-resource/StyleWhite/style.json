@@ -67,6 +67,11 @@
             }
         }
     },
+    "dssTitle": {
+        "color": "#000000",
+        "fontSize": 15,
+        "height": 48
+    },
     "Separator": {
         "bottomColor": "#19000000",
         "bottomHeight": 0,
