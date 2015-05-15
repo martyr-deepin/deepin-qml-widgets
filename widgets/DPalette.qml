@@ -9,21 +9,9 @@ import Deepin.Widgets 1.0
 // refer it as `dconstants' in your other qml files, but as you can see,
 // it's totally disaster when you want to use your widgets in other places.
 // With DPalette, you just need to `import Deepin.Widgets 1.0', and use
-// it like `QPalette.someColor', Qt will create the instance for you.
+// it like `DPalette.someColor', Qt will create the instance for you.
 
 QtObject {
-    //Please use the property below to replace these property
-    property color bgColor: "#252627"
-    property color fgColor: "#b4b4b4"
-    property color fgDarkColor: "#505050"
-    property color hoverColor: "#FFFFFF"
-    property color activeColor: "#00BDFF"
-    property color tuhaoColor: "#faca57"
-    /////////////////////////////////////////////////////////
-
-    property int leftMargin: 15
-    property int rightMargin: 15
-
     property var styleController: DWidgetStyleController { }
     property var styleList: styleController.styleList
     property string currentWidgetStyle: styleController.currentWidgetStyle
@@ -37,6 +25,7 @@ QtObject {
     property var popupShadowObj: generalConfigObj.popupShadow
     property var buttonGradientObj: generalConfigObj.buttonGradient
     property var tooltipGradientObj: generalConfigObj.tooltipGradient
+    property var popupMenuObj: generalConfigObj.popupMenu
 
     property var separatorStyle: configObj.Separator
     property var switchButtonStyle: configObj.SwitchButton
@@ -45,7 +34,6 @@ QtObject {
     onGeneralConfigObjChanged: {
         contentBgColor = generalConfigObj.contentBgColor
         panelBgColor = generalConfigObj.panelBgColor
-        menuBgColor = generalConfigObj.menuBgColor
         tabBgColor = generalConfigObj.tabBgColor
         radioItemSelectedColor = generalConfigObj.radioItemSelectedColor
         tooltipBorderColor = generalConfigObj.tooltipBorderColor
@@ -63,7 +51,6 @@ QtObject {
 
     property color contentBgColor: "#1A1B1B"
     property color panelBgColor: "#252627"
-    property color menuBgColor: "#ffffff"
     property color tabBgColor: "#1d1d1d"
     property color radioItemSelectedColor: "#66000000"
     property color tooltipBorderColor: "#26ffffff"
@@ -80,6 +67,7 @@ QtObject {
 
     //basis width and height
     readonly property int buttonHeight: 22
+    readonly property int menuItemHeight: 24
     readonly property int expandHeaderHeight: 30
     readonly property int contentHeaderHeight: 38
     readonly property int radioItemHeight: 30

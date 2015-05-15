@@ -2,7 +2,6 @@
     "General": {
         "contentBgColor": "#1A1B1B",
         "panelBgColor": "#252627",
-        "menuBgColor": "#ffffff",
         "tabBgColor": "#1d1d1d",
         "radioItemSelectedColor": "#66000000",
         "tooltipBorderColor": "#26ffffff",
@@ -66,6 +65,12 @@
                 "position": 1,
                 "color": "#cc000000"
             }
+        },
+        "popupMenu": {
+            "normalBgColor": "#00000000",
+            "hoverBgColor": "#66000000",
+            "normalTextColor": "#b4b4b4",
+            "hoverTextColor": "#01BDFF"
         }
     },
     "dssTitle": {
