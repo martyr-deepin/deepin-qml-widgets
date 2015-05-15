@@ -1,38 +1,44 @@
 import QtQuick 2.1
 import QtGraphicalEffects 1.0
+import Deepin.Widgets 1.0
 
 Item {
     id: window
-    
-    property int frameRadius: 3
-    property int shadowRadius: 10
+
+    DConstants {id: dconstants}
+
+    property int frameRadius: dconstants.normalRadius
+    property int shadowRadius: dconstants.popupShadowObj.glowRadius
     property alias frame: frame
-    
+
     default property alias content: container.children
-    
+
     Rectangle {
         id: frame
         anchors.centerIn: parent
-        color: "#232323"
+        color: dconstants.contentBgColor
         radius: frameRadius
         border.width: 1
-        border.color: Qt.rgba(1, 1, 1, 0.15)
+        border.color: dconstants.popupShadowObj.borderColor
         width: window.width - (shadowRadius + frameRadius) * 2
         height: window.height - (shadowRadius + frameRadius) * 2
 
-		Item {
+        Item {
             id: container
-			anchors.fill: parent
-		}
+            anchors.fill: parent
+        }
     }
-    
+
     RectangularGlow {
         id: shadow
         z: -1
         anchors.fill: frame
+        anchors.leftMargin: 4
+        anchors.rightMargin: 4
+        anchors.topMargin: dconstants.popupShadowObj.verticalOffset
         glowRadius: shadowRadius
-        spread: 0.2
-        color: Qt.rgba(0, 0, 0, 0.3)
+        spread: 0.3
+        color: dconstants.popupShadowObj.color
         cornerRadius: frame.radius + shadowRadius
         visible: true
     }

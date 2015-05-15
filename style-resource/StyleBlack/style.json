@@ -39,10 +39,11 @@
             }
         },
         "popupShadow":{
-            "color":"#26000000",
-            "verticalOffset": 4,
+            "color":"#4c000000",
+            "borderColor": "#26ffffff",
+            "verticalOffset": 6,
             "horizontalOffset": 0,
-            "radius": 9
+            "glowRadius": 10
         },
         "buttonGradient": {
             "topStop":{
