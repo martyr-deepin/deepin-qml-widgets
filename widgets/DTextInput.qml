@@ -5,14 +5,15 @@ import Deepin.Widgets 1.0
 FocusScope {
     id: root
     width: 160
-    height: 22
+    height: dconstants.buttonHeight + 1
     state: "normal"
+
+    DConstants {id: dconstants}
 
     property alias echoMode: text_input.echoMode
     property alias text: text_input.text
-    property int textInputRightMargin: 0
-    property int textInputLeftMargin: 0
-    property variant constants: DConstants {}
+    property int textInputRightMargin: dconstants.textRightMargin
+    property int textInputLeftMargin: dconstants.textLeftMargin
     property alias textInput: text_input
     property alias textInputBox: textInputBox
     property alias readOnly: text_input.readOnly
@@ -35,14 +36,14 @@ FocusScope {
             name: "normal"
             PropertyChanges {
                 target: text_input_box_border
-                border.color: "black"
+                border.color: dconstants.outsideBorderObj.color
             }
         },
         State {
             name: "warning"
             PropertyChanges {
                 target: text_input_box_border
-                border.color: "#F48914"
+                border.color: dconstants.warningColor
             }
         }
     ]
@@ -53,27 +54,27 @@ FocusScope {
         width: parent.width
         height: parent.height
         clip: true
-        color: "#171717"
-        radius: 3
+        color: dconstants.tabBgColor
+        radius: dconstants.normalRadius
     }
 
     DropShadow {
         anchors.fill: text_input_box
-        radius: 1
-        samples: 10
+        radius: 0
+        samples: 16
         horizontalOffset: 0
         verticalOffset: 1
-        color: Qt.rgba(1, 1, 1, 0.15)
+        color: dconstants.inputGrooveColor
         source: text_input_box
     }
 
     InnerShadow {
         anchors.fill: text_input_box
-        radius: 1
-        samples: 10
+        radius: 0
+        samples: 16
         horizontalOffset: 0
         verticalOffset: radius
-        color: "black"
+        color: dconstants.insideBorderObj.bottom.color
         source: text_input_box
     }
 
@@ -81,24 +82,24 @@ FocusScope {
         id: textInputBox
         clip: true
         anchors.fill: text_input_box
-        anchors.leftMargin: root.textInputLeftMargin
-        anchors.rightMargin: root.textInputRightMargin
+        // anchors.leftMargin: root.textInputLeftMargin
+        // anchors.rightMargin: root.textInputRightMargin
 
         TextInput {
             id: text_input
 
             focus: true
-            color: constants.fgColor
-            selectionColor: "#31536e"
+            color: dconstants.textNormalColor
+            selectionColor: dconstants.textSelectedBgColor
             selectByMouse: true
             verticalAlignment: TextInput.AlignVCenter
-            font.pixelSize: 12//text_input.echoMode == TextInput.Password ? 18 : 12
+            font.pixelSize: dconstants.fontSize
             echoMode: isPassword ? TextInput.Password : TextInput.Normal
             clip: true
 
             anchors.fill: parent
-            anchors.leftMargin: 3
-            anchors.rightMargin: root.isPassword || root.showClearButton ? action_button_place_holder.width + 3 : 3
+            anchors.leftMargin: root.textInputLeftMargin
+            anchors.rightMargin: root.isPassword || root.showClearButton ? action_button_place_holder.width + root.textInputRightMargin : root.textInputRightMargin
 
             onAccepted: {
                 root.accepted()
@@ -110,7 +111,7 @@ FocusScope {
 
         Item {
             id: action_button_place_holder
-            width: height
+            width: dconstants.imageButtonWidth
             height: parent.height
             anchors.right: parent.right
         }
@@ -120,9 +121,9 @@ FocusScope {
             anchors.fill: action_button_place_holder
 
             DImageButton {
-                normal_image: "images/clear_content_normal.png"
-                hover_image: "images/clear_content_hover.png"
-                press_image: "images/clear_content_press.png"
+                normal_image: dconstants.imagesPath + "clear_content_normal.png"
+                hover_image: dconstants.imagesPath + "clear_content_hover.png"
+                press_image: dconstants.imagesPath + "clear_content_press.png"
 
                 anchors.centerIn: parent
 
@@ -130,43 +131,25 @@ FocusScope {
             }
         }
 
-        Item {
+        DButtonFrame {
+            topLeftRadius: 0
+            bottomLeftRadius: 0
+            width: dconstants.imageButtonWidth
             visible: isPassword
-            anchors.fill: action_button_place_holder
-
-            Rectangle {
-                width: 1
-                height: parent.height
-                color: Qt.rgba(1, 1, 1, 0.1)
-            }
-
-            Rectangle {
-                width: parent.width - 1
-                height: parent.height
-                anchors.right: parent.right
-                radius: 3
-                gradient: Gradient {
-                    GradientStop {
-                        position: 0.0
-                        color: passwordShowButton.pressed ? Qt.rgba(0, 0, 0, 0.05) : Qt.rgba(1, 1, 1, 0.05)
-                    }
-                    GradientStop {
-                        position: 1.0
-                        color: passwordShowButton.pressed ? Qt.rgba(0, 0, 0, 0) : Qt.rgba(1, 1, 1, 0)
-                    }
-                }
-            }
+            anchors.verticalCenter: action_button_place_holder.verticalCenter
+            anchors.right: action_button_place_holder.right
+            // anchors.rightMargin:5
 
             DImageCheckButton {
                 id: passwordShowButton
                 anchors.verticalCenter: parent.verticalCenter
-                inactivatedNormalImage: "images/password_show_normal.png"
-                inactivatedHoverImage: "images/password_show_hover.png"
-                inactivatedPressImage: "images/password_show_press.png"
+                inactivatedNormalImage: dconstants.imagesPath + "password_show_normal.png"
+                inactivatedHoverImage: dconstants.imagesPath + "password_show_hover.png"
+                inactivatedPressImage: dconstants.imagesPath + "password_show_press.png"
 
-                activatedNormalImage: "images/password_hide_normal.png"
-                activatedHoverImage: "images/password_hide_hover.png"
-                activatedPressImage: "images/password_hide_press.png"
+                activatedNormalImage: dconstants.imagesPath + "password_hide_normal.png"
+                activatedHoverImage: dconstants.imagesPath + "password_hide_hover.png"
+                activatedPressImage: dconstants.imagesPath + "password_hide_press.png"
 
                 onClicked: {
                     if(text_input.echoMode == TextInput.Password){
@@ -182,7 +165,7 @@ FocusScope {
 
     Rectangle {
         id: text_input_box_border
-        radius: 3
+        radius: dconstants.normalRadius
         color: "transparent"
 
         anchors.fill:text_input_box
