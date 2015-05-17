@@ -3,6 +3,11 @@ import QtQuick 2.1
 Item {
     id: button
 
+    DConstants {id: dconstants}
+
+    height: dconstants.buttonHeight + 1
+    width: dconstants.imageButtonWidth
+
     property url normal_image
     property url hover_image
     property url press_image
@@ -49,11 +54,10 @@ Item {
         NumberAnimation { properties: "opacity"; duration: transitionDuration }
     }
 
-    width: normalImage.width;    height: normalImage.height
-
     Image {
         id: normalImage
         source: normal_image
+        anchors.centerIn: parent
     }
 
     Image {
