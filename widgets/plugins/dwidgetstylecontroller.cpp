@@ -20,9 +20,9 @@ void DWidgetStyleController::init()
         updateCurrentWidgetStyle(DEEPIN_WIDGETS_DEFAULT_STYLE);
     }
 
-    currentWidgetStyle = getWidgetStyleFromJson();
-    imagesPath = getImagesPath();
-    configObject = getConfigFromJson();
+    m_currentWidgetStyle = getWidgetStyleFromJson();
+    m_imagesPath = getImagesPath();
+    m_configObject = getConfigFromJson();
 
     fileWatcher = new QFileSystemWatcher(this);
     fileWatcher->addPath(CONFIG_FILE_NAME);
@@ -35,13 +35,13 @@ void DWidgetStyleController::configFileChanged(const QString &path)
 {
     if (path == CONFIG_FILE_NAME)
     {
-        currentWidgetStyle = getWidgetStyleFromJson();
+        m_currentWidgetStyle = getWidgetStyleFromJson();
         emit currentWidgetStyleChanged();
 
-        imagesPath = getImagesPath();
+        m_imagesPath = getImagesPath();
         emit imagesPathChanged();
 
-        configObject = getConfigFromJson();
+        m_configObject = getConfigFromJson();
         emit configObjectChanged();
     }
 }
@@ -56,7 +56,7 @@ void DWidgetStyleController::styleDirChanged(const QString &path)
 
 QJsonObject DWidgetStyleController::getConfigObject()
 {
-    return configObject;
+    return m_configObject;
 }
 
 QString DWidgetStyleController::getImagesPath()
@@ -66,7 +66,11 @@ QString DWidgetStyleController::getImagesPath()
 
 QString DWidgetStyleController::getCurrentWidgetStyle()
 {
-    return currentWidgetStyle;
+    const QString style = qgetenv("DUI_STYLE").constData();
+    if(style !="" && isAvailableStyle(style)){
+        return style;
+    }
+    return m_currentWidgetStyle;
 }
 
 QStringList DWidgetStyleController::getStyleList()
@@ -91,7 +95,7 @@ void DWidgetStyleController::setCurrentWidgetStyle(const QString & style)
     if (!isAvailableStyle(style))
         return;
 
-    currentWidgetStyle = style;
+    m_currentWidgetStyle = style;
     updateCurrentWidgetStyle(style);
     emit currentWidgetStyleChanged();
 }
@@ -127,7 +131,7 @@ void DWidgetStyleController::updateCurrentWidgetStyle(const QString & style)
 
 QString DWidgetStyleController::getResourceDir()
 {
-    return DEEPIN_WIDGETS_STYLE_PATH + currentWidgetStyle;
+    return DEEPIN_WIDGETS_STYLE_PATH + getCurrentWidgetStyle();
 }
 
 QString DWidgetStyleController::getWidgetStyleFromJson()

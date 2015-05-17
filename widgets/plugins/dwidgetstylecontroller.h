@@ -50,9 +50,9 @@ private:
     QJsonObject getConfigFromJson();
 
 private:
-    QJsonObject configObject;
-    QString imagesPath;
-    QString currentWidgetStyle;
+    QJsonObject m_configObject;
+    QString m_imagesPath;
+    QString m_currentWidgetStyle;
     QFileSystemWatcher *fileWatcher;
 
     const QString DEEPIN_WIDGETS_DEFAULT_STYLE = "StyleBlack";
