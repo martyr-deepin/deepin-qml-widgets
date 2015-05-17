@@ -26,33 +26,34 @@ import Deepin.Widgets 1.0
 
 Item {
     id: wrapper
-    width: 100; height: 26
+    width: 100; height: DPalette.menuItemHeight
 
-    property alias value: label.text
+    property alias label: headLabel
+    property alias value: headLabel.text
     property bool itemOnHover: false    //use wrapper.ListView.view.currentIndex to record index may cause crash,like deepin-movie font-list
     property int index: 0
 
     Rectangle {
-        color: itemOnHover ? "#141414" : "#191919"
+        color: itemOnHover ? DPalette.popupMenuObj.hoverBgColor : DPalette.popupMenuObj.normalBgColor
         anchors.fill: parent
     }
 
     Image {
         id: headImg
-        source: itemOnHover ? "images/select-dark-hover.png" : "images/select-dark.png"
+        source: itemOnHover ? DPalette.imagesPath + "tick_hover.png" : DPalette.imagesPath + "tick_normal.png"
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        anchors.leftMargin: 5
+        anchors.leftMargin: DPalette.textLeftMargin
         visible: index == 0
     }
 
     DssH2 {
-        id: label
+        id: headLabel
         anchors.left: parent.left
-        anchors.leftMargin: 28
+        anchors.leftMargin: DPalette.textLeftMargin * 2 + headImg.width
         anchors.verticalCenter: parent.verticalCenter
         text: "text " + index
-        color: itemOnHover ? dconstants.activeColor : dconstants.fgColor
+        color: itemOnHover ? DPalette.popupMenuObj.hoverTextColor : DPalette.popupMenuObj.normalTextColor
     }
 }
 

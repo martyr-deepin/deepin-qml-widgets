@@ -84,5 +84,6 @@ DTitleMaxUnmaxButton 1.0 DTitleMaxUnmaxButton.qml
 DTitleMinimizeButton 1.0 DTitleMinimizeButton.qml
 DTitleOptionButton 1.0 DTitleOptionButton.qml
 DButtonFrame 1.0 DButtonFrame.qml
-singleton DPalette 1.0 DPalette.qml
 DShortcutInput 1.0 DShortcutInput.qml
+DMenuItem 1.0 DMenuItem.qml
+singleton DPalette 1.0 DPalette.qml

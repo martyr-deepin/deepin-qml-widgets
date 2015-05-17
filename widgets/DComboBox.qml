@@ -1,9 +1,10 @@
 import QtQuick 2.1
 import QtQuick.Window 2.1
+import Deepin.Widgets 1.0
 
 Item {
     id: combobox
-    width: Math.max(minMiddleWidth, parent.width)
+    // width: Math.max(minMiddleWidth, parent.width)
     height: background.height
 
     property bool hovered: false
@@ -62,46 +63,18 @@ Item {
         showMenu(x, y, w)
     }
 
-    QtObject {
-        id: buttonImage
-        property string status: "normal"
-        property string header: "images/button_left_%1.png".arg(status)
-        property string middle: "images/button_center_%1.png".arg(status)
-        property string tail: "images/button_right_%1.png".arg(status)
-    }
-
-    property int minMiddleWidth: buttonHeader.width + downArrow.width + buttonTail.width
-
-    Row {
+    DButtonFrame{
         id: background
-        height: buttonHeader.height
         width: parent.width
-
-        Image{
-            id: buttonHeader
-            source: buttonImage.header
-        }
-
-        Image {
-            id: buttonMiddle
-            source: buttonImage.middle
-            width: parent.width - buttonHeader.width - buttonTail.width
-        }
-
-        Image{
-            id: buttonTail
-            source: buttonImage.tail
-        }
     }
 
     Rectangle {
         id: content
-        width: buttonMiddle.width
+        width: parent.width - DPalette.textLeftMargin - DPalette.textRightMargin
         height: background.height
-        anchors.left: parent.left
-        anchors.leftMargin: buttonHeader.width
+        anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-        color: Qt.rgba(1, 0, 0, 0)
+        color: "transparent"
 
         Loader {
             id: button_loader
@@ -118,7 +91,7 @@ Item {
             id: downArrow
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
-            source: hovered ? "images/arrow_down_hover.png" : "images/arrow_down_normal.png"
+            source: hovered ? DPalette.imagesPath + "arrow_down_hover.png" : DPalette.imagesPath + "arrow_down_normal.png"
         }
 
     }
@@ -137,12 +110,10 @@ Item {
 
         onPressed: {
             parent.pressed = true
-            buttonImage.status = "press"
         }
         onReleased: {
             parent.pressed = false
             parent.hovered = containsMouse
-            buttonImage.status = "normal"
         }
 
         onClicked: {

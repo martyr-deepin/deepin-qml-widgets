@@ -37,7 +37,6 @@ QtObject {
     onGeneralConfigObjChanged: {
         contentBgColor = generalConfigObj.contentBgColor
         panelBgColor = generalConfigObj.panelBgColor
-        menuBgColor = generalConfigObj.menuBgColor
         tabBgColor = generalConfigObj.tabBgColor
         radioItemSelectedColor = generalConfigObj.radioItemSelectedColor
         tooltipBorderColor = generalConfigObj.tooltipBorderColor
@@ -55,7 +54,6 @@ QtObject {
 
     property color contentBgColor: "#1A1B1B"
     property color panelBgColor: "#252627"
-    property color menuBgColor: "#ffffff"
     property color tabBgColor: "#1d1d1d"
     property color radioItemSelectedColor: "#66000000"
     property color tooltipBorderColor: "#26ffffff"
