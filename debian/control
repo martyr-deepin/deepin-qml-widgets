@@ -12,6 +12,7 @@ Build-Depends: debhelper (>= 9),
  pkg-config,
  libxcomposite-dev, 
  libxcb-damage0-dev,
+ libgtk2.0-dev,
  deepin-gettext-tools
 Standards-Version: 3.9.5
 Homepage: http://www.linuxdeepin.com
