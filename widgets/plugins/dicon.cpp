@@ -19,7 +19,7 @@ extern "C" {
 DIcon::DIcon(QQuickPaintedItem *parent)
     : QQuickPaintedItem(parent)
 {
-
+    gtk_init(NULL, NULL);
 }
 
 DIcon::~DIcon()
