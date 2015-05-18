@@ -56,8 +56,7 @@ QString DIcon::iconNameToPath(QString qname, int size)
         char *theme_name = this->m_theme.toUtf8().data();
         gtk_icon_theme_set_custom_theme(theme, theme_name);
     }*/
-
-    GtkIconInfo* info = gtk_icon_theme_lookup_icon(theme, pic_name, size, GTK_ICON_LOOKUP_NO_SVG);
+    GtkIconInfo* info = gtk_icon_theme_lookup_icon(theme, pic_name, size, GTK_ICON_LOOKUP_GENERIC_FALLBACK);
     g_free(pic_name);
     if (info) {
         char* path = g_strdup(gtk_icon_info_get_filename(info));
@@ -74,7 +73,7 @@ QString DIcon::iconNameToPath(QString qname, int size)
 
 void DIcon::setTheme(const QString &v)
 {
-    qWarning() << "[DIcon] theme property is departed";
+    // qWarning() << "[DIcon] theme property is departed";
     m_theme = v;
     Q_EMIT themeChanged(v);
     QRect rect = QRect(0, 0, this->width(), this->height());
@@ -100,7 +99,7 @@ void DIcon::paint(QPainter *painter)
         QStringList tmpInfo = m_icon.split(",");
         const char *format = tmpInfo[0].split(";")[0].split("/")[1].toUtf8().data();
         const char *base64data = tmpInfo[1].toUtf8().data();
-        qDebug() << "[DIcon] get data image uri, format:" << format;
+        // qDebug() << "[DIcon] get data image uri, format:" << format;
         pixmap.loadFromData(QByteArray::fromBase64(QByteArray(base64data)), format);
     }
     else{
@@ -108,7 +107,7 @@ void DIcon::paint(QPainter *painter)
         if(iconPath == NULL){
             iconPath = iconNameToPath("application-default-icon", size);
         }
-        qDebug() << "[DIcon] icon name: " << m_icon << ", icon path: " << iconPath;
+        // qDebug() << "[DIcon] icon name: " << m_icon << ", icon path: " << iconPath;
         QIcon icon = QIcon(iconPath);
         pixmap = icon.pixmap(this->width(), this->height());
     }

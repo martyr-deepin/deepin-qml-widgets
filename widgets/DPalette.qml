@@ -12,13 +12,12 @@ import Deepin.Widgets 1.0
 // it like `DPalette.someColor', Qt will create the instance for you.
 
 QtObject {
-    property var styleController: DWidgetStyleController { }
-    property var styleList: styleController.styleList
-    property string currentWidgetStyle: styleController.currentWidgetStyle
-    property string imagesPath: styleController.imagesPath
+    property var styleList: DUIStyle.styleList
+    property string currentWidgetStyle: DUIStyle.currentWidgetStyle
+    property string imagesPath: DUIStyle.imagesPath
 
 
-    property var configObj: styleController.configObject
+    property var configObj: DUIStyle.configObject
     property var generalConfigObj: configObj.General
     property var outsideBorderObj: generalConfigObj.outsideBorder
     property var insideBorderObj: generalConfigObj.insideBorder

@@ -1,5 +1,5 @@
 /*************************************************************
-*File Name: testDWidgetStyleController.qml
+*File Name: testDWidgetDUIStyle.qml
 *Author: Match
 *Email: Match.YangWanQing@gmail.com
 *Created Time: 2015年04月20日 星期一 14时16分24秒
@@ -20,7 +20,6 @@ Rectangle {
 	}
 
     DConstants { id: dconstants }
-    DWidgetStyleController {id: styleController}
 
     Row {
         width: parent.width
@@ -49,7 +48,7 @@ Rectangle {
                 hoverEnabled: true
                 onClicked: {
                     print ("Change to white style...")
-                    styleController.setCurrentWidgetStyle("StyleWhite")
+                    DUIStyle.setCurrentWidgetStyle("StyleWhite")
                 }
                 onEntered: parent.border.width = 2
                 onExited: parent.border.width = 0
@@ -75,7 +74,7 @@ Rectangle {
                 hoverEnabled: true
                 onClicked: {
                     print ("Change to black style...")
-                    styleController.setCurrentWidgetStyle("StyleBlack")
+                    DUIStyle.setCurrentWidgetStyle("StyleBlack")
                 }
                 onEntered: parent.border.width = 2
                 onExited: parent.border.width = 0

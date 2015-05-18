@@ -40,8 +40,6 @@ Window {
         isVisible = false
     }
 
-    DFileChooseDialogAide {id:dfcdAide}
-
     DWindowFrame {
         id: frame
         width: 600 + (shadowRadius + frameRadius) * 2
@@ -122,9 +120,9 @@ Window {
                     keyboardOperationsEnabled: false
                     onKeyPressed: {
                         if ((event.key == Qt.Key_Enter) || (event.key == Qt.Key_Return)){
-                            if (dfcdAide.fileExist(text)){
+                            if (DFileUtils.fileExist(text)){
                                 pathInput.state = "normal"
-                                if (dfcdAide.fileIsDir(text)){
+                                if (DFileUtils.fileIsDir(text)){
                                     currentFolder = text
                                 }
                                 else{
@@ -186,7 +184,7 @@ Window {
                                 height: 24
                                 width: 24
                                 theme: "Deepin"
-                                icon: dfcdAide.getIconName(filePath)
+                                icon: DFileUtils.getIconName(filePath)
                             }
 
                             DLabel {
