@@ -23,6 +23,7 @@
 
 import QtQuick 2.1
 import QtQuick.Window 2.1
+import Deepin.Widgets 1.0
 
 DPopupWindow {
     id: menuPopupWindow
@@ -45,7 +46,7 @@ DPopupWindow {
     property var labels
     property alias model: menuPopupWindow.labels
     property Component delegate: Component {
-        DMenuItem { width: menuPopupWindow.width; height: DPalette.menuItemHeight }
+        DMenuItem { width: menuPopupWindow.width; height: DConstants.menuItemHeight }
     }
 
     signal menuSelect(int index)

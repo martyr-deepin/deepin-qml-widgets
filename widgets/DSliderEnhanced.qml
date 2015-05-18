@@ -1,12 +1,11 @@
 import QtQuick 2.0
 import QtGraphicalEffects 1.0
+import Deepin.Widgets 1.0
 
 Item {
     id: slider
     height: 50
     width: 320
-
-    property var dconstants: DConstants {}
 
     property real min: -1
     property real max: 1
@@ -230,7 +229,9 @@ Item {
 
         Image {
             id: handle
-            source: isBalance ? "images/slider_balance.png" : "images/slider_handle.svg"
+            property string balanceImage: DConstants.imagesPath + "slider_balance.png"
+            property string handleImage: DConstants.imagesPath + "slider_handle.svg"
+            source: isBalance ? balanceImage : handleImage
             anchors.verticalCenter: parent.verticalCenter
 
             MouseArea {

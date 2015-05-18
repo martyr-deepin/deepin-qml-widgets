@@ -6,28 +6,28 @@ Rectangle {
     id: rect
     color: "transparent"
 
-    DConstants {
-        id: dconstants
+    Connections {
+        target: DConstants
         onCurrentWidgetStyleChanged:{
             canvas.requestPaint()
         }
     }
 
     width: 22
-    height: dconstants.buttonHeight + 1
+    height: DConstants.buttonHeight + 1
 
-    property int topLeftRadius: dconstants.normalRadius
-    property int topRightRadius: dconstants.normalRadius
-    property int bottomLeftRadius: dconstants.normalRadius
-    property int bottomRightRadius: dconstants.normalRadius
+    property int topLeftRadius: DConstants.normalRadius
+    property int topRightRadius: DConstants.normalRadius
+    property int bottomLeftRadius: DConstants.normalRadius
+    property int bottomRightRadius: DConstants.normalRadius
 
-    property int outsideBorderWidth: dconstants.outsideBorderObj.width
-    property color outsideBorderColor: dconstants.outsideBorderObj.color
+    property int outsideBorderWidth: DConstants.outsideBorderObj.width
+    property color outsideBorderColor: DConstants.outsideBorderObj.color
 
-    property int insideBorderTopWidth: dconstants.insideBorderObj.top.width
-    property int insideBorderBottomWidth: dconstants.insideBorderObj.bottom.width
-    property color insideBorderTopColor: dconstants.insideBorderObj.top.color
-    property color insideBorderBottomColor: dconstants.insideBorderObj.bottom.color
+    property int insideBorderTopWidth: DConstants.insideBorderObj.top.width
+    property int insideBorderBottomWidth: DConstants.insideBorderObj.bottom.width
+    property color insideBorderTopColor: DConstants.insideBorderObj.top.color
+    property color insideBorderBottomColor: DConstants.insideBorderObj.bottom.color
 
     property bool isPress: false
 
@@ -149,16 +149,19 @@ Rectangle {
         }
 
         onPaint: {
+            if(!context){
+                return
+            }
             context.clearRect(0,0,canvas.width,canvas.height)
             //fill frame
             var gradient = context.createLinearGradient(outsideBorder.topLeftPoint.x, outsideBorder.topLeftPoint.y
                                                         ,outsideBorder.bottomLeftPoint.x,outsideBorder.bottomLeftPoint.y);
-            gradient.addColorStop(dconstants.buttonGradientObj.topStop.position,
-                                  isPress ? dconstants.buttonGradientObj.topStop.pressColor
-                                          : dconstants.buttonGradientObj.topStop.normalColor);
-            gradient.addColorStop(dconstants.buttonGradientObj.bottomStop.position,
-                                  isPress ? dconstants.buttonGradientObj.bottomStop.pressColor
-                                          : dconstants.buttonGradientObj.bottomStop.normalColor);
+            gradient.addColorStop(DConstants.buttonGradientObj.topStop.position,
+                                  isPress ? DConstants.buttonGradientObj.topStop.pressColor
+                                          : DConstants.buttonGradientObj.topStop.normalColor);
+            gradient.addColorStop(DConstants.buttonGradientObj.bottomStop.position,
+                                  isPress ? DConstants.buttonGradientObj.bottomStop.pressColor
+                                          : DConstants.buttonGradientObj.bottomStop.normalColor);
 
             context.fillStyle = gradient;
             context.path = outsidePath;
@@ -216,7 +219,7 @@ Rectangle {
         verticalOffset: 1
         radius: 0
         samples: 16
-        color: dconstants.buttonGrooveColor
+        color: DConstants.buttonGrooveColor
         source: canvas
     }
 }

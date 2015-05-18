@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
+import Deepin.Widgets 1.0
 
 Rectangle {
     id: header
@@ -11,14 +12,13 @@ Rectangle {
     property alias icon: iconImage.source
     property alias active: actionButton.checked
 
-    property var dconstants: DConstants {}
-    property int leftMargin: dconstants.leftMargin
-    property int rightMargin: dconstants.rightMargin
+    property int leftMargin: DConstants.leftMargin
+    property int rightMargin: DConstants.rightMargin
     focus: true
 
     height: 30
     width: parent.width
-    color: dconstants.panelBgColor
+    color: DConstants.panelBgColor
 
     signal clicked
 
@@ -57,7 +57,7 @@ Rectangle {
                 id: darkArea
                 anchors.verticalCenter: parent.verticalCenter
                 font.pixelSize: header.hintTextSize
-                color: dconstants.itemTipColor
+                color: DConstants.itemTipColor
                 visible: text != "" ? true : false
                 text: header.hintText
             }

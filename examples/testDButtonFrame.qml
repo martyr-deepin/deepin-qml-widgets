@@ -14,8 +14,8 @@ Rectangle {
 	height: 300
 	color: "gray"
 
-	DConstants {id: dconstants}
-	DButtonFrame {id: shittt
+    DButtonFrame {
+        id: shittt
 		anchors.centerIn: parent
 	}
 }

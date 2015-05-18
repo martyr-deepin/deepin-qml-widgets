@@ -5,17 +5,15 @@ Item {
     width: parent.width
     height: topRec.height + bottomRec.height
 
-    DConstants{id:dconstants}
-
-    property color topColor: dconstants.separatorStyle.topColor
-    property color bottomColor: dconstants.separatorStyle.bottomColor
+    property color topColor: DConstants.separatorStyle.topColor
+    property color bottomColor: DConstants.separatorStyle.bottomColor
 
     Rectangle {
         id: topRec
         anchors.top: parent.top
         anchors.left: parent.left
         width: parent.width
-        height: dconstants.separatorStyle.topHeight
+        height: DConstants.separatorStyle.topHeight
         color: topColor
     }
     Rectangle {
@@ -24,7 +22,7 @@ Item {
         anchors.topMargin: 1
         anchors.left: parent.left
         width: parent.width
-        height: dconstants.separatorStyle.bottomHeight
+        height: DConstants.separatorStyle.bottomHeight
         color: bottomColor
     }
 }

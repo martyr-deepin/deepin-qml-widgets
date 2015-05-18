@@ -1,6 +1,7 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
+import Deepin.Widgets 1.0
 
 Item{
     id: expandRect
@@ -13,8 +14,6 @@ Item{
     property alias contentRect: contentRect
     property alias separator: separator
     property bool expanded: false
-
-    property var dconstants: DConstants {}
 
     height: headerRect.height + contentRect.height
     width: parent.width
@@ -29,7 +28,7 @@ Item{
             width: parent.width
             height: 28
             clip: true
-            color: dconstants.panelBgColor
+            color: DConstants.panelBgColor
 
             Loader {
                 id: header
@@ -46,7 +45,7 @@ Item{
             width: parent.width
             height: expanded ? content.height + 2 : 0
             clip: true
-            color: dconstants.contentBgColor
+            color: DConstants.contentBgColor
 
             Column {
                 width: parent.width

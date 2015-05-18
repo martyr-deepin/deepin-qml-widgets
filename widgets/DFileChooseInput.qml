@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import Deepin.Widgets 1.0
 
 DTextInput {
     id: fileChooseInput
@@ -40,9 +41,9 @@ DTextInput {
         DImageButton {
             id: loadFileButton
             anchors.verticalCenter: parent.verticalCenter
-            normal_image: "images/loadfile_normal.png"
-            hover_image: "images/loadfile_hover.png"
-            press_image: "images/loadfile_press.png"
+            normal_image: DConstants.imagesPath + "loadfile_normal.png"
+            hover_image: DConstants.imagesPath + "loadfile_hover.png"
+            press_image: DConstants.imagesPath + "loadfile_press.png"
             onClicked: fileChooseInput.fileChooseClicked()
         }
     }

@@ -11,8 +11,8 @@ DTextInput {
     property real initValue:0
     property real value
 
-    property color warningColor: DPalette.warningColor
-    property color modifiedColor: DPalette.textHintColor
+    property color warningColor: DConstants.warningColor
+    property color modifiedColor: DConstants.textHintColor
 
     textInput.validator: RegExpValidator { regExp: /^-?([0-9]|\.)*$/ }
 
@@ -154,7 +154,7 @@ DTextInput {
         spacing: -1
 
         DButtonFrame {
-            width: DPalette.imageButtonWidth
+            width: DConstants.imageButtonWidth
             height: parent.height
             topLeftRadius: 0
             topRightRadius: 0
@@ -165,16 +165,16 @@ DTextInput {
                 id: resetButton
                 transitionEnabled: true
                 anchors.verticalCenter: parent.verticalCenter
-                normal_image: DPalette.imagesPath + "restore_normal.png"
-                hover_image: DPalette.imagesPath + "restore_hover.png"
-                press_image: DPalette.imagesPath + "restore_press.png"
+                normal_image: DConstants.imagesPath + "restore_normal.png"
+                hover_image: DConstants.imagesPath + "restore_hover.png"
+                press_image: DConstants.imagesPath + "restore_press.png"
 
                 onClicked: textInput.reset()
             }
         }
 
         DButtonFrame {
-            width: DPalette.imageButtonWidth
+            width: DConstants.imageButtonWidth
             height: parent.height
             topLeftRadius: 0
             topRightRadius: 0
@@ -185,16 +185,16 @@ DTextInput {
                 id: increaseButton
                 transitionEnabled: true
                 anchors.verticalCenter: parent.verticalCenter
-                normal_image: DPalette.imagesPath + "spinner_increase_normal.png"
-                hover_image: DPalette.imagesPath + "spinner_increase_hover.png"
-                press_image: DPalette.imagesPath + "spinner_increase_press.png"
+                normal_image: DConstants.imagesPath + "spinner_increase_normal.png"
+                hover_image: DConstants.imagesPath + "spinner_increase_hover.png"
+                press_image: DConstants.imagesPath + "spinner_increase_press.png"
 
                 onClicked: increase()
             }
         }
 
         DButtonFrame {
-            width: DPalette.imageButtonWidth
+            width: DConstants.imageButtonWidth
             height: parent.height
             topLeftRadius: 0
             bottomLeftRadius: 0
@@ -203,9 +203,9 @@ DTextInput {
                 id: decreaseButton
                 transitionEnabled: true
                 anchors.verticalCenter: parent.verticalCenter
-                normal_image: DPalette.imagesPath + "spinner_decrease_normal.png"
-                hover_image: DPalette.imagesPath + "spinner_decrease_hover.png"
-                press_image: DPalette.imagesPath + "spinner_decrease_press.png"
+                normal_image: DConstants.imagesPath + "spinner_decrease_normal.png"
+                hover_image: DConstants.imagesPath + "spinner_decrease_hover.png"
+                press_image: DConstants.imagesPath + "spinner_decrease_press.png"
 
                 onClicked: decrease()
             }

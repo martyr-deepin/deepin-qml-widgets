@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
+import Deepin.Widgets 1.0
 
 Rectangle {
     id: header
@@ -10,11 +11,9 @@ Rectangle {
     property int leftWidth: 120
     property int centerPadding: 10
 
-    property var dconstants: DConstants {}
-
     height: 30
     width: parent.width
-    color: dconstants.panelBgColor
+    color: DConstants.panelBgColor
 
     DLabel {
         id: title

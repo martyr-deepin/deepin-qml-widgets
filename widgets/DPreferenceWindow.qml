@@ -24,8 +24,6 @@ DWindow {
 
     signal action()
 
-	DConstants { id: dconstants }
-
 	RectangularGlow {
 	    id: shadow
 	    anchors.fill: rect
@@ -40,7 +38,7 @@ DWindow {
 		id: rect
 		clip: true
 		radius: 4
-		color: dconstants.contentBgColor
+		color: DConstants.contentBgColor
 		width: root.width - root.shadowWidth * 2
 		height: root.height - root.shadowWidth * 2
         border.width: 1
@@ -75,9 +73,9 @@ DWindow {
 
 			DImageButton {
 			    id: close_button
-			    normal_image: "images/window_close_normal.png"
-                hover_image: "images/window_close_hover.png"
-                press_image: "images/window_close_press.png"
+			    normal_image: DConstants.imagesPath + "window_close_normal.png"
+                hover_image: DConstants.imagesPath + "window_close_hover.png"
+                press_image: DConstants.imagesPath + "window_close_press.png"
 			    anchors.top: parent.top
 			    anchors.right: parent.right
 

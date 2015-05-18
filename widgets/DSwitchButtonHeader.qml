@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import Deepin.Widgets 1.0
 
 Rectangle {
     id: header
@@ -9,13 +10,12 @@ Rectangle {
     property alias active: actionArea.checked
     property alias font: titleArea.font
 
-    property var dconstants: DConstants {}
-    property int leftMargin: dconstants.leftMargin
-    property int rightMargin: dconstants.rightMargin
+    property int leftMargin: DConstants.leftMargin
+    property int rightMargin: DConstants.rightMargin
 
     height: 30
     width: parent.width
-    color: dconstants.panelBgColor
+    color: DConstants.panelBgColor
 
     signal clicked
 

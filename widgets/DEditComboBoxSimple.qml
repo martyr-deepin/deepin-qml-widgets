@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import Deepin.Widgets 1.0
 
 DTextInput {
     id: editComboBox
@@ -51,9 +52,9 @@ DTextInput {
             DImageButton {
                 id: dropDownButton
                 anchors.centerIn: parent
-                normal_image: "images/arrow_down_normal.png"
-                hover_image: "images/arrow_down_hover.png"
-                press_image: "images/arrow_down_press.png"
+                normal_image: DConstants.imagesPath + "arrow_down_normal.png"
+                hover_image: DConstants.imagesPath + "arrow_down_hover.png"
+                press_image: DConstants.imagesPath + "arrow_down_press.png"
                 onClicked: editComboBox.showMenu()
             }
         }

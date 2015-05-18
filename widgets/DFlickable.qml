@@ -5,8 +5,6 @@ Flickable{
     id: root
     property Flickable flickable : root
 
-    DConstants {id: dconstants}
-
     Item {
         id: scrollbar
         width: handleSize
@@ -17,8 +15,8 @@ Flickable{
 
         property int handleSize: 12
         property alias backHandle: backHandle
-        property color inactiveColor: dconstants.scrollBarStyle.inactiveColor
-        property color activeColor: dconstants.scrollBarStyle.activeColor
+        property color inactiveColor: DConstants.scrollBarStyle.inactiveColor
+        property color activeColor: DConstants.scrollBarStyle.activeColor
         property bool inInteractive: false
 
         function scrollDown () {
@@ -108,7 +106,7 @@ Flickable{
                     id: backHandle
                     color: scrollbar.inactiveColor
                     anchors { fill: parent }
-                    border.color: dconstants.scrollBarStyle.borderColor
+                    border.color: DConstants.scrollBarStyle.borderColor
                     border.width: 1
                     radius: 6
                     opacity: 0

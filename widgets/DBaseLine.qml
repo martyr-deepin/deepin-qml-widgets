@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
+import Deepin.Widgets 1.0
 
 Rectangle {
     id: header
@@ -9,11 +10,10 @@ Rectangle {
     property alias rightLoader: rightArea
     property int leftMargin: 15
     property int rightMargin: 15
-    property var dconstants: DConstants {}
 
     height: 30
     width: parent.width
-    color: dconstants.panelBgColor
+    color: DConstants.panelBgColor
 
     Loader {
         id: leftArea

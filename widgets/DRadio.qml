@@ -4,9 +4,7 @@ import QtQuick.Controls.Styles 1.1
 
 RadioButton {
     property int fontSize: 12
-    
-    DConstants {id:dconstants}
-    property string imagesPath: dconstants.imagesPath
+    property string imagesPath: DConstants.imagesPath
 
     style: RadioButtonStyle {
         background: Item {}

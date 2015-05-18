@@ -8,15 +8,13 @@ CheckBox {
     property url imageSource
     property int spacing: 2
 
-    DConstants {id: dconstants}
-
     text: "hello"
     style: CheckBoxStyle {
         spacing: control.spacing
         background: Item {}
         indicator: Image {
-            source: control.checked ? control.hovered ? dconstants.imagesPath + "checkbox_checked_hover.png" : dconstants.imagesPath + "checkbox_checked.png"
-                                    : control.hovered ? dconstants.imagesPath + "checkbox_unchecked_hover.png" : dconstants.imagesPath + "checkbox_unchecked.png"
+            source: control.checked ? control.hovered ? DConstants.imagesPath + "checkbox_checked_hover.png" : DConstants.imagesPath + "checkbox_checked.png"
+                                    : control.hovered ? DConstants.imagesPath + "checkbox_unchecked_hover.png" : DConstants.imagesPath + "checkbox_unchecked.png"
         }
         label: Image {
             source: control.imageSource

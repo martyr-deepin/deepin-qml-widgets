@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import Deepin.Widgets 1.0
 
 Rectangle{
     id: textButton
@@ -11,16 +12,14 @@ Rectangle{
     property alias textColor: title.color
     signal clicked
 
-    DConstants {id: dconstants}
-
     QtObject { //enumeration for button image
         id: buttonImage
-        property string headerNormal: dconstants.imagesPath + "button_left_normal.png"
-        property string headerPress: dconstants.imagesPath + "button_left_press.png"
-        property string middleNormal: dconstants.imagesPath + "button_center_normal.png"
-        property string middlePress: dconstants.imagesPath + "button_center_press.png"
-        property string tailNormal: dconstants.imagesPath + "button_right_normal.png"
-        property string tailPress: dconstants.imagesPath + "button_right_press.png"
+        property string headerNormal: DConstants.imagesPath + "button_left_normal.png"
+        property string headerPress: DConstants.imagesPath + "button_left_press.png"
+        property string middleNormal: DConstants.imagesPath + "button_center_normal.png"
+        property string middlePress: DConstants.imagesPath + "button_center_press.png"
+        property string tailNormal: DConstants.imagesPath + "button_right_normal.png"
+        property string tailPress: DConstants.imagesPath + "button_right_press.png"
     }
 
     Row {
@@ -41,7 +40,7 @@ Rectangle{
                 id: title
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                color: dconstants.textNormalColor
+                color: DConstants.textNormalColor
                 font.pixelSize: 12
             }
 

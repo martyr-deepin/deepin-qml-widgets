@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
+import Deepin.Widgets 1.0
 
 DBaseLine {
     id: header
@@ -9,17 +10,15 @@ DBaseLine {
 
     signal toggled
 
-    DConstants {id: dconstants}
-
     leftLoader.sourceComponent: Label {
         id: titleLabel
         text: header.text
-        color: dconstants.textNormalColor
+        color: DConstants.textNormalColor
     }
 
     rightLoader.sourceComponent: Image {
         id: arrow
-        source: dconstants.imagesPath + "arrow_right_normal.png"
+        source: DConstants.imagesPath + "arrow_right_normal.png"
         MouseArea {
             anchors.fill:parent
             onClicked: {

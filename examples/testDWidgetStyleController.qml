@@ -12,14 +12,13 @@ import Deepin.Widgets 1.0
 Rectangle {
     width: 400
     height: 200
-    color: dconstants.contentBgColor
 
-	property var testList: dconstants.styleList
+	property var testList: DConstants.styleList
 	onTestListChanged: {
 		print ("============",testList)
 	}
 
-    DConstants { id: dconstants }
+    DConstants { id: DConstants }
 
     Row {
         width: parent.width
@@ -29,11 +28,11 @@ Rectangle {
         spacing: 30
 
         Rectangle {
-            color: dconstants.activeColor
+            color: DConstants.activeColor
             width: 100
             height: 20
             border.width: 0
-            border.color: dconstants.tuhaoColor
+            border.color: DConstants.tuhaoColor
             Text {
                 id:whiteText
                 text: "White Style"
@@ -56,11 +55,11 @@ Rectangle {
         }
 
         Rectangle {
-            color: dconstants.activeColor
+            color: DConstants.activeColor
             width: 100
             height: 20
             border.width: 0
-            border.color: dconstants.tuhaoColor
+            border.color: DConstants.tuhaoColor
             Text {
                 text: "Black Style"
                 color: "#ffffff"

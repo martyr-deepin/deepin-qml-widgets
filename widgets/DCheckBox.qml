@@ -5,9 +5,7 @@ import Deepin.Widgets 1.0
 
 CheckBox {
     property int fontSize: 12
-
-    DConstants {id: dconstants}
-    property string imagesPath: dconstants.imagesPath
+    property string imagesPath: DConstants.imagesPath
 
     text: "hello"
     style: CheckBoxStyle {

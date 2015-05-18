@@ -25,10 +25,8 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 
 DImageButton {
-    DConstants {id:dconstants}
-
-    normal_image: dconstants.imagesPath + "window_min_normal.png"
-    hover_image: dconstants.imagesPath + "window_min_hover.png"
-    press_image: dconstants.imagesPath + "window_min_press.png"
+    normal_image: DConstants.imagesPath + "window_min_normal.png"
+    hover_image: DConstants.imagesPath + "window_min_hover.png"
+    press_image: DConstants.imagesPath + "window_min_press.png"
 }
 

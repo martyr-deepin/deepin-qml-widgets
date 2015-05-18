@@ -26,7 +26,7 @@ import Deepin.Widgets 1.0
 
 Item {
     id: wrapper
-    width: 100; height: DPalette.menuItemHeight
+    width: 100; height: DConstants.menuItemHeight
 
     property alias label: headLabel
     property alias value: headLabel.text
@@ -34,26 +34,26 @@ Item {
     property int index: 0
 
     Rectangle {
-        color: itemOnHover ? DPalette.popupMenuObj.hoverBgColor : DPalette.popupMenuObj.normalBgColor
+        color: itemOnHover ? DConstants.popupMenuObj.hoverBgColor : DConstants.popupMenuObj.normalBgColor
         anchors.fill: parent
     }
 
     Image {
         id: headImg
-        source: itemOnHover ? DPalette.imagesPath + "tick_hover.png" : DPalette.imagesPath + "tick_normal.png"
+        source: itemOnHover ? DConstants.imagesPath + "tick_hover.png" : DConstants.imagesPath + "tick_normal.png"
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        anchors.leftMargin: DPalette.textLeftMargin
+        anchors.leftMargin: DConstants.textLeftMargin
         visible: index == 0
     }
 
     DssH2 {
         id: headLabel
         anchors.left: parent.left
-        anchors.leftMargin: DPalette.textLeftMargin * 2 + headImg.width
+        anchors.leftMargin: DConstants.textLeftMargin * 2 + headImg.width
         anchors.verticalCenter: parent.verticalCenter
         text: "text " + index
-        color: itemOnHover ? DPalette.popupMenuObj.hoverTextColor : DPalette.popupMenuObj.normalTextColor
+        color: itemOnHover ? DConstants.popupMenuObj.hoverTextColor : DConstants.popupMenuObj.normalTextColor
     }
 }
 

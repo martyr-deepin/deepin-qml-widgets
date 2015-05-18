@@ -10,7 +10,6 @@ Window {
     color: "transparent"
     width: frame.width
     height: frame.height
-    property var dconstants: DConstants {}
     property var dssLocale: DLocale{
         domain: "deepin-qml-widgets"
     }
@@ -85,13 +84,13 @@ Window {
                     anchors.left: parent.left
                     anchors.leftMargin: 5
 
-                    inactivatedNormalImage: "images/up_normal.png"
-                    inactivatedHoverImage: "images/up_hover.png"
-                    inactivatedPressImage: "images/up_press.png"
+                    inactivatedNormalImage: DConstants.imagesPath + "up_normal.png"
+                    inactivatedHoverImage: DConstants.imagesPath + "up_hover.png"
+                    inactivatedPressImage: DConstants.imagesPath + "up_press.png"
 
-//                    activatedNormalImage: "images/delete_active.png"
-//                    activatedHoverImage: "images/delete_active.png"
-//                    activatedPressImage: "images/delete_active.png"
+//                    activatedNormalImage: DConstants.imagesPath + "delete_active.png"
+//                    activatedHoverImage: DConstants.imagesPath + "delete_active.png"
+//                    activatedPressImage: DConstants.imagesPath + "delete_active.png"
 
                     Behavior on opacity {
                         SmoothedAnimation { duration: 300 }
@@ -149,7 +148,7 @@ Window {
                 width: parent.width
                 color: "#1f2021"
                 border.width: 1
-                border.color: dconstants.fgDarkColor
+                border.color: DConstants.fgDarkColor
                 clip: true
 
                 ListView {

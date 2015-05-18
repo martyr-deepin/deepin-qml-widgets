@@ -1,6 +1,7 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
+import Deepin.Widgets 1.0
 
 Slider {
     id: slider
@@ -53,7 +54,7 @@ Slider {
 
         }
         handle: Image {
-            source: "images/slider_handle.svg"
+            source: DConstants.imagesPath + "slider_handle.svg"
             Component.onCompleted: {
                 _buttonWidth = width
             }

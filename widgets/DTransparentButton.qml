@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import Deepin.Widgets 1.0
 
 Rectangle{
     id: textButton
@@ -16,9 +17,9 @@ Rectangle{
         id: buttonImage
         property string stateString: "normal"
 
-        property string headerImg: "images/transparent_button_left_%1.png".arg(stateString)
-        property string middleImg: "images/transparent_button_middle_%1.png".arg(stateString)
-        property string tailImg: "images/transparent_button_right_%1.png".arg(stateString)
+        property string headerImg: DConstants.imagesPath + "transparent_button_left_%1.png".arg(stateString)
+        property string middleImg: DConstants.imagesPath + "transparent_button_middle_%1.png".arg(stateString)
+        property string tailImg: DConstants.imagesPath + "transparent_button_right_%1.png".arg(stateString)
     }
 
     states: [

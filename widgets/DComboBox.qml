@@ -70,7 +70,7 @@ Item {
 
     Rectangle {
         id: content
-        width: parent.width - DPalette.textLeftMargin - DPalette.textRightMargin
+        width: parent.width - DConstants.textLeftMargin - DConstants.textRightMargin
         height: background.height
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
@@ -91,7 +91,7 @@ Item {
             id: downArrow
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
-            source: hovered ? DPalette.imagesPath + "arrow_down_hover.png" : DPalette.imagesPath + "arrow_down_normal.png"
+            source: hovered ? DConstants.imagesPath + "arrow_down_hover.png" : DConstants.imagesPath + "arrow_down_normal.png"
         }
 
     }

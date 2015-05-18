@@ -2,6 +2,7 @@
 // there must be a item called `root' which has a property named `currentSectionId'
 // and accessable from this scope to work properly.
 import QtQuick 2.1
+import Deepin.Widgets 1.0
 
 ListView {
     id: listview
@@ -11,8 +12,6 @@ ListView {
     property var sections
     property int maxWidth: 200
     property int cellHeight: 24
-
-    DConstants { id: dconstants }
 
     model: ListModel {
         Component.onCompleted: {
@@ -53,7 +52,7 @@ ListView {
                     name: "selected"
                     PropertyChanges {
                         target: txt
-                        color: dconstants.activeColor
+                        color: DConstants.activeColor
                     }
                 }
             ]

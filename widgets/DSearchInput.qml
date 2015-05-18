@@ -1,9 +1,8 @@
 import QtQuick 2.1
+import Deepin.Widgets 1.0
 
 DTextInput {
     id: searchInput
-
-    DConstants {id: dconstants}
 
     textInputRightMargin: clearImage.width
     textInputLeftMargin: searchImageBox.width
@@ -27,11 +26,11 @@ DTextInput {
         DImageButton {
             id: searchImg
             transitionEnabled: true
-            width: dconstants.imageButtonWidth
+            width: DConstants.imageButtonWidth
             height: searchInput.height
-            normal_image: dconstants.imagesPath + "search_normal.png"
-            hover_image: searchButtonPressable ? dconstants.imagesPath + "search_hover.png" : normal_image
-            press_image: searchButtonPressable ? dconstants.imagesPath + "search_press.png" : normal_image
+            normal_image: DConstants.imagesPath + "search_normal.png"
+            hover_image: searchButtonPressable ? DConstants.imagesPath + "search_hover.png" : normal_image
+            press_image: searchButtonPressable ? DConstants.imagesPath + "search_press.png" : normal_image
 
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
@@ -42,8 +41,8 @@ DTextInput {
             visible: inputActived ? false : true
             height: parent.height
             width: inputActived ? 0 : contentWidth
-            font.pixelSize: dconstants.fontSize
-            color: dconstants.textHintColor
+            font.pixelSize: DConstants.fontSize
+            color: DConstants.textHintColor
             text: hintText
             verticalAlignment:Text.AlignVCenter
             anchors.verticalCenter: parent.verticalCenter
@@ -68,16 +67,16 @@ DTextInput {
 
     DImageButton {
         id: clearImage
-        width: dconstants.imageButtonWidth
+        width: DConstants.imageButtonWidth
         height: parent.height
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
 
         transitionEnabled: true
         visible: searchInput.text != ""
-        normal_image: dconstants.imagesPath + "clear_content_normal.png"
-        hover_image: dconstants.imagesPath + "clear_content_hover.png"
-        press_image: dconstants.imagesPath + "clear_content_press.png"
+        normal_image: DConstants.imagesPath + "clear_content_normal.png"
+        hover_image: DConstants.imagesPath + "clear_content_hover.png"
+        press_image: DConstants.imagesPath + "clear_content_press.png"
         onClicked: {
             searchInput.text = ""
         }

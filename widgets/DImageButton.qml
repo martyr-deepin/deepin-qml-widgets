@@ -1,12 +1,10 @@
 import QtQuick 2.1
+import Deepin.Widgets 1.0
 
 Item {
     id: button
-
-    DConstants {id: dconstants}
-
-    height: dconstants.buttonHeight + 1
-    width: dconstants.imageButtonWidth
+    height: DConstants.buttonHeight + 1
+    width: DConstants.imageButtonWidth
 
     property url normal_image
     property url hover_image

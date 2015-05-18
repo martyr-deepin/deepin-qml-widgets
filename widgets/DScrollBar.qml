@@ -8,13 +8,11 @@ Item {
     visible: (flickable.visibleArea.heightRatio < 1.0)
     anchors.right: parent.right
 
-    DConstants {id: dconstants}
-
     property Flickable flickable : null
-    property int handleSize: dconstants.scrollBarStyle.width
+    property int handleSize: DConstants.scrollBarStyle.width
     property alias backHandle: backHandle
-    property color inactiveColor: dconstants.scrollBarStyle.inactiveColor
-    property color activeColor: dconstants.scrollBarStyle.activeColor
+    property color inactiveColor: DConstants.scrollBarStyle.inactiveColor
+    property color activeColor: DConstants.scrollBarStyle.activeColor
     property bool inInteractive: false
 
     function scrollDown () {
@@ -101,7 +99,7 @@ Item {
                 id: backHandle
                 color: scrollbar.inactiveColor
                 anchors { fill: parent }
-                border.color: dconstants.scrollBarStyle.borderColor
+                border.color: DConstants.scrollBarStyle.borderColor
                 border.width: 1
                 radius: 6
                 opacity: 0

@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import Deepin.Widgets 1.0
 
 Item {
     id: arrowButton
@@ -16,7 +17,7 @@ Item {
     DOpacityImageButton {
         id: image
         anchors.centerIn: parent
-        source: "images/arrow_" + imageKey + "_white.png"
+        source: DConstants.imagesPath + "arrow_" + imageKey + "_white.png"
 
         onClicked: {
             arrowButton.checked = !arrowButton.checked
