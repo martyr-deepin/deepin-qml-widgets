@@ -8,7 +8,7 @@ Rectangle {
     color: Qt.rgba(0, 0, 0, 0)
 
     property bool withBlur: true
-    property color fillColor: Qt.rgba(0, 0, 0, 0.7)
+    property color fillColor
     property color blurColor: Qt.rgba(0, 0, 0, 1)
     property color borderColor: Qt.rgba(1, 1, 1, 0.15)
 
@@ -24,9 +24,9 @@ Rectangle {
     property int cornerPos: rectWidth / 2
     property int cornerWidth: 24
     property int cornerHeight: 12
-    
+
     property alias canvas: canvas
-    
+
     onCornerPosChanged: canvas.requestPaint()
     onCornerDirectionChanged: canvas.requestPaint()
     onCornerTypeChanged: canvas.requestPaint()
@@ -35,10 +35,10 @@ Rectangle {
         id: canvas
         width: rectWidth
         height: rectHeight
-        
-        onWidthChanged: requestPaint()        
+
+        onWidthChanged: requestPaint()
         onHeightChanged: requestPaint()
-        
+
         onPaint: {
             var ctx = getContext("2d")
 
@@ -67,7 +67,7 @@ Rectangle {
                 if (cornerPos > x + w - rectRadius - cornerWidth / 2) {
                     cornerPos = x + w - rectRadius - cornerWidth / 2
                 }
-                
+
                 if (cornerType == "center") {
                     /* Center */
                     ctx.lineTo(cornerPos + cornerWidth / 2, y + h) /* corner */
@@ -102,7 +102,7 @@ Rectangle {
             var gradient = ctx.createLinearGradient(rectWidth / 2, 0, rectWidth / 2, rectHeight);
             gradient.addColorStop(0.0, Qt.rgba(0, 0, 0, 0.55));
             gradient.addColorStop(1.0, Qt.rgba(0, 0, 0, 0.65));
-            ctx.fillStyle = gradient
+            ctx.fillStyle = fillColor || gradient
             ctx.fill()
 
             ctx.restore()
