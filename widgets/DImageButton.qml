@@ -3,8 +3,8 @@ import Deepin.Widgets 1.0
 
 Item {
     id: button
-    height: DConstants.buttonHeight + 1
-    width: DConstants.imageButtonWidth
+    height: normalImage.width
+    width: normalImage.height
 
     property url normal_image
     property url hover_image

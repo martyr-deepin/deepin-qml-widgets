@@ -1,6 +1,7 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.1
 import QtQuick.Controls.Styles 1.1
+import Deepin.Widgets 1.0
 
 RadioButton {
     property int fontSize: 12
