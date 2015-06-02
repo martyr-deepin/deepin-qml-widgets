@@ -14,6 +14,7 @@ QtObject {
 
     property int leftMargin: 15
     property int rightMargin: 15
+    property int menuItemHeight: 20
 
     property var styleList: DUIStyle.styleList
     property string currentWidgetStyle: DUIStyle.currentWidgetStyle
@@ -27,6 +28,7 @@ QtObject {
     property var popupShadowObj: generalConfigObj.popupShadow
     property var buttonGradientObj: generalConfigObj.buttonGradient
     property var tooltipGradientObj: generalConfigObj.tooltipGradient
+    property var popupMenuObj: generalConfigObj.popupMenu
 
     property var separatorStyle: configObj.Separator
     property var switchButtonStyle: configObj.SwitchButton

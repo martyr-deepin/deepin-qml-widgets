@@ -14,7 +14,7 @@ RadioButton {
                                     : control.hovered ? imagesPath + "radio_unselected_hover.png" : imagesPath + "radio_unselected.png"
         }
         label: Text {
-            color: Qt.rgba(1, 1, 1, 0.5)
+            color: DConstants.textNormalColor
             text: control.text
             font.pixelSize: control.fontSize
         }
