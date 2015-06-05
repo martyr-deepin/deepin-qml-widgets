@@ -55,6 +55,10 @@ Item {
         menu.showMenu()
     }
 
+    function hideMenu() {
+        menu.visible = false
+    }
+
     onClicked: {
         var pos = mapToItem(null, 0, 0)
         var x = parentWindow.x + pos.x

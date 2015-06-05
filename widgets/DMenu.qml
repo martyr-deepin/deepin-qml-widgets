@@ -95,19 +95,9 @@ DPopupWindow {
                     width: loader.width
                     height: loader.height
 
-                    Loader {
-                        id: loader
-                        sourceComponent: menuPopupWindow.delegate
-
-                        onLoaded: {
-                            item.width = Qt.binding(function() { return completeView.width })
-                            item.index = index
-                            item.value = completeView.model[index]
-                        }
-                    }
                     MouseArea {
                         id: mouseArea
-                        anchors.fill: loader
+                        anchors.fill: parent
                         hoverEnabled: true
                         onEntered:{
                             loader.item.itemOnHover = true
@@ -119,6 +109,17 @@ DPopupWindow {
                             menuPopupWindow.currentIndex = menuPopupWindow.getIndexBeforeSorted(index)
                             menuPopupWindow.visible = false
                             menuPopupWindow.menuSelect(menuPopupWindow.currentIndex)
+                        }
+                    }
+
+                    Loader {
+                        id: loader
+                        sourceComponent: menuPopupWindow.delegate
+
+                        onLoaded: {
+                            item.width = Qt.binding(function() { return completeView.width })
+                            item.index = index
+                            item.value = completeView.model[index]
                         }
                     }
                 }
