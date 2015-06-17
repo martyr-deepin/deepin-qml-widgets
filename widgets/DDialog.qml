@@ -12,6 +12,7 @@ DWindow {
     shadowWidth: 8
 
     property int titleContentPadding: 0
+    property alias title_bar: titlebar
     property alias title: titlebar_title.text
     default property alias content: loader.children
 
