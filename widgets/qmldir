@@ -1,6 +1,6 @@
 module Deepin.Widgets
 plugin DeepinWidgets
-singleton DConstants 1.0 DConstants.qml
+DConstants 1.0 DConstants.qml
 DTextInput 1.0 DTextInput.qml
 DSelectViewDelegate 1.0 DSelectViewDelegate.qml
 DArrowButton 1.0 DArrowButton.qml
@@ -86,3 +86,4 @@ DTitleOptionButton 1.0 DTitleOptionButton.qml
 DButtonFrame 1.0 DButtonFrame.qml
 DShortcutInput 1.0 DShortcutInput.qml
 DMenuItem 1.0 DMenuItem.qml
+singleton DPalette 1.0 DPalette.qml

@@ -5,7 +5,7 @@ import Deepin.Widgets 1.0
 
 RadioButton {
     property int fontSize: 12
-    property string imagesPath: DConstants.imagesPath
+    property string imagesPath: DPalette.imagesPath
 
     style: RadioButtonStyle {
         background: Item {}
@@ -14,7 +14,7 @@ RadioButton {
                                     : control.hovered ? imagesPath + "radio_unselected_hover.png" : imagesPath + "radio_unselected.png"
         }
         label: Text {
-            color: DConstants.textNormalColor
+            color: DPalette.textNormalColor
             text: control.text
             font.pixelSize: control.fontSize
         }

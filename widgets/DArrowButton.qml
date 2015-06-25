@@ -11,7 +11,7 @@ DImageButton {
 
     transitionEnabled: true
 
-    normal_image: DConstants.imagesPath + "arrow_" + direction +"_normal.png"
-    hover_image: DConstants.imagesPath + "arrow_" + direction +"_hover.png"
-    press_image: DConstants.imagesPath + "arrow_" + direction + "_press.png"
+    normal_image: DPalette.imagesPath + "arrow_" + direction +"_normal.png"
+    hover_image: DPalette.imagesPath + "arrow_" + direction +"_hover.png"
+    press_image: DPalette.imagesPath + "arrow_" + direction + "_press.png"
 }

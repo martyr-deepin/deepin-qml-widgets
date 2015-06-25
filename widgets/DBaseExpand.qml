@@ -28,7 +28,7 @@ Item{
             width: parent.width
             height: 28
             clip: true
-            color: DConstants.panelBgColor
+            color: DPalette.panelBgColor
 
             Loader {
                 id: header
@@ -45,7 +45,7 @@ Item{
             width: parent.width
             height: expanded ? content.height + 2 : 0
             clip: true
-            color: DConstants.contentBgColor
+            color: DPalette.contentBgColor
 
             Column {
                 width: parent.width
@@ -53,7 +53,7 @@ Item{
                     id: separator
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
-                
+
                 Loader {
                     id: content
                     clip: true

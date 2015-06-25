@@ -17,7 +17,7 @@ Item {
     DOpacityImageButton {
         id: image
         anchors.centerIn: parent
-        source: DConstants.imagesPath + "arrow_" + imageKey + "_white.png"
+        source: DPalette.imagesPath + "arrow_" + imageKey + "_white.png"
 
         onClicked: {
             arrowButton.checked = !arrowButton.checked

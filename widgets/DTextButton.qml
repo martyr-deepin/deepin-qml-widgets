@@ -14,12 +14,12 @@ Rectangle{
 
     QtObject { //enumeration for button image
         id: buttonImage
-        property string headerNormal: DConstants.imagesPath + "button_left_normal.png"
-        property string headerPress: DConstants.imagesPath + "button_left_press.png"
-        property string middleNormal: DConstants.imagesPath + "button_center_normal.png"
-        property string middlePress: DConstants.imagesPath + "button_center_press.png"
-        property string tailNormal: DConstants.imagesPath + "button_right_normal.png"
-        property string tailPress: DConstants.imagesPath + "button_right_press.png"
+        property string headerNormal: DPalette.imagesPath + "button_left_normal.png"
+        property string headerPress: DPalette.imagesPath + "button_left_press.png"
+        property string middleNormal: DPalette.imagesPath + "button_center_normal.png"
+        property string middlePress: DPalette.imagesPath + "button_center_press.png"
+        property string tailNormal: DPalette.imagesPath + "button_right_normal.png"
+        property string tailPress: DPalette.imagesPath + "button_right_press.png"
     }
 
     Row {
@@ -40,7 +40,7 @@ Rectangle{
                 id: title
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                color: DConstants.textNormalColor
+                color: DPalette.textNormalColor
                 font.pixelSize: 12
             }
 

@@ -10,12 +10,12 @@ Rectangle {
     property alias active: actionArea.checked
     property alias font: titleArea.font
 
-    property int leftMargin: DConstants.leftMargin
-    property int rightMargin: DConstants.rightMargin
+    property int leftMargin: DPalette.leftMargin
+    property int rightMargin: DPalette.rightMargin
 
     height: 30
     width: parent.width
-    color: DConstants.panelBgColor
+    color: DPalette.panelBgColor
 
     signal clicked
 

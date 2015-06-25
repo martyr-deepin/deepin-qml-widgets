@@ -46,7 +46,7 @@ DPopupWindow {
     property var labels
     property alias model: menuPopupWindow.labels
     property Component delegate: Component {
-        DMenuItem { width: menuPopupWindow.width; height: DConstants.menuItemHeight }
+        DMenuItem { width: menuPopupWindow.width; height: DPalette.menuItemHeight }
     }
 
     signal menuSelect(int index)

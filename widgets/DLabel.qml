@@ -4,5 +4,5 @@ import Deepin.Widgets 1.0
 
 Label {
     focus: true
-    color: DConstants.textNormalColor
+    color: DPalette.textNormalColor
 }

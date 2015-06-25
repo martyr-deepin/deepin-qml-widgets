@@ -9,10 +9,10 @@ Item {
     anchors.right: parent.right
 
     property Flickable flickable : null
-    property int handleSize: DConstants.scrollBarStyle.width
+    property int handleSize: DPalette.scrollBarStyle.width
     property alias backHandle: backHandle
-    property color inactiveColor: DConstants.scrollBarStyle.inactiveColor
-    property color activeColor: DConstants.scrollBarStyle.activeColor
+    property color inactiveColor: DPalette.scrollBarStyle.inactiveColor
+    property color activeColor: DPalette.scrollBarStyle.activeColor
     property bool inInteractive: false
 
     function scrollDown () {
@@ -99,7 +99,7 @@ Item {
                 id: backHandle
                 color: scrollbar.inactiveColor
                 anchors { fill: parent }
-                border.color: DConstants.scrollBarStyle.borderColor
+                border.color: DPalette.scrollBarStyle.borderColor
                 border.width: 1
                 radius: 6
                 opacity: 0

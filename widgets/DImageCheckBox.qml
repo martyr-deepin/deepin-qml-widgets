@@ -13,8 +13,8 @@ CheckBox {
         spacing: control.spacing
         background: Item {}
         indicator: Image {
-            source: control.checked ? control.hovered ? DConstants.imagesPath + "checkbox_checked_hover.png" : DConstants.imagesPath + "checkbox_checked.png"
-                                    : control.hovered ? DConstants.imagesPath + "checkbox_unchecked_hover.png" : DConstants.imagesPath + "checkbox_unchecked.png"
+            source: control.checked ? control.hovered ? DPalette.imagesPath + "checkbox_checked_hover.png" : DPalette.imagesPath + "checkbox_checked.png"
+                                    : control.hovered ? DPalette.imagesPath + "checkbox_unchecked_hover.png" : DPalette.imagesPath + "checkbox_unchecked.png"
         }
         label: Image {
             source: control.imageSource

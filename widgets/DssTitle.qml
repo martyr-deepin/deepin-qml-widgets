@@ -4,7 +4,7 @@ import Deepin.Widgets 1.0
 DBaseLine {
     id: dssTitle
     width: parent.width
-    height: DConstants.dssTitleStyle.height
+    height: DPalette.dssTitleStyle.height
 
     signal titleClicked
     property string text: ""
@@ -12,7 +12,7 @@ DBaseLine {
     leftLoader.sourceComponent: DssH1 {
         id: title
         font.weight: Font.DemiBold
-        color: DConstants.dssTitleStyle.color
+        color: DPalette.dssTitleStyle.color
         text: dssTitle.text
 
         MouseArea {

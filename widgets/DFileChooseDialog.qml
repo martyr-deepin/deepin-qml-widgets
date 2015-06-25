@@ -84,13 +84,13 @@ Window {
                     anchors.left: parent.left
                     anchors.leftMargin: 5
 
-                    inactivatedNormalImage: DConstants.imagesPath + "up_normal.png"
-                    inactivatedHoverImage: DConstants.imagesPath + "up_hover.png"
-                    inactivatedPressImage: DConstants.imagesPath + "up_press.png"
+                    inactivatedNormalImage: DPalette.imagesPath + "up_normal.png"
+                    inactivatedHoverImage: DPalette.imagesPath + "up_hover.png"
+                    inactivatedPressImage: DPalette.imagesPath + "up_press.png"
 
-//                    activatedNormalImage: DConstants.imagesPath + "delete_active.png"
-//                    activatedHoverImage: DConstants.imagesPath + "delete_active.png"
-//                    activatedPressImage: DConstants.imagesPath + "delete_active.png"
+//                    activatedNormalImage: DPalette.imagesPath + "delete_active.png"
+//                    activatedHoverImage: DPalette.imagesPath + "delete_active.png"
+//                    activatedPressImage: DPalette.imagesPath + "delete_active.png"
 
                     Behavior on opacity {
                         SmoothedAnimation { duration: 300 }
@@ -148,7 +148,7 @@ Window {
                 width: parent.width
                 color: "#1f2021"
                 border.width: 1
-                border.color: DConstants.fgDarkColor
+                border.color: DPalette.fgDarkColor
                 clip: true
 
                 ListView {

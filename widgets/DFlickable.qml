@@ -15,8 +15,8 @@ Flickable{
 
         property int handleSize: 12
         property alias backHandle: backHandle
-        property color inactiveColor: DConstants.scrollBarStyle.inactiveColor
-        property color activeColor: DConstants.scrollBarStyle.activeColor
+        property color inactiveColor: DPalette.scrollBarStyle.inactiveColor
+        property color activeColor: DPalette.scrollBarStyle.activeColor
         property bool inInteractive: false
 
         function scrollDown () {
@@ -47,7 +47,7 @@ Flickable{
             value: (flickable.contentY * clicker.drag.maximumY / (flickable.contentHeight - flickable.height))
             when: (!clicker.drag.active)
         }
-        
+
         Binding {
             target: flickable
             property: "contentY"
@@ -62,7 +62,7 @@ Flickable{
                 scrollbar.handleHide()
             }
         }
-        
+
         Item {
             id: groove
             clip: true
@@ -74,26 +74,26 @@ Flickable{
             MouseArea {
                 anchors.fill: parent
                 hoverEnabled: true
-                
+
                 drag.target: handle
                 drag.axis: Drag.YAxis
                 drag.minimumY: 0
                 drag.maximumY: (groove.height - handle.height)
                 drag.filterChildren: true
-                
-                onClicked: { 
-                    flickable.contentY = (mouse.y / groove.height * (flickable.contentHeight - flickable.height)) 
+
+                onClicked: {
+                    flickable.contentY = (mouse.y / groove.height * (flickable.contentHeight - flickable.height))
                 }
 
                 onEntered: {
                     scrollbar.handleShow()
                 }
-                
+
                 onExited: {
                     scrollbar.handleHide()
                 }
             }
-            
+
             Item {
                 id: handle
                 height: Math.max(30, (flickable.visibleArea.heightRatio * flickable.height))
@@ -106,14 +106,14 @@ Flickable{
                     id: backHandle
                     color: scrollbar.inactiveColor
                     anchors { fill: parent }
-                    border.color: DConstants.scrollBarStyle.borderColor
+                    border.color: DPalette.scrollBarStyle.borderColor
                     border.width: 1
                     radius: 6
                     opacity: 0
 
                     Behavior on opacity { NumberAnimation { duration: 150 } }
                 }
-                
+
                 MouseArea {
                     id: clicker
                     anchors.fill: parent
@@ -127,11 +127,11 @@ Flickable{
 
                     onPressed: {
                     }
-            
+
                     onEntered: {
                         scrollbar.handleShow()
                     }
-                    
+
                     onExited: {
                         scrollbar.handleHide()
                     }

@@ -35,15 +35,15 @@ DTextInput {
                     position: 1.0
                     color: loadFileButton.pressed ? Qt.rgba(0, 0, 0, 0) : Qt.rgba(1, 1, 1, 0)
                 }
-            } 
+            }
         }
 
         DImageButton {
             id: loadFileButton
             anchors.verticalCenter: parent.verticalCenter
-            normal_image: DConstants.imagesPath + "loadfile_normal.png"
-            hover_image: DConstants.imagesPath + "loadfile_hover.png"
-            press_image: DConstants.imagesPath + "loadfile_press.png"
+            normal_image: DPalette.imagesPath + "loadfile_normal.png"
+            hover_image: DPalette.imagesPath + "loadfile_hover.png"
+            press_image: DPalette.imagesPath + "loadfile_press.png"
             onClicked: fileChooseInput.fileChooseClicked()
         }
     }

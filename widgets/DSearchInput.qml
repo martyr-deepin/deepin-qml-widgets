@@ -22,15 +22,15 @@ DTextInput {
         }
 
         state: inputActived ? "searchActived" : "searchNormal"
-        
+
         DImageButton {
             id: searchImg
             transitionEnabled: true
-            width: DConstants.imageButtonWidth
+            width: DPalette.imageButtonWidth
             height: searchInput.height
-            normal_image: DConstants.imagesPath + "search_normal.png"
-            hover_image: searchButtonPressable ? DConstants.imagesPath + "search_hover.png" : normal_image
-            press_image: searchButtonPressable ? DConstants.imagesPath + "search_press.png" : normal_image
+            normal_image: DPalette.imagesPath + "search_normal.png"
+            hover_image: searchButtonPressable ? DPalette.imagesPath + "search_hover.png" : normal_image
+            press_image: searchButtonPressable ? DPalette.imagesPath + "search_press.png" : normal_image
 
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
@@ -41,8 +41,8 @@ DTextInput {
             visible: inputActived ? false : true
             height: parent.height
             width: inputActived ? 0 : contentWidth
-            font.pixelSize: DConstants.fontSize
-            color: DConstants.textHintColor
+            font.pixelSize: DPalette.fontSize
+            color: DPalette.textHintColor
             text: hintText
             verticalAlignment:Text.AlignVCenter
             anchors.verticalCenter: parent.verticalCenter
@@ -67,16 +67,16 @@ DTextInput {
 
     DImageButton {
         id: clearImage
-        width: DConstants.imageButtonWidth
+        width: DPalette.imageButtonWidth
         height: parent.height
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
 
         transitionEnabled: true
         visible: searchInput.text != ""
-        normal_image: DConstants.imagesPath + "clear_content_normal.png"
-        hover_image: DConstants.imagesPath + "clear_content_hover.png"
-        press_image: DConstants.imagesPath + "clear_content_press.png"
+        normal_image: DPalette.imagesPath + "clear_content_normal.png"
+        hover_image: DPalette.imagesPath + "clear_content_hover.png"
+        press_image: DPalette.imagesPath + "clear_content_press.png"
         onClicked: {
             searchInput.text = ""
         }

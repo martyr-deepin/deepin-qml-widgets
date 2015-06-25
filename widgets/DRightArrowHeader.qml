@@ -13,12 +13,12 @@ DBaseLine {
     leftLoader.sourceComponent: Label {
         id: titleLabel
         text: header.text
-        color: DConstants.textNormalColor
+        color: DPalette.textNormalColor
     }
 
     rightLoader.sourceComponent: Image {
         id: arrow
-        source: DConstants.imagesPath + "arrow_right_normal.png"
+        source: DPalette.imagesPath + "arrow_right_normal.png"
         MouseArea {
             anchors.fill:parent
             onClicked: {

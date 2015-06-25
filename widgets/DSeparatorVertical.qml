@@ -5,18 +5,18 @@ Row {
     width: leftRec.width + rightRec.width
     height: parent.height
 
-    property color leftColor: DConstants.separatorStyle.leftColor
-    property color rightColor: DConstants.separatorStyle.rightColor
+    property color leftColor: DPalette.separatorStyle.leftColor
+    property color rightColor: DPalette.separatorStyle.rightColor
 
     Rectangle {
         id: leftRec
-        width: DConstants.separatorStyle.leftWidth
+        width: DPalette.separatorStyle.leftWidth
         height: parent.height
         color: leftColor
     }
     Rectangle {
         id:rightRec
-        width: DConstants.separatorStyle.rightWidth
+        width: DPalette.separatorStyle.rightWidth
         height: parent.height
         color: rightColor
     }

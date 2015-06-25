@@ -1,4 +1,3 @@
-pragma Singleton
 import QtQuick 2.0
 import Deepin.Widgets 1.0
 

@@ -5,7 +5,7 @@ import Deepin.Widgets 1.0
 
 CheckBox {
     property int fontSize: 12
-    property string imagesPath: DConstants.imagesPath
+    property string imagesPath: DPalette.imagesPath
 
     text: "hello"
     style: CheckBoxStyle {
@@ -15,7 +15,7 @@ CheckBox {
                                     : control.hovered ? imagesPath + "checkbox_unchecked_hover.png" : imagesPath + "checkbox_unchecked.png"
         }
         label: Text {
-            color: DConstants.textNormalColor
+            color: DPalette.textNormalColor
             text: control.text
             font.pixelSize: control.fontSize
         }

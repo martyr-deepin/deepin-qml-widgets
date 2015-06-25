@@ -4,7 +4,7 @@ import Deepin.Widgets 1.0
 DTextInput {
     id: editComboBox
     textInput.anchors.rightMargin: 3 + buttonBox.width
-    
+
     property alias menu: menu
 
     property var parentWindow
@@ -84,7 +84,7 @@ DTextInput {
                     position: 1.0
                     color: dropDownButton.pressed ? Qt.rgba(0, 0, 0, 0) : Qt.rgba(1, 1, 1, 0)
                 }
-            } 
+            }
         }
 
         Item {
@@ -93,9 +93,9 @@ DTextInput {
             DImageButton {
                 id: dropDownButton
                 anchors.centerIn: parent
-                normal_image: DConstants.imagesPath + "arrow_down_normal.png"
-                hover_image: DConstants.imagesPath + "arrow_down_hover.png"
-                press_image: DConstants.imagesPath + "arrow_down_press.png"
+                normal_image: DPalette.imagesPath + "arrow_down_normal.png"
+                hover_image: DPalette.imagesPath + "arrow_down_hover.png"
+                press_image: DPalette.imagesPath + "arrow_down_press.png"
                 onClicked: editComboBox.clicked()
             }
         }

@@ -122,7 +122,7 @@ Row {
             visible: preference_content.contentY != 0
 
             gradient: Gradient {
-                GradientStop { position: 0.0; color: DConstants.contentBgColor }
+                GradientStop { position: 0.0; color: DPalette.contentBgColor }
                 GradientStop { position: 1.0; color: "transparent" }
             }
         }
@@ -134,7 +134,7 @@ Row {
 
             gradient: Gradient {
                 GradientStop { position: 0.0; color: "transparent" }
-                GradientStop { position: 1.0; color: DConstants.contentBgColor }
+                GradientStop { position: 1.0; color: DPalette.contentBgColor }
             }
         }
     }

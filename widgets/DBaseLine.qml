@@ -13,7 +13,7 @@ Rectangle {
 
     height: 30
     width: parent.width
-    color: DConstants.panelBgColor
+    color: DPalette.panelBgColor
 
     Loader {
         id: leftArea

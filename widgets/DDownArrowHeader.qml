@@ -12,13 +12,13 @@ Rectangle {
     property alias icon: iconImage.source
     property alias active: actionButton.checked
 
-    property int leftMargin: DConstants.leftMargin
-    property int rightMargin: DConstants.rightMargin
+    property int leftMargin: DPalette.leftMargin
+    property int rightMargin: DPalette.rightMargin
     focus: true
 
     height: 30
     width: parent.width
-    color: DConstants.panelBgColor
+    color: DPalette.panelBgColor
 
     signal clicked
 
@@ -57,7 +57,7 @@ Rectangle {
                 id: darkArea
                 anchors.verticalCenter: parent.verticalCenter
                 font.pixelSize: header.hintTextSize
-                color: DConstants.itemTipColor
+                color: DPalette.itemTipColor
                 visible: text != "" ? true : false
                 text: header.hintText
             }

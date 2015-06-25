@@ -54,7 +54,7 @@ Slider {
 
         }
         handle: Image {
-            source: DConstants.imagesPath + "slider_handle.svg"
+            source: DPalette.imagesPath + "slider_handle.svg"
             Component.onCompleted: {
                 _buttonWidth = width
             }

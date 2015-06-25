@@ -52,7 +52,7 @@ ListView {
                     name: "selected"
                     PropertyChanges {
                         target: txt
-                        color: DConstants.activeColor
+                        color: DPalette.activeColor
                     }
                 }
             ]

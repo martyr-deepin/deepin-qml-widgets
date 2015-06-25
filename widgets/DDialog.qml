@@ -33,7 +33,7 @@ DWindow {
         clip: true
         radius: 4
         layer.enabled: true
-        color: DConstants.contentBgColor
+        color: DPalette.contentBgColor
         width: root.width - root.shadowWidth * 2
         height: root.height - root.shadowWidth * 2
         border.width: 1
@@ -68,9 +68,9 @@ DWindow {
 
             DImageButton {
                 id: close_button
-                normal_image: DConstants.imagesPath + "window_close_normal.png"
-                hover_image: DConstants.imagesPath + "window_close_hover.png"
-                press_image: DConstants.imagesPath + "window_close_press.png"
+                normal_image: DPalette.imagesPath + "window_close_normal.png"
+                hover_image: DPalette.imagesPath + "window_close_hover.png"
+                press_image: DPalette.imagesPath + "window_close_press.png"
                 anchors.top: parent.top
                 anchors.right: parent.right
 

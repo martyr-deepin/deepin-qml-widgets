@@ -1,17 +1,21 @@
 pragma Singleton
-import QtQuick 2.3
+import QtQuick 2.0
 import Deepin.Widgets 1.0
 
-// DPalette is a copy of DConstants but made singleton.
-// It's created intend to replace DConstants and to make your code more
-// elegant, for example:
-// If you have `DConstants { id: dconstants }' in your main.qml, you may
-// refer it as `dconstants' in your other qml files, but as you can see,
-// it's totally disaster when you want to use your widgets in other places.
-// With DPalette, you just need to `import Deepin.Widgets 1.0', and use
-// it like `DPalette.someColor', Qt will create the instance for you.
-
 QtObject {
+    //Please use the property below to replace these property
+    property color bgColor: "#252627"
+    property color fgColor: "#b4b4b4"
+    property color fgDarkColor: "#505050"
+    property color hoverColor: "#FFFFFF"
+    property color activeColor: "#00BDFF"
+    property color tuhaoColor: "#faca57"
+    /////////////////////////////////////////////////////////
+
+    property int leftMargin: 15
+    property int rightMargin: 15
+    property int menuItemHeight: 20
+
     property var styleList: DUIStyle.styleList
     property string currentWidgetStyle: DUIStyle.currentWidgetStyle
     property string imagesPath: DUIStyle.imagesPath
@@ -28,6 +32,8 @@ QtObject {
 
     property var separatorStyle: configObj.Separator
     property var switchButtonStyle: configObj.SwitchButton
+    property var dssTitleStyle: configObj.dssTitle
+    property var scrollBarStyle: configObj.ScrollBar
 
     //basis property
     onGeneralConfigObjChanged: {
@@ -66,7 +72,6 @@ QtObject {
 
     //basis width and height
     readonly property int buttonHeight: 22
-    readonly property int menuItemHeight: 24
     readonly property int expandHeaderHeight: 30
     readonly property int contentHeaderHeight: 38
     readonly property int radioItemHeight: 30

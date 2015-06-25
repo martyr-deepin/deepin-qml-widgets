@@ -229,8 +229,8 @@ Item {
 
         Image {
             id: handle
-            property string balanceImage: DConstants.imagesPath + "slider_balance.png"
-            property string handleImage: DConstants.imagesPath + "slider_handle.svg"
+            property string balanceImage: DPalette.imagesPath + "slider_balance.png"
+            property string handleImage: DPalette.imagesPath + "slider_handle.svg"
             source: isBalance ? balanceImage : handleImage
             anchors.verticalCenter: parent.verticalCenter
 

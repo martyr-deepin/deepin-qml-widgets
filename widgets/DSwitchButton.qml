@@ -9,14 +9,14 @@ Item {
     width: 44
     height: 22
 
-    property color leftTopColor: DConstants.switchButtonStyle.leftTopColor
-    property color leftBottomColor: DConstants.switchButtonStyle.leftBottomColor
-    property color rightTopColor: DConstants.switchButtonStyle.rightTopColor
-    property color rightBottomColor: DConstants.switchButtonStyle.rightBottomColor
-    property color frameOnColor: DConstants.switchButtonStyle.frameOnColor
-    property color frameOffColor: DConstants.switchButtonStyle.frameOffColor
-    property int frameWidth: DConstants.switchButtonStyle.frameWidth
-    property var shapeStyle: DConstants.switchButtonStyle.shape
+    property color leftTopColor: DPalette.switchButtonStyle.leftTopColor
+    property color leftBottomColor: DPalette.switchButtonStyle.leftBottomColor
+    property color rightTopColor: DPalette.switchButtonStyle.rightTopColor
+    property color rightBottomColor: DPalette.switchButtonStyle.rightBottomColor
+    property color frameOnColor: DPalette.switchButtonStyle.frameOnColor
+    property color frameOffColor: DPalette.switchButtonStyle.frameOffColor
+    property int frameWidth: DPalette.switchButtonStyle.frameWidth
+    property var shapeStyle: DPalette.switchButtonStyle.shape
 
     property bool checked: false
     property bool enabled: true
