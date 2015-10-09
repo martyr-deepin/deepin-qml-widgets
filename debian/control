@@ -10,7 +10,7 @@ Build-Depends: debhelper (>= 9),
  libqt5x11extras5-dev,
  libqt5opengl5-dev,
  pkg-config,
- libxcomposite-dev, 
+ libxcomposite-dev,
  libxcb-damage0-dev,
  libgtk2.0-dev,
  deepin-gettext-tools
@@ -19,7 +19,7 @@ Homepage: http://www.linuxdeepin.com
 
 Package: deepin-qml-widgets
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, qt5-extra
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Replaces: dde-qml-gettext-plugin
 Provides: dde-qml-gettext-plugin
 Conflicts: dde-qml-gettext-plugin
