@@ -1,32 +1,43 @@
 # Deepin QML Widgets
 
-**Description**:  This project is an extension of QML, it provides widgets designed for use in apps built for Deepin OS.
+**Description**:  This project extends QML by providing widgets that is used by Deepin applications.
 
 
 ## Dependencies
 
-- qt5-qmake
-- qt5-default
-- qtdeclarative5-dev
-- libqt5webkit5-dev
-- libqt5x11extras5-dev
-- libqt5opengl5-dev
-- pkg-config
-- libxcomposite-dev
-- libxcb-damage0-dev
-- libgtk2.0-dev
+### Build Dependencies
+
+- Qt5.3 or above
+- Qt modules
+    - gui
+    - widgets
+    - qml
+    - quick
+    - webkit
+    - x11extras
+- pkgconfig
+- xcb
+- xcomposite
+- xcb-damage
+- gtk+-2.0
 - deepin-gettext-tools
+
+### Runtime Dependencies
+
+- DBus
 
 ## Installation
 
-> mkdir build; cd build
-> qmake ..
-> make; make install 
+```
+mkdir build; cd build
+qmake ..
+make; make install
+```
 
 ## Usage
 
 **Example**
-~~~QML
+```QML
 import QtQuick 2.0
 import Deepin.Widgets 1.0
 
@@ -40,13 +51,24 @@ DDialog {
         anchors.centerIn: parent
    }
 }
-~~~
+```
 To see all the widgets that are provided, please refer to [qmldir](widgets/qmldir) and [examples](examples);
+
+## Getting help
+
+Any usage issues can ask for help via
+
+* [Gitter](https://gitter.im/orgs/linuxdeepin/rooms)
+* [IRC channel](https://webchat.freenode.net/?channels=deepin)
+* [Forum](https://bbs.deepin.org)
+* [WiKi](http://wiki.deepin.org/)
 
 ## Getting involved
 
-We encourage you to report issues and contribute changes. Please check out the [Contribution Guidelines](http://wiki.deepin.org/index.php?title=Contribution_Guidelines) about how to proceed.
+We encourage you to report issues and contribute changes
+[Contirubtion guide for users](http://wiki.deepin.org/index.php?title=Contribution_Guidelines_for_Users)
+[Contribution guide for developers](http://wiki.deepin.org/index.php?title=Contribution_Guidelines_for_Developers).
 
 ## License
 
-GNU General Public License, Version 3.0
+Deepin QML Widgets is licensed under [GPLv3](LICENSE).
