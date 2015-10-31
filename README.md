@@ -5,7 +5,7 @@
 
 ## Dependencies
 
-### Build Dependencies
+### Build dependencies
 
 - Qt5.3 or above
 - Qt modules
@@ -22,7 +22,7 @@
 - gtk+-2.0
 - deepin-gettext-tools
 
-### Runtime Dependencies
+### Runtime dependencies
 
 - DBus
 
@@ -67,7 +67,7 @@ Any usage issues can ask for help via
 
 We encourage you to report issues and contribute changes
 
-* [Contirubtion guide for users](http://wiki.deepin.org/index.php?title=Contribution_Guidelines_for_Users)
+* [Contribution guide for users](http://wiki.deepin.org/index.php?title=Contribution_Guidelines_for_Users)
 * [Contribution guide for developers](http://wiki.deepin.org/index.php?title=Contribution_Guidelines_for_Developers).
 
 ## License
