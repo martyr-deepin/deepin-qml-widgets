@@ -20,6 +20,7 @@ DIcon::DIcon(QQuickPaintedItem *parent)
     : QQuickPaintedItem(parent)
 {
     gtk_init(NULL, NULL);
+    gdk_error_trap_push();
 }
 
 DIcon::~DIcon()
