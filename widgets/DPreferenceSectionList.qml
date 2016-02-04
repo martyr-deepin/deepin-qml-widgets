@@ -1,3 +1,12 @@
+/**
+ * Copyright (C) 2015 Deepin Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ **/
+
 // Notice: this file is not intend to be used separately,
 // there must be a item called `root' which has a property named `currentSectionId'
 // and accessable from this scope to work properly.
