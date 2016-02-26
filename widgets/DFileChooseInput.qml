@@ -1,4 +1,14 @@
+/**
+ * Copyright (C) 2015 Deepin Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ **/
+
 import QtQuick 2.0
+import Deepin.Widgets 1.0
 
 DTextInput {
     id: fileChooseInput
@@ -34,15 +44,15 @@ DTextInput {
                     position: 1.0
                     color: loadFileButton.pressed ? Qt.rgba(0, 0, 0, 0) : Qt.rgba(1, 1, 1, 0)
                 }
-            } 
+            }
         }
 
         DImageButton {
             id: loadFileButton
             anchors.verticalCenter: parent.verticalCenter
-            normal_image: "images/loadfile_normal.png"
-            hover_image: "images/loadfile_hover.png"
-            press_image: "images/loadfile_press.png"
+            normal_image: DPalette.imagesPath + "loadfile_normal.png"
+            hover_image: DPalette.imagesPath + "loadfile_hover.png"
+            press_image: DPalette.imagesPath + "loadfile_press.png"
             onClicked: fileChooseInput.fileChooseClicked()
         }
     }

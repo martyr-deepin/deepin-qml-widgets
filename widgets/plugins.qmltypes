@@ -10,7 +10,9 @@ Module {
     Component {
         name: "DFileChooseDialogAide"
         prototype: "QObject"
-        exports: ["DFileChooseDialogAide 1.0"]
+        exports: ["DFileUtils 1.0"]
+        isCreatable: false
+        isSingleton: true
         exportMetaObjectRevisions: [0]
         Method {
             name: "getLargeThumbnailPath"
@@ -37,6 +39,16 @@ Module {
             type: "bool"
             Parameter { name: "fileName"; type: "string" }
         }
+        Method {
+            name: "fileExist"
+            type: "bool"
+            Parameter { name: "fileName"; type: "string" }
+        }
+        Method {
+            name: "fileIsDir"
+            type: "bool"
+            Parameter { name: "fileName"; type: "string" }
+        }
     }
     Component {
         name: "DFileDialog"
@@ -57,6 +69,7 @@ Module {
         Property { name: "visible"; type: "bool" }
         Property { name: "saveMode"; type: "bool" }
         Property { name: "defaultFileName"; type: "string" }
+        Property { name: "transientParent"; type: "QWindow"; isPointer: true }
         Signal { name: "accepted" }
         Signal { name: "rejected" }
         Method { name: "open" }
@@ -108,10 +121,16 @@ Module {
         Property { name: "width"; type: "int" }
         Property { name: "height"; type: "int" }
         Property { name: "radius"; type: "int" }
+        Property { name: "borderWidth"; type: "int" }
         Property { name: "arrowHeight"; type: "int" }
         Property { name: "arrowWidth"; type: "int" }
+        Property { name: "arrowLeftMargin"; type: "int" }
         Property { name: "destroyInterval"; type: "int" }
-        Property { name: "backgroundColor"; type: "string" }
+        Property { name: "fontPixelSize"; type: "int" }
+        Property { name: "shadowWidth"; type: "int" }
+        Property { name: "shadowColor"; type: "string" }
+        Property { name: "borderColor"; type: "string" }
+        Property { name: "backgroundColor"; type: "QColor" }
         Property { name: "textColor"; type: "string" }
         Property { name: "toolTip"; type: "string" }
         Method { name: "showTip" }
@@ -120,6 +139,27 @@ Module {
         Method { name: "showTipAtTop" }
         Method { name: "showTipAtBottom" }
         Method { name: "destroyTip" }
+    }
+    Component {
+        name: "DWidgetStyleController"
+        prototype: "QObject"
+        exports: ["DUIStyle 1.0"]
+        isCreatable: false
+        isSingleton: true
+        exportMetaObjectRevisions: [0]
+        Property { name: "styleList"; type: "QStringList"; isReadonly: true }
+        Property { name: "currentWidgetStyle"; type: "string"; isReadonly: true }
+        Property { name: "imagesPath"; type: "string"; isReadonly: true }
+        Property { name: "configObject"; type: "QJsonObject"; isReadonly: true }
+        Method {
+            name: "setCurrentWidgetStyle"
+            Parameter { name: "style"; type: "string" }
+        }
+        Method {
+            name: "isAvailableStyle"
+            type: "bool"
+            Parameter { name: "style"; type: "string" }
+        }
     }
     Component {
         name: "DWindow"
@@ -155,6 +195,37 @@ Module {
         }
         Method { name: "getCursorPos"; type: "QPoint" }
         Method { name: "getWinId"; type: "int" }
+    }
+    Component {
+        name: "KeysUtils"
+        prototype: "QObject"
+        exports: ["KeysUtils 1.0"]
+        isCreatable: false
+        isSingleton: true
+        exportMetaObjectRevisions: [0]
+        Method {
+            name: "overrideShortcut"
+            Parameter { name: "oldShortcut"; type: "string" }
+            Parameter { name: "newShortcut"; type: "string" }
+        }
+        Method {
+            name: "getOverriddenShortcut"
+            type: "string"
+            Parameter { name: "shortcut"; type: "string" }
+        }
+        Method {
+            name: "keyEventToString"
+            type: "string"
+            Parameter { name: "modifiers"; type: "int" }
+            Parameter { name: "key"; type: "int" }
+        }
+        Method {
+            name: "isKeyEventEqualToString"
+            type: "bool"
+            Parameter { name: "modifiers"; type: "int" }
+            Parameter { name: "key"; type: "int" }
+            Parameter { name: "targetString"; type: "string" }
+        }
     }
     Component {
         name: "QQuickWindow"
@@ -489,6 +560,62 @@ Module {
             name: "alert"
             revision: 1
             Parameter { name: "msec"; type: "int" }
+        }
+    }
+    Component {
+        prototype: "QObject"
+        name: "DPalette"
+        exports: ["DPalette -1.-1"]
+        exportMetaObjectRevisions: [-1]
+        isComposite: true
+        isCreatable: false
+        isSingleton: true
+        Property { name: "currentWidgetStyle"; type: "string" }
+        Property { name: "imagesPath"; type: "string" }
+        Property { name: "contentBgColor"; type: "QColor" }
+        Property { name: "panelBgColor"; type: "QColor" }
+        Property { name: "tabBgColor"; type: "QColor" }
+        Property { name: "radioItemSelectedColor"; type: "QColor" }
+        Property { name: "tooltipBorderColor"; type: "QColor" }
+        Property { name: "textSelectedBgColor"; type: "QColor" }
+        Property { name: "inputGrooveColor"; type: "QColor" }
+        Property { name: "buttonGrooveColor"; type: "QColor" }
+        Property { name: "textActiveColor"; type: "QColor" }
+        Property { name: "textHoverColor"; type: "QColor" }
+        Property { name: "textNormalColor"; type: "QColor" }
+        Property { name: "textHintColor"; type: "QColor" }
+        Property { name: "linkColor"; type: "QColor" }
+        Property { name: "itemTipColor"; type: "QColor" }
+        Property { name: "warningColor"; type: "QColor" }
+        Property { name: "buttonHeight"; type: "int"; isReadonly: true }
+        Property { name: "menuItemHeight"; type: "int"; isReadonly: true }
+        Property { name: "expandHeaderHeight"; type: "int"; isReadonly: true }
+        Property { name: "contentHeaderHeight"; type: "int"; isReadonly: true }
+        Property { name: "radioItemHeight"; type: "int"; isReadonly: true }
+        Property { name: "headerLeftMargin"; type: "int"; isReadonly: true }
+        Property { name: "headerRightMargin"; type: "int"; isReadonly: true }
+        Property { name: "textLeftMargin"; type: "int"; isReadonly: true }
+        Property { name: "textRightMargin"; type: "int"; isReadonly: true }
+        Property { name: "buttonMargin"; type: "int"; isReadonly: true }
+        Property { name: "textButtonMinWidth"; type: "int"; isReadonly: true }
+        Property { name: "imageButtonWidth"; type: "int"; isReadonly: true }
+        Property { name: "fontSize"; type: "int"; isReadonly: true }
+        Property { name: "normalRadius"; type: "int"; isReadonly: true }
+        Property { name: "styleList"; type: "QVariant" }
+        Property { name: "configObj"; type: "QVariant" }
+        Property { name: "generalConfigObj"; type: "QVariant" }
+        Property { name: "outsideBorderObj"; type: "QVariant" }
+        Property { name: "insideBorderObj"; type: "QVariant" }
+        Property { name: "popupShadowObj"; type: "QVariant" }
+        Property { name: "buttonGradientObj"; type: "QVariant" }
+        Property { name: "tooltipGradientObj"; type: "QVariant" }
+        Property { name: "popupMenuObj"; type: "QVariant" }
+        Property { name: "separatorStyle"; type: "QVariant" }
+        Property { name: "switchButtonStyle"; type: "QVariant" }
+        Method {
+            name: "marshalJSON"
+            type: "QVariant"
+            Parameter { name: "value"; type: "QVariant" }
         }
     }
 }

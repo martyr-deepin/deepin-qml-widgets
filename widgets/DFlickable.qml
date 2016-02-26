@@ -1,4 +1,15 @@
+/**
+ * Copyright (C) 2015 Deepin Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ **/
+
 import QtQuick 2.0;
+import Deepin.Widgets 1.0
+
 Flickable{
     id: root
     property Flickable flickable : root
@@ -13,8 +24,8 @@ Flickable{
 
         property int handleSize: 12
         property alias backHandle: backHandle
-        property color inactiveColor: Qt.rgba(0, 0, 0, 0.5)
-        property color activeColor: Qt.rgba(0, 0, 0, 0.9)
+        property color inactiveColor: DPalette.scrollBarStyle.inactiveColor
+        property color activeColor: DPalette.scrollBarStyle.activeColor
         property bool inInteractive: false
 
         function scrollDown () {
@@ -45,7 +56,7 @@ Flickable{
             value: (flickable.contentY * clicker.drag.maximumY / (flickable.contentHeight - flickable.height))
             when: (!clicker.drag.active)
         }
-        
+
         Binding {
             target: flickable
             property: "contentY"
@@ -60,7 +71,7 @@ Flickable{
                 scrollbar.handleHide()
             }
         }
-        
+
         Item {
             id: groove
             clip: true
@@ -72,26 +83,26 @@ Flickable{
             MouseArea {
                 anchors.fill: parent
                 hoverEnabled: true
-                
+
                 drag.target: handle
                 drag.axis: Drag.YAxis
                 drag.minimumY: 0
                 drag.maximumY: (groove.height - handle.height)
                 drag.filterChildren: true
-                
-                onClicked: { 
-                    flickable.contentY = (mouse.y / groove.height * (flickable.contentHeight - flickable.height)) 
+
+                onClicked: {
+                    flickable.contentY = (mouse.y / groove.height * (flickable.contentHeight - flickable.height))
                 }
 
                 onEntered: {
                     scrollbar.handleShow()
                 }
-                
+
                 onExited: {
                     scrollbar.handleHide()
                 }
             }
-            
+
             Item {
                 id: handle
                 height: Math.max(30, (flickable.visibleArea.heightRatio * flickable.height))
@@ -104,14 +115,14 @@ Flickable{
                     id: backHandle
                     color: scrollbar.inactiveColor
                     anchors { fill: parent }
-                    border.color: "#44ffffff"
+                    border.color: DPalette.scrollBarStyle.borderColor
                     border.width: 1
                     radius: 6
                     opacity: 0
 
                     Behavior on opacity { NumberAnimation { duration: 150 } }
                 }
-                
+
                 MouseArea {
                     id: clicker
                     anchors.fill: parent
@@ -125,11 +136,11 @@ Flickable{
 
                     onPressed: {
                     }
-            
+
                     onEntered: {
                         scrollbar.handleShow()
                     }
-                    
+
                     onExited: {
                         scrollbar.handleHide()
                     }

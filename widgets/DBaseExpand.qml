@@ -1,6 +1,16 @@
+/**
+ * Copyright (C) 2015 Deepin Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ **/
+
 import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
+import Deepin.Widgets 1.0
 
 Item{
     id: expandRect
@@ -13,8 +23,6 @@ Item{
     property alias contentRect: contentRect
     property alias separator: separator
     property bool expanded: false
-
-    property var dconstants: DConstants {}
 
     height: headerRect.height + contentRect.height
     width: parent.width
@@ -29,7 +37,7 @@ Item{
             width: parent.width
             height: 28
             clip: true
-            color: dconstants.bgColor
+            color: DPalette.panelBgColor
 
             Loader {
                 id: header
@@ -46,7 +54,7 @@ Item{
             width: parent.width
             height: expanded ? content.height + 2 : 0
             clip: true
-            color: dconstants.contentBgColor
+            color: DPalette.contentBgColor
 
             Column {
                 width: parent.width
@@ -54,7 +62,7 @@ Item{
                     id: separator
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
-                
+
                 Loader {
                     id: content
                     clip: true

@@ -1,4 +1,14 @@
+/**
+ * Copyright (C) 2015 Deepin Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ **/
+
 import QtQuick 2.1
+import Deepin.Widgets 1.0
 
 Rectangle{
     id: textButton
@@ -13,12 +23,12 @@ Rectangle{
 
     QtObject { //enumeration for button image
         id: buttonImage
-        property string headerNormal: "images/button_left_normal.png"
-        property string headerPress: "images/button_left_press.png"
-        property string middleNormal: "images/button_center_normal.png"
-        property string middlePress: "images/button_center_press.png"
-        property string tailNormal: "images/button_right_normal.png"
-        property string tailPress: "images/button_right_press.png"
+        property string headerNormal: DPalette.imagesPath + "button_left_normal.png"
+        property string headerPress: DPalette.imagesPath + "button_left_press.png"
+        property string middleNormal: DPalette.imagesPath + "button_center_normal.png"
+        property string middlePress: DPalette.imagesPath + "button_center_press.png"
+        property string tailNormal: DPalette.imagesPath + "button_right_normal.png"
+        property string tailPress: DPalette.imagesPath + "button_right_press.png"
     }
 
     Row {
@@ -39,7 +49,7 @@ Rectangle{
                 id: title
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                color: "#b4b4b4"
+                color: DPalette.textNormalColor
                 font.pixelSize: 12
             }
 

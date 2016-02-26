@@ -1,7 +1,19 @@
+/**
+ * Copyright (C) 2015 Deepin Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ **/
+
 import QtQuick 2.1
+import Deepin.Widgets 1.0
 
 Item {
     id: button
+    height: normalImage.width
+    width: normalImage.height
 
     property url normal_image
     property url hover_image
@@ -9,64 +21,67 @@ Item {
     property alias containsMouse: mouseArea.containsMouse
 
     property alias mouseArea: mouseArea
-    property alias sourceSize: image.sourceSize
-    property alias drawBackground: background.visible
-    property int minMiddleWidth: 10
-    property bool lightVersion: false
+    property alias sourceSize: normalImage.sourceSize
 
     signal clicked
     signal entered
     signal exited
 
-    property bool pressed: state == "pressed"
+    property bool pressed: state == "normal"
+    property bool transitionEnabled: false
+    property int transitionDuration: 300
 
     state: "normal"
+
     states: [
         State {
             name: "normal"
-            PropertyChanges { target: image; source: button.normal_image }
-            PropertyChanges { target: bg_head; source: "images/%1button_left_normal.png".arg(lightVersion ? "light_" : "") }
-            PropertyChanges { target: bg_body; source: "images/%1button_center_normal.png".arg(lightVersion ? "light_" : "") }
-            PropertyChanges { target: bg_tail; source: "images/%1button_right_normal.png".arg(lightVersion ? "light_" : "") }
+            PropertyChanges { target: normalImage; opacity: 1 }
+            PropertyChanges { target: hoverImage; opacity: 0 }
+            PropertyChanges { target: pressImage; opacity: 0 }
         },
         State {
             name: "hovered"
-            PropertyChanges { target: image; source: button.hover_image }
-            PropertyChanges { target: bg_head; source: lightVersion ? "images/light_button_left_hover.png" : "images/button_left_normal.png" }
-            PropertyChanges { target: bg_body; source: lightVersion ? "images/light_button_center_hover.png" : "images/button_center_normal.png" }
-            PropertyChanges { target: bg_tail; source: lightVersion ? "images/light_button_right_hover.png" : "images/button_right_normal.png" }
+            PropertyChanges { target: normalImage; opacity: 0 }
+            PropertyChanges { target: hoverImage; opacity: 1 }
+            PropertyChanges { target: pressImage; opacity: 0 }
         },
         State {
             name: "pressed"
-            PropertyChanges { target: image; source: button.press_image }
-            PropertyChanges { target: bg_head; source: "images/%1button_left_press.png".arg(lightVersion ? "light_" : "") }
-            PropertyChanges { target: bg_body; source: "images/%1button_center_press.png".arg(lightVersion ? "light_" : "") }
-            PropertyChanges { target: bg_tail; source: "images/%1button_right_press.png".arg(lightVersion ? "light_" : "") }
+            PropertyChanges { target: normalImage; opacity: 0 }
+            PropertyChanges { target: hoverImage; opacity: 0 }
+            PropertyChanges { target: pressImage; opacity: 1 }
         }
     ]
 
-    width: background.visible ? background.width : image.width
-    height: background.visible ? background.height : image.height
-
-    Item {
-        id: background
-        width: bg_head.width + bg_body.width + bg_tail.width
-        height: bg_head.height
-        visible: false
-
-        Image { id: bg_head }
-        Image {
-            id: bg_body
-            width: Math.max(image.width + 8, button.minMiddleWidth)
-            anchors.left: bg_head.right
-        }
-        Image {
-            id: bg_tail
-            anchors.right: parent.right
-        }
+    transitions: Transition {
+        from: "normal"; to: "hovered"
+        reversible: true
+        enabled: transitionEnabled
+        NumberAnimation { properties: "opacity"; duration: transitionDuration }
     }
 
-    Image { id: image; anchors.centerIn: parent }
+    Image {
+        id: normalImage
+        source: normal_image
+        anchors.centerIn: parent
+    }
+
+    Image {
+        id: hoverImage
+        anchors.centerIn: normalImage
+        width: normalImage.width
+        height: normalImage.height
+        source: hover_image
+    }
+
+    Image {
+        id: pressImage
+        anchors.centerIn: normalImage
+        width: normalImage.width
+        height: normalImage.height
+        source: press_image
+    }
 
     MouseArea {
         id: mouseArea
@@ -75,7 +90,7 @@ Item {
         onEntered: { button.state = "hovered"; button.entered() }
         onExited: { button.state = "normal"; button.exited() }
         onPressed: { button.state = "pressed" }
-        onReleased: { button.state = mouseArea.containsMouse ? "hovered" : "normal" }
+        onReleased: { button.state = mouseArea.containsMouse ? "hovered" : "normal"}
         onClicked: button.clicked()
     }
 }

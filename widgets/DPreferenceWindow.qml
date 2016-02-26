@@ -1,3 +1,12 @@
+/**
+ * Copyright (C) 2015 Deepin Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ **/
+
 import QtQuick 2.1
 import QtQuick.Window 2.1
 import QtGraphicalEffects 1.0
@@ -24,8 +33,6 @@ DWindow {
 
     signal action()
 
-	DConstants { id: dconstants }
-
 	RectangularGlow {
 	    id: shadow
 	    anchors.fill: rect
@@ -40,7 +47,7 @@ DWindow {
 		id: rect
 		clip: true
 		radius: 4
-		color: dconstants.contentBgColor
+		color: DPalette.contentBgColor
 		width: root.width - root.shadowWidth * 2
 		height: root.height - root.shadowWidth * 2
         border.width: 1
@@ -75,9 +82,9 @@ DWindow {
 
 			DImageButton {
 			    id: close_button
-			    normal_image: "images/window_close_normal.png"
-                hover_image: "images/window_close_hover.png"
-                press_image: "images/window_close_press.png"
+			    normal_image: DPalette.imagesPath + "window_close_normal.png"
+                hover_image: DPalette.imagesPath + "window_close_hover.png"
+                press_image: DPalette.imagesPath + "window_close_press.png"
 			    anchors.top: parent.top
 			    anchors.right: parent.right
 

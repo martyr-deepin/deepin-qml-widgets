@@ -1,12 +1,20 @@
+/**
+ * Copyright (C) 2015 Deepin Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ **/
+
 import QtQuick 2.0
 import QtGraphicalEffects 1.0
+import Deepin.Widgets 1.0
 
 Item {
     id: slider
     height: 50
     width: 320
-
-    property var dconstants: DConstants {}
 
     property real min: -1
     property real max: 1
@@ -230,7 +238,9 @@ Item {
 
         Image {
             id: handle
-            source: isBalance ? "images/slider_balance.png" : "images/slider_handle.svg"
+            property string balanceImage: DPalette.imagesPath + "slider_balance.png"
+            property string handleImage: DPalette.imagesPath + "slider_handle.svg"
+            source: isBalance ? balanceImage : handleImage
             anchors.verticalCenter: parent.verticalCenter
 
             MouseArea {

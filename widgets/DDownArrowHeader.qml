@@ -1,6 +1,16 @@
+/**
+ * Copyright (C) 2015 Deepin Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ **/
+
 import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
+import Deepin.Widgets 1.0
 
 Rectangle {
     id: header
@@ -11,14 +21,13 @@ Rectangle {
     property alias icon: iconImage.source
     property alias active: actionButton.checked
 
-    property var dconstants: DConstants {}
-    property int leftMargin: dconstants.leftMargin
-    property int rightMargin: dconstants.rightMargin
+    property int leftMargin: DPalette.leftMargin
+    property int rightMargin: DPalette.rightMargin
     focus: true
 
     height: 30
     width: parent.width
-    color: dconstants.bgColor
+    color: DPalette.panelBgColor
 
     signal clicked
 
@@ -57,7 +66,7 @@ Rectangle {
                 id: darkArea
                 anchors.verticalCenter: parent.verticalCenter
                 font.pixelSize: header.hintTextSize
-                color: dconstants.fgDarkColor
+                color: DPalette.itemTipColor
                 visible: text != "" ? true : false
                 text: header.hintText
             }
@@ -74,13 +83,12 @@ Rectangle {
             height: parent.height - 2
             width: actionButton.width
 
-            DDownArrowButton {
+            DArrowButton {
                 id: actionButton
+                direction: checked ? directionUp : directionDown
                 anchors.centerIn: parent
 
-                onClicked: {
-                    header.clicked()
-                }
+                property bool checked: false
             }
         }
     }
@@ -89,7 +97,7 @@ Rectangle {
         anchors.fill: parent
         onClicked: {
             actionButton.checked = !actionButton.checked
-            actionButton.clicked()
+            header.clicked()
         }
     }
 }

@@ -1,7 +1,17 @@
+/**
+ * Copyright (C) 2015 Deepin Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ **/
+
 // Notice: this file is not intend to be used separately,
 // there must be a item called `root' which has a property named `currentSectionId'
 // and accessable from this scope to work properly.
 import QtQuick 2.1
+import Deepin.Widgets 1.0
 
 ListView {
     id: listview
@@ -11,8 +21,6 @@ ListView {
     property var sections
     property int maxWidth: 200
     property int cellHeight: 24
-
-    DConstants { id: dconstants }
 
     model: ListModel {
         Component.onCompleted: {
@@ -53,7 +61,7 @@ ListView {
                     name: "selected"
                     PropertyChanges {
                         target: txt
-                        color: dconstants.activeColor
+                        color: DPalette.activeColor
                     }
                 }
             ]

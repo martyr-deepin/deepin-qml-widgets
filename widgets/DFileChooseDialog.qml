@@ -1,3 +1,12 @@
+/**
+ * Copyright (C) 2015 Deepin Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ **/
+
 import QtQuick 2.1
 import QtQuick.Window 2.1
 import Deepin.Widgets 1.0
@@ -10,7 +19,6 @@ Window {
     color: "transparent"
     width: frame.width
     height: frame.height
-    property var dconstants: DConstants {}
     property var dssLocale: DLocale{
         domain: "deepin-qml-widgets"
     }
@@ -39,8 +47,6 @@ Window {
         hide()
         isVisible = false
     }
-
-    DFileChooseDialogAide {id:dfcdAide}
 
     DWindowFrame {
         id: frame
@@ -87,13 +93,13 @@ Window {
                     anchors.left: parent.left
                     anchors.leftMargin: 5
 
-                    inactivatedNormalImage: "images/up_normal.png"
-                    inactivatedHoverImage: "images/up_hover.png"
-                    inactivatedPressImage: "images/up_press.png"
+                    inactivatedNormalImage: DPalette.imagesPath + "up_normal.png"
+                    inactivatedHoverImage: DPalette.imagesPath + "up_hover.png"
+                    inactivatedPressImage: DPalette.imagesPath + "up_press.png"
 
-//                    activatedNormalImage: "images/delete_active.png"
-//                    activatedHoverImage: "images/delete_active.png"
-//                    activatedPressImage: "images/delete_active.png"
+//                    activatedNormalImage: DPalette.imagesPath + "delete_active.png"
+//                    activatedHoverImage: DPalette.imagesPath + "delete_active.png"
+//                    activatedPressImage: DPalette.imagesPath + "delete_active.png"
 
                     Behavior on opacity {
                         SmoothedAnimation { duration: 300 }
@@ -122,9 +128,9 @@ Window {
                     keyboardOperationsEnabled: false
                     onKeyPressed: {
                         if ((event.key == Qt.Key_Enter) || (event.key == Qt.Key_Return)){
-                            if (dfcdAide.fileExist(text)){
+                            if (DFileUtils.fileExist(text)){
                                 pathInput.state = "normal"
-                                if (dfcdAide.fileIsDir(text)){
+                                if (DFileUtils.fileIsDir(text)){
                                     currentFolder = text
                                 }
                                 else{
@@ -151,7 +157,7 @@ Window {
                 width: parent.width
                 color: "#1f2021"
                 border.width: 1
-                border.color: dconstants.fgDarkColor
+                border.color: DPalette.fgDarkColor
                 clip: true
 
                 ListView {
@@ -186,7 +192,7 @@ Window {
                                 height: 24
                                 width: 24
                                 theme: "Deepin"
-                                icon: dfcdAide.getIconName(filePath)
+                                icon: DFileUtils.getIconName(filePath)
                             }
 
                             DLabel {

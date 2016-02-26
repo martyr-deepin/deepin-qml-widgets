@@ -1,9 +1,19 @@
+/**
+ * Copyright (C) 2015 Deepin Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ **/
+
 import QtQuick 2.1
+import Deepin.Widgets 1.0
 
 DTextInput {
     id: editComboBox
     textInput.anchors.rightMargin: 3 + buttonBox.width
-    
+
     signal showRequested(int x, int y, int width, int height)
 
     function showMenu(){
@@ -42,7 +52,7 @@ DTextInput {
                     position: 1.0
                     color: dropDownButton.pressed ? Qt.rgba(0, 0, 0, 0) : Qt.rgba(1, 1, 1, 0)
                 }
-            } 
+            }
         }
 
         Item {
@@ -51,9 +61,9 @@ DTextInput {
             DImageButton {
                 id: dropDownButton
                 anchors.centerIn: parent
-                normal_image: "images/arrow_down_normal.png"
-                hover_image: "images/arrow_down_hover.png"
-                press_image: "images/arrow_down_press.png"
+                normal_image: DPalette.imagesPath + "arrow_down_normal.png"
+                hover_image: DPalette.imagesPath + "arrow_down_hover.png"
+                press_image: DPalette.imagesPath + "arrow_down_press.png"
                 onClicked: editComboBox.showMenu()
             }
         }

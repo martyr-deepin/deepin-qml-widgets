@@ -1,4 +1,14 @@
+/**
+ * Copyright (C) 2015 Deepin Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ **/
+
 import QtQuick 2.1
+import Deepin.Widgets 1.0
 
 Rectangle{
     id: textButton
@@ -16,9 +26,9 @@ Rectangle{
         id: buttonImage
         property string stateString: "normal"
 
-        property string headerImg: "images/transparent_button_left_%1.png".arg(stateString)
-        property string middleImg: "images/transparent_button_middle_%1.png".arg(stateString)
-        property string tailImg: "images/transparent_button_right_%1.png".arg(stateString)
+        property string headerImg: DPalette.imagesPath + "transparent_button_left_%1.png".arg(stateString)
+        property string middleImg: DPalette.imagesPath + "transparent_button_middle_%1.png".arg(stateString)
+        property string tailImg: DPalette.imagesPath + "transparent_button_right_%1.png".arg(stateString)
     }
 
     states: [

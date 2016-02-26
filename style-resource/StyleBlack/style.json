@@ -1,0 +1,116 @@
+{
+    "General": {
+        "contentBgColor": "#1A1B1B",
+        "panelBgColor": "#252627",
+        "tabBgColor": "#1d1d1d",
+        "radioItemSelectedColor": "#66000000",
+        "tooltipBorderColor": "#26ffffff",
+        "textSelectedBgColor": "#276ea7",
+        "inputGrooveColor": "#0cffffff",
+        "buttonGrooveColor": "#02000000",
+        "textActiveColor": "#01BDFF",
+        "textHoverColor": "#FFFFFF",
+        "textNormalColor": "#b4b4b4",
+        "textHintColor": "#505050",
+        "linkColor": "#1b85ff",
+        "itemTipColor": "#fdbd25",
+        "warningColor": "#FF8F00",
+        "outsideBorder":{
+            "color":"#000000",
+            "width":1
+        },
+        "insideBorder":{
+            "top":{
+                "color": "#19ffffff",
+                "width":1
+            },
+            "bottom": {
+                "color": "#0cffffff",
+                "width": 1
+            },
+            "left": {
+                "color": "#0cffffff",
+                "width": 1
+            },
+            "right": {
+                "color": "#0cffffff",
+                "width": 1
+            }
+        },
+        "popupShadow":{
+            "color":"#4c000000",
+            "borderColor": "#26ffffff",
+            "verticalOffset": 6,
+            "horizontalOffset": 0,
+            "glowRadius": 10
+        },
+        "buttonGradient": {
+            "topStop":{
+                "position": 0,
+                "normalColor": "#272727",
+                "pressColor": "#181818"
+            },
+            "bottomStop": {
+                "position": 1,
+                "normalColor": "#191919",
+                "pressColor": "#282828"
+            }
+        },
+        "tooltipGradient": {
+            "topStop":{
+                "position": 0,
+                "color": "#b3000000"
+            },
+            "bottomStop": {
+                "position": 1,
+                "color": "#cc000000"
+            }
+        },
+        "popupMenu": {
+            "normalBgColor": "#00000000",
+            "hoverBgColor": "#66000000",
+            "normalTextColor": "#b4b4b4",
+            "hoverTextColor": "#01BDFF"
+        }
+    },
+    "dssTitle": {
+        "color": "#ffffff",
+        "fontSize": 15,
+        "height": 48
+    },
+    "Separator": {
+        "bottomColor": "#0cffffff",
+        "bottomHeight": 1,
+        "leftColor": "#99000000",
+        "leftWidth": 1,
+        "rightColor": "#0cffffff",
+        "rightWidth": 1,
+        "topColor": "#99000000",
+        "topHeight": 1
+    },
+    "SwitchButton": {
+        "leftBottomColor": "#4539DF",
+        "leftTopColor": "#4699FF",
+        "rightBottomColor": "#323232",
+        "rightTopColor": "#505050",
+        "frameOnColor": "#cc000000",
+        "frameOffColor": "#cc000000",
+        "frameWidth": 1,
+        "shape": {
+            "topColor": "#3D3D3D",
+            "bottomColor": "#151515",
+            "border": {
+                "innerOffColor": "#19ffffff",
+                "innerOnColor": "#19ffffff",
+                "outOffColor": "#000000",
+                "outOnColor": "#000000"
+            }
+        }
+    },
+    "ScrollBar": {
+        "width": 6,
+        "borderColor": "#19ffffff",
+        "inactiveColor": "#66000000",
+        "activeColor": "#99000000"
+    }
+}

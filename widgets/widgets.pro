@@ -12,7 +12,9 @@ HEADERS += \
     plugins/previewwindow.h \
     plugins/dfiledialog.h \
     plugins/dsinglelinetip.h\
-    plugins/dfilechoosedialogaide.h
+    plugins/dfilechoosedialogaide.h \
+    plugins/dwidgetstylecontroller.h \
+    plugins/keysutils.h
 
 SOURCES += \
     plugins/dicon.cpp \
@@ -21,18 +23,25 @@ SOURCES += \
     plugins/plugin.cpp \
     plugins/dfiledialog.cpp \
     plugins/dsinglelinetip.cpp\
-    plugins/dfilechoosedialogaide.cpp
+    plugins/dfilechoosedialogaide.cpp \
+    plugins/dwidgetstylecontroller.cpp \
+    plugins/keysutils.cpp
 
 TARGET = $$qtLibraryTarget($$TARGET)
 uri = Deepin.Widgets
 
-qmldir.files += *.qml qmldir images plugins.qmltypes
+qmldir.files += *.qml qmldir plugins.qmltypes
+styleresourcedir.files += ../style-resource/Style*
 
 unix {
     installPath = $$[QT_INSTALL_QML]/$$replace(uri, \\., /)
+    styleInstallPath = $$[QT_INSTALL_QML]/Deepin/StyleResources
+    styleresourcedir.path = $$styleInstallPath
     qmldir.path = $$installPath
     target.path = $$installPath
-    INSTALLS += qmldir target
+    INSTALLS += qmldir styleresourcedir target
 }
 
-LIBS += -lxcb
+CONFIG += link_pkgconfig
+PKGCONFIG += gtk+-2.0
+PKGCONFIG += xcb

@@ -1,3 +1,12 @@
+/**
+ * Copyright (C) 2015 Deepin Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ **/
+
 /****************************************************************************
 **
 **  Copyright (C) 2011~2014 Deepin, Inc.
@@ -23,6 +32,7 @@
 
 import QtQuick 2.1
 import QtQuick.Window 2.1
+import Deepin.Widgets 1.0
 
 DPopupWindow {
     id: menuPopupWindow
@@ -45,7 +55,7 @@ DPopupWindow {
     property var labels
     property alias model: menuPopupWindow.labels
     property Component delegate: Component {
-        DMenuItem { width: menuPopupWindow.width; height: 26 }
+        DMenuItem { width: menuPopupWindow.width; height: DPalette.menuItemHeight }
     }
 
     signal menuSelect(int index)
@@ -76,9 +86,6 @@ DPopupWindow {
     DWindowFrame {
         id: menuFrame
         anchors.fill: parent
-        frame.color: "#191919"
-        frame.border.width: 1
-        frame.border.color: "#101010"
 
         Item {
             id: completeViewBox
@@ -97,19 +104,9 @@ DPopupWindow {
                     width: loader.width
                     height: loader.height
 
-                    Loader {
-                        id: loader
-                        sourceComponent: menuPopupWindow.delegate
-
-                        onLoaded: {
-                            item.width = Qt.binding(function() { return completeView.width })
-                            item.index = index
-                            item.value = completeView.model[index]
-                        }
-                    }
                     MouseArea {
                         id: mouseArea
-                        anchors.fill: loader
+                        anchors.fill: parent
                         hoverEnabled: true
                         onEntered:{
                             loader.item.itemOnHover = true
@@ -121,6 +118,17 @@ DPopupWindow {
                             menuPopupWindow.currentIndex = menuPopupWindow.getIndexBeforeSorted(index)
                             menuPopupWindow.visible = false
                             menuPopupWindow.menuSelect(menuPopupWindow.currentIndex)
+                        }
+                    }
+
+                    Loader {
+                        id: loader
+                        sourceComponent: menuPopupWindow.delegate
+
+                        onLoaded: {
+                            item.width = Qt.binding(function() { return completeView.width })
+                            item.index = index
+                            item.value = completeView.model[index]
                         }
                     }
                 }

@@ -1,5 +1,6 @@
 module Deepin.Widgets
 plugin DeepinWidgets
+DConstants 1.0 DConstants.qml
 DTextInput 1.0 DTextInput.qml
 DSelectViewDelegate 1.0 DSelectViewDelegate.qml
 DArrowButton 1.0 DArrowButton.qml
@@ -43,7 +44,6 @@ DSliderRect 1.0 DSliderRect.qml
 DRoundItem 1.0 DRoundItem.qml
 DBaseLine 1.0 DBaseLine.qml
 DImageButton 1.0 DImageButton.qml
-DConstants 1.0 DConstants.qml
 DSwitchButton 1.0 DSwitchButton.qml
 DSeparatorVertical 1.0 DSeparatorVertical.qml
 DssH1 1.0 DssH1.qml
@@ -79,3 +79,11 @@ DInputActions 1.0 DInputActions.qml
 DRectangularRing 1.0 DRectangularRing.qml
 DRectangularGlow 1.0 DRectangularGlow.qml
 DImageCheckBox 1.0 DImageCheckBox.qml
+DTitleCloseButton 1.0 DTitleCloseButton.qml
+DTitleMaxUnmaxButton 1.0 DTitleMaxUnmaxButton.qml
+DTitleMinimizeButton 1.0 DTitleMinimizeButton.qml
+DTitleOptionButton 1.0 DTitleOptionButton.qml
+DButtonFrame 1.0 DButtonFrame.qml
+DShortcutInput 1.0 DShortcutInput.qml
+DMenuItem 1.0 DMenuItem.qml
+singleton DPalette 1.0 DPalette.qml

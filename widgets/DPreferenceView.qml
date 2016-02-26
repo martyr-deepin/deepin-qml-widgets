@@ -1,4 +1,14 @@
+/**
+ * Copyright (C) 2015 Deepin Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ **/
+
 import QtQuick 2.1
+import Deepin.Widgets 1.0
 
 Row {
     id: root
@@ -38,8 +48,6 @@ Row {
     onCurrentSectionIdChanged: {
         if (!preference_content.flicking) scrollTo(currentSectionId)
     }
-
-	DConstants { id: dconstants }
 
     DPreferenceSectionList {
         id: section_list
@@ -123,7 +131,7 @@ Row {
             visible: preference_content.contentY != 0
 
             gradient: Gradient {
-                GradientStop { position: 0.0; color: dconstants.contentBgColor }
+                GradientStop { position: 0.0; color: DPalette.contentBgColor }
                 GradientStop { position: 1.0; color: "transparent" }
             }
         }
@@ -135,7 +143,7 @@ Row {
 
             gradient: Gradient {
                 GradientStop { position: 0.0; color: "transparent" }
-                GradientStop { position: 1.0; color: dconstants.contentBgColor }
+                GradientStop { position: 1.0; color: DPalette.contentBgColor }
             }
         }
     }

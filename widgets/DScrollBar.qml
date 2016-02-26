@@ -1,4 +1,14 @@
+/**
+ * Copyright (C) 2015 Deepin Technology Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ **/
+
 import QtQuick 2.0;
+import Deepin.Widgets 1.0
 
 Item {
     id: scrollbar
@@ -8,10 +18,10 @@ Item {
     anchors.right: parent.right
 
     property Flickable flickable : null
-    property int handleSize: 6
+    property int handleSize: DPalette.scrollBarStyle.width
     property alias backHandle: backHandle
-    property color inactiveColor: Qt.rgba(0, 0, 0, 0.5)
-    property color activeColor: Qt.rgba(0, 0, 0, 0.9)
+    property color inactiveColor: DPalette.scrollBarStyle.inactiveColor
+    property color activeColor: DPalette.scrollBarStyle.activeColor
     property bool inInteractive: false
 
     function scrollDown () {
@@ -98,7 +108,7 @@ Item {
                 id: backHandle
                 color: scrollbar.inactiveColor
                 anchors { fill: parent }
-                border.color: Qt.rgba(1, 1, 1, 0.1)
+                border.color: DPalette.scrollBarStyle.borderColor
                 border.width: 1
                 radius: 6
                 opacity: 0
