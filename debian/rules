@@ -1,0 +1,13 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@ 
+override_dh_auto_build:
+	deepin-generate-mo locale/locale_config.ini
+	qmake && make
+
+override_dh_auto_install:
+	dh_auto_install 
+	make INSTALL_ROOT=debian/deepin-qml-widgets install
+	mkdir -p debian/deepin-qml-widgets/usr/share
+	cp -r locale/mo debian/deepin-qml-widgets/usr/share/locale
