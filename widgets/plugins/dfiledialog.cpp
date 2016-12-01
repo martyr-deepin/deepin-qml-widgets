@@ -187,7 +187,7 @@ void DFileDialog::open()
     m_fileDialog->selectFile(m_defaultFileName);
     checkFileNameDuplication();
 
-    m_fileDialog->show();
+    m_fileDialog->open();
     setTransientParentInternal();
 }
 
