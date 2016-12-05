@@ -187,7 +187,8 @@ void DFileDialog::open()
     m_fileDialog->selectFile(m_defaultFileName);
     checkFileNameDuplication();
 
-    m_fileDialog->open();
+    // FIXME: below line is not appropriate here, just introduced as a work-around to fix the "file dialog of deepin stuck after installed deepin Qt5 platform theme" bug.
+    m_fileDialog->exec();
     setTransientParentInternal();
 }
 
