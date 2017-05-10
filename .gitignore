@@ -2,7 +2,7 @@
 nohup.out
 .#*
 *.~
-build
+build*
 dist
 dtk.egg-info
 *.po~

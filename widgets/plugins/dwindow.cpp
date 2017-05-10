@@ -74,6 +74,8 @@ void DWindow::setShadowWidth(int shadowWidth)
 
         free(reply);
     }
+
+    emit shadowWidthChanged(shadowWidth);
 }
 
 QPoint DWindow::getCursorPos()

@@ -18,7 +18,7 @@ DWindow {
 	height: 300
 	color: "transparent"
 	flags: Qt.FramelessWindowHint | Qt.SubWindow
-    shadowWidth: 8
+    shadowWidth: DWindowManagerHelper.hasComposite ? 8 : 0
 
     property int titleContentPadding: 5
     property int bottomContentPadding: 10
@@ -46,7 +46,7 @@ DWindow {
 	Rectangle {
 		id: rect
 		clip: true
-		radius: 4
+		radius: DWindowManagerHelper.hasComposite ? 4 : 0
 		color: DPalette.contentBgColor
 		width: root.width - root.shadowWidth * 2
 		height: root.height - root.shadowWidth * 2
@@ -59,7 +59,7 @@ DWindow {
             height: parent.height - 2
             anchors.centerIn: parent
             color: "transparent"
-            radius: 3
+            radius: DWindowManagerHelper.hasComposite ? 3 : 0
             border.width: 1
             border.color: Qt.rgba(1, 1, 1, 0.1)
         }

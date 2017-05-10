@@ -2,7 +2,7 @@ TEMPLATE = lib
 TARGET = DeepinWidgets
 QT += qml quick gui x11extras opengl widgets
 CONFIG += qt plugin c++11 link_pkgconfig
-PKGCONFIG += xcomposite xcb-damage
+PKGCONFIG += xcomposite xcb-damage dtkwidget dtkbase
 
 
 HEADERS += \
